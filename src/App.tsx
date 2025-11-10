@@ -21,6 +21,7 @@ import KnowledgeHubPage from './pages/KnowledgeHubPage.tsx'
 import AiAgentPage from './pages/AiAgentPage.tsx'
 import LearningModePage from './pages/LearningModePage.tsx'
 import { Toaster } from './components/ui/toaster'
+import VideoDetailPage from './pages/VideoDetailsPage.tsx'
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
             <Route path="/knowledge-hub" element={<KnowledgeHubPage />} />
             <Route path="/learning-module" element={<LearningModePage />} />
             <Route path="/ai-agent" element={<AiAgentPage />} />
+            <Route path="/video/:videoId" element={<VideoDetailPage />} />
           </Route>
         </Route>
 

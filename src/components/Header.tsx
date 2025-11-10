@@ -75,7 +75,7 @@ export function Header() {
 
   const handleLogout = () => {
     logout()
-    navigate('/login')
+    navigate('/')
   }
 
   // Helper function to check if link is active
