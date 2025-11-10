@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -8,7 +8,6 @@ import { useAuthStore } from '@/store/useAuthStore'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import logo from '../assets/images/forgotpassword.png'
 
 const forgotPasswordSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -48,7 +47,7 @@ export function ForgotPasswordPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 p-4">
+    <div className="flex mt-10 mb-10 items-center justify-center bg-gradient-to-br ">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -104,6 +103,15 @@ export function ForgotPasswordPage() {
               >
                 {isSubmitting ? 'Resetting...' : 'Reset Password'}
               </Button>
+
+              <div className="text-center pt-2">
+                <p className="text-xs text-white">
+                  Back To{' '}
+                  <Link to="/login" className="font-semibold hover:underline ">
+                    Login
+                  </Link>
+                </p>
+              </div>
             </form>
           </CardContent>
         </Card>
