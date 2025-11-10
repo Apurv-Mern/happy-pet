@@ -114,7 +114,7 @@ export function SignupPage() {
   }
 
   return (
-    <div className="flex mt-10 mb-10 items-center justify-center bg-gradient-to-br ">
+    <div className="flex mt-6 sm:mt-10 mb-6 sm:mb-10 items-center justify-center bg-gradient-to-br px-4">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -123,14 +123,14 @@ export function SignupPage() {
       >
         <Card className="border-[#0E213A] rounded-[30px] shadow-2xl bg-white overflow-hidden">
           {/* Header Section */}
-          <CardHeader className="bg-[#003863] text-white pb-6 pt-5 rounded-t-xl">
-            <h1 className="text-4xl font-bold text-center font-serif italic">
+          <CardHeader className="bg-[#003863] text-white pb-5 sm:pb-6 pt-4 sm:pt-5 rounded-t-xl">
+            <h1 className="text-3xl sm:text-4xl font-bold text-center font-serif italic">
               Register
             </h1>
           </CardHeader>
 
-          <CardContent className="bg-[#003863] px-5 pb-6 pt-4">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <CardContent className="bg-[#003863] px-4 sm:px-5 pb-5 sm:pb-6 pt-3 sm:pt-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 sm:space-y-4">
               {/* Name Field */}
               <div className="space-y-1.5">
                 <label

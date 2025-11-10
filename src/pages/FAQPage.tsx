@@ -48,25 +48,25 @@ export function FAQPage() {
   }
 
   return (
-    <div className="mt-10 mb-10 bg-gradient-to-br py-12 px-4">
+    <div className="mt-6 sm:mt-10 mb-6 sm:mb-10 bg-gradient-to-br py-8 sm:py-12 px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1 * 0.1 }}
-        className="  rounded-2xl  p-8 text-center  "
+        className="  rounded-2xl  p-4 sm:p-8 text-center  "
       >
         <div className="mx-auto max-w-[1000px]">
-          <div className="mb-10">
-            <h1 className="text-4xl font-bold text-[#003863] text-center mb-2">
+          <div className="mb-6 sm:mb-10">
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#003863] text-center mb-2">
               Frequently Asked Questions
             </h1>
-            <p className="text-center text-gray-600">
+            <p className="text-center text-sm sm:text-base text-gray-600">
               Find answers to common questions about Happy Pet
             </p>
           </div>
 
           <div className="space-y-3">
-            {faqData.map((item, index) => (
+            {faqData.map((item) => (
               <div
                 key={item.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
@@ -74,22 +74,21 @@ export function FAQPage() {
                 {/* Accordion Header */}
                 <button
                   onClick={() => toggleAccordion(item.id)}
-                  className="w-full flex items-center justify-between bg-[#003863] text-white px-6 py-4 hover:bg-[#002d4d] transition-colors"
+                  className="w-full flex items-center justify-between bg-[#003863] text-white px-4 sm:px-6 py-3 sm:py-4 hover:bg-[#002d4d] transition-colors"
                 >
-                  <span className="text-left font-medium text-sm">
+                  <span className="text-left font-medium text-xs sm:text-sm">
                     {item.question}
                   </span>
                   <ChevronDown
-                    className={`h-5 w-5 flex-shrink-0 transition-transform ${
-                      expandedId === item.id ? 'rotate-180' : ''
-                    }`}
+                    className={`h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform ${expandedId === item.id ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
 
                 {/* Accordion Content */}
                 {expandedId === item.id && (
-                  <div className="bg-[#e1eef4] px-6 py-4 border-t border-gray-200">
-                    <p className="text-gray-700 text-sm leading-relaxed">
+                  <div className="bg-[#e1eef4] px-4 sm:px-6 py-3 sm:py-4 border-t border-gray-200">
+                    <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                       {item.answer}
                     </p>
                   </div>

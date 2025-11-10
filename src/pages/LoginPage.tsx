@@ -92,7 +92,7 @@ export function LoginPage() {
 
   return (
     <>
-      <div className="flex mt-10 mb-10 items-center justify-center bg-gradient-to-br">
+      <div className="flex mt-6 sm:mt-10 mb-6 sm:mb-10 items-center justify-center bg-gradient-to-br px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,12 +101,12 @@ export function LoginPage() {
         >
           <Card className="border-[#0E213A] shadow-2xl bg-white overflow-hidden rounded-[30px]">
             {/* Header Section */}
-            <CardHeader className="bg-[#003863] text-white pb-8 pt-6 rounded-t-xl">
-              <h1 className="text-4xl font-bold text-center font-serif italic">
+            <CardHeader className="bg-[#003863] text-white pb-6 sm:pb-8 pt-5 sm:pt-6 rounded-t-xl">
+              <h1 className="text-3xl sm:text-4xl font-bold text-center font-serif italic">
                 Login
               </h1>
             </CardHeader>
-            <CardContent className="bg-[#003863] px-6 pb-8 pt-4">
+            <CardContent className="bg-[#003863] px-4 sm:px-6 pb-6 sm:pb-8 pt-4">`
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 {/* Email Field */}
                 <div className="space-y-2">

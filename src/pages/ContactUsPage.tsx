@@ -87,17 +87,17 @@ export function ContactUsPage() {
   }
 
   return (
-    <div className="mt-10 mb-10 bg-gradient-to-br py-12 px-4">
+    <div className="mt-6 sm:mt-10 mb-6 sm:mb-10 bg-gradient-to-br py-8 sm:py-12 px-4">
       {/* Header */}
-      <div className="mx-auto max-w-[1200px] mb-16">
+      <div className="mx-auto max-w-[1200px] mb-10 sm:mb-16">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h1 className="text-5xl font-bold text-[#003863] mb-3">Contact Us</h1>
-          <p className="text-lg text-gray-600">
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#003863] mb-2 sm:mb-3">Contact Us</h1>
+          <p className="text-base sm:text-lg text-gray-600">
             We'd love to hear from you. Get in touch with us today!
           </p>
         </motion.div>
@@ -144,11 +144,10 @@ export function ContactUsPage() {
 
         {submitMessage && (
           <div
-            className={`mb-6 p-4 rounded-lg text-center ${
-              submitMessage.includes('successfully')
+            className={`mb-6 p-4 rounded-lg text-center ${submitMessage.includes('successfully')
                 ? 'bg-green-100 text-green-800'
                 : 'bg-red-100 text-red-800'
-            }`}
+              }`}
           >
             {submitMessage}
           </div>

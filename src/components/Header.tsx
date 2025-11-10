@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Phone, Search, User, ChevronDown, LogOut } from 'lucide-react'
+import { Phone, Search, User, ChevronDown, LogOut, Menu, X } from 'lucide-react'
 import { MdLanguage } from 'react-icons/md'
 import {
   FaFacebookF,
@@ -61,6 +61,7 @@ export function Header() {
   const location = useLocation()
   const navigate = useNavigate()
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
   const { isAuthenticated, logout, user } = useAuthStore()
 
   const handleDropdown = () => {
@@ -87,25 +88,26 @@ export function Header() {
     <header className="w-full">
       {/* Top dark band */}
       <div className="bg-[#003863] text-white">
-        <div className="mx-auto max-w-[1400px] px-6 py-2.5 flex items-center justify-between text-sm">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 py-2.5 flex items-center justify-between text-xs sm:text-sm">
           <div className="flex items-center gap-2">
-            <Phone className="h-4 w-4" />
-            <span>+91 6799009980</span>
+            <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
+            <span className="hidden sm:inline">+91 6799009980</span>
+            <span className="sm:hidden">+91 679...</span>
           </div>
           <div className="flex items-center gap-5">
             {/* Social media icons */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <a href="#" className="hover:opacity-80 transition-opacity">
-                <FaFacebookF className="h-4 w-4" />
+                <FaFacebookF className="h-3 w-3 sm:h-4 sm:w-4" />
               </a>
               <a href="#" className="hover:opacity-80 transition-opacity">
-                <FaXTwitter className="h-4 w-4" />
+                <FaXTwitter className="h-3 w-3 sm:h-4 sm:w-4" />
               </a>
               <a href="#" className="hover:opacity-80 transition-opacity">
-                <FaInstagram className="h-4 w-4" />
+                <FaInstagram className="h-3 w-3 sm:h-4 sm:w-4" />
               </a>
               <a href="#" className="hover:opacity-80 transition-opacity">
-                <FaLinkedinIn className="h-4 w-4" />
+                <FaLinkedinIn className="h-3 w-3 sm:h-4 sm:w-4" />
               </a>
             </div>
           </div>
@@ -117,35 +119,34 @@ export function Header() {
         className="w-full relative overflow-visible"
         style={{
           background: '#E1EEF4',
-          minHeight: '180px',
+          minHeight: '140px',
         }}
       >
         {/* Paw print pattern background */}
         <div
           className="absolute inset-0 opacity-10"
           style={{
-            // backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M20 30c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm10-8c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm10 0c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm10 8c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zM35 40c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z'/%3E%3C/g%3E%3C/svg%3E")`,
             backgroundSize: '80px 80px',
           }}
         />
 
-        <div className="relative mx-auto max-w-[1400px] px-6 py-5">
+        <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 py-4 sm:py-5">
           {/* Logo and Navigation */}
-          <div className="flex items-center justify-between mb-6">
-            <Link to="/" className="flex items-center gap-3">
-              {/* Logo placeholder - replace with your actual logo */}
-              <div className="text-black font-bold text-2xl flex items-center gap-2">
-                <span className="text-3xl">🐕</span>
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <Link to="/" className="flex items-center gap-2 sm:gap-3">
+              {/* Logo */}
+              <div className="text-black font-bold text-lg sm:text-2xl flex items-center gap-1 sm:gap-2">
+                <span className="text-2xl sm:text-3xl">🐕</span>
                 <div className="flex flex-col leading-tight">
-                  <span className="text-xl">HAPPY DOG</span>
-                  <span className="text-xl">HAPPY CAT</span>
+                  <span className="text-sm sm:text-xl">HAPPY DOG</span>
+                  <span className="text-sm sm:text-xl">HAPPY CAT</span>
                 </div>
               </div>
             </Link>
 
-            <div className="flex items-center gap-4">
-              {/* Search bar */}
-              <div className="flex items-center gap-2 bg-white rounded-full pl-4 pr-2 h-11 w-[320px]">
+            <div className="flex items-center gap-2 sm:gap-4">
+              {/* Search bar - Hidden on mobile */}
+              <div className="hidden md:flex items-center gap-2 bg-white rounded-full pl-4 pr-2 h-11 w-[320px]">
                 <Input
                   placeholder="Find the best for your pet..."
                   className="border-none h-9 text-gray-700 placeholder:text-gray-400 focus-visible:ring-0 text-sm"
@@ -155,36 +156,46 @@ export function Header() {
                 </Button>
               </div>
 
-              {/* Login/Register or Logout button */}
-              {isAuthenticated ? (
-                <button
-                  onClick={handleLogout}
-                  className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-5 pr-1 h-11 transition-colors"
-                >
-                  <span className="text-white text-sm font-medium">
-                    {user?.name.slice(0, 5).toUpperCase() || 'User'}
-                  </span>
-                  <div className="bg-[#D4E7F6] rounded-full h-10 w-10 flex items-center justify-center ml-1">
-                    <LogOut className="h-5 w-5 text-black" />
-                  </div>
-                </button>
-              ) : (
-                <Link to="/login">
-                  <div className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-5 pr-1 h-11 transition-colors">
-                    <span className="text-white text-sm font-medium">
-                      Login / Register
+              {/* Mobile menu toggle */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="lg:hidden p-2 text-[#003863]"
+              >
+                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+
+              {/* Login/Register or Logout button - Desktop */}
+              <div className="hidden lg:block">
+                {isAuthenticated ? (
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-4 sm:pl-5 pr-1 h-10 sm:h-11 transition-colors"
+                  >
+                    <span className="text-white text-xs sm:text-sm font-medium">
+                      {user?.name.slice(0, 5).toUpperCase() || 'User'}
                     </span>
-                    <div className="bg-[#D4E7F6] rounded-full h-10 w-10 flex items-center justify-center ml-1">
-                      <User className="h-5 w-5 text-black" />
+                    <div className="bg-[#D4E7F6] rounded-full h-8 w-8 sm:h-10 sm:w-10 flex items-center justify-center ml-1">
+                      <LogOut className="h-4 w-4 sm:h-5 sm:w-5 text-black" />
                     </div>
-                  </div>
-                </Link>
-              )}
+                  </button>
+                ) : (
+                  <Link to="/login">
+                    <div className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-4 sm:pl-5 pr-1 h-10 sm:h-11 transition-colors">
+                      <span className="text-white text-xs sm:text-sm font-medium">
+                        Login / Register
+                      </span>
+                      <div className="bg-[#D4E7F6] rounded-full h-8 w-8 sm:h-10 sm:w-10 flex items-center justify-center ml-1">
+                        <User className="h-4 w-4 sm:h-5 sm:w-5 text-black" />
+                      </div>
+                    </div>
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
 
-          {/* Navigation Menu */}
-          <nav className="flex items-center justify-center gap-8 text-sm font-medium bg-white backdrop-blur-sm rounded-full px-8 py-3 mx-auto max-w-fit">
+          {/* Desktop Navigation Menu */}
+          <nav className="hidden lg:flex items-center justify-center gap-6 xl:gap-8 text-sm font-medium bg-white backdrop-blur-sm rounded-full px-6 xl:px-8 py-3 mx-auto max-w-fit">
             {publicNavItems.map(item => (
               <NavLink
                 key={item.path}
@@ -238,6 +249,65 @@ export function Header() {
               )}
             </div>
           </nav>
+
+          {/* Mobile Navigation Menu */}
+          {isMobileMenuOpen && (
+            <div className="lg:hidden absolute left-0 right-0 top-full bg-white shadow-lg z-50 border-t border-gray-200">
+              <nav className="flex flex-col p-4 space-y-2">
+                {publicNavItems.map(item => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`px-4 py-3 rounded-lg transition-colors ${location.pathname === item.path
+                      ? 'bg-[#E1EEF4] text-[#003863] font-semibold'
+                      : 'text-[#003863] hover:bg-gray-100'
+                      }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+
+                {isAuthenticated && protectedNavItems.map(item => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`px-4 py-3 rounded-lg transition-colors ${location.pathname === item.path
+                      ? 'bg-[#E1EEF4] text-[#003863] font-semibold'
+                      : 'text-[#003863] hover:bg-gray-100'
+                      }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+
+                <div className="border-t border-gray-200 my-2"></div>
+
+                {/* Mobile Auth Button */}
+                {isAuthenticated ? (
+                  <button
+                    onClick={() => {
+                      handleLogout()
+                      setIsMobileMenuOpen(false)
+                    }}
+                    className="px-4 py-3 rounded-lg bg-[#003863] text-white hover:bg-[#002d4d] transition-colors flex items-center justify-between"
+                  >
+                    <span>{user?.name || 'User'}</span>
+                    <LogOut className="h-5 w-5" />
+                  </button>
+                ) : (
+                  <Link
+                    to="/login"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="px-4 py-3 rounded-lg bg-[#003863] text-white hover:bg-[#002d4d] transition-colors text-center"
+                  >
+                    Login / Register
+                  </Link>
+                )}
+              </nav>
+            </div>
+          )}
         </div>
       </div>
     </header>
