@@ -1,7 +1,7 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Phone, Search, User, ChevronDown } from 'lucide-react'
+import { Phone, Search, User, ChevronDown, LogOut } from 'lucide-react'
 import { MdLanguage } from 'react-icons/md'
 import {
   FaFacebookF,
@@ -10,6 +10,7 @@ import {
   FaLinkedinIn,
 } from 'react-icons/fa6'
 import { useState } from 'react'
+import { useAuthStore } from '@/store/useAuthStore'
 
 // Define navigation items
 const navItems = [
@@ -43,9 +44,8 @@ const NavLink = ({
 }) => (
   <Link
     to={path}
-    className={`relative pb-1 transition-colors hover:text-[#035FA6] ${
-      isActive ? 'text-[#003863]' : 'text-[#003863]'
-    }`}
+    className={`relative pb-1 transition-colors hover:text-[#035FA6] ${isActive ? 'text-[#003863]' : 'text-[#003863]'
+      }`}
   >
     {label}
     {isActive && (
@@ -56,7 +56,9 @@ const NavLink = ({
 
 export function Header() {
   const location = useLocation()
+  const navigate = useNavigate()
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
+  const { isAuthenticated, logout, user } = useAuthStore()
 
   const handleDropdown = () => {
     setIsDropdownOpen(prev => !prev)
@@ -66,6 +68,11 @@ export function Header() {
     // TODO: integrate with i18n solution
     console.log('Selected language:', code)
     setIsDropdownOpen(false)
+  }
+
+  const handleLogout = () => {
+    logout()
+    navigate('/login')
   }
 
   // Helper function to check if link is active
@@ -145,18 +152,31 @@ export function Header() {
                 </Button>
               </div>
 
-              {/* Login/Register button */}
-              {/* Login/Register button - FIXED */}
-              <Link to="/login">
-                <div className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-5 pr-1 h-11 transition-colors">
+              {/* Login/Register or Logout button */}
+              {isAuthenticated ? (
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-5 pr-1 h-11 transition-colors"
+                >
                   <span className="text-white text-sm font-medium">
-                    Login / Register
+                    {user?.name.slice(0, 5).toUpperCase() || 'User'}
                   </span>
                   <div className="bg-[#D4E7F6] rounded-full h-10 w-10 flex items-center justify-center ml-1">
-                    <User className="h-5 w-5 text-black" />
+                    <LogOut className="h-5 w-5 text-black" />
                   </div>
-                </div>
-              </Link>
+                </button>
+              ) : (
+                <Link to="/login">
+                  <div className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-5 pr-1 h-11 transition-colors">
+                    <span className="text-white text-sm font-medium">
+                      Login / Register
+                    </span>
+                    <div className="bg-[#D4E7F6] rounded-full h-10 w-10 flex items-center justify-center ml-1">
+                      <User className="h-5 w-5 text-black" />
+                    </div>
+                  </div>
+                </Link>
+              )}
             </div>
           </div>
 

@@ -5,13 +5,15 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { motion } from 'framer-motion'
 import { useAuthStore } from '@/store/useAuthStore'
+import { useLoginMutation } from '@/api/auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Eye, EyeOff } from 'lucide-react'
+import { useToast } from '@/hooks/use-toast'
 
 const loginSchema = z.object({
-  username: z.string().min(1, 'Username is required'),
+  email: z.string().email('Invalid email address'),
   password: z.string().min(6, 'Password must be at least 6 characters'),
 })
 
@@ -22,15 +24,17 @@ export function LoginPage() {
   const location = useLocation()
   const { login, isAuthenticated } = useAuthStore()
   const [showPassword, setShowPassword] = useState(false)
+  const loginMutation = useLoginMutation()
+  const { toast } = useToast()
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      username: '',
+      email: '',
       password: '',
     },
   })
@@ -45,22 +49,41 @@ export function LoginPage() {
   }, [isAuthenticated, navigate, location])
 
   const onSubmit = async (data: LoginFormData) => {
-    await new Promise(resolve => setTimeout(resolve, 1000))
-
-    login(
+    loginMutation.mutate(
       {
-        id: '1',
-        email: data.username + '@example.com',
-        name: data.username,
-        createdAt: new Date().toISOString(),
+        email: data.email,
+        password: data.password,
       },
-      'mock-jwt-token-' + Date.now()
-    )
+      {
+        onSuccess: (response) => {
+          if (response.success) {
+            login(
+              response.data.user,
+              response.data.tokens.accessToken,
+              response.data.tokens.refreshToken
+            )
 
-    const from =
-      (location.state as { from?: { pathname?: string } })?.from?.pathname ||
-      '/'
-    navigate(from, { replace: true })
+            toast({
+              title: "Login Successful!",
+              description: `Welcome back, ${response.data.user.name}!`,
+            })
+
+            const from =
+              (location.state as { from?: { pathname?: string } })?.from
+                ?.pathname || '/'
+            navigate(from, { replace: true })
+          }
+        },
+        onError: (error: any) => {
+          console.error('Login error:', error)
+          toast({
+            variant: "destructive",
+            title: "Login Failed",
+            description: error.response?.data?.message || 'Invalid email or password. Please try again.',
+          })
+        },
+      }
+    )
   }
 
   if (isAuthenticated) {
@@ -85,24 +108,24 @@ export function LoginPage() {
             </CardHeader>
             <CardContent className="bg-[#003863] px-6 pb-8 pt-4">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                {/* Username Field */}
+                {/* Email Field */}
                 <div className="space-y-2">
                   <label
-                    htmlFor="username"
+                    htmlFor="email"
                     className="text-sm font-medium text-white block "
                   >
-                    Username
+                    Email
                   </label>
                   <Input
-                    id="username"
-                    type="text"
-                    placeholder="Enter Your Username"
-                    {...register('username')}
+                    id="email"
+                    type="email"
+                    placeholder="Enter Your Email"
+                    {...register('email')}
                     className="w-full bg-white text-gray-900 placeholder:text-gray-400"
                   />
-                  {errors.username && (
+                  {errors.email && (
                     <p className="text-sm text-red-300">
-                      {errors.username.message}
+                      {errors.email.message}
                     </p>
                   )}
                 </div>
@@ -157,9 +180,9 @@ export function LoginPage() {
                 <Button
                   type="submit"
                   className="w-full bg-white text-[#003057] hover:bg-gray-100 font-semibold rounded-full h-11 text-base"
-                  disabled={isSubmitting}
+                  disabled={loginMutation.isPending}
                 >
-                  {isSubmitting ? 'Logging in...' : 'Login'}
+                  {loginMutation.isPending ? 'Logging in...' : 'Login'}
                 </Button>
 
                 {/* Sign Up Link */}
