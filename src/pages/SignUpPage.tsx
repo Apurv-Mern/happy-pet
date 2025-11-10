@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -15,22 +15,30 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { useRegisterMutation } from '@/api/auth'
+import { useToast } from '@/hooks/use-toast'
 
 const signupSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   email: z.string().email('Invalid email address'),
-  countryCode: z.string().default('+971'),
-  mobile: z.string().min(7, 'Mobile number is required'),
   companyName: z.string().optional(),
   password: z.string().min(6, 'Password must be at least 6 characters'),
+  phoneNumber: z.string().optional(),
+  timezone: z.string().optional(),
+  preferredLanguage: z.string().optional(),
+  userType: z.enum(['public', 'admin']).default('public'),
 })
 
 type SignupFormData = z.infer<typeof signupSchema>
 
 export function SignupPage() {
   const navigate = useNavigate()
-  const { isAuthenticated, login } = useAuthStore()
+  const location = useLocation()
+
+  const { isAuthenticated, register: registerUser } = useAuthStore()
   const [selectedCountryCode, setSelectedCountryCode] = useState('+971')
+  const { toast } = useToast()
+  const registerMutation = useRegisterMutation()
 
   const {
     register,
@@ -42,10 +50,11 @@ export function SignupPage() {
     defaultValues: {
       name: '',
       email: '',
-      countryCode: '+971',
-      mobile: '',
-      companyName: '',
+      preferredLanguage: 'en',
       password: '',
+      phoneNumber: '',
+      timezone: '',
+      userType: 'public',
     },
   })
 
@@ -53,23 +62,51 @@ export function SignupPage() {
     if (isAuthenticated) {
       navigate('/', { replace: true })
     }
-  }, [isAuthenticated, navigate])
+  }, [isAuthenticated, navigate, location])
 
   const onSubmit = async (data: SignupFormData) => {
-    await new Promise(resolve => setTimeout(resolve, 1000))
-
-    // Mock signup - replace with actual API call
-    login(
+    registerMutation.mutate(
       {
-        id: '1',
         email: data.email,
+        password: data.password,
         name: data.name,
-        createdAt: new Date().toISOString(),
+        companyName: data.companyName,
+        preferredLanguage: data.preferredLanguage,
+        phoneNumber: data.phoneNumber,
+        timezone: data.timezone,
+        userType: data.userType,
       },
-      'mock-jwt-token-' + Date.now()
+      {
+        onSuccess: (response) => {
+          if (response.success) {
+            registerUser(
+              response.data.user,
+              response.data.tokens.accessToken,
+              response.data.tokens.refreshToken
+            )
+
+            toast({
+              title: "Registration Successful!",
+              description: `Welcome, ${response.data.user.name}!`,
+            })
+
+            const from =
+              (location.state as { from?: { pathname?: string } })?.from
+                ?.pathname || '/'
+            navigate(from, { replace: true })
+          }
+        },
+        onError: (error: any) => {
+          console.error('Registration error:', error)
+          toast({
+            variant: "destructive",
+            title: "Registration Failed",
+            description: error.response?.data?.message || 'An error occurred during registration. Please try again.',
+          })
+        }
+      }
     )
 
-    navigate('/', { replace: true })
   }
 
   if (isAuthenticated) {
@@ -134,13 +171,13 @@ export function SignupPage() {
                 )}
               </div>
 
-              {/* Mobile Number Field with Country Code */}
+              {/* phoneNumber Number Field with Country Code */}
               <div className="space-y-1.5">
                 <label
-                  htmlFor="mobile"
+                  htmlFor="phoneNumber"
                   className="text-xs font-medium text-white block"
                 >
-                  Your Mobile Number
+                  Your phoneNumber Number
                 </label>
                 <div className="flex gap-2">
                   <div className="flex items-center bg-white  rounded-[15px] px-3 gap-2 min-w-[85px]">
@@ -149,7 +186,7 @@ export function SignupPage() {
                       value={selectedCountryCode}
                       onValueChange={(value: string) => {
                         setSelectedCountryCode(value)
-                        setValue('countryCode', value)
+                        setValue('phoneNumber', value)
                       }}
                     >
                       <SelectTrigger className="border-none h-10 w-[60px] p-0 focus:ring-0">
@@ -164,16 +201,16 @@ export function SignupPage() {
                     </Select>
                   </div>
                   <Input
-                    id="mobile"
+                    id="phoneNumber"
                     type="tel"
                     placeholder=""
-                    {...register('mobile')}
+                    {...register('phoneNumber')}
                     className="flex-1 bg-white text-gray-900  text-sm"
                   />
                 </div>
-                {errors.mobile && (
+                {errors.phoneNumber && (
                   <p className="text-xs text-red-300">
-                    {errors.mobile.message}
+                    {errors.phoneNumber.message}
                   </p>
                 )}
               </div>

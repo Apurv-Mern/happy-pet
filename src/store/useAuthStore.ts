@@ -5,6 +5,7 @@ import { STORAGE_KEYS } from '@/utils/constants'
 
 interface AuthStore extends AuthState {
   login: (user: User, token: string, refreshToken: string) => void
+  register: (user: User, token: string, refreshToken: string) => void
   logout: () => void
   updateUser: (user: Partial<User>) => void
   setTokens: (token: string, refreshToken: string) => void
@@ -22,6 +23,12 @@ export const useAuthStore = create<AuthStore>()(
         localStorage.setItem(STORAGE_KEYS.REFRESH_TOKEN, refreshToken)
         set({ user, token, refreshToken, isAuthenticated: true })
       },
+      register: (user, token, refreshToken) => {
+        localStorage.setItem(STORAGE_KEYS.AUTH_TOKEN, token)
+        localStorage.setItem(STORAGE_KEYS.REFRESH_TOKEN, refreshToken)
+        set({ user, token, refreshToken, isAuthenticated: true })
+      },
+
       logout: () => {
         localStorage.removeItem(STORAGE_KEYS.AUTH_TOKEN)
         localStorage.removeItem(STORAGE_KEYS.REFRESH_TOKEN)

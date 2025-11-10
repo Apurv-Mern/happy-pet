@@ -13,14 +13,17 @@ import { useState } from 'react'
 import { useAuthStore } from '@/store/useAuthStore'
 
 // Define navigation items
-const navItems = [
+const publicNavItems = [
   { path: '/', label: 'HOME' },
   { path: '/about', label: 'ABOUT US' },
+  { path: '/faqs', label: 'FAQS' },
+  { path: '/contact', label: 'CONTACT US' },
+]
+
+const protectedNavItems = [
   { path: '/knowledge-hub', label: 'KNOWLEDGE HUB' },
   { path: '/learning-module', label: 'LEARNING MODULE' },
   { path: '/ai-agent', label: 'AI AGENT' },
-  { path: '/faqs', label: 'FAQS' },
-  { path: '/contact', label: 'CONTACT US' },
 ]
 
 const languages = [
@@ -182,7 +185,16 @@ export function Header() {
 
           {/* Navigation Menu */}
           <nav className="flex items-center justify-center gap-8 text-sm font-medium bg-white backdrop-blur-sm rounded-full px-8 py-3 mx-auto max-w-fit">
-            {navItems.map(item => (
+            {publicNavItems.map(item => (
+              <NavLink
+                key={item.path}
+                path={item.path}
+                label={item.label}
+                isActive={location.pathname === item.path}
+              />
+            ))}
+
+            {isAuthenticated && protectedNavItems.map(item => (
               <NavLink
                 key={item.path}
                 path={item.path}

@@ -11,7 +11,6 @@ import { Layout } from './components/Layout'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import { SignupPage } from './pages/SignUpPage.tsx'
 import { ForgotPasswordPage } from './pages/ForgotPasswordPage.tsx'
-import { ChangeLanguagePage } from './pages/ChangeLanguagePage.tsx'
 import { Header } from './components/Header.tsx'
 import { Footer } from './components/Footer.tsx'
 import { FAQPage } from './pages/FAQPage.tsx'
@@ -28,11 +27,14 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
+        {/* Public routes */}
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/faqs" element={<FAQPage />} />
         <Route path="/contact" element={<ContactUsPage />} />
+        <Route path="/about" element={<AboutUsPage />} />
 
         <Route element={<ProtectedRoute />}>
           <Route
@@ -42,8 +44,6 @@ function App() {
               </Layout>
             }
           >
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutUsPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/knowledge-hub" element={<KnowledgeHubPage />} />
             <Route path="/learning-module" element={<LearningModePage />} />
