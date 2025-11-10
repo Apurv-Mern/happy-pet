@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Eye, Download, FileText } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { motion } from 'framer-motion'
 
 interface Article {
   id: string
@@ -108,24 +109,37 @@ export default function LearningModePage() {
   }
 
   return (
-    <div className="min-h-screen ">
+    <motion.div
+      className="min-h-screen "
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="mx-auto max-w-[1400px]">
         {/* Header */}
-        <div className="mb-10">
+        <motion.div
+          className="mb-10"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <h1 className="text-4xl font-bold text-[#003863] text-center mb-2">
             Knowledge Hub Articles
           </h1>
           <p className="text-center text-gray-600">
             Discover insightful articles about pet care and happiness
           </p>
-        </div>
+        </motion.div>
 
         {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
           {currentArticles.map((article, index) => (
-            <div
+            <motion.div
               key={article.id}
               className="bg-[#E1EEF4] rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
             >
               <div className="flex gap-4">
                 {/* Document Icon */}
@@ -163,7 +177,7 @@ export default function LearningModePage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -199,6 +213,6 @@ export default function LearningModePage() {
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

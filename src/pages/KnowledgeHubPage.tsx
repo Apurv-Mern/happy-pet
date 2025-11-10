@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Play, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 
 interface Video {
@@ -73,19 +74,29 @@ export default function KnowledgeHubPage() {
   const currentVideos = filteredVideos.slice(startIndex, startIndex + itemsPerPage)
 
   return (
-    <div className="min-h-screen">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen px-4"
+    >
       <div className="mx-auto max-w-[1400px]">
         {/* Header */}
-        <div className="mb-10">
-          <h1 className="text-4xl font-bold text-[#003863] text-center mb-2">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-6 sm:mb-10"
+        >
+          <h1 className="text-3xl sm:text-4xl font-bold text-[#003863] text-center mb-2">
             Knowledge Hub
           </h1>
-          <p className="text-center text-gray-600">
+          <p className="text-center text-sm sm:text-base text-gray-600">
             Learn everything about pet care through our video guides
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Sidebar - Categories */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden sticky top-4">
@@ -126,11 +137,14 @@ export default function KnowledgeHubPage() {
 
             {/* Video Grid */}
             <div className="space-y-6">
-              {currentVideos.map(video => (
-                <div
+              {currentVideos.map((video, index) => (
+                <motion.div
                   key={video.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   onClick={() => navigate(`/video/${video.id}`)}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
                 >
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
                     {/* Video Thumbnail */}
@@ -171,7 +185,7 @@ export default function KnowledgeHubPage() {
                       </div> */}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
@@ -211,6 +225,6 @@ export default function KnowledgeHubPage() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

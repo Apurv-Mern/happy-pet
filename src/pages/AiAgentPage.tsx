@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Send, Mic, Trash2, Pause, Play } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { motion } from 'framer-motion'
 
 interface Message {
   id: string
@@ -128,10 +129,20 @@ export default function AIAgentPage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <motion.div
+      className="min-h-screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="mx-auto max-w-[900px]">
         {/* Header */}
-        <div className="bg-[#d4e7f6] rounded-t-3xl px-6 py-4 flex items-center gap-3">
+        <motion.div
+          className="bg-[#d4e7f6] rounded-t-3xl px-6 py-4 flex items-center gap-3"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
             <span className="text-2xl">🤖</span>
           </div>
@@ -139,15 +150,23 @@ export default function AIAgentPage() {
             <h1 className="text-2xl font-bold text-[#003863]">AI Agent</h1>
             <p className="text-sm text-gray-600">Ask me anything about pet care</p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Chat Messages */}
-        <div className="bg-white rounded-b-3xl shadow-xl overflow-hidden">
+        <motion.div
+          className="bg-white rounded-b-3xl shadow-xl overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           <div className="h-auto overflow-y-auto p-6 space-y-4">
-            {messages.map(message => (
-              <div
+            {messages.map((message, index) => (
+              <motion.div
                 key={message.id}
                 className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
+                initial={{ opacity: 0, x: message.type === 'user' ? 20 : -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
               >
                 <div
                   className={`max-w-[70%] rounded-2xl px-4 py-3 ${message.type === 'user'
@@ -182,7 +201,7 @@ export default function AIAgentPage() {
                     })}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
             <div ref={messagesEndRef} />
           </div>
@@ -257,9 +276,9 @@ export default function AIAgentPage() {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
       <audio ref={audioRef} onEnded={() => setIsPlayingAudio(null)} />
-    </div>
+    </motion.div>
   )
 }
