@@ -42,3 +42,19 @@ export interface SocketEvent {
   type: string
   payload: unknown
 }
+
+export interface LearningModule {
+  id: string
+  title: string
+  content: string
+  type: string
+  category: string
+}
+
+export interface LearningModulesResponse {
+  success: boolean
+  message: string
+  data: {
+    content: LearningModule[]
+  }
+}

@@ -2,110 +2,46 @@ import { useState } from 'react'
 import { Eye, Download, FileText } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
-
-interface Article {
-  id: string
-  title: string
-  description: string
-  fileUrl: string
-  fileSize: string
-  pageCount: number
-}
-
-const articles: Article[] = [
-  {
-    id: '1',
-    title: 'Every Tail Tells a Story of Joy',
-    description:
-      "At Happy Dog, we believe every pup deserves a life filled with love, play, and endless adventures. From morning walks to cozy naps, each moment is a reason to wag that tail a little harder.",
-    fileUrl: '/documents/article-1.pdf',
-    fileSize: '2.5 MB',
-    pageCount: 12,
-  },
-  {
-    id: '2',
-    title: 'Every Tail Tells a Story of Joy',
-    description:
-      "At Happy Dog, we believe every pup deserves a life filled with love, play, and endless adventures. From morning walks to cozy naps, each moment is a reason to wag that tail a little harder.",
-    fileUrl: '/documents/article-2.pdf',
-    fileSize: '3.2 MB',
-    pageCount: 15,
-  },
-  {
-    id: '3',
-    title: 'Every Tail Tells a Story of Joy',
-    description:
-      "At Happy Dog, we believe every pup deserves a life filled with love, play, and endless adventures. From morning walks to cozy naps, each moment is a reason to wag that tail a little harder.",
-    fileUrl: '/documents/article-3.pdf',
-    fileSize: '1.8 MB',
-    pageCount: 10,
-  },
-  {
-    id: '4',
-    title: 'Every Tail Tells a Story of Joy',
-    description:
-      "At Happy Dog, we believe every pup deserves a life filled with love, play, and endless adventures. From morning walks to cozy naps, each moment is a reason to wag that tail a little harder.",
-    fileUrl: '/documents/article-4.pdf',
-    fileSize: '2.1 MB',
-    pageCount: 11,
-  },
-  {
-    id: '5',
-    title: 'Every Tail Tells a Story of Joy',
-    description:
-      "At Happy Dog, we believe every pup deserves a life filled with love, play, and endless adventures. From morning walks to cozy naps, each moment is a reason to wag that tail a little harder.",
-    fileUrl: '/documents/article-5.pdf',
-    fileSize: '2.8 MB',
-    pageCount: 14,
-  },
-  {
-    id: '6',
-    title: 'Every Tail Tells a Story of Joy',
-    description:
-      "At Happy Dog, we believe every pup deserves a life filled with love, play, and endless adventures. From morning walks to cozy naps, each moment is a reason to wag that tail a little harder.",
-    fileUrl: '/documents/article-6.pdf',
-    fileSize: '2.3 MB',
-    pageCount: 13,
-  },
-  {
-    id: '7',
-    title: 'Every Tail Tells a Story of Joy',
-    description:
-      "At Happy Dog, we believe every pup deserves a life filled with love, play, and endless adventures. From morning walks to cozy naps, each moment is a reason to wag that tail a little harder.",
-    fileUrl: '/documents/article-7.pdf',
-    fileSize: '1.9 MB',
-    pageCount: 9,
-  },
-  {
-    id: '8',
-    title: 'Every Tail Tells a Story of Joy',
-    description:
-      "At Happy Dog, we believe every pup deserves a life filled with love, play, and endless adventures. From morning walks to cozy naps, each moment is a reason to wag that tail a little harder.",
-    fileUrl: '/documents/article-8.pdf',
-    fileSize: '3.0 MB',
-    pageCount: 16,
-  },
-]
+import { useLearningModulesQuery } from '@/api/learningModule'
 
 export default function LearningModePage() {
   const [currentPage, setCurrentPage] = useState(1)
+  const { data: learningModules, isLoading } = useLearningModulesQuery()
   const itemsPerPage = 8
 
-  const totalPages = Math.ceil(articles.length / itemsPerPage)
+  const modules = learningModules || []
+  const totalPages = Math.ceil(modules.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
-  const currentArticles = articles.slice(startIndex, startIndex + itemsPerPage)
+  const currentModules = modules.slice(startIndex, startIndex + itemsPerPage)
 
-  const handleView = (article: Article) => {
-    window.open(article.fileUrl, '_blank')
+  const handleView = (module: { id: string; title: string; content: string }) => {
+    // For now, you can implement a modal or navigate to a detail page
+    console.log('View module:', module)
+    // window.open(module.fileUrl, '_blank')
   }
 
-  const handleDownload = (article: Article) => {
+  const handleDownload = (module: { id: string; title: string; content: string }) => {
+    // Create a text file with the content
+    const blob = new Blob([module.content], { type: 'text/plain' })
+    const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
-    link.href = article.fileUrl
-    link.download = `${article.title}.pdf`
+    link.href = url
+    link.download = `${module.title}.txt`
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+  }
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003863] mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading learning modules...</p>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -124,7 +60,7 @@ export default function LearningModePage() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <h1 className="text-4xl font-bold text-[#003863] text-center mb-2">
-            Knowledge Hub Articles
+            Learning Modules
           </h1>
           <p className="text-center text-gray-600">
             Discover insightful articles about pet care and happiness
@@ -133,9 +69,9 @@ export default function LearningModePage() {
 
         {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-          {currentArticles.map((article, index) => (
+          {currentModules.map((module, index) => (
             <motion.div
-              key={article.id}
+              key={module.id}
               className="bg-[#E1EEF4] rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -152,23 +88,23 @@ export default function LearningModePage() {
                 {/* Content */}
                 <div className="flex-grow">
                   <h3 className="text-lg font-bold text-[#003863] mb-2">
-                    {article.title}
+                    {module.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    {article.description}
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                    {module.content}
                   </p>
 
                   {/* Action Buttons */}
                   <div className="flex items-center gap-3">
                     <Button
-                      onClick={() => handleView(article)}
+                      onClick={() => handleView(module)}
                       className="flex items-center gap-2 bg-white text-[#003863] border border-[#003863] hover:bg-[#e1eef4] rounded-full px-4 h-9 text-sm font-medium"
                     >
                       <Eye className="h-4 w-4" />
                       View
                     </Button>
                     <Button
-                      onClick={() => handleDownload(article)}
+                      onClick={() => handleDownload(module)}
                       className="flex items-center gap-2 bg-[#003863] text-white hover:bg-[#002d4d] rounded-full px-4 h-9 text-sm font-medium"
                     >
                       <Download className="h-4 w-4" />

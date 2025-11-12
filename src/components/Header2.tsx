@@ -9,7 +9,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from 'react-icons/fa6'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAuthStore } from '@/store/useAuthStore'
 
 // Define navigation items
@@ -57,12 +57,26 @@ const NavLink = ({
   </Link>
 )
 
-export function Header() {
+export function Header2() {
   const location = useLocation()
   const navigate = useNavigate()
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('English')
   const { isAuthenticated, logout, user } = useAuthStore()
+
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
 
   const handleSelectLanguage = (code: string) => {
     // TODO: integrate with i18n solution
@@ -70,9 +84,15 @@ export function Header() {
     setIsDropdownOpen(false)
   }
 
+  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedLanguage(e.target.value)
+    // TODO: integrate with i18n solution
+    console.log('Selected language:', e.target.value)
+  }
+
   const handleLogout = () => {
     logout()
-    navigate('/login')
+    navigate('/')
   }
 
   return (
@@ -114,6 +134,129 @@ export function Header() {
             </button>
           </div>
         </div>
+
+        {/* Mobile Navigation Menu - fixed overlay centered card */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden">
+            {/* Backdrop */}
+            <div className="fixed inset-0 bg-[#003863] bg-opacity-80 z-40" onClick={() => setIsMobileMenuOpen(false)} />
+
+            {/* Centered card */}
+            <div className="fixed inset-0 z-50 flex items-start justify-center pt-8 px-4">
+              <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-6 relative">
+                {/* Internal close button */}
+                <button
+                  aria-label="Close menu"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="absolute -top-5 right-3 bg-[#D4E7F6] w-10 h-10 rounded-full flex items-center justify-center shadow-md"
+                >
+                  <X className="h-5 w-5 text-[#003863]" />
+                </button>
+
+                {/* Mobile Search Bar */}
+                <div className="flex items-center gap-2 bg-[#D4E7F6] rounded-full px-4 py-2 mb-6">
+                  <Input
+                    placeholder="Find the best for your pet..."
+                    className="flex-1 border-none bg-transparent focus-visible:outline-none focus:ring-0 focus:border-transparent h-9 text-[#003863] placeholder:text-[#003863] font-normal text-base"
+                  />
+                  <Button className="h-8 w-8 rounded-full p-0 bg-[#035FA6] hover:bg-[#024d85]">
+                    <Search className="h-4 w-4 text-white" />
+                  </Button>
+                </div>
+
+                {/* Mobile Navigation Items */}
+                <div className="flex flex-col gap-3">
+                  <Link
+                    to="/"
+                    className="text-[#003863] hover:text-[#035FA6] font-medium py-2 px-4 rounded-lg hover:bg-[#F3FBFF] transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="/about"
+                    className="text-[#003863] hover:text-[#035FA6] font-medium py-2 px-4 rounded-lg hover:bg-[#F3FBFF] transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    About Us
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="text-[#003863] hover:text-[#035FA6] font-medium py-2 px-4 rounded-lg hover:bg-[#F3FBFF] transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Contact Us
+                  </Link>
+                  <Link
+                    to="/faq"
+                    className="text-[#003863] hover:text-[#035FA6] font-medium py-2 px-4 rounded-lg hover:bg-[#F3FBFF] transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    FAQ's
+                  </Link>
+
+                  {isAuthenticated && (
+                    <>
+                      {protectedNavItems.map(item => (
+                        <Link
+                          key={item.path}
+                          to={item.path}
+                          className="text-[#003863] hover:text-[#035FA6] font-medium py-2 px-4 rounded-lg hover:bg-[#F3FBFF] transition-colors"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </>
+                  )}
+
+                  {/* Language Selector */}
+                  <div className="pt-4 border-t border-gray-200">
+                    <div className="flex items-center justify-between py-2 px-4">
+                      <span className="text-[#003863] font-medium">Language</span>
+                      <select
+                        value={selectedLanguage}
+                        onChange={handleLanguageChange}
+                        className="bg-[#D4E7F6] text-[#003863] rounded-lg px-3 py-1.5 font-medium focus:outline-none focus:ring-2 focus:ring-[#035FA6]"
+                      >
+                        <option value="English">English</option>
+                        <option value="हिंदी">हिंदी</option>
+                        <option value="తెలుగు">తెలుగు</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Login/Logout Button */}
+                  <div className="pt-4 border-t border-gray-200">
+                    {isAuthenticated ? (
+                      <button
+                        onClick={() => {
+                          handleLogout()
+                          setIsMobileMenuOpen(false)
+                        }}
+                        className="w-full flex items-center justify-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full py-3 transition-colors"
+                      >
+                        <span className="text-white font-medium">
+                          {user?.name.toUpperCase() || 'User'}
+                        </span>
+                        <LogOut className="h-5 w-5 text-white" />
+                      </button>
+                    ) : (
+                      <Link
+                        to="/login"
+                        className="w-full flex items-center justify-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full py-3 transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <span className="text-white font-medium">Login / Register</span>
+                        <User className="h-5 w-5 text-white" />
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Main navigation section with blue background and paw prints */}
@@ -176,7 +319,7 @@ export function Header() {
             </div>
           </div>
 
-          {/* Mobile Navigation Menu */}
+          {/* Desktop Navigation Menu */}
           <nav className="hidden lg:flex items-center justify-center gap-8 text-sm font-medium bg-white backdrop-blur-sm rounded-full px-8 py-3 mx-auto max-w-fit">
             {publicNavItems.map(item => (
               <NavLink
@@ -231,146 +374,6 @@ export function Header() {
               )}
             </div>
           </nav>
-
-          {/* Mobile Navigation Menu */}
-          {isMobileMenuOpen && (
-            <div className="lg:hidden mt-4 bg-white rounded-3xl p-6 shadow-xl animate-in slide-in-from-top">
-              {/* Search bar for mobile */}
-              <div className="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2 mb-4">
-                <Input
-                  placeholder="Search..."
-                  className="border-none focus-visible:outline-none focus:ring-0 focus:border-transparent h-9 text-[#003863] placeholder:text-[#003863] bg-transparent"
-                />
-                <Button className="h-8 w-8 rounded-full p-0 bg-[#035FA6] hover:bg-[#024d85]">
-                  <Search className="h-4 w-4 text-white" />
-                </Button>
-              </div>
-
-              {/* Mobile Menu Items */}
-              <div className="flex flex-col space-y-4">
-                {publicNavItems.map(item => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-[#003863] font-medium py-2 px-4 rounded-lg transition-colors ${location.pathname === item.path
-                      ? 'bg-[#E1EEF4] text-[#035FA6]'
-                      : 'hover:bg-gray-100'
-                      }`}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-
-                {isAuthenticated && protectedNavItems.map(item => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-[#003863] font-medium py-2 px-4 rounded-lg transition-colors ${location.pathname === item.path
-                      ? 'bg-[#E1EEF4] text-[#035FA6]'
-                      : 'hover:bg-gray-100'
-                      }`}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-
-                {/* Language Selector in Mobile Menu */}
-                <div className="pt-4 border-t border-gray-200">
-                  <button
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="flex items-center justify-between w-full gap-2 bg-[#003d66] hover:bg-[#002d4d] text-white rounded-full h-11 px-4 transition-colors"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl">🇬🇧</span>
-                      <span className="text-sm font-medium">English</span>
-                    </div>
-                    <ChevronDown className={`h-4 w-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
-                  </button>
-
-                  {isDropdownOpen && (
-                    <div className="mt-3 space-y-2">
-                      {languages.map(lang => (
-                        <button
-                          key={lang.code}
-                          onClick={() => {
-                            handleSelectLanguage(lang.code)
-                            setIsMobileMenuOpen(false)
-                          }}
-                          className="flex w-full items-center gap-3 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-[#003863] hover:bg-gray-200 transition"
-                        >
-                          <span className="text-xl">{lang.flag}</span>
-                          <span>{lang.name}</span>
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Login/Logout Button for Mobile */}
-                <div className="pt-4 border-t border-gray-200">
-                  {isAuthenticated ? (
-                    <button
-                      onClick={() => {
-                        handleLogout()
-                        setIsMobileMenuOpen(false)
-                      }}
-                      className="flex items-center justify-between w-full gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full px-5 h-11 transition-colors"
-                    >
-                      <span className="text-white text-sm font-medium">
-                        {user?.name || 'User'}
-                      </span>
-                      <div className="bg-[#D4E7F6] rounded-full h-9 w-9 flex items-center justify-center">
-                        <LogOut className="h-4 w-4 text-black" />
-                      </div>
-                    </button>
-                  ) : (
-                    <Link
-                      to="/login"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="flex items-center justify-between w-full gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full px-5 h-11 transition-colors"
-                    >
-                      <span className="text-white text-sm font-medium">
-                        Login / Register
-                      </span>
-                      <div className="bg-[#D4E7F6] rounded-full h-9 w-9 flex items-center justify-center">
-                        <User className="h-4 w-4 text-black" />
-                      </div>
-                    </Link>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
-
-          <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-0 mt-6">
-            {/* Left column - text (shows first on mobile) */}
-            <div className='w-full lg:basis-2/3 px-4 lg:px-0'>
-              <h3 className="text-[28px] sm:text-[38px] md:text-[55px] lg:text-[85px] text-[#003863] leading-tight heading-line">
-                Find the love of your pet's life
-              </h3>
-              <p className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] text-[#003863] font-semibold mt-3">
-                Love isn't just for humans - Let your pet find theirs!
-              </p>
-              <button className="flex items-center bg-[#003863] text-white font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#002a5c] transition">
-                Get Started
-                <span className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[49px] lg:h-[49px] bg-[#D4E7F6] rounded-full border-[2px] sm:border-[3px] border-[#04528E]">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 sm:w-4 sm:h-4 text-[#003863]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
-              </button>
-
-            </div>
-
-            {/* Right column - background image (shows second on mobile) */}
-            <div className="">
-              <img src="src/assets/images/image1.png" alt="" />
-            </div>
-          </div>
-
-
         </div>
       </div>
     </header>

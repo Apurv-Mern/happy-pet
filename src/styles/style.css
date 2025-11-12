@@ -1,0 +1,11 @@
+@import url("https://db.onlinewebfonts.com/c/64c2e8d1ee862c5c12f9c8d54f7c2ba2?family=Gotcha+Standup");
+@import url("https://db.onlinewebfonts.com/c/5bfe38d7b22ff01d15d1e7e8fa45f5f2?family=Myriad+Pro");
+
+
+
+.heading-line{
+    font-family: 'Gotcha Standup', myriad-pro;
+}
+.colon{
+    font-family: "ABeeZee";
+}

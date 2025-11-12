@@ -10,9 +10,6 @@ import { Mail, Phone } from 'lucide-react'
 // Footer data configuration
 const footerData = {
   brand: {
-    emoji: '🐕',
-    title: ['HAPPY DOG', 'HAPPY CAT'],
-    tagline: 'All you feed is love',
     description: 'Empowering Pet Owners with Knowledge for Happier Pets.',
   },
   mainMenu: [
@@ -74,26 +71,18 @@ const SocialIcon = ({
 
 export function Footer() {
   return (
-    <footer className="bg-[#003863] text-white">
+    <footer className="bg-[#003863] bg-[url('/src/assets/images/footer-image.png')] bg-cover bg-center text-white">
       {/* Main Footer Content */}
-      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 py-8 sm:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-10 divide-x-0 md:divide-x divide-white/20">
+      <div className="mx-auto max-w-[1400px] px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 divide-x-0 md:divide-x divide-white/20">
           {/* Brand Section */}
-          <div className="space-y-3 sm:space-y-4 pr-0 md:pr-10">
-            <div className="flex items-center gap-2 mb-3 sm:mb-4">
-              <span className="text-2xl sm:text-3xl">{footerData.brand.emoji}</span>
+          <div className="space-y-4 pr-0 md:pr-10">
+            <div className="flex items-center gap-2 mb-4">
               <div className="flex flex-col leading-tight">
-                {footerData.brand.title.map((line, i) => (
-                  <span key={i} className="text-base sm:text-lg font-bold">
-                    {line}
-                  </span>
-                ))}
+                <img src="src/assets/images/logo2.png" alt="" />
               </div>
             </div>
-            <p className="text-xs sm:text-sm italic leading-relaxed opacity-90">
-              {footerData.brand.tagline}
-            </p>
-            <p className="text-xs sm:text-sm leading-relaxed opacity-90 mt-3 sm:mt-4">
+            <p className="text-sm leading-relaxed opacity-90 mt-4">
               {footerData.brand.description}
             </p>
           </div>

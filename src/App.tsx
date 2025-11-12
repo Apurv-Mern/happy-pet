@@ -4,6 +4,7 @@ import {
   Route,
   Navigate,
   Outlet,
+  useLocation,
 } from 'react-router-dom'
 import { HomePage } from './pages/HomePage.tsx'
 import { LoginPage } from './pages/LoginPage'
@@ -22,11 +23,17 @@ import AiAgentPage from './pages/AiAgentPage.tsx'
 import LearningModePage from './pages/LearningModePage.tsx'
 import { Toaster } from './components/ui/toaster'
 import VideoDetailPage from './pages/VideoDetailsPage.tsx'
+import { Header2 } from './components/Header2.tsx'
+
+function HeaderWrapper() {
+  const location = useLocation()
+  return location.pathname === '/' ? <Header /> : <Header2 />
+}
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <HeaderWrapper />
       <Routes>
         {/* Public routes */}
         <Route path="/" element={<HomePage />} />
