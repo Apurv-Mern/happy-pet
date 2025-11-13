@@ -1,0 +1,49 @@
+name: Auto Merge and Deploy to SSH Server
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  # 1️⃣ Auto-merge feature branches → main
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Auto Merge to main
+        uses: devmasx/merge-branch@v1.4.0
+        with:
+          type: now
+          from_branch: ${{ github.ref_name }}
+          target_branch: main
+          github_token: ${{ secrets.TOKEN }}
+
+  # 2️⃣ After merging → build + deploy over SSH
+  deploy:
+    needs: auto-merge
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build
+
+      # 3️⃣ Upload build folder to server
+      - name: Deploy via SSH
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: './dist/*'
+          target: '/home/happypet/public_html'
