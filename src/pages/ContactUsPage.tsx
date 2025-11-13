@@ -76,7 +76,9 @@ export function ContactUsPage() {
     try {
       // TODO: Integrate API call to send email
       await new Promise(resolve => setTimeout(resolve, 1500))
-      setSubmitMessage("Message sent successfully! We'll get back to you soon.")
+      setSubmitMessage(
+        `Message from ${data.name} sent successfully! We'll get back to you soon.`
+      )
       reset()
       setTimeout(() => setSubmitMessage(''), 5000)
     } catch (error) {
@@ -96,7 +98,9 @@ export function ContactUsPage() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#003863] mb-2 sm:mb-3">Contact Us</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#003863] mb-2 sm:mb-3">
+            Contact Us
+          </h1>
           <p className="text-base sm:text-lg text-gray-600">
             We'd love to hear from you. Get in touch with us today!
           </p>
@@ -144,10 +148,11 @@ export function ContactUsPage() {
 
         {submitMessage && (
           <div
-            className={`mb-6 p-4 rounded-lg text-center ${submitMessage.includes('successfully')
+            className={`mb-6 p-4 rounded-lg text-center ${
+              submitMessage.includes('successfully')
                 ? 'bg-green-100 text-green-800'
                 : 'bg-red-100 text-red-800'
-              }`}
+            }`}
           >
             {submitMessage}
           </div>

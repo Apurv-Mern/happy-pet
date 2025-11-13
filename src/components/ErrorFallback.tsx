@@ -1,21 +1,31 @@
-import { ErrorBoundaryProps } from 'react-error-boundary'
+import { FallbackProps } from 'react-error-boundary'
 import { Button } from './ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from './ui/card'
 
-export function ErrorFallback({ error, resetErrorBoundary }: ErrorBoundaryProps) {
+export function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-destructive">Something went wrong</CardTitle>
+          <CardTitle className="text-destructive">
+            Something went wrong
+          </CardTitle>
           <CardDescription>
             An unexpected error occurred. Please try again.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          {import.meta.env.DEV && (
+          {import.meta.env.DEV && error && (
             <div className="rounded-md bg-muted p-4">
-              <p className="text-sm font-mono text-destructive">{error.message}</p>
+              <p className="text-sm font-mono text-destructive">
+                {error.message}
+              </p>
             </div>
           )}
           <Button onClick={resetErrorBoundary} className="w-full">
@@ -26,4 +36,3 @@ export function ErrorFallback({ error, resetErrorBoundary }: ErrorBoundaryProps)
     </div>
   )
 }
-

@@ -71,7 +71,7 @@ const SocialIcon = ({
 
 export function Footer() {
   return (
-    <footer className="bg-[#003863] bg-[url('/src/assets/images/footer-image.png')] bg-cover bg-center text-white">
+    <footer className="bg-[#003863] bg-[url('/assets/images/footer-image.png')] bg-cover bg-center text-white">
       {/* Main Footer Content */}
       <div className="mx-auto max-w-[1400px] px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 divide-x-0 md:divide-x divide-white/20">
@@ -79,7 +79,7 @@ export function Footer() {
           <div className="space-y-4 pr-0 md:pr-10">
             <div className="flex items-center gap-2 mb-4">
               <div className="flex flex-col leading-tight">
-                <img src="src/assets/images/logo2.png" alt="" />
+                <img src="/assets/images/logo2.png" alt="" />
               </div>
             </div>
             <p className="text-sm leading-relaxed opacity-90 mt-4">

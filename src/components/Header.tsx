@@ -48,8 +48,9 @@ const NavLink = ({
 }) => (
   <Link
     to={path}
-    className={`relative pb-1 transition-colors hover:text-[#035FA6] ${isActive ? 'text-[#003863]' : 'text-[#003863]'
-      }`}
+    className={`relative pb-1 transition-colors hover:text-[#035FA6] ${
+      isActive ? 'text-[#003863]' : 'text-[#003863]'
+    }`}
   >
     {label}
     {isActive && (
@@ -124,7 +125,7 @@ export function Header() {
 
       {/* Main navigation section with blue background and paw prints */}
       <motion.div
-        className="bg-[url('/src/assets/images/bg-header.png')] bg-cover bg-center"
+        className="bg-[url('/assets/images/bg-header.png')] bg-cover bg-center"
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.08 }}
@@ -137,10 +138,7 @@ export function Header() {
             <Link to="/">
               {/* Logo placeholder - replace with your actual logo */}
               <div>
-                <img
-                  src="/src/assets/images/logo.png"
-                  alt="Happy Pet Logo"
-                />
+                <img src="/assets/images/logo.png" alt="Happy Pet Logo" />
               </div>
             </Link>
 
@@ -197,14 +195,15 @@ export function Header() {
               />
             ))}
 
-            {isAuthenticated && protectedNavItems.map(item => (
-              <NavLink
-                key={item.path}
-                path={item.path}
-                label={item.label}
-                isActive={location.pathname === item.path}
-              />
-            ))}
+            {isAuthenticated &&
+              protectedNavItems.map(item => (
+                <NavLink
+                  key={item.path}
+                  path={item.path}
+                  label={item.label}
+                  isActive={location.pathname === item.path}
+                />
+              ))}
 
             {/* Language Selector Dropdown */}
             <div className="relative">
@@ -263,28 +262,31 @@ export function Header() {
                     key={item.path}
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-[#003863] font-medium py-2 px-4 rounded-lg transition-colors ${location.pathname === item.path
-                      ? 'bg-[#E1EEF4] text-[#035FA6]'
-                      : 'hover:bg-gray-100'
-                      }`}
+                    className={`text-[#003863] font-medium py-2 px-4 rounded-lg transition-colors ${
+                      location.pathname === item.path
+                        ? 'bg-[#E1EEF4] text-[#035FA6]'
+                        : 'hover:bg-gray-100'
+                    }`}
                   >
                     {item.label}
                   </Link>
                 ))}
 
-                {isAuthenticated && protectedNavItems.map(item => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-[#003863] font-medium py-2 px-4 rounded-lg transition-colors ${location.pathname === item.path
-                      ? 'bg-[#E1EEF4] text-[#035FA6]'
-                      : 'hover:bg-gray-100'
+                {isAuthenticated &&
+                  protectedNavItems.map(item => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`text-[#003863] font-medium py-2 px-4 rounded-lg transition-colors ${
+                        location.pathname === item.path
+                          ? 'bg-[#E1EEF4] text-[#035FA6]'
+                          : 'hover:bg-gray-100'
                       }`}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
 
                 {/* Language Selector in Mobile Menu */}
                 <div className="pt-4 border-t border-gray-200">
@@ -296,7 +298,9 @@ export function Header() {
                       <span className="text-xl">🇬🇧</span>
                       <span className="text-sm font-medium">English</span>
                     </div>
-                    <ChevronDown className={`h-4 w-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown
+                      className={`h-4 w-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
+                    />
                   </button>
 
                   {isDropdownOpen && (
@@ -356,7 +360,7 @@ export function Header() {
 
           <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-0 mt-6">
             {/* Left column - text (shows first on mobile) */}
-            <div className='w-full lg:basis-2/3 px-4 lg:px-0'>
+            <div className="w-full lg:basis-2/3 px-4 lg:px-0">
               <h3 className="text-[28px] sm:text-[38px] md:text-[55px] lg:text-[85px] text-[#003863] leading-tight heading-line">
                 Find the love of your pet's life
               </h3>
@@ -366,21 +370,29 @@ export function Header() {
               <button className="flex items-center bg-[#003863] text-white font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#002a5c] transition">
                 Get Started
                 <span className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[49px] lg:h-[49px] bg-[#D4E7F6] rounded-full border-[2px] sm:border-[3px] border-[#04528E]">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 sm:w-4 sm:h-4 text-[#003863]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-3 h-3 sm:w-4 sm:h-4 text-[#003863]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </span>
               </button>
-
             </div>
 
             {/* Right column - background image (shows second on mobile) */}
             <div className="">
-              <img src="src/assets/images/image1.png" alt="" />
+              <img src="/assets/images/image1.png" alt="" />
             </div>
           </div>
-
-
         </div>
       </motion.div>
     </header>

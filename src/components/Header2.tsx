@@ -47,8 +47,9 @@ const NavLink = ({
 }) => (
   <Link
     to={path}
-    className={`relative pb-1 transition-colors hover:text-[#035FA6] ${isActive ? 'text-[#003863]' : 'text-[#003863]'
-      }`}
+    className={`relative pb-1 transition-colors hover:text-[#035FA6] ${
+      isActive ? 'text-[#003863]' : 'text-[#003863]'
+    }`}
   >
     {label}
     {isActive && (
@@ -139,7 +140,10 @@ export function Header2() {
         {isMobileMenuOpen && (
           <div className="lg:hidden">
             {/* Backdrop */}
-            <div className="fixed inset-0 bg-[#003863] bg-opacity-80 z-40" onClick={() => setIsMobileMenuOpen(false)} />
+            <div
+              className="fixed inset-0 bg-[#003863] bg-opacity-80 z-40"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
 
             {/* Centered card */}
             <div className="fixed inset-0 z-50 flex items-start justify-center pt-8 px-4">
@@ -213,7 +217,9 @@ export function Header2() {
                   {/* Language Selector */}
                   <div className="pt-4 border-t border-gray-200">
                     <div className="flex items-center justify-between py-2 px-4">
-                      <span className="text-[#003863] font-medium">Language</span>
+                      <span className="text-[#003863] font-medium">
+                        Language
+                      </span>
                       <select
                         value={selectedLanguage}
                         onChange={handleLanguageChange}
@@ -247,7 +253,9 @@ export function Header2() {
                         className="w-full flex items-center justify-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full py-3 transition-colors"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
-                        <span className="text-white font-medium">Login / Register</span>
+                        <span className="text-white font-medium">
+                          Login / Register
+                        </span>
                         <User className="h-5 w-5 text-white" />
                       </Link>
                     )}
@@ -260,8 +268,7 @@ export function Header2() {
       </div>
 
       {/* Main navigation section with blue background and paw prints */}
-      <div className="bg-[url('/src/assets/images/bg-header.png')] bg-cover bg-center"
-      >
+      <div className="bg-[url('/assets/images/bg-header.png')] bg-cover bg-center">
         {/* Paw print pattern background */}
 
         <div className="container mx-auto p-4">
@@ -270,10 +277,7 @@ export function Header2() {
             <Link to="/">
               {/* Logo placeholder - replace with your actual logo */}
               <div>
-                <img
-                  src="/src/assets/images/logo.png"
-                  alt="Happy Pet Logo"
-                />
+                <img src="/assets/images/logo.png" alt="Happy Pet Logo" />
               </div>
             </Link>
 
@@ -330,14 +334,15 @@ export function Header2() {
               />
             ))}
 
-            {isAuthenticated && protectedNavItems.map(item => (
-              <NavLink
-                key={item.path}
-                path={item.path}
-                label={item.label}
-                isActive={location.pathname === item.path}
-              />
-            ))}
+            {isAuthenticated &&
+              protectedNavItems.map(item => (
+                <NavLink
+                  key={item.path}
+                  path={item.path}
+                  label={item.label}
+                  isActive={location.pathname === item.path}
+                />
+              ))}
 
             {/* Language Selector Dropdown */}
             <div className="relative">

@@ -1,6 +1,5 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { Send, Mic, Trash2, Pause, Play } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { motion } from 'framer-motion'
 
@@ -19,7 +18,7 @@ export default function AIAgentPage() {
       id: '1',
       type: 'ai',
       content:
-        "Cleaning the Smart Feeder is straightforward. I found a video tutorial and a detailed manual that might help:\n\nCleaning Guide Video\nSmart Feeder Troubleshooting Manual",
+        'Cleaning the Smart Feeder is straightforward. I found a video tutorial and a detailed manual that might help:\n\nCleaning Guide Video\nSmart Feeder Troubleshooting Manual',
       timestamp: new Date(),
     },
   ])
@@ -71,7 +70,7 @@ export default function AIAgentPage() {
       mediaRecorderRef.current = mediaRecorder
 
       const chunks: BlobPart[] = []
-      mediaRecorder.ondataavailable = (e) => {
+      mediaRecorder.ondataavailable = e => {
         chunks.push(e.data)
       }
 
@@ -101,7 +100,8 @@ export default function AIAgentPage() {
       const newMessage: Message = {
         id: Date.now().toString(),
         type: 'user',
-        content: "I'm having trouble setting up the automatic feeding schedule. Can you help?",
+        content:
+          "I'm having trouble setting up the automatic feeding schedule. Can you help?",
         timestamp: new Date(),
         isVoice: true,
         audioUrl,
@@ -148,7 +148,9 @@ export default function AIAgentPage() {
           </div>
           <div>
             <h1 className="text-2xl font-bold text-[#003863]">AI Agent</h1>
-            <p className="text-sm text-gray-600">Ask me anything about pet care</p>
+            <p className="text-sm text-gray-600">
+              Ask me anything about pet care
+            </p>
           </div>
         </motion.div>
 
@@ -169,15 +171,18 @@ export default function AIAgentPage() {
                 transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
               >
                 <div
-                  className={`max-w-[70%] rounded-2xl px-4 py-3 ${message.type === 'user'
-                    ? 'bg-[#003863] text-white'
-                    : 'bg-[#e1eef4] text-gray-800'
-                    }`}
+                  className={`max-w-[70%] rounded-2xl px-4 py-3 ${
+                    message.type === 'user'
+                      ? 'bg-[#003863] text-white'
+                      : 'bg-[#e1eef4] text-gray-800'
+                  }`}
                 >
                   {message.isVoice && message.audioUrl && (
                     <div className="flex items-center gap-2 mb-2">
                       <button
-                        onClick={() => toggleAudioPlayback(message.audioUrl!, message.id)}
+                        onClick={() =>
+                          toggleAudioPlayback(message.audioUrl!, message.id)
+                        }
                         className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
                       >
                         {isPlayingAudio === message.id ? (
@@ -260,9 +265,11 @@ export default function AIAgentPage() {
 
               <Input
                 value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-                placeholder={isRecording ? 'Recording...' : 'Type your message...'}
+                onChange={e => setInputMessage(e.target.value)}
+                onKeyPress={e => e.key === 'Enter' && handleSendMessage()}
+                placeholder={
+                  isRecording ? 'Recording...' : 'Type your message...'
+                }
                 disabled={isRecording}
                 className="flex-grow border-2 border-gray-200 rounded-full h-11 px-4 focus:border-[#003863] focus:ring-0"
               />
