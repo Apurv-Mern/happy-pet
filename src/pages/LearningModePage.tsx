@@ -1,27 +1,86 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Eye, Download, FileText } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
-import { useLearningModulesQuery } from '@/api/learningModule'
+import {
+  useLearningModulesQuery,
+  usePresignedUrlForViewingMutation,
+} from '@/api/learningModule'
 
 export default function LearningModePage() {
   const [currentPage, setCurrentPage] = useState(1)
   const { data: learningModules, isLoading } = useLearningModulesQuery()
   const itemsPerPage = 8
 
+  const { mutate: fetchPresignedUrl } = usePresignedUrlForViewingMutation()
+  const newWindowRef = useRef<Window | null>(null)
+
   const modules = learningModules || []
   const totalPages = Math.ceil(modules.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
   const currentModules = modules.slice(startIndex, startIndex + itemsPerPage)
 
-  const handleView = (module: { id: string; title: string; content: string }) => {
-    // For now, you can implement a modal or navigate to a detail page
-    console.log('View module:', module)
-    // window.open(module.fileUrl, '_blank')
-  }
+  const handleView = (module: {
+    id?: string
+    _id?: string
+    title: string
+    content: string
+  }) => {
+    const docId = module._id ?? module.id
+    if (!docId) {
+      console.error('No document id available for module', module)
+      return
+    }
 
-  const handleDownload = (module: { id: string; title: string; content: string }) => {
-    // Create a text file with the content
+    try {
+      newWindowRef.current = window.open('', '_blank')
+    } catch (err) {
+      console.warn('Could not open new window/tab immediately', err)
+      newWindowRef.current = null
+    }
+
+    fetchPresignedUrl(String(docId), {
+      onSuccess: resp => {
+        const url = resp?.data?.presignedUrl
+        if (!url) {
+          console.error('Presigned URL missing in response', resp)
+          if (newWindowRef.current) {
+            try {
+              newWindowRef.current.close()
+            } catch {}
+            newWindowRef.current = null
+          }
+          return
+        }
+
+        if (newWindowRef.current) {
+          try {
+            newWindowRef.current.location.href = url
+          } catch (err) {
+            window.open(url, '_blank')
+          }
+        } else {
+          window.open(url, '_blank')
+        }
+
+        newWindowRef.current = null
+      },
+      onError: () => {
+        if (newWindowRef.current) {
+          try {
+            newWindowRef.current.close()
+          } catch {}
+          newWindowRef.current = null
+        }
+        console.error('Failed to fetch presigned URL')
+      },
+    })
+  }
+  const handleDownload = (module: {
+    id: string
+    title: string
+    content: string
+  }) => {
     const blob = new Blob([module.content], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
@@ -131,17 +190,20 @@ export default function LearningModePage() {
             <Button
               key={page}
               onClick={() => setCurrentPage(page)}
-              className={`w-10 h-10 rounded-lg ${currentPage === page
-                ? 'bg-[#003863] text-white hover:bg-[#002d4d]'
-                : 'bg-white text-[#003863] border border-[#003863] hover:bg-[#e1eef4]'
-                }`}
+              className={`w-10 h-10 rounded-lg ${
+                currentPage === page
+                  ? 'bg-[#003863] text-white hover:bg-[#002d4d]'
+                  : 'bg-white text-[#003863] border border-[#003863] hover:bg-[#e1eef4]'
+              }`}
             >
               {page}
             </Button>
           ))}
 
           <Button
-            onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+            onClick={() =>
+              setCurrentPage(prev => Math.min(totalPages, prev + 1))
+            }
             disabled={currentPage === totalPages}
             className="bg-white text-[#003863] border border-[#003863] hover:bg-[#e1eef4] rounded-lg px-4 h-10 disabled:opacity-50 disabled:cursor-not-allowed"
           >

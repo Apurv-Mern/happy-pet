@@ -58,3 +58,13 @@ export interface LearningModulesResponse {
     content: LearningModule[]
   }
 }
+
+export interface PresignedUrlResponse {
+  success: boolean
+  message: string
+  data: {
+    contentId: string
+    expiresIn: number
+    presignedUrl: string
+  }
+}

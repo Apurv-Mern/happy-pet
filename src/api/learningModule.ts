@@ -1,6 +1,10 @@
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { apiClient } from './axios'
-import { LearningModule, LearningModulesResponse } from '@/types'
+import {
+  LearningModule,
+  LearningModulesResponse,
+  PresignedUrlResponse,
+} from '@/types'
 
 export const learningModuleApi = {
   getLearningModules: async (
@@ -12,6 +16,15 @@ export const learningModuleApi = {
     )
     return data.data.content
   },
+
+  getPresignedUrlForViewing: async (
+    docId: string
+  ): Promise<PresignedUrlResponse> => {
+    const { data } = await apiClient.get<PresignedUrlResponse>(
+      `/v1/presigned-url/${docId}?expiresIn=3600`
+    )
+    return data
+  },
 }
 
 export const useLearningModulesQuery = (
@@ -21,6 +34,15 @@ export const useLearningModulesQuery = (
   return useQuery({
     queryKey: ['learning-modules', page, limit],
     queryFn: () => learningModuleApi.getLearningModules(page, limit),
+    retry: 1,
+  })
+}
+
+export const usePresignedUrlForViewingMutation = () => {
+  return useMutation({
+    mutationKey: ['presigned-url'],
+    mutationFn: (docId: string) =>
+      learningModuleApi.getPresignedUrlForViewing(docId),
     retry: 1,
   })
 }

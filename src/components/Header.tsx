@@ -10,6 +10,7 @@ import {
   FaLinkedinIn,
 } from 'react-icons/fa6'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { useAuthStore } from '@/store/useAuthStore'
 
 // Define navigation items
@@ -78,7 +79,12 @@ export function Header() {
   return (
     <header className="w-full">
       {/* Top dark band */}
-      <div className="bg-[#003863] text-white">
+      <motion.div
+        className="bg-[#003863] text-white"
+        initial={{ y: -10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.45 }}
+      >
         <div className="container mx-auto p-4 px-6 py-2.5 flex items-center justify-between text-sm">
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4" />
@@ -114,10 +120,14 @@ export function Header() {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Main navigation section with blue background and paw prints */}
-      <div className="bg-[url('/src/assets/images/bg-header.png')] bg-cover bg-center"
+      <motion.div
+        className="bg-[url('/src/assets/images/bg-header.png')] bg-cover bg-center"
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.08 }}
       >
         {/* Paw print pattern background */}
 
@@ -372,7 +382,7 @@ export function Header() {
 
 
         </div>
-      </div>
+      </motion.div>
     </header>
   )
 }

@@ -3,12 +3,12 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { motion } from 'framer-motion'
 
 export function HomePage() {
-  return <div className="">
+  return <motion.div className="" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
     <div className="bg-[url('/src/assets/images/pet-image.png')] bg-cover bg-center h-[120px] sm:h-[150px] md:h-[190px] w-full">
       <div className="container mx-auto px-4 pb-4 pt-4 sm:pb-6 sm:pt-6">
         <div className="">
@@ -56,7 +56,7 @@ export function HomePage() {
         </div>
       </div>
     </div>
-    <section className="flex justify-center items-center py-8 sm:py-10 md:py-14 bg-white px-4">
+    <motion.section className="flex justify-center items-center py-8 sm:py-10 md:py-14 bg-white px-4" initial={{ y: 8, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}>
       <div
         className="relative max-w-[610px] w-full bg-[url('/src/assets/images/curve-border.png')] bg-no-repeat bg-contain bg-center text-center pt-0 py-8 sm:py-10 md:py-12 px-4 sm:px-6"
       >
@@ -68,7 +68,7 @@ export function HomePage() {
           and book a service
         </p>
       </div>
-    </section>
+    </motion.section>
     <div className="container mx-auto pb-8 sm:pb-10 md:pb-14 px-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-[65px]">
         <div>
@@ -148,7 +148,7 @@ export function HomePage() {
         </div>
       </div>
     </div>
-    <section className="bg-[url('/src/assets/images/bg-image.png')] bg-cover py-14 sm:py-20 md:py-28 px-4">
+    <motion.section className="bg-[url('/src/assets/images/bg-image.png')] bg-cover py-14 sm:py-20 md:py-28 px-4" initial={{ y: 8, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.55, delay: 0.08 }}>
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-8">
           <div className="max-w-[650px]">
@@ -170,8 +170,8 @@ export function HomePage() {
           </div>
         </div>
       </div>
-    </section>
-    <section className="flex justify-center items-center py-14 bg-white">
+    </motion.section>
+    <motion.section className="flex justify-center items-center py-14 bg-white" initial={{ y: 8, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.55, delay: 0.12 }}>
       <div className="relative max-w-[740px] w-full bg-[url('/src/assets/images/curve-border2.png')] bg-no-repeat bg-contain bg-center text-center pt-0 pb-[36px] px-6">
         <h2 className="heading-line text-[#003863] text-[55px]">
           Smart Learning for Happier Pets
@@ -181,7 +181,7 @@ export function HomePage() {
           Starts Here.
         </p>
       </div>
-    </section>
+    </motion.section>
     <div className="container mx-auto px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto pb-8 sm:pb-10 md:pb-14">
         <div className="text-center md:text-end">
@@ -386,7 +386,7 @@ export function HomePage() {
     </div>
 
 
-  </div>
+  </motion.div>
 }
 
 export default HomePage
