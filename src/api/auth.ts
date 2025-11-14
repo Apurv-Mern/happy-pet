@@ -30,6 +30,16 @@ export const authApi = {
     const { data } = await apiClient.post('/auth/refresh', { refreshToken })
     return data
   },
+
+  sendOtp: async (payload: { email: string }): Promise<any> => {
+    const { data } = await apiClient.post('/auth/send-otp', payload)
+    return data
+  },
+
+  verifyOtp: async (payload: { email: string; otp: string }): Promise<any> => {
+    const { data } = await apiClient.post('/auth/verify-otp', payload)
+    return data
+  },
 }
 
 // React Query hooks
@@ -51,5 +61,19 @@ export const useLogoutMutation = () => {
   return useMutation({
     mutationFn: authApi.logout,
     mutationKey: ['logout'],
+  })
+}
+
+export const useVerifyOtpMutation = () => {
+  return useMutation({
+    mutationFn: authApi.verifyOtp,
+    mutationKey: ['verifyOtp'],
+  })
+}
+
+export const useSendOtpMutation = () => {
+  return useMutation({
+    mutationFn: authApi.sendOtp,
+    mutationKey: ['sendOtp'],
   })
 }

@@ -12,9 +12,11 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from 'react-icons/fa6'
+import { useContactMutation } from '@/api/contact'
+import { useToast } from '@/hooks/use-toast'
 
 const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
+  fullName: z.string().min(2, 'fullName must be at least 2 characters'),
   email: z.string().email('Invalid email address'),
   phone: z.string().min(10, 'Phone number must be at least 10 characters'),
   subject: z.string().min(5, 'Subject must be at least 5 characters'),
@@ -52,8 +54,9 @@ const contactInfoData: ContactInfo[] = [
 ]
 
 export function ContactUsPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
+  const { toast } = useToast()
+  const contactMutation = useContactMutation()
 
   const {
     register,
@@ -63,7 +66,7 @@ export function ContactUsPage() {
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      name: '',
+      fullName: '',
       email: '',
       phone: '',
       subject: '',
@@ -72,20 +75,34 @@ export function ContactUsPage() {
   })
 
   const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true)
-    try {
-      // TODO: Integrate API call to send email
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      setSubmitMessage(
-        `Message from ${data.name} sent successfully! We'll get back to you soon.`
-      )
-      reset()
-      setTimeout(() => setSubmitMessage(''), 5000)
-    } catch (error) {
-      setSubmitMessage('Failed to send message. Please try again.')
-    } finally {
-      setIsSubmitting(false)
-    }
+    contactMutation.mutate(data, {
+      onSuccess: response => {
+        if (response.success) {
+          toast({
+            title: 'Message Sent!',
+            description:
+              response.message ||
+              "Thank you for contacting us! We'll get back to you soon.",
+          })
+          setSubmitMessage(
+            `Message from ${data.fullName} sent successfully! We'll get back to you soon.`
+          )
+          reset()
+          setTimeout(() => setSubmitMessage(''), 5000)
+        }
+      },
+      onError: (error: any) => {
+        toast({
+          variant: 'destructive',
+          title: 'Failed to Send',
+          description:
+            error.response?.data?.message ||
+            'Failed to send message. Please try again.',
+        })
+        setSubmitMessage('Failed to send message. Please try again.')
+        setTimeout(() => setSubmitMessage(''), 5000)
+      },
+    })
   }
 
   return (
@@ -171,11 +188,13 @@ export function ContactUsPage() {
               id="name"
               type="text"
               placeholder="Enter your full name"
-              {...register('name')}
+              {...register('fullName')}
               className="w-full border-2 border-[#cfe0e8] rounded-lg h-11 px-4 focus:border-[#003863] focus:outline-none transition-colors"
             />
-            {errors.name && (
-              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+            {errors.fullName && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.fullName.message}
+              </p>
             )}
           </div>
 
@@ -270,11 +289,11 @@ export function ContactUsPage() {
           {/* Submit Button */}
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={contactMutation.isPending}
             className="w-full bg-[#003863] text-white hover:bg-[#002d4d] font-semibold rounded-lg h-11 flex items-center justify-center gap-2 transition-colors"
           >
             <Send className="h-5 w-5" />
-            {isSubmitting ? 'Sending...' : 'Send Message'}
+            {contactMutation.isPending ? 'Sending...' : 'Send Message'}
           </Button>
         </form>
       </motion.div>

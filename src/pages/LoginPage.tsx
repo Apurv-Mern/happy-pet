@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { motion } from 'framer-motion'
 import { useAuthStore } from '@/store/useAuthStore'
-import { useLoginMutation } from '@/api/auth'
+import { useLoginMutation, useSendOtpMutation } from '@/api/auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
@@ -25,6 +25,7 @@ export function LoginPage() {
   const { login, isAuthenticated } = useAuthStore()
   const [showPassword, setShowPassword] = useState(false)
   const loginMutation = useLoginMutation()
+  const sendOtpMutation = useSendOtpMutation()
   const { toast } = useToast()
 
   const {
@@ -55,8 +56,43 @@ export function LoginPage() {
         password: data.password,
       },
       {
-        onSuccess: (response) => {
+        onSuccess: response => {
           if (response.success) {
+            // Check if email is verified
+            if (!response.data.user.isEmailVerified) {
+              // Send OTP for unverified email
+              sendOtpMutation.mutate(
+                { email: data.email },
+                {
+                  onSuccess: () => {
+                    toast({
+                      title: 'Email Not Verified',
+                      description:
+                        'Verification code sent. Please check your email.',
+                    })
+
+                    // Navigate to verify email page with email
+                    navigate('/verify-email', {
+                      state: { email: data.email },
+                      replace: true,
+                    })
+                  },
+                  onError: (otpError: any) => {
+                    console.error('Send OTP error:', otpError)
+                    toast({
+                      variant: 'destructive',
+                      title: 'Failed to Send OTP',
+                      description:
+                        otpError.response?.data?.message ||
+                        'Could not send verification code. Please try again.',
+                    })
+                  },
+                }
+              )
+              return
+            }
+
+            // Email is verified, proceed with login
             login(
               response.data.user,
               response.data.tokens.accessToken,
@@ -64,7 +100,7 @@ export function LoginPage() {
             )
 
             toast({
-              title: "Login Successful!",
+              title: 'Login Successful!',
               description: `Welcome back, ${response.data.user.name}!`,
             })
 
@@ -77,9 +113,11 @@ export function LoginPage() {
         onError: (error: any) => {
           console.error('Login error:', error)
           toast({
-            variant: "destructive",
-            title: "Login Failed",
-            description: error.response?.data?.message || 'Invalid email or password. Please try again.',
+            variant: 'destructive',
+            title: 'Login Failed',
+            description:
+              error.response?.data?.message ||
+              'Invalid email or password. Please try again.',
           })
         },
       }
@@ -106,7 +144,8 @@ export function LoginPage() {
                 Login
               </h1>
             </CardHeader>
-            <CardContent className="bg-[#003863] px-4 sm:px-6 pb-6 sm:pb-8 pt-4">`
+            <CardContent className="bg-[#003863] px-4 sm:px-6 pb-6 sm:pb-8 pt-4">
+              `
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 {/* Email Field */}
                 <div className="space-y-2">

@@ -11,6 +11,7 @@ import { LoginPage } from './pages/LoginPage'
 import { Layout } from './components/Layout'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import { SignupPage } from './pages/SignUpPage.tsx'
+import { VerifyEmailPage } from './pages/VerifyEmailPage.tsx'
 import { ForgotPasswordPage } from './pages/ForgotPasswordPage.tsx'
 import { Header } from './components/Header.tsx'
 import { Footer } from './components/Footer.tsx'
@@ -39,6 +40,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/verify-email" element={<VerifyEmailPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/faqs" element={<FAQPage />} />
         <Route path="/contact" element={<ContactUsPage />} />
