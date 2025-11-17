@@ -15,7 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { useRegisterMutation } from '@/api/auth'
+import { useRegisterMutation, useSendOtpMutation } from '@/api/auth'
 import { useToast } from '@/hooks/use-toast'
 
 const signupSchema = z.object({
@@ -39,6 +39,7 @@ export function SignupPage() {
   const [selectedCountryCode, setSelectedCountryCode] = useState('+971')
   const { toast } = useToast()
   const registerMutation = useRegisterMutation()
+  const sendOtpMutation = useSendOtpMutation()
 
   const {
     register,
@@ -77,36 +78,51 @@ export function SignupPage() {
         userType: data.userType,
       },
       {
-        onSuccess: (response) => {
+        onSuccess: response => {
           if (response.success) {
-            registerUser(
-              response.data.user,
-              response.data.tokens.accessToken,
-              response.data.tokens.refreshToken
+            // Send OTP after successful registration
+            sendOtpMutation.mutate(
+              { email: data.email },
+              {
+                onSuccess: () => {
+                  toast({
+                    title: 'Registration Successful!',
+                    description:
+                      'Please check your email for verification code.',
+                  })
+
+                  // Navigate to verify email page with email
+                  navigate('/verify-email', {
+                    state: { email: data.email },
+                    replace: true,
+                  })
+                },
+                onError: (otpError: any) => {
+                  console.error('Send OTP error:', otpError)
+                  toast({
+                    variant: 'destructive',
+                    title: 'Failed to Send OTP',
+                    description:
+                      otpError.response?.data?.message ||
+                      'Could not send verification code. Please try again.',
+                  })
+                },
+              }
             )
-
-            toast({
-              title: "Registration Successful!",
-              description: `Welcome, ${response.data.user.name}!`,
-            })
-
-            const from =
-              (location.state as { from?: { pathname?: string } })?.from
-                ?.pathname || '/'
-            navigate(from, { replace: true })
           }
         },
         onError: (error: any) => {
           console.error('Registration error:', error)
           toast({
-            variant: "destructive",
-            title: "Registration Failed",
-            description: error.response?.data?.message || 'An error occurred during registration. Please try again.',
+            variant: 'destructive',
+            title: 'Registration Failed',
+            description:
+              error.response?.data?.message ||
+              'An error occurred during registration. Please try again.',
           })
-        }
+        },
       }
     )
-
   }
 
   if (isAuthenticated) {
@@ -130,7 +146,10 @@ export function SignupPage() {
           </CardHeader>
 
           <CardContent className="bg-[#003863] px-4 sm:px-5 pb-5 sm:pb-6 pt-3 sm:pt-4">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 sm:space-y-4">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-3 sm:space-y-4"
+            >
               {/* Name Field */}
               <div className="space-y-1.5">
                 <label
