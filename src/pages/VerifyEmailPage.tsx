@@ -95,7 +95,7 @@ export function VerifyEmailPage() {
               title: 'Email Verified!',
               description: 'Your email has been verified successfully.',
             })
-            navigate('/', { replace: true })
+            navigate('/login', { replace: true })
           }
         },
         onError: (error: any) => {
