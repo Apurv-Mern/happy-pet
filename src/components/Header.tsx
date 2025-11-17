@@ -81,12 +81,12 @@ export function Header() {
     <header className="w-full">
       {/* Top dark band */}
       <motion.div
-        className="bg-[#003863] text-white"
+        className="bg-[#0E213A] text-white"
         initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.45 }}
       >
-        <div className="container mx-auto p-4 px-6 py-2.5 flex items-center justify-between text-sm">
+        <div className="container mx-auto px-6 py-2.5 flex items-center justify-end gap-5 text-sm">
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4" />
             <span className="hidden sm:inline">+91 6799009980</span>
@@ -125,7 +125,7 @@ export function Header() {
 
       {/* Main navigation section with blue background and paw prints */}
       <motion.div
-        className="bg-[url('/assets/images/bg-header.png')] bg-cover bg-center"
+        className="bg-[url('/assets/images/bg-header.png')] bg-bottom bg-cover bg-no-repeat h-[950px] drop-shadow-[0_35px_35px_rgba(0,0,0,0.45)]"
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.08 }}
@@ -144,13 +144,13 @@ export function Header() {
 
             <div className="flex items-center gap-4 justify-end">
               {/* Search bar - hidden on mobile */}
-              <div className="hidden lg:flex items-center gap-2 bg-white rounded-full pt-[5px] pl-[20px] pb-[5px] pr-[20px]">
+              <div className="hidden lg:flex items-center gap-2 pl-3 bg-white rounded-full">
                 <Input
                   placeholder="Find the best for your pet..."
-                  className="w-64 border-none focus-visible:outline-none focus:ring-0 focus:border-transparent h-9 text-[#003863] placeholder:text-[#003863] font-normal text-lg"
+                  className="search-bar w-64 border-none focus:ring-0 focus:border-transparent h-9 text-[#003863] placeholder:text-[#003863] font-normal text-lg"
                 />
-                <Button className="h-8 w-8 rounded-full  p-0 bg-[#035FA6] hover:bg-[#024d85]">
-                  <Search className="h-4 w-4 text-white" />
+                <Button className="h-[44px] w-[44px] rounded-full  p-0 bg-[#0E213A] border-2 hover:bg-[#0E213A]">
+                  <Search className="h-[22px] w-[22px] text-white" />
                 </Button>
               </div>
 
@@ -170,11 +170,11 @@ export function Header() {
                   </button>
                 ) : (
                   <Link to="/login">
-                    <div className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-5 pr-1 h-11 transition-colors">
+                    <div className="flex items-center bg-[#003863] text-white font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] hover:bg-[#002a5c] transition">
                       <span className="text-white text-sm font-medium">
                         Login / Register
                       </span>
-                      <div className="bg-[#D4E7F6] rounded-full h-10 w-10 flex items-center justify-center ml-1">
+                      <div className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] bg-[#D4E7F6] rounded-full border-[2px] sm:border-[3px] border-[#04528E]">
                         <User className="h-5 w-5 text-black" />
                       </div>
                     </div>
@@ -361,18 +361,18 @@ export function Header() {
           <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-0 mt-6">
             {/* Left column - text (shows first on mobile) */}
             <div className="w-full lg:basis-2/3 px-4 lg:px-0">
-              <h3 className="text-[28px] sm:text-[38px] md:text-[55px] lg:text-[85px] text-[#003863] leading-tight heading-line">
+              <h3 className="text-[28px] sm:text-[38px] md:text-[55px] lg:text-[85px] text-[#fff] leading-tight heading-line">
                 Find the love of your pet's life
               </h3>
-              <p className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] text-[#003863] font-semibold mt-3">
+              <p className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] text-[#fff] font-semibold mt-3">
                 Love isn't just for humans - Let your pet find theirs!
               </p>
-              <button className="flex items-center bg-[#003863] text-white font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#002a5c] transition">
+              <button className="flex items-center bg-[#fff] text-black font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#0E213A] hover:text-[#fff] transition">
                 Get Started
-                <span className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[49px] lg:h-[49px] bg-[#D4E7F6] rounded-full border-[2px] sm:border-[3px] border-[#04528E]">
+                <span className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[49px] lg:h-[49px] bg-[#0E213A] rounded-full border-[2px]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-3 h-3 sm:w-4 sm:h-4 text-[#003863]"
+                    className="w-3 h-3 sm:w-4 sm:h-4 text-[#fff]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
