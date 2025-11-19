@@ -130,22 +130,19 @@ export function SignupPage() {
   }
 
   return (
-    <div className="flex mt-6 sm:mt-10 mb-6 sm:mb-10 items-center justify-center bg-gradient-to-br px-4">
+    <div className="bg-[url('/assets/images/background.png')] bg-cover bg-center">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-[557px]"
+        className="w-full max-w-[540px] m-auto py-14"
       >
         <Card className="border-[#0E213A] rounded-[30px] shadow-2xl bg-white overflow-hidden">
           {/* Header Section */}
-          <CardHeader className="bg-[#003863] text-white pb-5 sm:pb-6 pt-4 sm:pt-5 rounded-t-xl">
-            <h1 className="text-3xl sm:text-4xl font-bold text-center font-serif italic">
+          <CardContent className="bg-[#003863] py-6 px-6">
+            <h1 className="text-[#fff] heading-line text-[60px] text-center">
               Register
             </h1>
-          </CardHeader>
-
-          <CardContent className="bg-[#003863] px-4 sm:px-5 pb-5 sm:pb-6 pt-3 sm:pt-4">
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="space-y-3 sm:space-y-4"
@@ -276,7 +273,7 @@ export function SignupPage() {
               {/* Register Button */}
               <Button
                 type="submit"
-                className="w-full bg-white text-[#003057] hover:bg-gray-100 font-semibold rounded-full h-10 text-sm mt-5"
+                className="w-full bg-white text-[#003057] hover:bg-[#004C82] hover:text-[#fff] font-semibold rounded-full h-12 text-sm mt-5"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Registering...' : 'Register'}

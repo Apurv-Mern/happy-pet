@@ -47,13 +47,13 @@ const NavLink = ({
 }) => (
   <Link
     to={path}
-    className={`relative pb-1 transition-colors hover:text-[#035FA6] ${
-      isActive ? 'text-[#003863]' : 'text-[#003863]'
+    className={`font-semibold hover:bg-[#0E213A] hover:text-[#fff] rounded-[40px] py-[14px] px-[28px] ${
+      isActive ? '' : ''
     }`}
   >
     {label}
     {isActive && (
-      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#003863]" />
+      <span className="" />
     )}
   </Link>
 )
@@ -324,7 +324,7 @@ export function Header2() {
           </div>
 
           {/* Desktop Navigation Menu */}
-          <nav className="hidden lg:flex items-center justify-center gap-8 text-sm font-medium bg-white backdrop-blur-sm rounded-full px-8 py-3 mx-auto max-w-fit">
+          <nav className="hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit">
             {publicNavItems.map(item => (
               <NavLink
                 key={item.path}

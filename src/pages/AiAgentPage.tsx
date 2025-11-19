@@ -130,38 +130,21 @@ export default function AIAgentPage() {
 
   return (
     <motion.div
-      className="min-h-screen"
+      className=""
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="mx-auto max-w-[900px]">
-        {/* Header */}
-        <motion.div
-          className="bg-[#d4e7f6] rounded-t-3xl px-6 py-4 flex items-center gap-3"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-            <span className="text-2xl">🤖</span>
-          </div>
-          <div>
-            <h1 className="text-2xl font-bold text-[#003863]">AI Agent</h1>
-            <p className="text-sm text-gray-600">
-              Ask me anything about pet care
-            </p>
-          </div>
-        </motion.div>
+      <div className="">
 
         {/* Chat Messages */}
         <motion.div
-          className="bg-white rounded-b-3xl shadow-xl overflow-hidden"
+          className=""
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="h-auto overflow-y-auto p-6 space-y-4">
+          <div className="h-auto overflow-y-auto py-10">
             {messages.map((message, index) => (
               <motion.div
                 key={message.id}
@@ -171,10 +154,10 @@ export default function AIAgentPage() {
                 transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
               >
                 <div
-                  className={`max-w-[70%] rounded-2xl px-4 py-3 ${
+                  className={`max-w-[70%] px-4 py-3 ${
                     message.type === 'user'
-                      ? 'bg-[#003863] text-white'
-                      : 'bg-[#e1eef4] text-gray-800'
+                      ? 'bg-[#003863] text-white rounded-tr-[25px] rounded-bl-[25px] rounded-br-[25px]'
+                      : 'border-[1px] border-[#003863] rounded-tl-[25px] rounded-tr-[25px] rounded-bl-[25px]'
                   }`}
                 >
                   {message.isVoice && message.audioUrl && (
@@ -213,7 +196,7 @@ export default function AIAgentPage() {
 
           {/* Voice Recording Preview */}
           {audioBlob && (
-            <div className="border-t border-gray-200 bg-[#e1eef4] px-6 py-4">
+            <div className="bg-[#e1eef4] px-6 py-4">
               <div className="flex items-center gap-3">
                 <button
                   onClick={deleteVoiceMessage}
@@ -245,7 +228,7 @@ export default function AIAgentPage() {
           )}
 
           {/* Input Area */}
-          <div className="border-t border-gray-200 px-6 py-4">
+          <div className="">
             <div className="flex items-center gap-3">
               {isRecording ? (
                 <button

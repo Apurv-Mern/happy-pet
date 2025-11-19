@@ -53,15 +53,31 @@ export default function VideoDetailPage() {
 
     return (
         <div className="min-h-screen">
-            <div className="mx-auto max-w-[1400px]">
+            <div className="py-20">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Sidebar - Categories */}
                     <div className="lg:col-span-1">
-                        <div className="bg-white rounded-2xl shadow-lg overflow-hidden sticky top-4">
-                            <div className="bg-[#003863] text-white px-6 py-4">
+                        <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center mb-5">
+                        <input 
+                            type="text" 
+                            placeholder="Search"
+                            className="bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
+                        />
+
+                        <button className="ml-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                className="w-8 h-8 text-white"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m1.1-5.4a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" />
+                            </svg>
+                        </button>
+                        </div>
+                        <div className="bg-[#E3E6ED] rounded-[15px] shadow-lg overflow-hidden top-4">
+                            <div className="bg-[#003863] text-white px-4 py-4 rounded-[15px]">
                                 <h2 className="text-xl font-bold">Categories</h2>
                             </div>
-                            <div className="divide-y divide-gray-200">
+                            <div className="">
                                 {categories.map(category => (
                                     <button
                                         key={category.id}
@@ -69,15 +85,15 @@ export default function VideoDetailPage() {
                                             setSelectedCategory(category.id)
                                             navigate('/knowledge-hub')
                                         }}
-                                        className={`w-full flex items-center justify-between px-6 py-4 hover:bg-[#e1eef4] transition-colors ${selectedCategory === category.id
-                                            ? 'bg-[#e1eef4] border-l-4 border-[#003863]'
+                                        className={`w-full flex items-center justify-between px-6 py-4 hover:bg-[#e0e0e0]  rounded-[15px]${selectedCategory === category.id
+                                            ? ''
                                             : ''
                                             }`}
                                     >
-                                        <span className="text-[#003863] font-medium">
+                                        <span className="text-[#000] text-[18px] font-semibold">
                                             {category.name}
                                         </span>
-                                        <ChevronRight className="h-5 w-5 text-gray-400" />
+                                        {/* <ChevronRight className="h-5 w-5 text-gray-400" /> */}
                                     </button>
                                 ))}
                             </div>
@@ -87,17 +103,17 @@ export default function VideoDetailPage() {
                     {/* Main Content - Video Player */}
                     <div className="lg:col-span-3">
                         {/* Video Title */}
-                        <div className="bg-[#d4e7f6] rounded-xl px-6 py-4 mb-6">
+                        {/* <div className="bg-[#d4e7f6] rounded-xl px-6 py-4 mb-6">
                             <h1 className="text-2xl font-bold text-[#003863]">
                                 {video.title}
                             </h1>
-                        </div>
+                        </div> */}
 
                         {/* Video Player */}
-                        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-6">
-                            <div className="relative aspect-video bg-black">
+                        <div className="mb-6">
+                            <div className="">
                                 <video
-                                    className="w-full h-full"
+                                    className="w-full h-full rounded-[20px]"
                                     controls
                                     poster={`/thumbnails/${video.id}.jpg`}
                                 >
@@ -107,14 +123,16 @@ export default function VideoDetailPage() {
                             </div>
 
                             {/* Video Description */}
-                            <div className="p-6">
-                                <div className="relative">
-                                    <p className="text-gray-700 text-sm leading-relaxed whitespace-pre-line">
-                                        {isDescriptionExpanded ? fullDescription : shortDescription}
-                                        {!isDescriptionExpanded && descriptionLines.length > 2 && '...'}
+                            <div className="">
+                                <div>
+                                    <h3 className="text-[36px] text-[#003863] font-semibold py-5">There’s nothing quite like the pure joy of a happy dog</h3>
+                                    <p className="text-[#003863] text-[18px] whitespace-pre-line">
+                                        {fullDescription}
+                                        {/* {isDescriptionExpanded ? fullDescription : shortDescription} */}
+                                        {/* {!isDescriptionExpanded && descriptionLines.length > 2 && '...'} */}
                                     </p>
-
-                                    {descriptionLines.length > 2 && (
+{/* 
+                                   {descriptionLines.length > 2 && (
                                         <button
                                             onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
                                             className="mt-4 flex items-center gap-2 text-[#003863] font-semibold hover:underline transition-colors"
@@ -131,7 +149,7 @@ export default function VideoDetailPage() {
                                                 </>
                                             )}
                                         </button>
-                                    )}
+                                    )}  */}
                                 </div>
                             </div>
                         </div>
@@ -146,7 +164,7 @@ export default function VideoDetailPage() {
                                 Back to Videos
                             </Button>
 
-                            <div className="flex gap-3">
+                            {/* <div className="flex gap-3">
                                 <Button
                                     variant="outline"
                                     className="border-[#003863] text-[#003863] hover:bg-[#e1eef4] rounded-full px-6"
@@ -159,11 +177,11 @@ export default function VideoDetailPage() {
                                     Next Video
                                     <ChevronRight className="h-5 w-5" />
                                 </Button>
-                            </div>
+                            </div> */}
                         </div>
 
                         {/* Related Videos */}
-                        <div className="mt-10">
+                        {/* <div className="mt-10">
                             <h2 className="text-2xl font-bold text-[#003863] mb-6">
                                 Related Videos
                             </h2>
@@ -192,7 +210,7 @@ export default function VideoDetailPage() {
                                     </div>
                                 ))}
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

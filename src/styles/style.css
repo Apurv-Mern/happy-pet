@@ -1,11 +1,38 @@
-@import url("https://db.onlinewebfonts.com/c/64c2e8d1ee862c5c12f9c8d54f7c2ba2?family=Gotcha+Standup");
-@import url("https://db.onlinewebfonts.com/c/5bfe38d7b22ff01d15d1e7e8fa45f5f2?family=Myriad+Pro");
+@import url('https://db.onlinewebfonts.com/c/64c2e8d1ee862c5c12f9c8d54f7c2ba2?family=Gotcha+Standup');
+@import url('https://db.onlinewebfonts.com/c/5bfe38d7b22ff01d15d1e7e8fa45f5f2?family=Myriad+Pro');
 
-
-
-.heading-line{
-    font-family: 'Gotcha Standup', myriad-pro;
+.heading-line {
+  font-family: 'Gotcha Standup', myriad-pro;
 }
-.colon{
-    font-family: "ABeeZee";
+.colon {
+  font-family: 'ABeeZee';
 }
+.colon {
+  font-family: 'ABeeZee';
+}
+.search-bar:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #003863 !important;
+}
+.about-image{
+      text-align: -webkit-right !important;
+}
+ .faq-pointer {
+    clip-path: polygon(0 0, 70% 0, 100% 50%, 70% 100%, 0 100%);
+    position: absolute;
+  }
+
+  /* BORDER AROUND THE CLIPPED SHAPE */
+  .faq-pointer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(0 0, 70% 0, 100% 50%, 70% 100%, 0 100%);
+    border: 1px solid #3D4760; 
+    border-radius: 5px;
+  }
+/* 
+.shadow-bottom {
+   box-shadow: 0px 25px 40px rgba(0, 0, 0, 0.45) !important;
+} */
