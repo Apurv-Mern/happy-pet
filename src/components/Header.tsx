@@ -48,13 +48,13 @@ const NavLink = ({
 }) => (
   <Link
     to={path}
-    className={`relative pb-1 transition-colors hover:text-[#035FA6] ${
-      isActive ? 'text-[#003863]' : 'text-[#003863]'
+    className={`font-semibold hover:bg-[#0E213A] hover:text-[#fff] rounded-[40px] py-[14px] px-[28px]${
+      isActive ? '' : ''
     }`}
   >
     {label}
     {isActive && (
-      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#003863]" />
+      <span className="" />
     )}
   </Link>
 )
@@ -185,7 +185,7 @@ export function Header() {
           </div>
 
           {/* Mobile Navigation Menu */}
-          <nav className="hidden lg:flex items-center justify-center gap-8 text-sm font-medium bg-white backdrop-blur-sm rounded-full px-8 py-3 mx-auto max-w-fit">
+          <nav className="hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit">
             {publicNavItems.map(item => (
               <NavLink
                 key={item.path}
@@ -209,13 +209,14 @@ export function Header() {
             <div className="relative">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] text-white rounded-full h-11 pl-4 pr-1.5 transition-colors"
-              >
-                <span className="text-xl">🇬🇧</span>
-                <span className="text-sm font-medium">Eng</span>
+                className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-[16px] transition-colors ml-[6px]"
+                > <div>
+                    <span className="text-xl">🇬🇧</span>
+                    <span className="text-sm font-medium">Eng</span>
+                  </div>
                 <ChevronDown className="h-4 w-4" />
-                <div className="rounded-full bg-[#D4E7F6] h-10 w-10 flex items-center justify-center ml-1">
-                  <MdLanguage className="text-black h-6 w-6" />
+                <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center ml-1 border-[2px] border-[#003863]">
+                  <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
                 </div>
               </button>
 

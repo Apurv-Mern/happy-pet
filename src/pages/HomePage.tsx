@@ -132,7 +132,7 @@ export function HomePage() {
                   />
                 </span>
               </button> */}
-              <button className="group absolute w-full max-w-[300px] text-[40px] bottom-0 left-0 bg-[#fff] pt-[20px] pb-[20px] rounded-tr-[30px] text-[#003863]  hover:bg-[#003863] hover:text-[#fff] transition">
+              <button className="group absolute w-full max-w-[300px] text-[30px] bottom-0 left-0 bg-[#fff] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#003863]  hover:bg-[#003863] hover:text-[#fff] transition">
                       Knowledge Hub
                       <span className="absolute right-[24px] top-[10px] text-white text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="rotate-[-25deg] transition-all duration-300 fill-[#003863] group-hover:fill-[#fff] w-[26px] h-[26px] bi bi-suit-heart" viewBox="0 0 16 16">
                         <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
@@ -159,7 +159,7 @@ export function HomePage() {
               </div>
 
               {/* <!-- Bottom label --> */}
-              <button className="absolute w-full max-w-[180px] sm:max-w-[250px] md:max-w-[300px] text-[24px] sm:text-[32px] md:text-[40px] bottom-0 left-0 bg-[#fff] pt-[12px] sm:pt-[16px] md:pt-[20px] pb-[12px] sm:pb-[16px] md:pb-[20px] rounded-tr-[20px] sm:rounded-tr-[25px] md:rounded-tr-[30px] text-[#003863]  hover:bg-[#003863] hover:text-[#fff] transition">
+              <button className="absolute w-full max-w-[180px] sm:max-w-[250px] md:max-w-[300px] text-[30px] bottom-0 left-0 bg-[#fff] pt-[26px]  pb-[26px] rounded-tr-[20px] sm:rounded-tr-[25px] md:rounded-tr-[30px] text-[#003863]  hover:bg-[#003863] hover:text-[#fff] transition">
                 AI Agent
                 <span className="absolute right-[12px] sm:right-[20px] md:right-[35px] top-[5px] sm:top-[8px] md:top-[10px] text-white text-sm">
                   <img
@@ -200,7 +200,7 @@ export function HomePage() {
                   />
                 </span>
               </button> */}
-              <button className="group absolute w-full max-w-[300px] text-[40px] bottom-0 left-0 bg-[#fff] pt-[20px] pb-[20px] rounded-tr-[30px] text-[#003863] hover:bg-[#003863] hover:text-[#fff] transition">
+              <button className="group absolute w-full max-w-[300px] text-[30px] bottom-0 left-0 bg-[#fff] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#003863] hover:bg-[#003863] hover:text-[#fff] transition">
                       Knowledge Hub
                       <span className="absolute right-[20px] top-[10px] text-white text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="transition-all duration-300 fill-[#003863] group-hover:fill-[#fff] w-[28px] h-[28px]  bi bi-play-circle-fill" viewBox="0 0 16 16">
                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"/>
@@ -238,12 +238,12 @@ export function HomePage() {
                 fabulous and feel loved. Because to us, your pet isn’t just a
                 client – they’re family.
               </p>
-              <button className="flex items-center bg-[#003863] text-white font-semibold text-lg rounded-full pl-6 pr-[2px] pt-[2px] pb-[2px] mt-7 hover:bg-[#002a5c] transition">
+              <button className="flex items-center bg-[#fff] text-black font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#0E213A] hover:text-[#fff] transition">
                 Learn More
-                <span className="ml-3 flex items-center justify-center w-[49px] h-[49px] bg-[#D4E7F6] rounded-full border-[3px] border-[#04528E]">
+                <span className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[49px] lg:h-[49px] bg-[#0E213A] rounded-full border-[2px]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-4 h-4 text-[#003863]"
+                    className="w-4 h-4 text-[#fff]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -349,272 +349,342 @@ export function HomePage() {
               }}
             >
               <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
-                </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
-                </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
-                </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
-                </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
-                </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
-                </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
-                </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
-                </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
-                </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
-                </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
-                </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
-                </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="bg-white rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px]">
-                  <p className="relative text-center text-[18px]">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it.
-                  </p>
-                  <span className="absolute text-[44px] top-0 text-[#003863] colon">
-                    “
-                  </span>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
                 </div>
-                <div className="bg-white rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center border-t-[1px] border-[#B2CADB] flex items-center justify-center gap-4">
-                  <img src="/assets/images/test.png" alt="" />
-                  <h5 className="heading-line text-[32px]">Lillian</h5>
-                  <p className="text-[20px] border-l-[1px] border-[#B2CADB] pl-[12px]">
-                    UK
-                  </p>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
                 </div>
               </SwiperSlide>
             </Swiper>
             <div className="flex justify-center gap-6 mt-6">
-              <button className="custom-prev">
-                <i className="bi bi-arrow-left text-[#003863] text-[28px]"></i>
+              <button className="custom-prev bg-[#003863] rounded-full w-[48px] h-[48px] border-[3px] border-[#0E213A]">
+                <i className="bi bi-arrow-left text-[#fff] text-[28px]"></i>
               </button>
-              <button className="custom-next">
-                <i className="bi bi-arrow-right text-[#003863] text-[28px]"></i>
+              <button className="custom-next bg-[#003863] rounded-full w-[48px] h-[48px] border-[3px] border-[#0E213A]">
+                <i className="bi bi-arrow-right text-[#fff] text-[28px]"></i>
               </button>
             </div>
           </div>

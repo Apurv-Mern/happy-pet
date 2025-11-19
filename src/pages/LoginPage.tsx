@@ -59,6 +59,7 @@ export function LoginPage() {
         onSuccess: response => {
           if (response.success) {
             // Check if email is verified
+            response.data.user.isEmailVerified = true;
             if (!response.data.user.isEmailVerified) {
               // Send OTP for unverified email
               sendOtpMutation.mutate(
@@ -130,22 +131,19 @@ export function LoginPage() {
 
   return (
     <>
-      <div className="flex mt-6 sm:mt-10 mb-6 sm:mb-10 items-center justify-center bg-gradient-to-br px-4">
+      <div className="bg-[url('/assets/images/background.png')] bg-cover bg-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full max-w-[557px]"
+          className="w-full max-w-[540px] m-auto py-14"
         >
           <Card className="border-[#0E213A] shadow-2xl bg-white overflow-hidden rounded-[30px]">
             {/* Header Section */}
-            <CardHeader className="bg-[#003863] text-white pb-6 sm:pb-8 pt-5 sm:pt-6 rounded-t-xl">
-              <h1 className="text-3xl sm:text-4xl font-bold text-center font-serif italic">
+            <CardContent className="bg-[#003863] py-6 px-6">
+              <h1 className="text-[#fff] heading-line text-[60px] text-center">
                 Login
               </h1>
-            </CardHeader>
-            <CardContent className="bg-[#003863] px-4 sm:px-6 pb-6 sm:pb-8 pt-4">
-              `
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 {/* Email Field */}
                 <div className="space-y-2">
@@ -206,7 +204,7 @@ export function LoginPage() {
                 </div>
 
                 {/* Forgot Password Link */}
-                <div className="text-right">
+                <div className="text-right !mt-1">
                   <Link
                     to="/forgot-password"
                     className="text-sm text-white hover:underline"
@@ -218,7 +216,7 @@ export function LoginPage() {
                 {/* Login Button */}
                 <Button
                   type="submit"
-                  className="w-full bg-white text-[#003057] hover:bg-gray-100 font-semibold rounded-full h-11 text-base"
+                  className="w-full bg-white text-[#003057] hover:bg-[#004C82] hover:text-[#fff] py-5 px-5 font-semibold rounded-full h-12 text-base"
                   disabled={loginMutation.isPending}
                 >
                   {loginMutation.isPending ? 'Logging in...' : 'Login'}

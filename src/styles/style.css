@@ -15,5 +15,24 @@
   box-shadow: none !important;
   border-color: #003863 !important;
 }
+.about-image{
+      text-align: -webkit-right !important;
+}
+ .faq-pointer {
+    clip-path: polygon(0 0, 70% 0, 100% 50%, 70% 100%, 0 100%);
+    position: absolute;
+  }
 
-
+  /* BORDER AROUND THE CLIPPED SHAPE */
+  .faq-pointer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(0 0, 70% 0, 100% 50%, 70% 100%, 0 100%);
+    border: 1px solid #3D4760; 
+    border-radius: 5px;
+  }
+/* 
+.shadow-bottom {
+   box-shadow: 0px 25px 40px rgba(0, 0, 0, 0.45) !important;
+} */
