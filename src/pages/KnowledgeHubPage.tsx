@@ -3,15 +3,7 @@ import { Play, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-
-
-interface Video {
-  id: string
-  title: string
-  description: string
-  thumbnail: string
-  category: string
-}
+import { useLearningModulesQuery } from '@/api/learningModule'
 
 interface Category {
   id: string
@@ -24,54 +16,32 @@ const categories: Category[] = [
   { id: 'happy-cat', name: 'Happy Cat', count: 18 },
 ]
 
-const videos: Video[] = [
-  {
-    id: '1',
-    title: "There's nothing quite like the pure joy of a happy dog",
-    description:
-      "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment. Whether it's a walk in the park, a favorite treat, or a simple belly rub, a dog's happiness is contagious.",
-    thumbnail: '/path-to-dog-video-thumbnail.jpg',
-    category: 'happy-dog',
-  },
-  {
-    id: '2',
-    title: "There's nothing quite like the pure joy of a happy dog",
-    description:
-      "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment. Whether it's a walk in the park, a favorite treat, or a simple belly rub, a dog's happiness is contagious.",
-    thumbnail: '/path-to-dog-video-thumbnail-2.jpg',
-    category: 'happy-dog',
-  },
-  {
-    id: '3',
-    title: "There's nothing quite like the pure joy of a happy dog",
-    description:
-      "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment.",
-    thumbnail: '/path-to-dog-video-thumbnail-3.jpg',
-    category: 'happy-dog',
-  },
-  {
-    id: '4',
-    title: "There's nothing quite like the pure joy of a happy dog",
-    description:
-      "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment.",
-    thumbnail: '/path-to-dog-video-thumbnail-4.jpg',
-    category: 'happy-dog',
-  },
-]
-
 export default function KnowledgeHubPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('happy-dog')
   const [currentPage, setCurrentPage] = useState(1)
   const navigate = useNavigate()
-  const itemsPerPage = 4
+  const itemsPerPage = 8
 
-  const filteredVideos = selectedCategory
-    ? videos.filter(video => video.category === selectedCategory)
-    : videos
+  const { data: response, isLoading } = useLearningModulesQuery(
+    currentPage,
+    itemsPerPage,
+    'video'
+  )
 
-  const totalPages = Math.ceil(filteredVideos.length / itemsPerPage)
-  const startIndex = (currentPage - 1) * itemsPerPage
-  const currentVideos = filteredVideos.slice(startIndex, startIndex + itemsPerPage)
+  const videos = response?.data?.content || []
+  const pagination = response?.data?.pagination
+  const totalPages = pagination?.totalPages || 1
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003863] mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading videos...</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <motion.div
@@ -111,10 +81,11 @@ export default function KnowledgeHubPage() {
                       setSelectedCategory(category.id)
                       setCurrentPage(1)
                     }}
-                    className={`w-full flex items-center justify-between px-6 py-4 hover:bg-[#e1eef4] transition-colors ${selectedCategory === category.id
-                      ? 'bg-[#e1eef4] border-l-4 border-[#003863]'
-                      : ''
-                      }`}
+                    className={`w-full flex items-center justify-between px-6 py-4 hover:bg-[#e1eef4] transition-colors ${
+                      selectedCategory === category.id
+                        ? 'bg-[#e1eef4] border-l-4 border-[#003863]'
+                        : ''
+                    }`}
                   >
                     <span className="text-[#003863] font-medium">
                       {category.name}
@@ -137,56 +108,60 @@ export default function KnowledgeHubPage() {
 
             {/* Video Grid */}
             <div className="space-y-6">
-              {currentVideos.map((video, index) => (
-                <motion.div
-                  key={video.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  onClick={() => navigate(`/video/${video.id}`)}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
-                >
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
-                    {/* Video Thumbnail */}
-                    <div className="relative group cursor-pointer">
-                      <div className="relative rounded-xl overflow-hidden aspect-video bg-gray-200">
-                        <img
-                          src={video.thumbnail}
-                          alt={video.title}
-                          className="w-full h-full object-cover"
-                        />
-                        {/* Play Button Overlay */}
-                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
-                          <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <Play className="h-8 w-8 text-[#003863] ml-1" fill="currentColor" />
+              {videos.length === 0 ? (
+                <div className="text-center py-12">
+                  <p className="text-gray-600">No videos available</p>
+                </div>
+              ) : (
+                videos.map((video, index) => (
+                  <motion.div
+                    key={video._id || video.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    onClick={() => navigate(`/video/${video._id || video.id}`)}
+                    className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+                      {/* Video Thumbnail */}
+                      <div className="relative group cursor-pointer">
+                        <div className="relative rounded-xl overflow-hidden aspect-video bg-gray-200">
+                          {video.thumbnail ? (
+                            <img
+                              src={video.thumbnail}
+                              alt={video.title}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-[#e1eef4]">
+                              <Play className="h-12 w-12 text-[#003863]" />
+                            </div>
+                          )}
+                          {/* Play Button Overlay */}
+                          <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
+                            <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                              <Play
+                                className="h-8 w-8 text-[#003863] ml-1"
+                                fill="currentColor"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Video Details */}
-                    <div className="md:col-span-2 flex flex-col">
-                      <h3 className="text-xl font-bold text-[#003863] mb-3">
-                        {video.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
-                        {video.description}
-                      </p>
-                      {/* <div className="flex items-center gap-4">
-                        <Button className="bg-[#003863] hover:bg-[#002d4d] text-white rounded-full px-6">
-                          Watch Now
-                        </Button>
-                        <Button
-                          variant="outline"
-                          className="border-[#003863] text-[#003863] hover:bg-[#e1eef4] rounded-full px-6"
-                        >
-                          Save for Later
-                        </Button>
-                      </div> */}
+                      {/* Video Details */}
+                      <div className="md:col-span-2 flex flex-col">
+                        <h3 className="text-xl font-bold text-[#003863] mb-3">
+                          {video.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow line-clamp-4">
+                          {video.content || video.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))
+              )}
             </div>
 
             {/* Pagination */}
@@ -204,17 +179,20 @@ export default function KnowledgeHubPage() {
                 <Button
                   key={page}
                   onClick={() => setCurrentPage(page)}
-                  className={`w-10 h-10 rounded-lg ${currentPage === page
-                    ? 'bg-[#003863] text-white hover:bg-[#002d4d]'
-                    : 'bg-white text-[#003863] border border-[#003863] hover:bg-[#e1eef4]'
-                    }`}
+                  className={`w-10 h-10 rounded-lg ${
+                    currentPage === page
+                      ? 'bg-[#003863] text-white hover:bg-[#002d4d]'
+                      : 'bg-white text-[#003863] border border-[#003863] hover:bg-[#e1eef4]'
+                  }`}
                 >
                   {page}
                 </Button>
               ))}
 
               <Button
-                onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                onClick={() =>
+                  setCurrentPage(prev => Math.min(totalPages, prev + 1))
+                }
                 disabled={currentPage === totalPages}
                 variant="outline"
                 className="rounded-lg border-[#003863] text-[#003863] hover:bg-[#e1eef4] disabled:opacity-50"

@@ -9,16 +9,20 @@ import {
 
 export default function LearningModePage() {
   const [currentPage, setCurrentPage] = useState(1)
-  const { data: learningModules, isLoading } = useLearningModulesQuery()
   const itemsPerPage = 8
+
+  const { data: response, isLoading } = useLearningModulesQuery(
+    currentPage,
+    itemsPerPage,
+    'document'
+  )
 
   const { mutate: fetchPresignedUrl } = usePresignedUrlForViewingMutation()
   const newWindowRef = useRef<Window | null>(null)
 
-  const modules = learningModules || []
-  const totalPages = Math.ceil(modules.length / itemsPerPage)
-  const startIndex = (currentPage - 1) * itemsPerPage
-  const currentModules = modules.slice(startIndex, startIndex + itemsPerPage)
+  const modules = response?.data?.content || []
+  const pagination = response?.data?.pagination
+  const totalPages = pagination?.totalPages || 1
 
   const handleView = (module: {
     id?: string
@@ -128,7 +132,7 @@ export default function LearningModePage() {
 
         {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-          {currentModules.map((module, index) => (
+          {modules.map((module, index) => (
             <motion.div
               key={module.id}
               className="bg-[#E1EEF4] rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow"
