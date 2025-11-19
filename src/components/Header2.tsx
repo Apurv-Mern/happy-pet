@@ -11,29 +11,7 @@ import {
 } from 'react-icons/fa6'
 import React, { useState, useEffect } from 'react'
 import { useAuthStore } from '@/store/useAuthStore'
-
-// Define navigation items
-const publicNavItems = [
-  { path: '/', label: 'HOME' },
-  { path: '/about', label: 'ABOUT US' },
-  { path: '/faqs', label: 'FAQS' },
-  { path: '/contact', label: 'CONTACT US' },
-]
-
-const protectedNavItems = [
-  { path: '/knowledge-hub', label: 'KNOWLEDGE HUB' },
-  { path: '/learning-module', label: 'LEARNING MODULE' },
-  { path: '/ai-agent', label: 'AI AGENT' },
-]
-
-const languages = [
-  { code: 'de', name: 'German', flag: '🇩🇪' },
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'ar', name: 'Arabic', flag: '🇦🇪' },
-  { code: 'ms', name: 'Malay', flag: '🇲🇾' },
-  { code: 'th', name: 'Thai', flag: '🇹🇭' },
-  { code: 'id', name: 'Bahasa', flag: '🇮🇩' },
-]
+import { useTranslation } from '@/contexts/I18nContext'
 
 // NavLink Component
 const NavLink = ({
@@ -52,9 +30,7 @@ const NavLink = ({
     }`}
   >
     {label}
-    {isActive && (
-      <span className="" />
-    )}
+    {isActive && <span className="" />}
   </Link>
 )
 
@@ -63,8 +39,23 @@ export function Header2() {
   const navigate = useNavigate()
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
-  const [selectedLanguage, setSelectedLanguage] = useState<string>('English')
   const { isAuthenticated, logout, user } = useAuthStore()
+  const { t, setLanguage, availableLanguages } = useTranslation()
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('English')
+
+  // Define navigation items with translations
+  const publicNavItems = [
+    { path: '/', label: t('header.home') },
+    { path: '/about', label: t('header.about') },
+    { path: '/faqs', label: t('header.faqs') },
+    { path: '/contact', label: t('header.contact') },
+  ]
+
+  const protectedNavItems = [
+    { path: '/knowledge-hub', label: t('header.knowledgeHub') },
+    { path: '/learning-module', label: t('header.learningModule') },
+    { path: '/ai-agent', label: t('header.aiAgent') },
+  ]
 
   // Prevent background scrolling when mobile menu is open
   useEffect(() => {
@@ -80,15 +71,18 @@ export function Header2() {
   }, [isMobileMenuOpen])
 
   const handleSelectLanguage = (code: string) => {
-    // TODO: integrate with i18n solution
-    console.log('Selected language:', code)
+    setLanguage(code)
     setIsDropdownOpen(false)
   }
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedLanguage(e.target.value)
-    // TODO: integrate with i18n solution
-    console.log('Selected language:', e.target.value)
+    const langName = e.target.value
+    setSelectedLanguage(langName)
+    // Find the language code from the name
+    const lang = availableLanguages.find(l => l.name === langName)
+    if (lang) {
+      setLanguage(lang.code)
+    }
   }
 
   const handleLogout = () => {
@@ -225,9 +219,11 @@ export function Header2() {
                         onChange={handleLanguageChange}
                         className="bg-[#D4E7F6] text-[#003863] rounded-lg px-3 py-1.5 font-medium focus:outline-none focus:ring-2 focus:ring-[#035FA6]"
                       >
-                        <option value="English">English</option>
-                        <option value="हिंदी">हिंदी</option>
-                        <option value="తెలుగు">తెలుగు</option>
+                        {availableLanguages.map(lang => (
+                          <option key={lang.code} value={lang.name}>
+                            {lang.flag} {lang.name}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -364,7 +360,7 @@ export function Header2() {
                     Select Language
                   </h3>
                   <div className="space-y-3">
-                    {languages.map(lang => (
+                    {availableLanguages.map(lang => (
                       <button
                         key={lang.code}
                         onClick={() => handleSelectLanguage(lang.code)}

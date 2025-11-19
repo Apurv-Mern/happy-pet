@@ -12,29 +12,7 @@ import {
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useAuthStore } from '@/store/useAuthStore'
-
-// Define navigation items
-const publicNavItems = [
-  { path: '/', label: 'HOME' },
-  { path: '/about', label: 'ABOUT US' },
-  { path: '/faqs', label: 'FAQS' },
-  { path: '/contact', label: 'CONTACT US' },
-]
-
-const protectedNavItems = [
-  { path: '/knowledge-hub', label: 'KNOWLEDGE HUB' },
-  { path: '/learning-module', label: 'LEARNING MODULE' },
-  { path: '/ai-agent', label: 'AI AGENT' },
-]
-
-const languages = [
-  { code: 'de', name: 'German', flag: '🇩🇪' },
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'ar', name: 'Arabic', flag: '🇦🇪' },
-  { code: 'ms', name: 'Malay', flag: '🇲🇾' },
-  { code: 'th', name: 'Thai', flag: '🇹🇭' },
-  { code: 'id', name: 'Bahasa', flag: '🇮🇩' },
-]
+import { useTranslation } from '@/contexts/I18nContext'
 
 // NavLink Component
 const NavLink = ({
@@ -53,9 +31,7 @@ const NavLink = ({
     }`}
   >
     {label}
-    {isActive && (
-      <span className="" />
-    )}
+    {isActive && <span className="" />}
   </Link>
 )
 
@@ -65,10 +41,24 @@ export function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
   const { isAuthenticated, logout, user } = useAuthStore()
+  const { t, setLanguage, availableLanguages } = useTranslation()
+
+  // Define navigation items with translations
+  const publicNavItems = [
+    { path: '/', label: t('header.home') },
+    { path: '/about', label: t('header.about') },
+    { path: '/faqs', label: t('header.faqs') },
+    { path: '/contact', label: t('header.contact') },
+  ]
+
+  const protectedNavItems = [
+    { path: '/knowledge-hub', label: t('header.knowledgeHub') },
+    { path: '/learning-module', label: t('header.learningModule') },
+    { path: '/ai-agent', label: t('header.aiAgent') },
+  ]
 
   const handleSelectLanguage = (code: string) => {
-    // TODO: integrate with i18n solution
-    console.log('Selected language:', code)
+    setLanguage(code)
     setIsDropdownOpen(false)
   }
 
@@ -145,13 +135,13 @@ export function Header() {
             <div className="flex items-center gap-4 justify-end">
               {/* Search bar - hidden on mobile */}
               <div className="hidden lg:flex items-center gap-2 pl-3 bg-white rounded-full">
-                <Input
+                {/* <Input
                   placeholder="Find the best for your pet..."
                   className="search-bar w-64 border-none focus:ring-0 focus:border-transparent h-9 text-[#003863] placeholder:text-[#003863] font-normal text-lg"
                 />
                 <Button className="h-[44px] w-[44px] rounded-full  p-0 bg-[#0E213A] border-2 hover:bg-[#0E213A]">
                   <Search className="h-[22px] w-[22px] text-white" />
-                </Button>
+                </Button> */}
               </div>
 
               {/* Login/User button - hidden on small mobile */}
@@ -210,10 +200,12 @@ export function Header() {
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-[16px] transition-colors ml-[6px]"
-                > <div>
-                    <span className="text-xl">🇬🇧</span>
-                    <span className="text-sm font-medium">Eng</span>
-                  </div>
+              >
+                {' '}
+                <div>
+                  <span className="text-xl">🇬🇧</span>
+                  <span className="text-sm font-medium">Eng</span>
+                </div>
                 <ChevronDown className="h-4 w-4" />
                 <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center ml-1 border-[2px] border-[#003863]">
                   <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
@@ -226,7 +218,7 @@ export function Header() {
                     Select Language
                   </h3>
                   <div className="space-y-3">
-                    {languages.map(lang => (
+                    {availableLanguages.map(lang => (
                       <button
                         key={lang.code}
                         onClick={() => handleSelectLanguage(lang.code)}
@@ -306,7 +298,7 @@ export function Header() {
 
                   {isDropdownOpen && (
                     <div className="mt-3 space-y-2">
-                      {languages.map(lang => (
+                      {availableLanguages.map(lang => (
                         <button
                           key={lang.code}
                           onClick={() => {
@@ -363,13 +355,13 @@ export function Header() {
             {/* Left column - text (shows first on mobile) */}
             <div className="w-full lg:basis-2/3 px-4 lg:px-0">
               <h3 className="text-[28px] sm:text-[38px] md:text-[55px] lg:text-[85px] text-[#fff] leading-tight heading-line">
-                Find the love of your pet's life
+                {t('header.heroTitle')}
               </h3>
               <p className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] text-[#fff] font-semibold mt-3">
-                Love isn't just for humans - Let your pet find theirs!
+                {t('header.heroSubtitle')}
               </p>
               <button className="flex items-center bg-[#fff] text-black font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#0E213A] hover:text-[#fff] transition">
-                Get Started
+                {t('header.getStarted')}
                 <span className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[49px] lg:h-[49px] bg-[#0E213A] rounded-full border-[2px]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -14,6 +14,7 @@ import {
 } from 'react-icons/fa6'
 import { useContactMutation } from '@/api/contact'
 import { useToast } from '@/hooks/use-toast'
+import { useTranslation } from '@/contexts/I18nContext'
 
 const contactSchema = z.object({
   fullName: z.string().min(2, 'fullName must be at least 2 characters'),
@@ -57,6 +58,7 @@ export function ContactUsPage() {
   const [submitMessage, setSubmitMessage] = useState('')
   const { toast } = useToast()
   const contactMutation = useContactMutation()
+  const { t } = useTranslation()
 
   const {
     register,
@@ -116,10 +118,10 @@ export function ContactUsPage() {
           className="text-center"
         >
           <h1 className="text-4xl sm:text-5xl font-bold text-[#003863] mb-2 sm:mb-3">
-            Contact Us
+            {t('contactPage.title')}
           </h1>
           <p className="text-base sm:text-lg text-gray-600">
-            We'd love to hear from you. Get in touch with us today!
+            {t('contactPage.subtitle')}
           </p>
         </motion.div>
       </div>
@@ -160,7 +162,7 @@ export function ContactUsPage() {
         className="mx-auto max-w-[700px] bg-white rounded-2xl shadow-xl p-10"
       >
         <h2 className="text-3xl font-bold text-[#003863] mb-8 text-center">
-          Send us a Message
+          {t('contactPage.formTitle')}
         </h2>
 
         {submitMessage && (
@@ -182,12 +184,12 @@ export function ContactUsPage() {
               htmlFor="name"
               className="block text-sm font-medium text-[#003863] mb-2"
             >
-              Full Name
+              {t('contactPage.fullName')}
             </label>
             <Input
               id="name"
               type="text"
-              placeholder="Enter your full name"
+              placeholder={t('contactPage.fullNamePlaceholder')}
               {...register('fullName')}
               className="w-full border-2 border-[#cfe0e8] rounded-lg h-11 px-4 focus:border-[#003863] focus:outline-none transition-colors"
             />
@@ -204,12 +206,12 @@ export function ContactUsPage() {
               htmlFor="email"
               className="block text-sm font-medium text-[#003863] mb-2"
             >
-              Email Address
+              {t('contactPage.email')}
             </label>
             <Input
               id="email"
               type="email"
-              placeholder="Enter your email address"
+              placeholder={t('contactPage.emailPlaceholder')}
               {...register('email')}
               className="w-full border-2 border-[#cfe0e8] rounded-lg h-11 px-4 focus:border-[#003863] focus:outline-none transition-colors"
             />
@@ -226,12 +228,12 @@ export function ContactUsPage() {
               htmlFor="phone"
               className="block text-sm font-medium text-[#003863] mb-2"
             >
-              Phone Number
+              {t('contactPage.phone')}
             </label>
             <Input
               id="phone"
               type="tel"
-              placeholder="Enter your phone number"
+              placeholder={t('contactPage.phonePlaceholder')}
               {...register('phone')}
               className="w-full border-2 border-[#cfe0e8] rounded-lg h-11 px-4 focus:border-[#003863] focus:outline-none transition-colors"
             />
@@ -248,12 +250,12 @@ export function ContactUsPage() {
               htmlFor="subject"
               className="block text-sm font-medium text-[#003863] mb-2"
             >
-              Subject
+              {t('contactPage.subject')}
             </label>
             <Input
               id="subject"
               type="text"
-              placeholder="What is this about?"
+              placeholder={t('contactPage.subjectPlaceholder')}
               {...register('subject')}
               className="w-full border-2 border-[#cfe0e8] rounded-lg h-11 px-4 focus:border-[#003863] focus:outline-none transition-colors"
             />
@@ -270,11 +272,11 @@ export function ContactUsPage() {
               htmlFor="message"
               className="block text-sm font-medium text-[#003863] mb-2"
             >
-              Message
+              {t('contactPage.message')}
             </label>
             <textarea
               id="message"
-              placeholder="Enter your message here..."
+              placeholder={t('contactPage.messagePlaceholder')}
               {...register('message')}
               rows={5}
               className="w-full border-2 border-[#cfe0e8] rounded-lg px-4 py-3 focus:border-[#003863] focus:outline-none transition-colors resize-none"
@@ -293,7 +295,9 @@ export function ContactUsPage() {
             className="w-full bg-[#003863] text-white hover:bg-[#002d4d] font-semibold rounded-lg h-11 flex items-center justify-center gap-2 transition-colors"
           >
             <Send className="h-5 w-5" />
-            {contactMutation.isPending ? 'Sending...' : 'Send Message'}
+            {contactMutation.isPending
+              ? t('contactPage.sending')
+              : t('contactPage.sendMessage')}
           </Button>
         </form>
       </motion.div>
@@ -301,7 +305,7 @@ export function ContactUsPage() {
       {/* Social Media Section */}
       <div className="mx-auto max-w-[1200px] mt-16 text-center">
         <h3 className="text-2xl font-bold text-[#003863] mb-6">
-          Follow Us On Social Media
+          {t('contactPage.followUs')}
         </h3>
         <div className="flex justify-center gap-6">
           <a

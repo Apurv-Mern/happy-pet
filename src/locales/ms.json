@@ -1,0 +1,228 @@
+{
+    "common": {
+        "appName": "Haiwan Kesayangan Gembira",
+        "loading": "Memuatkan...",
+        "error": "Ralat",
+        "success": "Berjaya",
+        "submit": "Hantar",
+        "cancel": "Batal",
+        "save": "Simpan",
+        "delete": "Padam",
+        "edit": "Edit",
+        "search": "Cari",
+        "back": "Kembali",
+        "next": "Seterusnya",
+        "previous": "Sebelumnya",
+        "close": "Tutup",
+        "confirm": "Sahkan"
+    },
+    "header": {
+        "home": "LAMAN UTAMA",
+        "about": "TENTANG KAMI",
+        "faqs": "SOALAN LAZIM",
+        "contact": "HUBUNGI KAMI",
+        "knowledgeHub": "PUSAT PENGETAHUAN",
+        "learningModule": "MODUL PEMBELAJARAN",
+        "aiAgent": "EJEN AI",
+        "profile": "Profil",
+        "logout": "Log Keluar",
+        "login": "Log Masuk",
+        "signup": "Daftar",
+        "changePassword": "Tukar Kata Laluan",
+        "phoneNumber": "+91 6799009980",
+        "selectLanguage": "Pilih Bahasa",
+        "heroTitle": "Cari cinta dalam hidup haiwan kesayangan anda",
+        "heroSubtitle": "Cinta bukan hanya untuk manusia - Biarkan haiwan kesayangan anda mencari cinta mereka!",
+        "getStarted": "Mulakan"
+    },
+    "footer": {
+        "description": "Memperkasakan Pemilik Haiwan Kesayangan dengan Pengetahuan untuk Haiwan Kesayangan yang Lebih Gembira.",
+        "mainMenu": "Menu Utama",
+        "menu": "Menu",
+        "contactUs": "Hubungi Kami",
+        "email": "Youremailid@gmail.com",
+        "phone": "6789456874587",
+        "allRightsReserved": "© 2024 Haiwan Kesayangan Gembira. Hak cipta terpelihara."
+    },
+    "homePage": {
+        "title": "Terokai Perkhidmatan Haiwan Kesayangan Kami",
+        "subtitle": "Kami menawarkan perkhidmatan terbaik untuk haiwan kesayangan anda, hubungi kami hari ini dan tempah perkhidmatan",
+        "knowledgeHub": "Pusat Pengetahuan",
+        "aiAgent": "Ejen AI",
+        "learningModule": "Modul Pembelajaran",
+        "ourStory": "Kisah Kami",
+        "ourStoryTitle": "Kami komited sepenuhnya kepada kesejahteraan haiwan kesayangan anda",
+        "ourStorySubtitle": "Haiwan kesayangan yang sihat, hati yang gembira, pemilik yang lebih bijak!",
+        "ourStoryDescription": "Selama lebih 12 tahun, kami telah berdedikasi untuk menjadikan haiwan kesayangan kelihatan hebat dan berasa disayangi. Kerana bagi kami, haiwan kesayangan anda bukan sekadar pelanggan - mereka adalah keluarga.",
+        "learnMore": "Ketahui Lebih Lanjut",
+        "smartLearningTitle": "Pembelajaran Pintar untuk Haiwan Kesayangan yang Lebih Gembira",
+        "smartLearningSubtitle": "Belajar. Sayang. Jaga - Pemeliharaan Haiwan Kesayangan yang Lebih Bijak Bermula Di Sini.",
+        "testimonialsLabel": "Testimoni",
+        "testimonialsTitle": "Ulasan Pelanggan yang Gembira",
+        "testimonialsSubtitle": "Penjagaan Pintar untuk Haiwan Kesayangan yang Lebih Gembira",
+        "testimonialText": "Lorem Ipsum adalah teks dummy industri percetakan dan typesetting. Lorem Ipsum telah menjadi teks dummy standard industri sejak tahun 1500-an, apabila pencetak yang tidak dikenali mengambil galley jenis dan mengacaknya.",
+        "testimonialName": "Lillian",
+        "testimonialLocation": "UK"
+    },
+    "aboutPage": {
+        "title": "Tentang Kami",
+        "description": "Kami berdedikasi untuk menjadikan penjagaan haiwan kesayangan lebih mudah dan lebih mudah diakses untuk semua orang.",
+        "contentParagraph1": "Lorem Ipsum adalah teks dummy industri percetakan dan typesetting. Lorem Ipsum telah menjadi teks dummy standard industri sejak tahun 1500-an, apabila pencetak yang tidak dikenali mengambil galley jenis dan mengacaknya untuk membuat buku spesimen jenis. Ia telah bertahan bukan sahaja lima abad, tetapi juga lonjakan ke dalam typesetting elektronik, kekal pada dasarnya tidak berubah. Ia dipopularkan pada tahun 1960-an dengan keluaran helaian Letraset yang mengandungi petikan Lorem Ipsum, dan baru-baru ini dengan perisian penerbitan desktop seperti Aldus PageMaker termasuk versi Lorem Ipsum",
+        "contentParagraph2": "Lorem Ipsum adalah teks dummy industri percetakan dan typesetting. Lorem Ipsum telah menjadi teks dummy standard industri sejak",
+        "readMore": "Baca Lagi"
+    },
+    "contactPage": {
+        "title": "Hubungi Kami",
+        "subtitle": "Kami ingin mendengar daripada anda. Hubungi kami hari ini!",
+        "description": "Kami ingin mendengar daripada anda. Hantar mesej kepada kami dan kami akan membalas secepat mungkin.",
+        "formTitle": "Hantar Mesej kepada Kami",
+        "fullName": "Nama Penuh",
+        "email": "Alamat E-mel",
+        "phone": "Nombor Telefon",
+        "subject": "Subjek",
+        "message": "Mesej",
+        "sendMessage": "Hantar Mesej",
+        "sending": "Menghantar...",
+        "followUs": "Ikuti Kami di Media Sosial",
+        "emailTitle": "E-mel",
+        "emailDescription": "Hubungi melalui e-mel",
+        "phoneTitle": "Telefon",
+        "phoneDescription": "Hubungi kami bila-bila masa",
+        "locationTitle": "Lokasi",
+        "locationDescription": "Lawati pejabat kami",
+        "messageSent": "Mesej Dihantar!",
+        "messageSentDescription": "Terima kasih kerana menghubungi kami! Kami akan menghubungi anda tidak lama lagi.",
+        "messageFailed": "Gagal Dihantar",
+        "messageFailedDescription": "Gagal menghantar mesej. Sila cuba lagi.",
+        "fullNamePlaceholder": "Masukkan nama penuh anda",
+        "emailPlaceholder": "Masukkan alamat e-mel anda",
+        "phonePlaceholder": "Masukkan nombor telefon anda",
+        "subjectPlaceholder": "Apakah perkara ini?",
+        "messagePlaceholder": "Masukkan mesej anda di sini..."
+    },
+    "loginPage": {
+        "title": "Selamat Kembali!",
+        "subtitle": "Log masuk ke akaun anda",
+        "email": "E-mel",
+        "password": "Kata Laluan",
+        "emailPlaceholder": "Masukkan E-mel Anda",
+        "passwordPlaceholder": "Masukkan Kata Laluan Anda",
+        "rememberMe": "Ingat Saya",
+        "forgotPassword": "Lupa Kata Laluan?",
+        "loginButton": "Log Masuk",
+        "noAccount": "Tidak mempunyai Akaun?",
+        "signupLink": "Daftar",
+        "loginSuccess": "Log Masuk Berjaya",
+        "loginFailed": "Log Masuk Gagal",
+        "invalidCredentials": "E-mel atau kata laluan tidak sah",
+        "emailNotVerified": "E-mel Tidak Disahkan",
+        "verificationCodeSent": "Kod pengesahan dihantar. Sila semak e-mel anda.",
+        "showPassword": "Tunjukkan kata laluan",
+        "hidePassword": "Sembunyikan kata laluan"
+    },
+    "signupPage": {
+        "title": "Buat Akaun",
+        "subtitle": "Daftar akaun anda",
+        "name": "Nama",
+        "email": "E-mel",
+        "password": "Kata Laluan",
+        "phoneNumber": "Nombor Telefon",
+        "timezone": "Zon Masa",
+        "preferredLanguage": "Bahasa Pilihan",
+        "companyName": "Nama Syarikat",
+        "namePlaceholder": "Masukkan Nama Anda",
+        "emailPlaceholder": "Masukkan E-mel Anda",
+        "passwordPlaceholder": "Masukkan Kata Laluan Anda",
+        "phoneNumberPlaceholder": "Masukkan Nombor Telefon Anda",
+        "timezonePlaceholder": "Pilih Zon Masa",
+        "languagePlaceholder": "Pilih Bahasa",
+        "companyNamePlaceholder": "Masukkan Nama Syarikat (Pilihan)",
+        "signupButton": "Daftar",
+        "haveAccount": "Sudah mempunyai Akaun?",
+        "loginLink": "Log Masuk",
+        "registrationSuccess": "Pendaftaran Berjaya!",
+        "registrationSuccessDescription": "Sila semak e-mel anda untuk kod pengesahan.",
+        "registrationFailed": "Pendaftaran Gagal"
+    },
+    "forgotPasswordPage": {
+        "title": "Lupa Kata Laluan?",
+        "description": "Jangan risau. Masukkan alamat e-mel anda untuk menetapkan semula kata laluan anda.",
+        "email": "E-mel",
+        "emailPlaceholder": "Masukkan E-mel Anda",
+        "sendResetLink": "Hantar Pautan Tetapan Semula",
+        "backToLogin": "Kembali ke Log Masuk"
+    },
+    "verifyEmailPage": {
+        "title": "Sahkan E-mel",
+        "description": "Sila masukkan kod pengesahan yang dihantar ke e-mel anda",
+        "verificationCode": "Kod Pengesahan",
+        "verifyButton": "Sahkan",
+        "resendCode": "Hantar Semula Kod",
+        "verificationSuccess": "E-mel Disahkan!",
+        "verificationFailed": "Pengesahan Gagal"
+    },
+    "changePasswordPage": {
+        "title": "Tukar Kata Laluan",
+        "currentPassword": "Kata Laluan Semasa",
+        "newPassword": "Kata Laluan Baharu",
+        "confirmPassword": "Sahkan Kata Laluan",
+        "currentPasswordPlaceholder": "Masukkan kata laluan semasa",
+        "newPasswordPlaceholder": "Masukkan kata laluan baharu",
+        "confirmPasswordPlaceholder": "Sahkan kata laluan baharu",
+        "changePasswordButton": "Tukar Kata Laluan",
+        "passwordChanged": "Kata Laluan Ditukar!",
+        "passwordChangeFailed": "Gagal Menukar Kata Laluan"
+    },
+    "profilePage": {
+        "title": "Profil Saya",
+        "name": "Nama",
+        "email": "E-mel",
+        "userType": "Jenis Pengguna",
+        "preferredLanguage": "Bahasa Pilihan",
+        "notAvailable": "T/A"
+    },
+    "faqPage": {
+        "title": "Soalan Lazim",
+        "subtitle": "Cari jawapan kepada soalan lazim tentang Haiwan Kesayangan Gembira",
+        "questions": [
+            {
+                "question": "Bagaimana saya tahu jika haiwan kesayangan saya benar-benar gembira?",
+                "answer": "Haiwan kesayangan yang gembira adalah yang sihat, aktif, dan seimbang dari segi emosi. Cari ekor yang berayun, mata yang cerah, selera makan yang baik, dan tingkah laku yang penyayang - dan gunakan Penjejak Kegembiraan AI kami untuk memantau kesejahteraan haiwan kesayangan anda."
+            },
+            {
+                "question": "Adakah Haiwan Kesayangan Gembira tersedia sebagai aplikasi mudah alih?",
+                "answer": "Ya, Haiwan Kesayangan Gembira tersedia di kedua-dua platform iOS dan Android. Anda boleh memuat turunnya dari App Store atau Google Play Store untuk akses mudah semasa dalam perjalanan."
+            },
+            {
+                "question": "Apakah yang boleh saya pelajari dalam Modul Pembelajaran Haiwan Kesayangan?",
+                "answer": "Modul Pembelajaran Haiwan Kesayangan menawarkan kursus komprehensif tentang penjagaan haiwan kesayangan, pemakanan, latihan tingkah laku, pengurusan kesihatan, dan banyak lagi. Semua kandungan dicipta oleh pakar haiwan kesayangan."
+            },
+            {
+                "question": "Apakah itu Ejen AI Haiwan Kesayangan?",
+                "answer": "Ejen AI Haiwan Kesayangan kami adalah pembantu pintar yang memberikan cadangan yang diperibadikan untuk penjagaan haiwan kesayangan anda, menjawab soalan kesihatan, dan membantu anda membuat keputusan termaklum tentang kesejahteraan haiwan kesayangan anda."
+            },
+            {
+                "question": "Bolehkah saya mendapat nasihat yang disesuaikan untuk baka atau umur haiwan kesayangan saya?",
+                "answer": "Sudah tentu! Sistem AI kami menganalisis baka khusus haiwan kesayangan anda, umur, dan profil kesihatan untuk memberikan nasihat dan cadangan yang disesuaikan."
+            }
+        ]
+    },
+    "languages": {
+        "de": "Deutsch",
+        "en": "English",
+        "ar": "العربية",
+        "ms": "Bahasa Melayu",
+        "th": "ภาษาไทย",
+        "id": "Bahasa Indonesia"
+    },
+    "validation": {
+        "required": "Medan ini diperlukan",
+        "invalidEmail": "Alamat e-mel tidak sah",
+        "passwordMinLength": "Kata laluan mestilah sekurang-kurangnya 6 aksara",
+        "passwordMismatch": "Kata laluan tidak sepadan",
+        "phoneMinLength": "Nombor telefon mestilah sekurang-kurangnya 10 digit",
+        "nameMinLength": "Nama mestilah sekurang-kurangnya 2 aksara",
+        "subjectMinLength": "Subjek mestilah sekurang-kurangnya 5 aksara",
+        "messageMinLength": "Mesej mestilah sekurang-kurangnya 10 aksara"
+    }
+}

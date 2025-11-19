@@ -1,18 +1,20 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import en from '@/locales/en.json'
 import de from '@/locales/de.json'
+import ar from '@/locales/ar.json'
+import ms from '@/locales/ms.json'
+import th from '@/locales/th.json'
+import id from '@/locales/id.json'
 
-type TranslationKey = string
 type Translations = typeof en
 
 const translations: Record<string, Translations> = {
   en,
   de,
-  // Add more languages here as you create them
-  // ar: ar,
-  // ms: ms,
-  // th: th,
-  // id: id,
+  ar,
+  ms,
+  th,
+  id,
 }
 
 interface I18nContextType {
