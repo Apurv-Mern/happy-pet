@@ -1,20 +1,20 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { apiClient } from './axios'
-import {
-  LearningModule,
-  LearningModulesResponse,
-  PresignedUrlResponse,
-} from '@/types'
+import { LearningModulesResponse, PresignedUrlResponse } from '@/types'
+
+export type ContentType = 'document' | 'video'
 
 export const learningModuleApi = {
   getLearningModules: async (
     page: number,
-    limit: number
-  ): Promise<LearningModule[]> => {
+    limit: number,
+    type?: ContentType
+  ): Promise<LearningModulesResponse> => {
+    const typeParam = type ? `&type=${type}` : ''
     const { data } = await apiClient.get<LearningModulesResponse>(
-      `web/v1/content?page=${page}&limit=${limit}`
+      `web/v1/content?page=${page}&limit=${limit}${typeParam}`
     )
-    return data.data.content
+    return data
   },
 
   getPresignedUrlForViewing: async (
@@ -29,11 +29,12 @@ export const learningModuleApi = {
 
 export const useLearningModulesQuery = (
   page: number = 1,
-  limit: number = 20
+  limit: number = 20,
+  type?: ContentType
 ) => {
   return useQuery({
-    queryKey: ['learning-modules', page, limit],
-    queryFn: () => learningModuleApi.getLearningModules(page, limit),
+    queryKey: ['learning-modules', page, limit, type],
+    queryFn: () => learningModuleApi.getLearningModules(page, limit, type),
     retry: 1,
   })
 }

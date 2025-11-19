@@ -95,7 +95,7 @@ export function VerifyEmailPage() {
               title: 'Email Verified!',
               description: 'Your email has been verified successfully.',
             })
-            navigate('/', { replace: true })
+            navigate('/login', { replace: true })
           }
         },
         onError: (error: any) => {
@@ -145,31 +145,20 @@ export function VerifyEmailPage() {
   }
 
   return (
-    <div className="flex items-center justify-center mt-10 mb-10">
+    <div className="bg-[url('/assets/images/background.png')] bg-cover bg-center">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-[500px]"
+        className="w-full max-w-[540px] m-auto py-14"
       >
         <Card className="border-[#0E213A] rounded-[30px] shadow-2xl bg-white overflow-hidden">
           {/* Header Section */}
-          <CardHeader className="bg-[#003863] text-white pb-8 pt-8 rounded-t-xl text-center">
-            <h1 className="text-4xl sm:text-5xl font-bold font-serif italic mb-4">
+          <CardContent className="bg-[#003863] py-6 px-6">
+            <h1 className="text-[#fff] heading-line text-[60px] text-center">
               Verify your Email
             </h1>
-            <div className="space-y-2">
-              <p className="text-lg font-semibold">Thanks for signing up.</p>
-              <p className="text-sm">
-                We have send a verification code on your Email.
-              </p>
-              <p className="text-sm font-medium">
-                Please enter the verification code below
-              </p>
-            </div>
-          </CardHeader>
-
-          <CardContent className="bg-[#003863] px-6 sm:px-8 pb-8 pt-6">
+            <p className="text-[#fff] text-[18px] text-center py-[26px] font-semibold">Thanks for signing up.<br></br>  We have send a verification code on your Email.<br></br> Please enter the verification code below</p>
             {/* OTP Input Fields */}
             <div className="flex justify-center gap-2 sm:gap-3 mb-6">
               {otp.map((digit, index) => (
@@ -196,7 +185,7 @@ export function VerifyEmailPage() {
                 disabled={
                   verifyOtpMutation.isPending || otp.join('').length !== 6
                 }
-                className="w-full max-w-[280px] bg-white text-[#003863] hover:bg-gray-100 font-semibold rounded-full h-12 text-base disabled:opacity-50"
+                className="w-full max-w-[280px] bg-white text-[#003863] hover:bg-[#004C82] hover:text-[#fff] font-semibold rounded-full h-12 text-base disabled:opacity-50"
               >
                 {verifyOtpMutation.isPending ? (
                   <>

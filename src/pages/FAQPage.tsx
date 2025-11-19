@@ -48,33 +48,30 @@ export function FAQPage() {
   }
 
   return (
-    <div className="mt-6 sm:mt-10 mb-6 sm:mb-10 bg-gradient-to-br py-8 sm:py-12 px-4">
+    <div className="py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1 * 0.1 }}
-        className="  rounded-2xl  p-4 sm:p-8 text-center  "
+        className=""
       >
-        <div className="mx-auto max-w-[1000px]">
-          <div className="mb-6 sm:mb-10">
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#003863] text-center mb-2">
-              Frequently Asked Questions
+        <div className="container mx-auto">
+          <div className="border-b-[1px] border-[#003860] mb-[26px]">
+            <h1 className="heading-line text-[#003863] text-[64px]">
+              FAQs
             </h1>
-            <p className="text-center text-sm sm:text-base text-gray-600">
-              Find answers to common questions about Happy Pet
-            </p>
           </div>
 
-          <div className="space-y-3">
+          {/* <div className="space-y-3">
             {faqData.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                className="border-[1px] border-[#003863]"
               >
-                {/* Accordion Header */}
+                 Accordion Header 
                 <button
                   onClick={() => toggleAccordion(item.id)}
-                  className="w-full flex items-center justify-between bg-[#003863] text-white px-4 sm:px-6 py-3 sm:py-4 hover:bg-[#002d4d] transition-colors"
+                  className="w-full flex items-center justify-between bg-[#003863] text-white px-4 sm:px-6 py-3 sm:py-4"
                 >
                   <span className="text-left font-medium text-xs sm:text-sm">
                     {item.question}
@@ -85,9 +82,9 @@ export function FAQPage() {
                   />
                 </button>
 
-                {/* Accordion Content */}
+                 Accordion Content
                 {expandedId === item.id && (
-                  <div className="bg-[#e1eef4] px-4 sm:px-6 py-3 sm:py-4 border-t border-gray-200">
+                  <div className="bg-transparent px-4 sm:px-6 py-3 sm:py-4 border-t border-gray-200">
                     <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                       {item.answer}
                     </p>
@@ -95,7 +92,49 @@ export function FAQPage() {
                 )}
               </div>
             ))}
+          </div> */}
+          
+          <div className="space-y-4 w-full">
+            {faqData.map((item) => (
+              <div
+                key={item.id}
+                className=""
+              >
+                {/* HEADER */}
+                <button
+                  onClick={() => toggleAccordion(item.id)}
+                  className="relative w-full flex items-center rounded-[5px] justify-between bg-[#003863] text-white pl-12 pr-6 py-4"
+                >
+                  {/* LEFT WHITE RIBBON SHAPE */}
+                  <span
+                    className="faq-pointer absolute left-0 top-0 h-full w-6 bg-white"
+                  ></span>
+
+                  {/* QUESTION TEXT */}
+                  <span className="text-left text-[20px]">
+                    {item.question}
+                  </span>
+
+                  {/* ARROW */}
+                  <ChevronDown
+                    className={`h-5 w-5 transition-transform ${
+                      expandedId === item.id ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {/* CONTENT (STAYS OUTSIDE HEADER) */}
+                {expandedId === item.id && (
+                  <div className="bg-white px-6 py-4 border-[1px] border-[#003863] rounded-[5px] mt-[10px]">
+                    <p className="text-[#003863] text-[18px] leading-relaxed">
+                      {item.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
+
         </div>
       </motion.div>
     </div>

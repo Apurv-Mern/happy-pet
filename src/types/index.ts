@@ -45,10 +45,20 @@ export interface SocketEvent {
 
 export interface LearningModule {
   id: string
+  _id?: string
   title: string
   content: string
   type: string
   category: string
+  thumbnail?: string
+  description?: string
+}
+
+export interface PaginationData {
+  totalItems: number
+  totalPages: number
+  currentPage: number
+  itemsPerPage: number
 }
 
 export interface LearningModulesResponse {
@@ -56,6 +66,7 @@ export interface LearningModulesResponse {
   message: string
   data: {
     content: LearningModule[]
+    pagination: PaginationData
   }
 }
 
