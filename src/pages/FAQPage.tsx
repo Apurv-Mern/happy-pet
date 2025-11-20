@@ -1,47 +1,19 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useTranslation } from '@/contexts/I18nContext'
+
 interface FAQItem {
   id: string
   question: string
   answer: string
 }
 
-const faqData: FAQItem[] = [
-  {
-    id: '1',
-    question: 'How do I know if my pet is truly happy?',
-    answer:
-      "A happy pet is one that's healthy, active, and emotionally balanced. Look for wagging tails, bright eyes, good appetite, and affectionate behavior — and use our AI Happiness Tracker to monitor your pet's wellbeing.",
-  },
-  {
-    id: '2',
-    question: 'Is Happy Pet available as a mobile app?',
-    answer:
-      'Yes, Happy Pet is available on both iOS and Android platforms. You can download it from the App Store or Google Play Store for convenient access on the go.',
-  },
-  {
-    id: '3',
-    question: 'What can I learn in the Pet Learning Module?',
-    answer:
-      'The Pet Learning Module offers comprehensive courses on pet care, nutrition, behavior training, health management, and more. All content is created by pet experts.',
-  },
-  {
-    id: '4',
-    question: 'What is the Pet AI Agent?',
-    answer:
-      "Our Pet AI Agent is an intelligent assistant that provides personalized recommendations for your pet's care, answers health questions, and helps you make informed decisions about your pet's wellbeing.",
-  },
-  {
-    id: '5',
-    question: "Can I get customized advice for my pet's breed or age?",
-    answer:
-      "Absolutely! Our AI system analyzes your pet's specific breed, age, and health profile to provide tailored advice and recommendations.",
-  },
-]
-
 export function FAQPage() {
   const [expandedId, setExpandedId] = useState<string>('1')
+  const { t } = useTranslation()
+
+  const faqData: FAQItem[] = t('faqPage.questions')
 
   const toggleAccordion = (id: string) => {
     setExpandedId(expandedId === id ? '' : id)
@@ -58,7 +30,7 @@ export function FAQPage() {
         <div className="container mx-auto py-20">
           <div className="border-b-[1px] border-[#003860] mb-[26px]">
             <h1 className="heading-line text-[#003863] text-[64px]">
-              FAQs
+              {t('faqPage.title')}
             </h1>
           </div>
 
@@ -93,32 +65,25 @@ export function FAQPage() {
               </div>
             ))}
           </div> */}
-          
+
           <div className="space-y-4 w-full">
-            {faqData.map((item) => (
-              <div
-                key={item.id}
-                className=""
-              >
+            {faqData.map(item => (
+              <div key={item.id} className="">
                 {/* HEADER */}
                 <button
                   onClick={() => toggleAccordion(item.id)}
                   className="relative w-full flex items-center rounded-[5px] justify-between bg-[#003863] text-white pl-12 pr-6 py-4"
                 >
                   {/* LEFT WHITE RIBBON SHAPE */}
-                  <span
-                    className="faq-pointer absolute left-0 top-0 h-full w-6 bg-white"
-                  ></span>
+                  <span className="faq-pointer absolute left-0 top-0 h-full w-6 bg-white"></span>
 
                   {/* QUESTION TEXT */}
-                  <span className="text-left text-[20px]">
-                    {item.question}
-                  </span>
+                  <span className="text-left text-[20px]">{item.question}</span>
 
                   {/* ARROW */}
                   <ChevronDown
                     className={`h-5 w-5 transition-transform ${
-                      expandedId === item.id ? "rotate-180" : ""
+                      expandedId === item.id ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
@@ -134,7 +99,6 @@ export function FAQPage() {
               </div>
             ))}
           </div>
-
         </div>
       </motion.div>
     </div>

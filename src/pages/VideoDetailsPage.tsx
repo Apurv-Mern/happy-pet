@@ -53,10 +53,10 @@ export default function VideoDetailPage() {
 
     return (
         <div className="min-h-screen">
-            <div className="py-20">
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <div className="">
+                <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
                     {/* Sidebar - Categories */}
-                    <div className="lg:col-span-1">
+                    {/* <div className="lg:col-span-1">
                         <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center mb-5">
                         <input 
                             type="text" 
@@ -93,15 +93,15 @@ export default function VideoDetailPage() {
                                         <span className="text-[#000] text-[18px] font-semibold">
                                             {category.name}
                                         </span>
-                                        {/* <ChevronRight className="h-5 w-5 text-gray-400" /> */}
+                                         <ChevronRight className="h-5 w-5 text-gray-400" />
                                     </button>
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Main Content - Video Player */}
-                    <div className="lg:col-span-3">
+                    <div className="">
                         {/* Video Title */}
                         {/* <div className="bg-[#d4e7f6] rounded-xl px-6 py-4 mb-6">
                             <h1 className="text-2xl font-bold text-[#003863]">
@@ -126,7 +126,7 @@ export default function VideoDetailPage() {
                             <div className="">
                                 <div>
                                     <h3 className="text-[36px] text-[#003863] font-semibold py-5">There’s nothing quite like the pure joy of a happy dog</h3>
-                                    <p className="text-[#003863] text-[18px] whitespace-pre-line">
+                                    <p className="text-[#000] text-[18px] whitespace-pre-line">
                                         {fullDescription}
                                         {/* {isDescriptionExpanded ? fullDescription : shortDescription} */}
                                         {/* {!isDescriptionExpanded && descriptionLines.length > 2 && '...'} */}

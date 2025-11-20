@@ -30,7 +30,10 @@
         "signup": "Registrieren",
         "changePassword": "Passwort ändern",
         "phoneNumber": "+91 6799009980",
-        "selectLanguage": "Sprache auswählen"
+        "selectLanguage": "Sprache auswählen",
+        "heroTitle": "Finden Sie die Liebe im Leben Ihres Haustieres",
+        "heroSubtitle": "Liebe ist nicht nur für Menschen - Lassen Sie Ihr Haustier seine finden!",
+        "getStarted": "Loslegen"
     },
     "footer": {
         "description": "Wir befähigen Haustierbesitzer mit Wissen für glücklichere Haustiere.",
@@ -46,22 +49,62 @@
         "subtitle": "Wir bieten die besten Dienstleistungen für Ihre Haustiere, kontaktieren Sie uns noch heute und buchen Sie einen Service",
         "knowledgeHub": "Wissenszentrum",
         "aiAgent": "KI-Assistent",
-        "learningModule": "Lernmodul"
+        "learningModule": "Lernmodul",
+        "ourStory": "Unsere Geschichte",
+        "ourStoryTitle": "Wir sind vollständig dem Wohlbefinden Ihres Haustieres verpflichtet",
+        "ourStorySubtitle": "Gesunde Haustiere, glückliche Herzen, klügere Besitzer!",
+        "ourStoryDescription": "Seit über 12 Jahren widmen wir uns der Aufgabe, Haustiere fabelhaft aussehen und geliebt fühlen zu lassen. Denn für uns ist Ihr Haustier nicht nur ein Kunde – es ist Familie.",
+        "learnMore": "Mehr erfahren",
+        "smartLearningTitle": "Intelligentes Lernen für glücklichere Haustiere",
+        "smartLearningSubtitle": "Lernen. Lieben. Pflegen — Intelligentere Haustiererziehung beginnt hier.",
+        "testimonialsLabel": "Referenzen",
+        "testimonialsTitle": "Bewertungen zufriedener Kunden",
+        "testimonialsSubtitle": "Intelligente Pflege für glücklichere Haustiere",
+        "testimonialText": "Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem Ipsum ist seit den 1500er Jahren der Standard-Dummy-Text der Branche, als ein unbekannter Drucker eine Galeere mit Schriften nahm und sie durcheinander brachte.",
+        "testimonialName": "Lillian",
+        "testimonialLocation": "Vereinigtes Königreich"
     },
     "aboutPage": {
         "title": "Über uns",
-        "description": "Wir widmen uns der einfacheren und zugänglicheren Haustierpflege für alle."
+        "description": "Wir widmen uns der einfacheren und zugänglicheren Haustierpflege für alle.",
+        "contentParagraph1": "Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem Ipsum ist seit den 1500er Jahren der Standard-Dummy-Text der Branche, als ein unbekannter Drucker eine Galeere mit Schriften nahm und sie zu einem Musterbuch zusammenstellte. Es hat nicht nur fünf Jahrhunderte überlebt, sondern auch den Sprung in den elektronischen Schriftsatz, im Wesentlichen unverändert geblieben. Es wurde in den 1960er Jahren mit der Veröffentlichung von Letraset-Blättern mit Lorem Ipsum-Passagen populär gemacht und in jüngerer Zeit mit Desktop-Publishing-Software wie Aldus PageMaker einschließlich Versionen von Lorem Ipsum",
+        "contentParagraph2": "Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem Ipsum ist seit den",
+        "readMore": "Mehr lesen"
+    },
+    "knowledgeHub": {
+        "title": "Wissenszentrum",
+        "searchPlaceholder": "Suchen",
+        "categoriesTitle": "Kategorien",
+        "viewAllCategories": "Alle Kategorien anzeigen",
+        "noVideosAvailable": "Keine Videos verfügbar",
+        "loadingVideos": "Videos werden geladen...",
+        "premium": "Premium",
+        "superPremium": "Super Premium",
+        "clickHere": "Hier klicken",
+        "selectSubcategory": "Wählen Sie eine Unterkategorie zum Erkunden",
+        "categories": {
+            "happyDog": "Glücklicher Hund",
+            "happyCat": "Glückliche Katze",
+            "allCategories": "Alle Kategorien",
+            "petHealth": "Haustiergesundheit",
+            "nutrition": "Ernährung",
+            "training": "Training",
+            "grooming": "Pflege"
+        }
     },
     "contactPage": {
         "title": "Kontaktieren Sie uns",
-        "subtitle": "In Kontakt treten",
+        "subtitle": "Wir würden uns freuen, von Ihnen zu hören. Kontaktieren Sie uns noch heute!",
         "description": "Wir würden uns freuen, von Ihnen zu hören. Senden Sie uns eine Nachricht und wir werden uns so schnell wie möglich melden.",
+        "formTitle": "Senden Sie uns eine Nachricht",
         "fullName": "Vollständiger Name",
-        "email": "E-Mail",
-        "phone": "Telefon",
+        "email": "E-Mail-Adresse",
+        "phone": "Telefonnummer",
         "subject": "Betreff",
         "message": "Nachricht",
         "sendMessage": "Nachricht senden",
+        "sending": "Wird gesendet...",
+        "followUs": "Folgen Sie uns auf Social Media",
         "emailTitle": "E-Mail",
         "emailDescription": "Kontaktieren Sie uns per E-Mail",
         "phoneTitle": "Telefon",
@@ -73,10 +116,10 @@
         "messageFailed": "Senden fehlgeschlagen",
         "messageFailedDescription": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
         "fullNamePlaceholder": "Geben Sie Ihren vollständigen Namen ein",
-        "emailPlaceholder": "Geben Sie Ihre E-Mail ein",
+        "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
         "phonePlaceholder": "Geben Sie Ihre Telefonnummer ein",
-        "subjectPlaceholder": "Betreff eingeben",
-        "messagePlaceholder": "Geben Sie Ihre Nachricht ein"
+        "subjectPlaceholder": "Worum geht es?",
+        "messagePlaceholder": "Geben Sie hier Ihre Nachricht ein..."
     },
     "loginPage": {
         "title": "Willkommen zurück!",

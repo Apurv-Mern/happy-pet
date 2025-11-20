@@ -20,6 +20,8 @@ import { ContactUsPage } from './pages/ContactUsPage.tsx'
 import AboutUsPage from './pages/AboutUsPage.tsx'
 import ProfilePage from './pages/ProfilePage.tsx'
 import KnowledgeHubPage from './pages/KnowledgeHubPage.tsx'
+import CategorySubPage from './pages/CategorySubPage.tsx'
+import SubCategoryItem from './pages/SubCategoryItem.tsx'
 import AiAgentPage from './pages/AiAgentPage.tsx'
 import LearningModePage from './pages/LearningModePage.tsx'
 import { Toaster } from './components/ui/toaster'
@@ -46,7 +48,7 @@ function App() {
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/about" element={<AboutUsPage />} />
 
-        <Route >
+        <Route>
           <Route
             element={
               <Layout>
@@ -56,6 +58,18 @@ function App() {
           >
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/knowledge-hub" element={<KnowledgeHubPage />} />
+            <Route
+              path="/knowledge-hub/:categoryId"
+              element={<CategorySubPage />}
+            />
+            <Route
+              path="/knowledge-hub/:categoryId/:tierId"
+              element={<SubCategoryItem />}
+            />
+            <Route
+              path="/knowledge-hub/:categoryId/:tierId/:subcategoryId"
+              element={<KnowledgeHubPage />}
+            />
             <Route path="/learning-module" element={<LearningModePage />} />
             <Route path="/ai-agent" element={<AiAgentPage />} />
             <Route path="/video/:videoId" element={<VideoDetailPage />} />

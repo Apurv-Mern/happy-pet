@@ -1,18 +1,20 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import en from '@/locales/en.json'
 import de from '@/locales/de.json'
+import ar from '@/locales/ar.json'
+import ms from '@/locales/ms.json'
+import th from '@/locales/th.json'
+import id from '@/locales/id.json'
 
-type TranslationKey = string
 type Translations = typeof en
 
 const translations: Record<string, Translations> = {
   en,
   de,
-  // Add more languages here as you create them
-  // ar: ar,
-  // ms: ms,
-  // th: th,
-  // id: id,
+  ar,
+  ms,
+  th,
+  id,
 }
 
 interface I18nContextType {
@@ -35,12 +37,10 @@ const availableLanguages = [
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<string>(() => {
-    // Get language from localStorage or default to 'en'
     return localStorage.getItem('language') || 'en'
   })
 
   useEffect(() => {
-    // Save language to localStorage whenever it changes
     localStorage.setItem('language', language)
   }, [language])
 
@@ -53,7 +53,6 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  // Translation function that supports nested keys like "header.home"
   const t = (key: string): any => {
     const keys = key.split('.')
     let value: any = translations[language] || translations['en']

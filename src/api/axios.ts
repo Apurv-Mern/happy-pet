@@ -8,13 +8,21 @@ export const apiClient = axios.create({
   },
 })
 
-// Request interceptor for JWT auth
+// Request interceptor for JWT auth and language
 apiClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     const token = localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN)
+    const language = localStorage.getItem('language') || 'en'
+
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`
     }
+
+    // Add language parameter to requests
+    if (config.headers) {
+      config.headers['Accept-Language'] = language
+    }
+
     return config
   },
   error => {

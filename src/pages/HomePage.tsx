@@ -4,8 +4,11 @@ import 'swiper/css/pagination'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { motion } from 'framer-motion'
+import { useTranslation } from '@/contexts/I18nContext'
 
 export function HomePage() {
+  const { t } = useTranslation()
+
   return (
     <motion.div
       className=""
@@ -92,12 +95,10 @@ export function HomePage() {
       >
         <div className="relative max-w-[610px] w-full bg-[url('/assets/images/curve-border.png')] bg-no-repeat bg-contain bg-center text-center pt-0 py-8 px-4 sm:px-6">
           <h2 className="heading-line text-[#003863] text-[28px] sm:text-[40px] md:text-[55px]">
-            Explore Our Pet Services
+            {t('homePage.title')}
           </h2>
           <p className="text-[#003863]  heading-text font-bold text-[14px] sm:text-[16px] md:text-[20px]">
-            We offer the best services for your pets, contact us today{' '}
-            <br className="hidden md:block" />
-            and book a service
+            {t('homePage.subtitle')}
           </p>
         </div>
       </motion.section>
@@ -133,11 +134,20 @@ export function HomePage() {
                 </span>
               </button> */}
               <button className="group absolute w-full max-w-[300px] text-[30px] bottom-0 left-0 bg-[#fff] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#003863]  hover:bg-[#003863] hover:text-[#fff] transition">
-                      Knowledge Hub
-                      <span className="absolute right-[24px] top-[10px] text-white text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="rotate-[-25deg] transition-all duration-300 fill-[#003863] group-hover:fill-[#fff] w-[26px] h-[26px] bi bi-suit-heart" viewBox="0 0 16 16">
-                        <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
-                      </svg></span>                        
-                  </button>
+                {t('homePage.knowledgeHub')}
+                <span className="absolute right-[24px] top-[10px] text-white text-sm">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="rotate-[-25deg] transition-all duration-300 fill-[#003863] group-hover:fill-[#fff] w-[26px] h-[26px] bi bi-suit-heart"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
+                  </svg>
+                </span>
+              </button>
             </div>
           </div>
           <div>
@@ -160,7 +170,7 @@ export function HomePage() {
 
               {/* <!-- Bottom label --> */}
               <button className="absolute w-full max-w-[180px] sm:max-w-[250px] md:max-w-[300px] text-[30px] bottom-0 left-0 bg-[#fff] pt-[26px]  pb-[26px] rounded-tr-[20px] sm:rounded-tr-[25px] md:rounded-tr-[30px] text-[#003863]  hover:bg-[#003863] hover:text-[#fff] transition">
-                AI Agent
+                {t('homePage.aiAgent')}
                 <span className="absolute right-[12px] sm:right-[20px] md:right-[35px] top-[5px] sm:top-[8px] md:top-[10px] text-white text-sm">
                   <img
                     src="/assets/images/start 2.png"
@@ -201,11 +211,20 @@ export function HomePage() {
                 </span>
               </button> */}
               <button className="group absolute w-full max-w-[300px] text-[30px] bottom-0 left-0 bg-[#fff] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#003863] hover:bg-[#003863] hover:text-[#fff] transition">
-                      Knowledge Hub
-                      <span className="absolute right-[20px] top-[10px] text-white text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="transition-all duration-300 fill-[#003863] group-hover:fill-[#fff] w-[28px] h-[28px]  bi bi-play-circle-fill" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"/>
-                      </svg></span>                        
-                  </button>
+                {t('homePage.knowledgeHub')}
+                <span className="absolute right-[20px] top-[10px] text-white text-sm">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="transition-all duration-300 fill-[#003863] group-hover:fill-[#fff] w-[28px] h-[28px]  bi bi-play-circle-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+                  </svg>
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -220,7 +239,7 @@ export function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-8">
             <div className="max-w-[650px]">
               <span className="text-[#003863] text-[16px] sm:text-[18px] md:text-[20px] font-semibold relative">
-                Our Story{' '}
+                {t('homePage.ourStory')}{' '}
                 <img
                   className="absolute bottom-[10px] left-[75px] sm:left-[85px] md:left-[95px] w-[15px] sm:w-[18px] md:w-auto"
                   src="/assets/images/love1.png"
@@ -228,18 +247,16 @@ export function HomePage() {
                 />
               </span>
               <h2 className="text-[#003863] heading-line text-[55px] pt-2 pb-2">
-                We are a fully committed to your pet’s well-being
+                {t('homePage.ourStoryTitle')}
               </h2>
               <h4 className="text-[#003863] text-[22px] font-semibold pb-3">
-                Healthy pets, happy hearts, smarter owners!
+                {t('homePage.ourStorySubtitle')}
               </h4>
               <p className="text-[#003863] text-[20px] font-normal">
-                For over 12 years, we’ve been dedicated to making pets look
-                fabulous and feel loved. Because to us, your pet isn’t just a
-                client – they’re family.
+                {t('homePage.ourStoryDescription')}
               </p>
               <button className="flex items-center bg-[#fff] text-black font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#0E213A] hover:text-[#fff] transition">
-                Learn More
+                {t('homePage.learnMore')}
                 <span className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[49px] lg:h-[49px] bg-[#0E213A] rounded-full border-[2px]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -276,12 +293,10 @@ export function HomePage() {
       >
         <div className="relative max-w-[740px] w-full bg-[url('/assets/images/curve-border2.png')] bg-no-repeat bg-contain bg-center text-center pt-0 pb-[36px] px-6">
           <h2 className="heading-line text-[#003863] text-[55px]">
-            Smart Learning for Happier Pets
+            {t('homePage.smartLearningTitle')}
           </h2>
           <p className="text-[#003863]  heading-text font-bold text-[20px]">
-            Learn. Love. Care — Smarter Pet Parenting{' '}
-            <br className="hidden md:block" />
-            Starts Here.
+            {t('homePage.smartLearningSubtitle')}
           </p>
         </div>
       </motion.section>
@@ -318,7 +333,7 @@ export function HomePage() {
         <div className="container mx-auto">
           <div>
             <span className="text-[#003863] text-[16px] sm:text-[18px] md:text-[20px] font-semibold relative">
-              Testmonials{' '}
+              {t('homePage.testimonialsLabel')}{' '}
               <img
                 className="absolute bottom-[10px] left-[90px] sm:left-[100px] md:left-[110px] w-[15px] sm:w-[18px] md:w-auto"
                 src="/assets/images/love1.png"
@@ -326,10 +341,10 @@ export function HomePage() {
               />
             </span>
             <h2 className="text-[#003863] heading-line text-[32px] sm:text-[42px] md:text-[55px] pt-2 pb-2">
-              Happy Clients Reviews
+              {t('homePage.testimonialsTitle')}
             </h2>
             <h4 className="text-[#003863] text-[16px] sm:text-[18px] md:text-[22px] font-semibold pb-3">
-              Smart Care for Happier Pets
+              {t('homePage.testimonialsSubtitle')}
             </h4>
           </div>
           <div className="pt-6 sm:pt-8 md:pt-10">
@@ -363,7 +378,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -385,7 +402,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -407,7 +426,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -429,7 +450,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -451,7 +474,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -473,7 +498,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -495,7 +522,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -517,7 +546,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -539,7 +570,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -561,7 +594,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -583,7 +618,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -605,7 +642,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -627,7 +666,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -649,7 +690,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>
@@ -671,7 +714,9 @@ export function HomePage() {
                   </div>
                   <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
                     <img src="/assets/images/test.png" alt="" />
-                    <h5 className="heading-line text-[32px] text-[#003863]">Lillian</h5>
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
                     <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
                       UK
                     </p>

@@ -109,15 +109,15 @@ export default function LearningModePage() {
 
   return (
     <motion.div
-      className="min-h-screen "
+      className=""
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="mx-auto max-w-[1400px]">
+      <div className="">
         {/* Header */}
         <motion.div
-          className="mb-10"
+          className=""
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
