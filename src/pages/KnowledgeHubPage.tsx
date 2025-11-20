@@ -1,9 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Play } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useLearningModulesQuery } from '@/api/learningModule'
+import { useTranslation } from '@/contexts/I18nContext'
+
+interface Video {
+  id: string
+  title: string
+  description: string
+  thumbnail: string
+  category: string
+}
 
 interface Category {
   id: string
@@ -11,16 +20,75 @@ interface Category {
   count: number
 }
 
-const categories: Category[] = [
-  { id: 'happy-dog', name: 'Happy Dog', count: 24 },
-  { id: 'happy-cat', name: 'Happy Cat', count: 18 },
-]
-
 export default function KnowledgeHubPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('happy-dog')
+  const { t } = useTranslation()
+  const { categoryId, tierId, subcategoryId } = useParams<{
+    categoryId?: string
+    tierId?: string
+    subcategoryId?: string
+  }>()
+  const [selectedCategory, setSelectedCategory] =
+    useState<string>('all-categories')
   const [currentPage, setCurrentPage] = useState(1)
   const navigate = useNavigate()
   const itemsPerPage = 8
+
+  // Update selectedCategory when route params change
+  useEffect(() => {
+    if (categoryId && tierId && subcategoryId) {
+      // If we have all params, we're viewing a specific product line's videos
+      setSelectedCategory(subcategoryId)
+    } else if (categoryId) {
+      setSelectedCategory(categoryId)
+    } else {
+      setSelectedCategory('all-categories')
+    }
+  }, [categoryId, tierId, subcategoryId])
+
+  const videos: Video[] = [
+    {
+      id: '1',
+      title: "There's nothing quite like the pure joy of a happy dog",
+      description:
+        "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment. Whether it's a walk in the park, a favorite treat, or a simple belly rub, a dog's happiness is contagious.",
+      thumbnail: '/path-to-dog-video-thumbnail.jpg',
+      category: 'happy-dog',
+    },
+    {
+      id: '2',
+      title: "There's nothing quite like the pure joy of a happy dog",
+      description:
+        "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment. Whether it's a walk in the park, a favorite treat, or a simple belly rub, a dog's happiness is contagious.",
+      thumbnail: '/path-to-dog-video-thumbnail-2.jpg',
+      category: 'happy-dog',
+    },
+    {
+      id: '3',
+      title: "There's nothing quite like the pure joy of a happy dog",
+      description:
+        "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment.",
+      thumbnail: '/path-to-dog-video-thumbnail-3.jpg',
+      category: 'happy-dog',
+    },
+    {
+      id: '4',
+      title: "There's nothing quite like the pure joy of a happy dog",
+      description:
+        "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment.",
+      thumbnail: '/path-to-dog-video-thumbnail-4.jpg',
+      category: 'happy-dog',
+    },
+  ]
+  // Define categories with translation keys
+  const categories: Category[] = [
+    { id: 'happy-dog', name: t('knowledgeHub.categories.happyDog'), count: 24 },
+    { id: 'happy-cat', name: t('knowledgeHub.categories.happyCat'), count: 18 },
+    {
+      id: 'all-categories',
+      name: t('knowledgeHub.categories.allCategories'),
+      count: 42,
+    },
+  ]
 
   const { data: response, isLoading } = useLearningModulesQuery(
     currentPage,
@@ -28,16 +96,39 @@ export default function KnowledgeHubPage() {
     'video'
   )
 
-  const videos = response?.data?.content || []
+  // const videos = response?.data?.content || []
   const pagination = response?.data?.pagination
   const totalPages = pagination?.totalPages || 1
+
+  // Get breadcrumb information
+  const getBreadcrumb = () => {
+    if (!categoryId || !tierId || !subcategoryId) return null
+
+    const categoryName =
+      categoryId === 'happy-dog'
+        ? t('knowledgeHub.categories.happyDog')
+        : t('knowledgeHub.categories.happyCat')
+
+    const tierName =
+      tierId === 'premium'
+        ? t('knowledgeHub.premium')
+        : t('knowledgeHub.superPremium')
+
+    // Capitalize subcategory name
+    const subcategoryName =
+      subcategoryId.charAt(0).toUpperCase() + subcategoryId.slice(1)
+
+    return { categoryName, tierName, subcategoryName }
+  }
+
+  const breadcrumb = getBreadcrumb()
 
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003863] mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading videos...</p>
+          <p className="text-gray-600">{t('knowledgeHub.loadingVideos')}</p>
         </div>
       </div>
     )
@@ -50,6 +141,42 @@ export default function KnowledgeHubPage() {
       transition={{ duration: 0.5 }}
       className=""
     >
+      {/* Breadcrumb - Show only when viewing specific product line videos */}
+      {breadcrumb && (
+        <div className="bg-white border-b border-gray-200">
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex items-center gap-2 text-lg">
+              <button
+                onClick={() => navigate('/knowledge-hub')}
+                className="text-[#003863] hover:underline font-medium"
+              >
+                {t('knowledgeHub.categoriesTitle')}
+              </button>
+              <span className="text-gray-400">›</span>
+              <button
+                onClick={() => navigate(`/knowledge-hub/${categoryId}`)}
+                className="text-[#003863] hover:underline font-medium"
+              >
+                {breadcrumb.categoryName}
+              </button>
+              <span className="text-gray-400">›</span>
+              <button
+                onClick={() =>
+                  navigate(`/knowledge-hub/${categoryId}/${tierId}`)
+                }
+                className="text-[#003863] hover:underline font-medium"
+              >
+                {breadcrumb.tierName}
+              </button>
+              <span className="text-gray-400">›</span>
+              <span className="text-gray-600 font-medium">
+                {breadcrumb.subcategoryName}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="py-20">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Sidebar - Categories */}
@@ -57,7 +184,7 @@ export default function KnowledgeHubPage() {
             <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center mb-5">
               <input
                 type="text"
-                placeholder="Search"
+                placeholder={t('knowledgeHub.searchPlaceholder')}
                 className="bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
               />
 
@@ -80,15 +207,25 @@ export default function KnowledgeHubPage() {
             </div>
             <div className="bg-[#E3E6ED] rounded-[15px] shadow-lg overflow-hidden top-4">
               <div className="bg-[#003863] text-white px-4 py-4 rounded-[15px]">
-                <h2 className="text-xl font-bold">Categories</h2>
+                <h2 className="text-xl font-bold">
+                  {t('knowledgeHub.categoriesTitle')}
+                </h2>
               </div>
               <div className="divide-y divide-gray-200">
                 {categories.map(category => (
                   <button
                     key={category.id}
                     onClick={() => {
-                      setSelectedCategory(category.id)
-                      setCurrentPage(1)
+                      if (
+                        category.id === 'happy-dog' ||
+                        category.id === 'happy-cat'
+                      ) {
+                        // Navigate to subcategory page
+                        navigate(`/knowledge-hub/${category.id}`)
+                      } else {
+                        setSelectedCategory(category.id)
+                        setCurrentPage(1)
+                      }
                     }}
                     className={`w-full flex items-center justify-between px-6 py-4 hover:bg-[#e0e0e0]  rounded-[15px] ${
                       selectedCategory === category.id ? '' : ''
@@ -109,10 +246,15 @@ export default function KnowledgeHubPage() {
             {/* Category Title */}
             <div className="flex justify-between items-center border-b-[1px] border-[#003860] pb-[11px]">
               <h2 className="text-[32px] font-bold text-[#003863]">
-                {categories.find(c => c.id === selectedCategory)?.name}
+                {breadcrumb
+                  ? breadcrumb.subcategoryName
+                  : categories.find(c => c.id === selectedCategory)?.name}
               </h2>
-              <button className="bg-[#003860] text-white text-lg font-medium px-5 py-2 rounded-[15px] hover:bg-[#004C82] transition">
-                View All Categories
+              <button
+                onClick={() => navigate('/knowledge-hub')}
+                className="bg-[#003860] text-white text-lg font-medium px-5 py-2 rounded-[15px] hover:bg-[#004C82] transition"
+              >
+                {t('knowledgeHub.viewAllCategories')}
               </button>
             </div>
 
@@ -120,16 +262,18 @@ export default function KnowledgeHubPage() {
             <div className="grid grid-cols-3 gap-6 py-6">
               {videos.length === 0 ? (
                 <div className="col-span-3 text-center py-12">
-                  <p className="text-gray-600">No videos available</p>
+                  <p className="text-gray-600">
+                    {t('knowledgeHub.noVideosAvailable')}
+                  </p>
                 </div>
               ) : (
                 videos.map((video, index) => (
                   <motion.div
-                    key={video.id || video._id}
+                    key={video.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    onClick={() => navigate(`/video/${video.id || video._id}`)}
+                    onClick={() => navigate(`/video/${video.id}`)}
                     className="cursor-pointer"
                   >
                     <div className="bg-[#E3E6ED] rounded-[10px] h-full p-6">
@@ -161,7 +305,7 @@ export default function KnowledgeHubPage() {
                             {video.title}
                           </h3>
                           <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
-                            {video.content}
+                            {video.description}
                           </p>
                         </div>
                       </div>

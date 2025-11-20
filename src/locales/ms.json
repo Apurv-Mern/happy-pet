@@ -71,6 +71,27 @@
         "contentParagraph2": "Lorem Ipsum adalah teks dummy industri percetakan dan typesetting. Lorem Ipsum telah menjadi teks dummy standard industri sejak",
         "readMore": "Baca Lagi"
     },
+    "knowledgeHub": {
+        "title": "Pusat Pengetahuan",
+        "searchPlaceholder": "Cari",
+        "categoriesTitle": "Kategori",
+        "viewAllCategories": "Lihat Semua Kategori",
+        "noVideosAvailable": "Tiada video tersedia",
+        "loadingVideos": "Memuatkan video...",
+        "premium": "Premium",
+        "superPremium": "Super Premium",
+        "clickHere": "Klik Di Sini",
+        "selectSubcategory": "Pilih subkategori untuk diterokai",
+        "categories": {
+            "happyDog": "Anjing Gembira",
+            "happyCat": "Kucing Gembira",
+            "allCategories": "Semua Kategori",
+            "petHealth": "Kesihatan Haiwan Kesayangan",
+            "nutrition": "Pemakanan",
+            "training": "Latihan",
+            "grooming": "Dandanan"
+        }
+    },
     "contactPage": {
         "title": "Hubungi Kami",
         "subtitle": "Kami ingin mendengar daripada anda. Hubungi kami hari ini!",

@@ -71,6 +71,27 @@
         "contentParagraph2": "Lorem Ipsum เป็นเพียงข้อความจำลองของอุตสาหกรรมการพิมพ์และการเรียงพิมพ์ Lorem Ipsum เป็นข้อความจำลองมาตรฐานของอุตสาหกรรมตั้งแต่",
         "readMore": "อ่านเพิ่มเติม"
     },
+    "knowledgeHub": {
+        "title": "ศูนย์ความรู้",
+        "searchPlaceholder": "ค้นหา",
+        "categoriesTitle": "หมวดหมู่",
+        "viewAllCategories": "ดูหมวดหมู่ทั้งหมด",
+        "noVideosAvailable": "ไม่มีวิดีโอที่พร้อมใช้งาน",
+        "loadingVideos": "กำลังโหลดวิดีโอ...",
+        "premium": "พรีเมียม",
+        "superPremium": "ซูเปอร์พรีเมียม",
+        "clickHere": "คลิกที่นี่",
+        "selectSubcategory": "เลือกหมวดหมู่ย่อยเพื่อสำรวจ",
+        "categories": {
+            "happyDog": "สุนัขมีความสุข",
+            "happyCat": "แมวมีความสุข",
+            "allCategories": "หมวดหมู่ทั้งหมด",
+            "petHealth": "สุขภาพสัตว์เลี้ยง",
+            "nutrition": "โภชนาการ",
+            "training": "การฝึก",
+            "grooming": "การดูแลขนและเล็บ"
+        }
+    },
     "contactPage": {
         "title": "ติดต่อเรา",
         "subtitle": "เราอยากได้ยินจากคุณ ติดต่อเราวันนี้!",

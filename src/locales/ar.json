@@ -71,6 +71,27 @@
         "contentParagraph2": "لوريم إيبسوم هو ببساطة نص شكلي لصناعة الطباعة والتنضيد. كان لوريم إيبسوم النص الشكلي القياسي في الصناعة منذ",
         "readMore": "اقرأ المزيد"
     },
+    "knowledgeHub": {
+        "title": "مركز المعرفة",
+        "searchPlaceholder": "بحث",
+        "categoriesTitle": "الفئات",
+        "viewAllCategories": "عرض جميع الفئات",
+        "noVideosAvailable": "لا توجد مقاطع فيديو متاحة",
+        "loadingVideos": "جارٍ تحميل مقاطع الفيديو...",
+        "premium": "بريميوم",
+        "superPremium": "سوبر بريميوم",
+        "clickHere": "انقر هنا",
+        "selectSubcategory": "اختر فئة فرعية للاستكشاف",
+        "categories": {
+            "happyDog": "كلب سعيد",
+            "happyCat": "قطة سعيدة",
+            "allCategories": "جميع الفئات",
+            "petHealth": "صحة الحيوانات الأليفة",
+            "nutrition": "التغذية",
+            "training": "التدريب",
+            "grooming": "العناية"
+        }
+    },
     "contactPage": {
         "title": "اتصل بنا",
         "subtitle": "نود أن نسمع منك. تواصل معنا اليوم!",

@@ -37,12 +37,10 @@ const availableLanguages = [
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<string>(() => {
-    // Get language from localStorage or default to 'en'
     return localStorage.getItem('language') || 'en'
   })
 
   useEffect(() => {
-    // Save language to localStorage whenever it changes
     localStorage.setItem('language', language)
   }, [language])
 
@@ -55,7 +53,6 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  // Translation function that supports nested keys like "header.home"
   const t = (key: string): any => {
     const keys = key.split('.')
     let value: any = translations[language] || translations['en']

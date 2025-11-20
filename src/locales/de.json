@@ -71,6 +71,27 @@
         "contentParagraph2": "Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem Ipsum ist seit den",
         "readMore": "Mehr lesen"
     },
+    "knowledgeHub": {
+        "title": "Wissenszentrum",
+        "searchPlaceholder": "Suchen",
+        "categoriesTitle": "Kategorien",
+        "viewAllCategories": "Alle Kategorien anzeigen",
+        "noVideosAvailable": "Keine Videos verfügbar",
+        "loadingVideos": "Videos werden geladen...",
+        "premium": "Premium",
+        "superPremium": "Super Premium",
+        "clickHere": "Hier klicken",
+        "selectSubcategory": "Wählen Sie eine Unterkategorie zum Erkunden",
+        "categories": {
+            "happyDog": "Glücklicher Hund",
+            "happyCat": "Glückliche Katze",
+            "allCategories": "Alle Kategorien",
+            "petHealth": "Haustiergesundheit",
+            "nutrition": "Ernährung",
+            "training": "Training",
+            "grooming": "Pflege"
+        }
+    },
     "contactPage": {
         "title": "Kontaktieren Sie uns",
         "subtitle": "Wir würden uns freuen, von Ihnen zu hören. Kontaktieren Sie uns noch heute!",
