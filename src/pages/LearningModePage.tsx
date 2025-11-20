@@ -122,12 +122,6 @@ export default function LearningModePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h1 className="text-4xl font-bold text-[#003863] text-center mb-2">
-            Learning Modules
-          </h1>
-          <p className="text-center text-gray-600">
-            Discover insightful articles about pet care and happiness
-          </p>
         </motion.div>
 
         {/* Articles Grid */}

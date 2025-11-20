@@ -50,34 +50,57 @@ export default function KnowledgeHubPage() {
       transition={{ duration: 0.5 }}
       className=""
     >
-      <div className="py-20">
+      <div className="bg-[url('/assets/images/background.png')] bg-cover bg-center py-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center mb-6 gap-4 border-b-[1px] border-[#003860]">
+        {/* Category Title */}
+        {/* <div className="flex justify-between items-center">
+          <h2 className="text-[32px] font-bold text-[#003863]">
+            {categories.find(c => c.id === selectedCategory)?.name}
+          </h2>
+        </div> */}
+        <div className="flex items-center gap-4 font-dancing text-[#003863] text-[55px]">
+          <span className="whitespace-nowrap heading-line">Happy Cat</span>
+          
+          <span className="text-[38px]">›</span>
+          
+          <span className="whitespace-nowrap heading-line">Premium</span>
+
+          <span className="text-[38px]">›</span>
+
+          <span className="whitespace-nowrap heading-line">
+            {categories.find(c => c.id === selectedCategory)?.name}
+          </span>
+        </div> 
+        <div className="flex justify-end">
+          <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center">
+            <input
+              type="text"
+              placeholder="Search"
+              className="bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
+            />
+
+            <button className="ml-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-8 h-8 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-4.35-4.35m1.1-5.4a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Sidebar - Categories */}
           <div className="lg:col-span-1">
-            <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center mb-5">
-              <input
-                type="text"
-                placeholder="Search"
-                className="bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
-              />
-
-              <button className="ml-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-4.35-4.35m1.1-5.4a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
-                  />
-                </svg>
-              </button>
-            </div>
             <div className="bg-[#E3E6ED] rounded-[15px] shadow-lg overflow-hidden top-4">
               <div className="bg-[#003863] text-white px-4 py-4 rounded-[15px]">
                 <h2 className="text-xl font-bold">Categories</h2>
@@ -90,34 +113,32 @@ export default function KnowledgeHubPage() {
                       setSelectedCategory(category.id)
                       setCurrentPage(1)
                     }}
-                    className={`w-full flex items-center justify-between px-6 py-4 hover:bg-[#e0e0e0]  rounded-[15px] ${
+                    className={`w-full flex items-center justify-between px-6 py-4 hover:bg-[#D0D2D9]  rounded-br-[15px] rounded-bl-[15px] ${
                       selectedCategory === category.id ? '' : ''
                     }`}
                   >
-                    <span className="text-[#000] text-[18px] font-semibold">
+                    <span className="text-[#003863] text-[18px] font-semibold">
                       {category.name}
                     </span>
                     {/* <ChevronRight className="h-5 w-5 text-gray-400" /> */}
                   </button>
                 ))}
+                  <button
+                    onClick={() => alert("Extra Button Clicked!")}
+                    className="w-full flex items-center justify-between px-6 py-4 hover:bg-[#D0D2D9] rounded-br-[15px] rounded-bl-[15px]"
+                  >
+                    <span className="text-[#003863] text-[18px] font-semibold">
+                      All Categories
+                    </span>
+                  </button>
               </div>
             </div>
           </div>
 
           {/* Main Content - Video List */}
           <div className="lg:col-span-3">
-            {/* Category Title */}
-            <div className="flex justify-between items-center border-b-[1px] border-[#003860] pb-[11px]">
-              <h2 className="text-[32px] font-bold text-[#003863]">
-                {categories.find(c => c.id === selectedCategory)?.name}
-              </h2>
-              <button className="bg-[#003860] text-white text-lg font-medium px-5 py-2 rounded-[15px] hover:bg-[#004C82] transition">
-                View All Categories
-              </button>
-            </div>
-
             {/* Video Grid */}
-            <div className="grid grid-cols-3 gap-6 py-6">
+            <div className="grid grid-cols-3 gap-6">
               {videos.length === 0 ? (
                 <div className="col-span-3 text-center py-12">
                   <p className="text-gray-600">No videos available</p>

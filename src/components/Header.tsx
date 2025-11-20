@@ -132,60 +132,16 @@ export function Header() {
       >
         {/* Paw print pattern background */}
 
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto">
           {/* Logo and Navigation */}
-          <div className="grid grid-cols-1 md:grid-cols-2 items-center mb-6 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-[0.4fr_auto_0.3fr] items-center gap-4 pt-16">
             <Link to="/">
               {/* Logo placeholder - replace with your actual logo */}
               <div>
                 <img src="/assets/images/logo.png" alt="Happy Pet Logo" />
               </div>
             </Link>
-
-            <div className="flex items-center gap-4 justify-end">
-              {/* Search bar - hidden on mobile */}
-              <div className="hidden lg:flex items-center gap-2 pl-3 bg-white rounded-full">
-                <Input
-                  placeholder="Find the best for your pet..."
-                  className="search-bar w-64 border-none focus:ring-0 focus:border-transparent h-9 text-[#003863] placeholder:text-[#003863] font-normal text-lg"
-                />
-                <Button className="h-[44px] w-[44px] rounded-full  p-0 bg-[#0E213A] border-2 hover:bg-[#0E213A]">
-                  <Search className="h-[22px] w-[22px] text-white" />
-                </Button>
-              </div>
-
-              {/* Login/User button - hidden on small mobile */}
-              <div className="hidden sm:block">
-                {isAuthenticated ? (
-                  <button
-                    onClick={handleLogout}
-                    className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-5 pr-1 h-11 transition-colors"
-                  >
-                    <span className="text-white text-sm font-medium">
-                      {user?.name.slice(0, 5).toUpperCase() || 'User'}
-                    </span>
-                    <div className="bg-[#D4E7F6] rounded-full h-10 w-10 flex items-center justify-center ml-1">
-                      <LogOut className="h-5 w-5 text-black" />
-                    </div>
-                  </button>
-                ) : (
-                  <Link to="/login">
-                    <div className="flex items-center bg-[#003863] text-white font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] hover:bg-[#002a5c] transition">
-                      <span className="text-white text-sm font-medium">
-                        Login / Register
-                      </span>
-                      <div className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] bg-[#D4E7F6] rounded-full border-[2px] sm:border-[3px] border-[#04528E]">
-                        <User className="h-5 w-5 text-black" />
-                      </div>
-                    </div>
-                  </Link>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile Navigation Menu */}
-          <nav className="hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit">
+                        <nav className="hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit">
             {publicNavItems.map(item => (
               <NavLink
                 key={item.path}
@@ -240,7 +196,52 @@ export function Header() {
                 </div>
               )}
             </div>
-          </nav>
+            </nav>
+
+            <div className="flex items-center gap-4 justify-end">
+              {/* Search bar - hidden on mobile */}
+              {/* <div className="hidden lg:flex items-center gap-2 pl-3 bg-white rounded-full">
+                <Input
+                  placeholder="Find the best for your pet..."
+                  className="search-bar w-64 border-none focus:ring-0 focus:border-transparent h-9 text-[#003863] placeholder:text-[#003863] font-normal text-lg"
+                />
+                <Button className="h-[44px] w-[44px] rounded-full  p-0 bg-[#0E213A] border-2 hover:bg-[#0E213A]">
+                  <Search className="h-[22px] w-[22px] text-white" />
+                </Button>
+              </div> */}
+
+              {/* Login/User button - hidden on small mobile */}
+              <div className="hidden sm:block">
+                {isAuthenticated ? (
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-5 pr-1 h-11 transition-colors"
+                  >
+                    <span className="text-white text-sm font-medium">
+                      {user?.name.slice(0, 5).toUpperCase() || 'User'}
+                    </span>
+                    <div className="bg-[#D4E7F6] rounded-full h-10 w-10 flex items-center justify-center ml-1">
+                      <LogOut className="h-5 w-5 text-black" />
+                    </div>
+                  </button>
+                ) : (
+                  <Link to="/login">
+                    <div className="flex items-center bg-[#0E213A] rounded-full border-[1px] border-[#fff] pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] hover:bg-[#000] hover:text-[#fff] transition">
+                      <span className="text-white text-sm font-medium">
+                        Login / Register
+                      </span>
+                      <div className="ml-2 sm:ml-3 flex items-center justify-center w-[45px] h-[45px] bg-[#fff] rounded-full">
+                        <User className="h-5 w-5 text-black" />
+                      </div>
+                    </div>
+                  </Link>
+                )}
+              </div>
+            </div>
+
+          </div>
+
+          {/* Mobile Navigation Menu */}
 
           {/* Mobile Navigation Menu */}
           {isMobileMenuOpen && (

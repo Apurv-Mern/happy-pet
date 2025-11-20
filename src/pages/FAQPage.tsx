@@ -48,14 +48,14 @@ export function FAQPage() {
   }
 
   return (
-    <div className="py-20">
+    <div className="bg-[url('/assets/images/background.png')] bg-cover bg-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1 * 0.1 }}
         className=""
       >
-        <div className="container mx-auto">
+        <div className="container mx-auto py-20">
           <div className="border-b-[1px] border-[#003860] mb-[26px]">
             <h1 className="heading-line text-[#003863] text-[64px]">
               FAQs
