@@ -68,7 +68,7 @@ function App() {
             />
             <Route
               path="/knowledge-hub/:categoryId/:tierId/:subcategoryId"
-              element={<KnowledgeHubPage />}
+              element={<SubCategoryItem />}
             />
             <Route path="/learning-module" element={<LearningModePage />} />
             <Route path="/ai-agent" element={<AiAgentPage />} />
