@@ -93,8 +93,8 @@ export function Header2() {
   return (
     <header className="w-full">
       {/* Top dark band */}
-      <div className="bg-[#003863] text-white">
-        <div className="container mx-auto p-4 px-6 py-2.5 flex items-center justify-between text-sm">
+      <div className="bg-[#0E213A] text-white">
+        <div className="container mx-auto py-2.5 flex items-center justify-end gap-5 text-sm">
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4" />
             <span className="hidden sm:inline">+91 6799009980</span>
@@ -264,10 +264,10 @@ export function Header2() {
       </div>
 
       {/* Main navigation section with blue background and paw prints */}
-      <div className="bg-[url('/assets/images/bg-header.png')] bg-cover bg-center">
+      <div className="bg-[url('/assets/images/hedar2.png')] bg-cover bg-center py-10">
         {/* Paw print pattern background */}
 
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto">
           {/* Logo and Navigation */}
           <div className="grid grid-cols-1 md:grid-cols-2 items-center mb-6 gap-4">
             <Link to="/">
@@ -279,7 +279,7 @@ export function Header2() {
 
             <div className="flex items-center gap-4 justify-end">
               {/* Search bar - hidden on mobile */}
-              <div className="hidden lg:flex items-center gap-2 bg-white rounded-full pt-[5px] pl-[20px] pb-[5px] pr-[20px]">
+              {/* <div className="hidden lg:flex items-center gap-2 bg-white rounded-full pt-[5px] pl-[20px] pb-[5px] pr-[20px]">
                 <Input
                   placeholder="Find the best for your pet..."
                   className="w-64 border-none focus-visible:outline-none focus:ring-0 focus:border-transparent h-9 text-[#003863] placeholder:text-[#003863] font-normal text-lg"
@@ -287,7 +287,7 @@ export function Header2() {
                 <Button className="h-8 w-8 rounded-full  p-0 bg-[#035FA6] hover:bg-[#024d85]">
                   <Search className="h-4 w-4 text-white" />
                 </Button>
-              </div>
+              </div> */}
 
               {/* Login/User button - hidden on small mobile */}
               <div className="hidden sm:block">
