@@ -1,120 +1,39 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from '@/contexts/I18nContext'
-
-interface ProductLine {
-  id: string
-  name: string
-  image?: string
-}
-
-interface SubCategory {
-  id: string
-  name: string
-  product_flow: {
-    step_name: string
-    options: ProductLine[]
-  }
-  available_filters: any[]
-}
-
-interface Category {
-  id: string
-  name: string
-  sub_categories: SubCategory[]
-}
+import { useCategoriesQuery, Filter } from '@/api/categories'
+import { useState } from 'react'
 
 export default function SubCategoryItem() {
-  const { categoryId, tierId } = useParams<{
+  const { categoryId, tierId, subcategoryId } = useParams<{
     categoryId: string
     tierId: string
+    subcategoryId?: string
   }>()
   const { t } = useTranslation()
   const navigate = useNavigate()
 
-  // Category data structure
-  const categoriesData: Category[] = [
-    {
-      id: 'DOG',
-      name: 'Dog',
-      sub_categories: [
-        {
-          id: 'DOG_PREMIUM',
-          name: 'Premium',
-          product_flow: {
-            step_name: 'product_line',
-            options: [
-              { id: 'NC', name: 'Naturcroq' },
-              { id: 'NC_MINI', name: 'Naturcroq mini' },
-            ],
-          },
-          available_filters: [],
-        },
-        {
-          id: 'DOG_SUPER_PREMIUM',
-          name: 'Super-Premium',
-          product_flow: {
-            step_name: 'product_line',
-            options: [
-              { id: 'SENSIBLE', name: 'sensible' },
-              { id: 'FIT_VITAL', name: 'fit & vital' },
-              { id: 'MINI_RANGE', name: 'mini range' },
-              { id: 'MINI_XS', name: 'mini xs' },
-              { id: 'SP_YOUNG', name: 'young' },
-            ],
-          },
-          available_filters: [],
-        },
-      ],
-    },
-    {
-      id: 'CAT',
-      name: 'Cat',
-      sub_categories: [
-        {
-          id: 'CAT_PREMIUM',
-          name: 'Premium',
-          product_flow: {
-            step_name: 'product_line',
-            options: [
-              { id: 'MINKAS', name: 'minkas' },
-              { id: 'MINKAS_DRINK', name: 'minkas drink' },
-            ],
-          },
-          available_filters: [],
-        },
-        {
-          id: 'CAT_SUPER_PREMIUM',
-          name: 'Super-Premium',
-          product_flow: {
-            step_name: 'product_line',
-            options: [
-              { id: 'SP_YOUNG', name: 'young' },
-              { id: 'CULINARY', name: 'culinary' },
-              { id: 'INDOOR', name: 'indoor' },
-              { id: 'SP_SENIOR', name: 'senior' },
-              { id: 'CARE', name: 'care' },
-              { id: 'STERLISED', name: 'sterlised' },
-            ],
-          },
-          available_filters: [],
-        },
-      ],
-    },
-  ]
+  // Filter state
+  const [selectedAgeGroup, setSelectedAgeGroup] = useState<string>('all')
+  const [selectedFoodType, setSelectedFoodType] = useState<string>('all')
+
+  // Fetch categories from API
+  const { data: categoriesResponse, isLoading } = useCategoriesQuery()
+
+  // Map route params to API category IDs
+  const categoryMap: { [key: string]: string } = {
+    'happy-dog': 'DOG',
+    'happy-cat': 'CAT',
+  }
+
+  const tierMap: { [key: string]: string } = {
+    premium: 'PREMIUM',
+    'super-premium': 'SUPER_PREMIUM',
+  }
 
   // Get product lines based on categoryId and tierId
-  const getProductLines = (): ProductLine[] => {
-    // Map route params to API category IDs
-    const categoryMap: { [key: string]: string } = {
-      'happy-dog': 'DOG',
-      'happy-cat': 'CAT',
-    }
-
-    const tierMap: { [key: string]: string } = {
-      premium: 'PREMIUM',
-      'super-premium': 'SUPER_PREMIUM',
-    }
+  const getProductLines = () => {
+    if (!categoriesResponse?.data) return []
 
     const mappedCategoryId = categoryMap[categoryId || '']
     const mappedTierId = tierMap[tierId || '']
@@ -122,7 +41,9 @@ export default function SubCategoryItem() {
     if (!mappedCategoryId || !mappedTierId) return []
 
     // Find the category
-    const category = categoriesData.find(cat => cat.id === mappedCategoryId)
+    const category = categoriesResponse.data.find(
+      cat => cat.id === mappedCategoryId
+    )
     if (!category) return []
 
     // Find the subcategory (tier)
@@ -134,7 +55,49 @@ export default function SubCategoryItem() {
     return subCategory?.product_flow.options || []
   }
 
+  // Get available filters from API for the selected subcategory
+  const getAvailableFilters = (): Filter[] => {
+    if (!categoriesResponse?.data) return []
+
+    const mappedCategoryId = categoryMap[categoryId || '']
+    const mappedTierId = tierMap[tierId || '']
+
+    if (!mappedCategoryId || !mappedTierId) return []
+
+    const category = categoriesResponse.data.find(
+      cat => cat.id === mappedCategoryId
+    )
+    if (!category) return []
+
+    const subCategoryId = `${mappedCategoryId}_${mappedTierId}`
+    const subCategory = category.sub_categories.find(
+      sub => sub.id === subCategoryId
+    )
+
+    return subCategory?.available_filters || []
+  }
+
   const productLines = getProductLines()
+  const availableFilters = getAvailableFilters()
+
+  // Extract specific filters
+  const ageGroupFilter = availableFilters.find(
+    filter => filter.filter_id === 'age_group'
+  )
+  const foodTypeFilter = availableFilters.find(
+    filter => filter.filter_id === 'type_of_food'
+  )
+
+  // Handle filter actions
+  const handleApplyFilters = () => {
+    // Filter logic will be applied to video list when implemented
+    console.log('Filters applied:', { selectedAgeGroup, selectedFoodType })
+  }
+
+  const handleResetFilters = () => {
+    setSelectedAgeGroup('all')
+    setSelectedFoodType('all')
+  }
 
   const categoryName =
     categoryId === 'happy-dog'
@@ -146,16 +109,64 @@ export default function SubCategoryItem() {
       ? t('knowledgeHub.premium')
       : t('knowledgeHub.superPremium')
 
-  // Categories for sidebar
-  const categories = [
-    { id: 'happy-cat', name: t('knowledgeHub.categories.happyCat') },
-    { id: 'happy-dog', name: t('knowledgeHub.categories.happyDog') },
-    { id: 'all-categories', name: t('knowledgeHub.categories.allCategories') },
-  ]
-
   const handleSubCategoryClick = (productLineId: string) => {
     // Navigate to the videos list for this specific product line
     navigate(`/knowledge-hub/${categoryId}/${tierId}/${productLineId}`)
+  }
+
+  // Check if we're viewing a specific product line (subcategory)
+  const isViewingProductLine = !!subcategoryId
+
+  // Mock video data - will be replaced with API data later
+  const mockVideos = [
+    {
+      id: '1',
+      title: "There's nothing quite like the pure joy of a happy dog",
+      thumbnail: '/assets/images/cat.png',
+      productLineId: subcategoryId,
+    },
+    {
+      id: '2',
+      title: "There's nothing quite like the pure joy of a happy dog",
+      thumbnail: '/assets/images/cat.png',
+      productLineId: subcategoryId,
+    },
+    {
+      id: '3',
+      title: "There's nothing quite like the pure joy of a happy cat",
+      thumbnail: '/assets/images/cat.png',
+      productLineId: subcategoryId,
+    },
+    {
+      id: '4',
+      title: "There's nothing quite like the pure joy of a happy dog",
+      thumbnail: '/assets/images/cat.png',
+      productLineId: subcategoryId,
+    },
+    {
+      id: '5',
+      title: "There's nothing quite like the pure joy of a happy dog",
+      thumbnail: '/assets/images/cat.png',
+      productLineId: subcategoryId,
+    },
+    {
+      id: '6',
+      title: "There's nothing quite like the pure joy of a happy cat",
+      thumbnail: '/assets/images/cat.png',
+      productLineId: subcategoryId,
+    },
+  ]
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003863] mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -174,17 +185,54 @@ export default function SubCategoryItem() {
             >
               {categoryName}
             </button>
-            <span className=""><svg width="13" height="20" viewBox="0 0 13 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.5 18.5L10.5 10L1.5 1.5" stroke="#003863" stroke-width="3" stroke-linecap="round"/>
-              </svg></span>
+            <span className="">
+              <svg
+                width="13"
+                height="20"
+                viewBox="0 0 13 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.5 18.5L10.5 10L1.5 1.5"
+                  stroke="#003863"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
             <button
               onClick={() => navigate(`/knowledge-hub/${categoryId}`)}
               className="text-[#003863] text-[55px] heading-line"
             >
               {tierName}
             </button>
+            {isViewingProductLine && subcategoryId && (
+              <>
+                <span className="">
+                  <svg
+                    width="13"
+                    height="20"
+                    viewBox="0 0 13 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.5 18.5L10.5 10L1.5 1.5"
+                      stroke="#003863"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </span>
+                <span className="text-[#003863] text-[55px] heading-line">
+                  {productLines.find(pl => pl.id === subcategoryId)?.name ||
+                    subcategoryId}
+                </span>
+              </>
+            )}
           </div>
-          <div className='about-image'>
+          <div className="about-image">
             <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center">
               <input
                 type="text"
@@ -210,74 +258,209 @@ export default function SubCategoryItem() {
             </div>
           </div>
         </div>
+        {/* Filters Section - Only show when viewing product line videos */}
+        {isViewingProductLine && (
+          <div className="pt-6">
+            <div className="flex flex-wrap items-center gap-4">
+              {/* Age Group Filter */}
+              {ageGroupFilter && (
+                <div className="flex items-center gap-2">
+                  <label className="text-[#003863] font-semibold">
+                    Age Group
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={selectedAgeGroup}
+                      onChange={e => setSelectedAgeGroup(e.target.value)}
+                      className="appearance-none bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-[#003863] cursor-pointer"
+                    >
+                      <option value="all">All</option>
+                      {ageGroupFilter.options.map(option => (
+                        <option key={option.id} value={option.id}>
+                          {option.name} ({option.count})
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                      <svg
+                        width="12"
+                        height="8"
+                        viewBox="0 0 12 8"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 1L6 6L11 1"
+                          stroke="#003863"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Type of Food Filter */}
+              {foodTypeFilter && (
+                <div className="flex items-center gap-2">
+                  <label className="text-[#003863] font-semibold">
+                    Type of Food
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={selectedFoodType}
+                      onChange={e => setSelectedFoodType(e.target.value)}
+                      className="appearance-none bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-[#003863] cursor-pointer"
+                    >
+                      <option value="all">All</option>
+                      {foodTypeFilter.options.map(option => (
+                        <option key={option.id} value={option.id}>
+                          {option.name} ({option.count})
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                      <svg
+                        width="12"
+                        height="8"
+                        viewBox="0 0 12 8"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 1L6 6L11 1"
+                          stroke="#003863"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Apply Button */}
+              <button
+                onClick={handleApplyFilters}
+                className="bg-[#003863] text-white px-8 py-2 rounded-[10px] font-semibold hover:bg-[#002d4d] transition-colors"
+              >
+                Apply
+              </button>
+
+              {/* Reset Button */}
+              <button
+                onClick={handleResetFilters}
+                className="bg-white text-[#003863] border-2 border-[#003863] px-8 py-2 rounded-[10px] font-semibold hover:bg-gray-50 transition-colors"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+        )}
+
         <div className="">
-          {/* Sidebar - Categories */}
-          {/* <div className="">
-            <div className="bg-[#E3E6ED] rounded-[15px] overflow-hidden">
-              <div className="bg-[#003863] text-white px-4 py-4 rounded-t-[15px]">
-                <h2 className="text-xl font-bold">
-                  {t('knowledgeHub.categoriesTitle')}
-                </h2>
-              </div>
-              <div className="divide-y divide-gray-200">
-                {categories.map(category => (
-                  <button
-                    key={category.id}
-                    onClick={() => {
-                      if (category.id === 'all-categories') {
-                        navigate('/knowledge-hub')
-                      } else {
-                        navigate(`/knowledge-hub/${category.id}`)
-                      }
-                    }}
-                    className={`w-full flex items-center justify-between px-6 py-4 hover:bg-[#d0d0d0] transition ${
-                      categoryId === category.id ? 'bg-[#d0d0d0]' : ''
-                    }`}
+          {/* Main Content - Product Lines Grid or Videos Grid */}
+          <div className="">
+            {isViewingProductLine ? (
+              // Video Grid
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10">
+                {mockVideos.map((video, index) => (
+                  <motion.div
+                    key={video.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    onClick={() => navigate(`/video/${video.id}`)}
+                    className="relative rounded-[20px] overflow-hidden cursor-pointer group"
                   >
-                    <span className="text-[#000] text-[18px] font-semibold">
-                      {category.name}
-                    </span>
-                  </button>
+                    {/* Video Thumbnail */}
+                    <div className="relative aspect-video">
+                      <img
+                        className="w-full h-full object-cover"
+                        src={video.thumbnail}
+                        alt={video.title}
+                      />
+                      {/* Play Button Overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
+                        <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center">
+                          <svg
+                            width="24"
+                            height="28"
+                            viewBox="0 0 24 28"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M2 2L22 14L2 26V2Z"
+                              fill="#003863"
+                              stroke="#003863"
+                              strokeWidth="2"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Video Title */}
+                    <div className="bg-white p-4">
+                      <h3 className="text-[#003863] text-[16px] font-semibold line-clamp-2">
+                        {video.title}
+                      </h3>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
-          </div> */}
-
-          {/* Main Content - SubCategory Grid */}
-          <div className="">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6  pt-10">
-              {productLines.map((productLine, index) => (
-                <motion.div
-                  key={productLine.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  onClick={() => handleSubCategoryClick(productLine.id)}
-                  className="relative rounded-[20px] overflow-hidden  cursor-pointer"
-                >
-                  {/* Background Image */}
-                  <div className="relative">
-                    {/* Dark Overlay */}
-                    <div className=""><img className="w-full" src="/assets/images/cat.png" alt="" /></div>
+            ) : (
+              // Product Lines Grid
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10">
+                {productLines.map((productLine, index) => (
+                  <motion.div
+                    key={productLine.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    onClick={() => handleSubCategoryClick(productLine.id)}
+                    className="relative rounded-[20px] overflow-hidden cursor-pointer"
+                  >
+                    {/* Background Image */}
+                    <div className="relative">
+                      <div className="">
+                        <img
+                          className="w-full"
+                          src="/assets/images/cat.png"
+                          alt=""
+                        />
+                      </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-[#003863]/80 via-[#003863]/30 to-transparent"></div>
-                  </div>
+                    </div>
 
-                  {/* Content Overlay - Bottom Left */}
-                  <div className="absolute bottom-6 left-6">
-                    <h3 className="text-white text-[24px] font-semibold">
-                      {productLine.name}
-                    </h3>
-                  </div>
+                    {/* Content Overlay - Bottom Left */}
+                    <div className="absolute bottom-6 left-6">
+                      <h3 className="text-white text-[24px] font-semibold">
+                        {productLine.name}
+                      </h3>
+                    </div>
 
-                  {/* Arrow Icon - Bottom Right */}
-                  <div className="absolute bottom-6 right-6">
-                    <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21.0225 12.4706L21.7255 11.7595L22.4448 12.4706L21.7255 13.1818L21.0225 12.4706ZM5.25556 13.4706C4.70327 13.4706 4.25555 13.0229 4.25555 12.4706C4.25555 11.9184 4.70327 11.4706 5.25556 11.4706V12.4706V13.4706ZM14.7157 6.23535L15.4188 5.52423L21.7255 11.7595L21.0225 12.4706L20.3194 13.1818L14.0126 6.94648L14.7157 6.23535ZM21.0225 12.4706L21.7255 13.1818L15.4188 19.4171L14.7157 18.7059L14.0126 17.9948L20.3194 11.7595L21.0225 12.4706ZM21.0225 12.4706V13.4706H5.25556V12.4706V11.4706H21.0225V12.4706Z" fill="white"/>
-                    </svg>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                    {/* Arrow Icon - Bottom Right */}
+                    <div className="absolute bottom-6 right-6">
+                      <svg
+                        width="26"
+                        height="25"
+                        viewBox="0 0 26 25"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21.0225 12.4706L21.7255 11.7595L22.4448 12.4706L21.7255 13.1818L21.0225 12.4706ZM5.25556 13.4706C4.70327 13.4706 4.25555 13.0229 4.25555 12.4706C4.25555 11.9184 4.70327 11.4706 5.25556 11.4706V12.4706V13.4706ZM14.7157 6.23535L15.4188 5.52423L21.7255 11.7595L21.0225 12.4706L20.3194 13.1818L14.0126 6.94648L14.7157 6.23535ZM21.0225 12.4706L21.7255 13.1818L15.4188 19.4171L14.7157 18.7059L14.0126 17.9948L20.3194 11.7595L21.0225 12.4706ZM21.0225 12.4706V13.4706H5.25556V12.4706V11.4706H21.0225V12.4706Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
