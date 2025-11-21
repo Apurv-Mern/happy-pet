@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Play } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { useLearningModulesQuery } from '@/api/learningModule'
 import { useTranslation } from '@/contexts/I18nContext'
+import { useCategoriesQuery } from '@/api/categories'
 
 interface Video {
   id: string
@@ -29,9 +28,11 @@ export default function KnowledgeHubPage() {
   }>()
   const [selectedCategory, setSelectedCategory] =
     useState<string>('all-categories')
-  const [currentPage, setCurrentPage] = useState(1)
   const navigate = useNavigate()
-  const itemsPerPage = 8
+
+  // Fetch categories from API
+  const { data: categoriesResponse, isLoading: categoriesLoading } =
+    useCategoriesQuery('other', 'video')
 
   // Update selectedCategory when route params change
   useEffect(() => {
@@ -79,26 +80,25 @@ export default function KnowledgeHubPage() {
       category: 'happy-dog',
     },
   ]
-  // Define categories with translation keys
+  // Build categories from API with counts
   const categories: Category[] = [
-    { id: 'happy-dog', name: t('knowledgeHub.categories.happyDog'), count: 24 },
-    { id: 'happy-cat', name: t('knowledgeHub.categories.happyCat'), count: 18 },
     {
       id: 'all-categories',
       name: t('knowledgeHub.categories.allCategories'),
-      count: 42,
+      count:
+        categoriesResponse?.data?.reduce((sum, cat) => sum + cat.count, 0) || 0,
     },
+    ...(categoriesResponse?.data?.map(category => ({
+      id:
+        category.id === 'DOG'
+          ? 'happy-dog'
+          : category.id === 'CAT'
+            ? 'happy-cat'
+            : category.id.toLowerCase(),
+      name: category.name,
+      count: category.count,
+    })) || []),
   ]
-
-  const { data: response, isLoading } = useLearningModulesQuery(
-    currentPage,
-    itemsPerPage,
-    'video'
-  )
-
-  // const videos = response?.data?.content || []
-  const pagination = response?.data?.pagination
-  const totalPages = pagination?.totalPages || 1
 
   // Get breadcrumb information
   const getBreadcrumb = () => {
@@ -123,7 +123,7 @@ export default function KnowledgeHubPage() {
 
   const breadcrumb = getBreadcrumb()
 
-  if (isLoading) {
+  if (categoriesLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -179,19 +179,19 @@ export default function KnowledgeHubPage() {
 
       <div className="">
         <div>
-            <div className="flex justify-between items-center border-b-[1px] border-[#003860] pb-[11px]">
-              <h2 className="text-[#003863] text-[55px] heading-line">
-                {breadcrumb
-                  ? breadcrumb.subcategoryName
-                  : categories.find(c => c.id === selectedCategory)?.name}
-              </h2>
-              {/* <button
+          <div className="flex justify-between items-center border-b-[1px] border-[#003860] pb-[11px]">
+            <h2 className="text-[#003863] text-[55px] heading-line">
+              {breadcrumb
+                ? breadcrumb.subcategoryName
+                : categories.find(c => c.id === selectedCategory)?.name}
+            </h2>
+            {/* <button
                 onClick={() => navigate('/knowledge-hub')}
                 className="bg-[#003860] text-white text-lg font-medium px-5 py-2 rounded-[15px] hover:bg-[#004C82] transition"
               >
                 {t('knowledgeHub.viewAllCategories')}
               </button> */}
-              <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center mb-5">
+            <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center mb-5">
               <input
                 type="text"
                 placeholder={t('knowledgeHub.searchPlaceholder')}
@@ -215,19 +215,19 @@ export default function KnowledgeHubPage() {
                 </svg>
               </button>
             </div>
-            </div>
+          </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8 mt-10">
           {/* Sidebar - Categories */}
           <div className="lg:col-span-1">
-            <div className="bg-[#E3E6ED] rounded-[15px] shadow-lg overflow-hidden top-4">
-              <div className="bg-[#003863] text-white px-4 py-4 rounded-[15px]">
+            <div className="bg-[#E3E6ED] rounded-[15px] overflow-hidden sticky top-4">
+              <div className="bg-[#003863] text-white px-6 py-4">
                 <h2 className="text-xl font-bold">
                   {t('knowledgeHub.categoriesTitle')}
                 </h2>
               </div>
-              <div className="divide-y divide-gray-200">
-                {categories.map(category => (
+              <div className="">
+                {categories.map((category, index) => (
                   <button
                     key={category.id}
                     onClick={() => {
@@ -239,17 +239,20 @@ export default function KnowledgeHubPage() {
                         navigate(`/knowledge-hub/${category.id}`)
                       } else {
                         setSelectedCategory(category.id)
-                        setCurrentPage(1)
+                        navigate('/knowledge-hub')
                       }
                     }}
-                    className={`w-full flex items-center justify-between px-6 py-4 hover:bg-[#D0D2D9]  rounded-br-[15px] rounded-bl-[15px] ${
-                      selectedCategory === category.id ? '' : ''
+                    className={`w-full text-left px-6 py-4 hover:bg-[#D0D2D9] transition-colors ${
+                      index === categories.length - 1
+                        ? 'rounded-b-[15px]'
+                        : 'border-b border-gray-300'
+                    } ${
+                      selectedCategory === category.id ? 'bg-[#D0D2D9]' : ''
                     }`}
                   >
                     <span className="text-[#003863] text-[18px] font-semibold">
                       {category.name}
                     </span>
-                    {/* <ChevronRight className="h-5 w-5 text-gray-400" /> */}
                   </button>
                 ))}
               </div>
@@ -314,43 +317,6 @@ export default function KnowledgeHubPage() {
                   </motion.div>
                 ))
               )}
-            </div>
-
-            {/* Pagination */}
-            <div className="flex items-center justify-center gap-2 mt-10">
-              <Button
-                onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
-                disabled={currentPage === 1}
-                variant="outline"
-                className="rounded-lg bg-[#3D4760] text-[#fff]"
-              >
-                Previous
-              </Button>
-
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                <Button
-                  key={page}
-                  onClick={() => setCurrentPage(page)}
-                  className={`w-10 h-10 rounded-lg ${
-                    currentPage === page
-                      ? 'bg-[#003863] text-white hover:bg-[#002d4d]'
-                      : 'bg-white text-[#003863] border border-[#003863]'
-                  }`}
-                >
-                  {page}
-                </Button>
-              ))}
-
-              <Button
-                onClick={() =>
-                  setCurrentPage(prev => Math.min(totalPages, prev + 1))
-                }
-                disabled={currentPage === totalPages}
-                variant="outline"
-                className="rounded-lg bg-[#3D4760] text-[#fff]"
-              >
-                Next
-              </Button>
             </div>
           </div>
         </div>

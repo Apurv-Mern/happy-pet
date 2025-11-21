@@ -65,7 +65,7 @@ export interface LearningModulesResponse {
   success: boolean
   message: string
   data: {
-    content: LearningModule[]
+    items: LearningModule[]
     pagination: PaginationData
   }
 }
