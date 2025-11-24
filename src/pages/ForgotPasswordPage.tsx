@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { useAuthStore } from '@/store/useAuthStore'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 
 const forgotPasswordSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -61,7 +61,8 @@ export function ForgotPasswordPage() {
               Forgot Password ?
             </h1>
             <p className="text-white text-[16px] font-semibold py-4">
-              Don’t worry! <br></br> Enter your E-mail address to reset your password.
+              Don’t worry! <br></br> Enter your E-mail address to reset your
+              password.
             </p>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">

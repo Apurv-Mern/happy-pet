@@ -50,7 +50,7 @@ function App() {
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/about" element={<AboutUsPage />} />
 
-        <Route>
+        <Route element={<ProtectedRoute />}>
           <Route
             element={
               <Layout>

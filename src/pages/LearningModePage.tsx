@@ -52,16 +52,23 @@ export default function LearningModePage() {
       count:
         categoriesResponse?.data?.reduce((sum, cat) => sum + cat.count, 0) || 0,
     },
-    ...(categoriesResponse?.data?.map(category => ({
-      id:
-        category.id === 'DOG'
-          ? 'happy-dog'
-          : category.id === 'CAT'
-            ? 'happy-cat'
-            : category.id.toLowerCase(),
-      name: category.name,
-      count: category.count,
-    })) || []),
+    ...(categoriesResponse?.data
+      ?.filter(
+        category =>
+          category.id !== 'ALL_CATEGORIES' &&
+          category.id !== 'all-categories' &&
+          category.name?.toLowerCase() !== 'all categories'
+      ) // Filter out API's all categories
+      ?.map(category => ({
+        id:
+          category.id === 'DOG'
+            ? 'happy-dog'
+            : category.id === 'CAT'
+              ? 'happy-cat'
+              : category.id.toLowerCase(),
+        name: category.name,
+        count: category.count,
+      })) || []),
   ]
 
   const handleView = (module: {

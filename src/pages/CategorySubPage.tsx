@@ -54,18 +54,6 @@ export default function CategorySubPage() {
 
   const premiumTiers = getPremiumTiers()
 
-  const categoryName =
-    categoryId === 'happy-dog'
-      ? t('knowledgeHub.categories.happyDog')
-      : t('knowledgeHub.categories.happyCat')
-
-  // Categories for sidebar
-  const categories = [
-    { id: 'happy-cat', name: t('knowledgeHub.categories.happyCat') },
-    { id: 'happy-dog', name: t('knowledgeHub.categories.happyDog') },
-    { id: 'all-categories', name: t('knowledgeHub.categories.allCategories') },
-  ]
-
   const handlePremiumClick = (tierId: string) => {
     // Navigate to the videos page for this premium tier
     navigate(`/knowledge-hub/${categoryId}/${tierId}`)

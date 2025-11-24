@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { useVerifyOtpMutation, useSendOtpMutation } from '@/api/auth'
 import { useToast } from '@/hooks/use-toast'
 import { Loader2 } from 'lucide-react'
@@ -158,7 +158,10 @@ export function VerifyEmailPage() {
             <h1 className="text-[#fff] heading-line text-[60px] text-center">
               Verify your Email
             </h1>
-            <p className="text-[#fff] text-[18px] text-center py-[26px] font-semibold">Thanks for signing up.<br></br>  We have send a verification code on your Email.<br></br> Please enter the verification code below</p>
+            <p className="text-[#fff] text-[18px] text-center py-[26px] font-semibold">
+              Thanks for signing up.<br></br> We have send a verification code
+              on your Email.<br></br>Please enter the verification code below
+            </p>
             {/* OTP Input Fields */}
             <div className="flex justify-center gap-2 sm:gap-3 mb-6">
               {otp.map((digit, index) => (

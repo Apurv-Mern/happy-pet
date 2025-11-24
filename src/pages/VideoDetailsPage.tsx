@@ -1,62 +1,57 @@
-import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from 'lucide-react'
+import { ChevronLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 interface Video {
-    id: string
-    title: string
-    description: string
-    videoUrl: string
-    category: string
-    duration: string
+  id: string
+  title: string
+  description: string
+  videoUrl: string
+  category: string
+  duration: string
 }
 
-interface Category {
-    id: string
-    name: string
-}
+// interface Category {
+//   id: string
+//   name: string
+// }
 
-const categories: Category[] = [
-    { id: 'happy-dog', name: 'Happy Dog' },
-    { id: 'happy-cat', name: 'Happy Cat' },
-]
+// const categories: Category[] = [
+//   { id: 'happy-dog', name: 'Happy Dog' },
+//   { id: 'happy-cat', name: 'Happy Cat' },
+// ]
 
 const videos: Video[] = [
-    {
-        id: '1',
-        title: "There's nothing quite like the pure joy of a happy dog",
-        description:
-            "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment. Whether it's a walk in the park, a favorite treat, or a simple belly rub, a dog's happiness is contagious.\n\nThere's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment. There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment. Whether it's a walk in the park, a favorite treat, or a simple belly rub, a dog's happiness is contagious.",
-        videoUrl: '/videos/happy-dog-1.mp4',
-        category: 'happy-dog',
-        duration: '4:32',
-    },
-    // Add more videos...
+  {
+    id: '1',
+    title: "There's nothing quite like the pure joy of a happy dog",
+    description:
+      "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment. Whether it's a walk in the park, a favorite treat, or a simple belly rub, a dog's happiness is contagious.\n\nThere's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment. There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment. Whether it's a walk in the park, a favorite treat, or a simple belly rub, a dog's happiness is contagious.",
+    videoUrl: '/videos/happy-dog-1.mp4',
+    category: 'happy-dog',
+    duration: '4:32',
+  },
+  // Add more videos...
 ]
 
 export default function VideoDetailPage() {
-    const { videoId } = useParams<{ videoId: string }>()
-    const navigate = useNavigate()
-    const [selectedCategory, setSelectedCategory] = useState<string>('happy-dog')
-    const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false)
+  const { videoId } = useParams<{ videoId: string }>()
+  const navigate = useNavigate()
 
-    const video = videos.find(v => v.id === videoId)
+  const video = videos.find(v => v.id === videoId)
 
-    if (!video) {
-        return <div>Video not found</div>
-    }
+  if (!video) {
+    return <div>Video not found</div>
+  }
 
-    const descriptionLines = video.description.split('\n')
-    const shortDescription = descriptionLines.slice(0, 2).join('\n')
-    const fullDescription = video.description
+  const fullDescription = video.description
 
-    return (
-        <div className="min-h-screen">
-            <div className="">
-                <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
-                    {/* Sidebar - Categories */}
-                    {/* <div className="lg:col-span-1">
+  return (
+    <div className="min-h-screen">
+      <div className="">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
+          {/* Sidebar - Categories */}
+          {/* <div className="lg:col-span-1">
                         <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center mb-5">
                         <input 
                             type="text" 
@@ -100,38 +95,40 @@ export default function VideoDetailPage() {
                         </div>
                     </div> */}
 
-                    {/* Main Content - Video Player */}
-                    <div className="">
-                        {/* Video Title */}
-                        {/* <div className="bg-[#d4e7f6] rounded-xl px-6 py-4 mb-6">
+          {/* Main Content - Video Player */}
+          <div className="">
+            {/* Video Title */}
+            {/* <div className="bg-[#d4e7f6] rounded-xl px-6 py-4 mb-6">
                             <h1 className="text-2xl font-bold text-[#003863]">
                                 {video.title}
                             </h1>
                         </div> */}
 
-                        {/* Video Player */}
-                        <div className="mb-6">
-                            <div className="">
-                                <video
-                                    className="w-full h-full rounded-[20px]"
-                                    controls
-                                    poster={`/thumbnails/${video.id}.jpg`}
-                                >
-                                    <source src={video.videoUrl} type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
+            {/* Video Player */}
+            <div className="mb-6">
+              <div className="">
+                <video
+                  className="w-full h-full rounded-[20px]"
+                  controls
+                  poster={`/thumbnails/${video.id}.jpg`}
+                >
+                  <source src={video.videoUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
 
-                            {/* Video Description */}
-                            <div className="">
-                                <div>
-                                    <h3 className="text-[36px] text-[#003863] font-semibold py-5">There’s nothing quite like the pure joy of a happy dog</h3>
-                                    <p className="text-[#000] text-[18px] whitespace-pre-line">
-                                        {fullDescription}
-                                        {/* {isDescriptionExpanded ? fullDescription : shortDescription} */}
-                                        {/* {!isDescriptionExpanded && descriptionLines.length > 2 && '...'} */}
-                                    </p>
-{/* 
+              {/* Video Description */}
+              <div className="">
+                <div>
+                  <h3 className="text-[36px] text-[#003863] font-semibold py-5">
+                    There’s nothing quite like the pure joy of a happy dog
+                  </h3>
+                  <p className="text-[#000] text-[18px] whitespace-pre-line">
+                    {fullDescription}
+                    {/* {isDescriptionExpanded ? fullDescription : shortDescription} */}
+                    {/* {!isDescriptionExpanded && descriptionLines.length > 2 && '...'} */}
+                  </p>
+                  {/* 
                                    {descriptionLines.length > 2 && (
                                         <button
                                             onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
@@ -150,21 +147,21 @@ export default function VideoDetailPage() {
                                             )}
                                         </button>
                                     )}  */}
-                                </div>
-                            </div>
-                        </div>
+                </div>
+              </div>
+            </div>
 
-                        {/* Navigation Buttons */}
-                        <div className="flex items-center justify-between">
-                            <Button
-                                onClick={() => navigate('/knowledge-hub')}
-                                className="flex items-center gap-2 bg-white text-[#003863] border-2 border-[#003863] hover:bg-[#e1eef4] rounded-full px-6"
-                            >
-                                <ChevronLeft className="h-5 w-5" />
-                                Back to Videos
-                            </Button>
+            {/* Navigation Buttons */}
+            <div className="flex items-center justify-between">
+              <Button
+                onClick={() => navigate('/knowledge-hub')}
+                className="flex items-center gap-2 bg-white text-[#003863] border-2 border-[#003863] hover:bg-[#e1eef4] rounded-full px-6"
+              >
+                <ChevronLeft className="h-5 w-5" />
+                Back to Videos
+              </Button>
 
-                            {/* <div className="flex gap-3">
+              {/* <div className="flex gap-3">
                                 <Button
                                     variant="outline"
                                     className="border-[#003863] text-[#003863] hover:bg-[#e1eef4] rounded-full px-6"
@@ -178,10 +175,10 @@ export default function VideoDetailPage() {
                                     <ChevronRight className="h-5 w-5" />
                                 </Button>
                             </div> */}
-                        </div>
+            </div>
 
-                        {/* Related Videos */}
-                        {/* <div className="mt-10">
+            {/* Related Videos */}
+            {/* <div className="mt-10">
                             <h2 className="text-2xl font-bold text-[#003863] mb-6">
                                 Related Videos
                             </h2>
@@ -211,9 +208,9 @@ export default function VideoDetailPage() {
                                 ))}
                             </div>
                         </div> */}
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  )
 }

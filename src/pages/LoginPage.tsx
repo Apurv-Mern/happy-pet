@@ -8,7 +8,7 @@ import { useAuthStore } from '@/store/useAuthStore'
 import { useLoginMutation, useSendOtpMutation } from '@/api/auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Eye, EyeOff } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 
@@ -59,7 +59,7 @@ export function LoginPage() {
         onSuccess: response => {
           if (response.success) {
             // Check if email is verified
-            response.data.user.isEmailVerified = true;
+            response.data.user.isEmailVerified = true
             if (!response.data.user.isEmailVerified) {
               // Send OTP for unverified email
               sendOtpMutation.mutate(
