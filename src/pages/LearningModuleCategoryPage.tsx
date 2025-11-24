@@ -5,7 +5,7 @@ import { useCategoriesQuery } from '@/api/categories'
 
 interface PremiumTier {
   id: string
-  name: string
+  title: string
   stars: number
   image: string
   count: number
@@ -41,7 +41,7 @@ export default function LearningModuleCategoryPage() {
 
     return category.sub_categories.map(subCategory => ({
       id: subCategory.id.includes('PREMIUM') ? 'premium' : 'super-premium',
-      name: subCategory.name,
+      title: subCategory.name,
       stars: subCategory.id.includes('SUPER_PREMIUM') ? 5 : 4,
       image: '/assets/images/premium-tier.png',
       count: subCategory.count,
@@ -136,71 +136,89 @@ export default function LearningModuleCategoryPage() {
         </div>
 
         {/* Premium Tiers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[120px] mt-16">
           {premiumTiers.map((tier, index) => (
             <motion.div
               key={tier.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.15 }}
               onClick={() => handleTierClick(tier.id)}
-              className="relative rounded-[20px] overflow-hidden cursor-pointer group"
+              className="relative overflow-hidden  cursor-pointer group transition-all duration-300"
             >
               {/* Background Image */}
-              <div className="relative aspect-[4/3]">
+              <div className="relative h-full overflow-hidden">
+                {/* <img
+                      src={tier.image}
+                      alt={tier.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      onError={e => {
+                        // Fallback to placeholder
+                        e.currentTarget.src = '/assets/images/placeholder.jpg'
+                      }}
+                    /> */}
+                {/* Dark Overlay */}
                 <img
-                  className="w-full h-full object-cover"
-                  src={tier.image}
-                  alt={tier.name}
+                  className="h-full max-h-[550px] object-cover w-full rounded-[20px] border-[2px] border-[#003863]"
+                  src="/assets/images/dog.png"
+                  alt=""
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#003863]/80 via-[#003863]/30 to-transparent"></div>
               </div>
 
-              {/* Star Badge - Top Center */}
-              <div className="absolute top-6 left-1/2 -translate-x-1/2">
-                <div className="bg-white/90 backdrop-blur-sm px-6 py-2 rounded-full flex items-center gap-2">
-                  {Array.from({ length: tier.stars }).map((_, i) => (
-                    <svg
-                      key={i}
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="#FFD700"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                    </svg>
-                  ))}
+              {/* Content Overlay - Centered */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 h-full max-h-[550px]">
+                {/* Premium Badge */}
+                <div className="bg-[#003863]/90 w-full max-w-[300px] text-white px-8 py-6 rounded-[20px] transform group-hover:scale-105 transition-transform duration-300">
+                  {/* Stars */}
+                  <div className="flex justify-center gap-1">
+                    {[...Array(tier.stars)].map((_, i) => (
+                      <span key={i} className="text-[#fff] text-2xl">
+                        <svg
+                          width="26"
+                          height="26"
+                          viewBox="0 0 26 26"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.9659 7.61562C11.649 5.92717 11.9906 5.08295 12.5455 4.96595C12.6914 4.93518 12.8422 4.93518 12.9882 4.96595C13.5431 5.08295 13.8846 5.92717 14.5678 7.61562C14.9562 8.5758 15.1505 9.05589 15.5139 9.38243C15.6159 9.47402 15.7265 9.5556 15.8444 9.626C16.2645 9.87703 16.7889 9.92359 17.8377 10.0167C19.6131 10.1744 20.5008 10.2532 20.7719 10.755C20.8281 10.8589 20.8663 10.9715 20.8849 11.0879C20.9747 11.6502 20.3221 12.2388 19.0169 13.4161L18.6545 13.7431C18.0442 14.2935 17.7391 14.5687 17.5627 14.9121C17.4568 15.1182 17.3858 15.34 17.3526 15.5689C17.2971 15.9504 17.3865 16.3497 17.5651 17.1481L17.629 17.4334C17.9494 18.8654 18.1097 19.5814 17.9097 19.9333C17.73 20.2494 17.3991 20.4518 17.0335 20.4691C16.6265 20.4884 16.0531 20.0251 14.9062 19.0986C14.1506 18.4881 13.7728 18.1829 13.3533 18.0637C12.9701 17.9547 12.5636 17.9547 12.1803 18.0637C11.7609 18.1829 11.3831 18.4881 10.6275 19.0986C9.4806 20.0251 8.90715 20.4884 8.50018 20.4691C8.13461 20.4518 7.80368 20.2494 7.62402 19.9333C7.424 19.5814 7.58423 18.8654 7.90468 17.4334L7.96853 17.1481C8.14722 16.3497 8.23656 15.9504 8.18112 15.5689C8.14786 15.34 8.07688 15.1182 7.97101 14.9121C7.79454 14.5687 7.48943 14.2935 6.87922 13.7431L6.51676 13.4161C5.21154 12.2388 4.55893 11.6502 4.6488 11.0879C4.66742 10.9715 4.70559 10.8589 4.76174 10.755C5.03283 10.2532 5.92055 10.1744 7.696 10.0167C8.74481 9.92359 9.26922 9.87703 9.6893 9.626C9.80713 9.5556 9.91779 9.47402 10.0197 9.38243C10.3832 9.05589 10.5774 8.5758 10.9659 7.61562Z"
+                            fill="white"
+                            stroke="white"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-white text-[32px] font-semibold text-center mb-3">
+                    {tier.title}
+                  </h3>
+
+                  {/* Button */}
+                  <button className="w-full bg-white text-[#003863] px-4 py-1 rounded-full font-semibold hover:bg-gray-100 transition text-lg">
+                    {t('knowledgeHub.clickHere')}
+                  </button>
                 </div>
               </div>
 
-              {/* Content Overlay - Bottom */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-white text-[28px] font-semibold mb-1">
-                      {tier.name}
-                    </h3>
-                    <p className="text-white/90 text-[16px]">
-                      {tier.count} {tier.count === 1 ? 'Document' : 'Documents'}
-                    </p>
-                  </div>
-                  <div className="group-hover:translate-x-1 transition-transform">
+              {/* Corner Arrow Icon */}
+              {/* <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg
-                      width="26"
-                      height="25"
-                      viewBox="0 0 26 25"
+                      className="w-6 h-6 text-white"
                       fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
                     >
                       <path
-                        d="M21.0225 12.4706L21.7255 11.7595L22.4448 12.4706L21.7255 13.1818L21.0225 12.4706ZM5.25556 13.4706C4.70327 13.4706 4.25555 13.0229 4.25555 12.4706C4.25555 11.9184 4.70327 11.4706 5.25556 11.4706V12.4706V13.4706ZM14.7157 6.23535L15.4188 5.52423L21.7255 11.7595L21.0225 12.4706L20.3194 13.1818L14.0126 6.94648L14.7157 6.23535ZM21.0225 12.4706L21.7255 13.1818L15.4188 19.4171L14.7157 18.7059L14.0126 17.9948L20.3194 11.7595L21.0225 12.4706ZM21.0225 12.4706V13.4706H5.25556V12.4706V11.4706H21.0225V12.4706Z"
-                        fill="white"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
                       />
                     </svg>
-                  </div>
-                </div>
-              </div>
+                  </div> */}
             </motion.div>
           ))}
         </div>

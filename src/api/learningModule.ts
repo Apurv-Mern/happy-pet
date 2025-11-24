@@ -74,6 +74,8 @@ export const useLearningKnowledgeQuery = (
     queryFn: () => learningModuleApi.getLearningKnowledge(filters),
     retry: 1,
     enabled: Object.keys(filters).length > 0, // Only run if filters are provided
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes (formerly cacheTime)
   })
 }
 
