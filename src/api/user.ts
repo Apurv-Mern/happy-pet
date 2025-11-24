@@ -2,6 +2,12 @@ import { useQuery } from '@tanstack/react-query'
 import { apiClient } from './axios'
 import { User } from '@/types'
 
+interface ProfileResponse {
+  success: boolean
+  message: string
+  data: User
+}
+
 export const userApi = {
   getCurrentUser: async (): Promise<User> => {
     const { data } = await apiClient.get<User>('/user/me')
@@ -10,6 +16,10 @@ export const userApi = {
   getUserById: async (id: string): Promise<User> => {
     const { data } = await apiClient.get<User>(`/user/${id}`)
     return data
+  },
+  getProfile: async (): Promise<User> => {
+    const { data } = await apiClient.get<ProfileResponse>('/auth/profile')
+    return data.data
   },
 }
 
@@ -29,3 +39,11 @@ export const useUserByIdQuery = (userId: string, enabled = true) => {
   })
 }
 
+export const useProfileQuery = () => {
+  return useQuery({
+    queryKey: ['profile'],
+    queryFn: userApi.getProfile,
+    retry: 1,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+  })
+}

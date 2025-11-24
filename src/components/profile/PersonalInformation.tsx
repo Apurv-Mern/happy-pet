@@ -59,9 +59,7 @@ export const PersonalInformation = ({
 
         {/* Email */}
         <div>
-          <label className="block text-sm text-[#003863] mb-2">
-            Email
-          </label>
+          <label className="block text-sm text-[#003863] mb-2">Email</label>
           <input
             type="email"
             name="email"
@@ -74,9 +72,7 @@ export const PersonalInformation = ({
 
         {/* Address */}
         <div>
-          <label className="block text-sm text-[#003863] mb-2">
-            Address
-          </label>
+          <label className="block text-sm text-[#003863] mb-2">Address</label>
           <input
             type="text"
             name="address"
@@ -102,7 +98,7 @@ export const PersonalInformation = ({
               placeholder="Enter company name"
             />
           </div>
-          <div className="w-full max-w-[450px]">   
+          <div className="w-full max-w-[450px]">
             <label className="block text-sm text-[#003863] mb-2">
               Phone Number
             </label>
@@ -120,9 +116,7 @@ export const PersonalInformation = ({
         {/* D.O.B & Postal Code */}
         <div className="flex justify-between">
           <div className="w-full max-w-[450px]">
-            <label className="block text-sm text-[#003863] mb-2">
-              D.O.B
-            </label>
+            <label className="block text-sm text-[#003863] mb-2">D.O.B</label>
             <input
               type="date"
               name="dob"

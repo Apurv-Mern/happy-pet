@@ -24,12 +24,12 @@ export const useProfileForm = (user: User | null) => {
     lastName: user?.name?.split(' ').slice(1).join(' ') || '',
     email: user?.email || '',
     address: '',
-    companyName: '',
-    phoneNumber: '',
+    companyName: user?.company || '',
+    phoneNumber: user?.phoneNumber || '',
     dob: '',
     postalCode: '',
   })
-
+  console.log(formData)
   const [passwordData, setPasswordData] = useState<PasswordFormData>({
     currentPassword: '',
     newPassword: '',
@@ -57,8 +57,8 @@ export const useProfileForm = (user: User | null) => {
       lastName: user?.name?.split(' ').slice(1).join(' ') || '',
       email: user?.email || '',
       address: '',
-      companyName: '',
-      phoneNumber: '',
+      companyName: user?.company || '',
+      phoneNumber: user?.phoneNumber || '',
       dob: '',
       postalCode: '',
     })

@@ -8,6 +8,21 @@ export interface User {
   lastLoginAt?: string
   loginCount?: number
   avatar?: string
+  profileImage?: string
+  phoneNumber?: string
+  company?: string
+  country?: string
+  timezone?: string
+  role?: {
+    _id: string
+    name: string
+    description: string
+    permissions: string[]
+    isActive: boolean
+    isSystemRole: boolean
+    createdAt: string
+    updatedAt: string
+  }
   createdAt?: string
 }
 
