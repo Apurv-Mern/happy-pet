@@ -24,6 +24,8 @@ import CategorySubPage from './pages/CategorySubPage.tsx'
 import SubCategoryItem from './pages/SubCategoryItem.tsx'
 import AiAgentPage from './pages/AiAgentPage.tsx'
 import LearningModePage from './pages/LearningModePage.tsx'
+import LearningModuleCategoryPage from './pages/LearningModuleCategoryPage.tsx'
+import LearningModuleSubCategoryPage from './pages/LearningModuleSubCategoryPage.tsx'
 import { Toaster } from './components/ui/toaster'
 import VideoDetailPage from './pages/VideoDetailsPage.tsx'
 import { Header2 } from './components/Header2.tsx'
@@ -71,6 +73,18 @@ function App() {
               element={<SubCategoryItem />}
             />
             <Route path="/learning-module" element={<LearningModePage />} />
+            <Route
+              path="/learning-module/:categoryId"
+              element={<LearningModuleCategoryPage />}
+            />
+            <Route
+              path="/learning-module/:categoryId/:tierId"
+              element={<LearningModuleSubCategoryPage />}
+            />
+            <Route
+              path="/learning-module/:categoryId/:tierId/:subcategoryId"
+              element={<LearningModuleSubCategoryPage />}
+            />
             <Route path="/ai-agent" element={<AiAgentPage />} />
             <Route path="/video/:videoId" element={<VideoDetailPage />} />
           </Route>

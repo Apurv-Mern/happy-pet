@@ -2,10 +2,14 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useCategoriesQuery, Filter } from '@/api/categories'
-import { useState } from 'react'
-import { useLearningKnowledgeQuery } from '@/api/learningModule'
+import { useState, useRef } from 'react'
+import { FileText, Eye, Download } from 'lucide-react'
+import {
+  useLearningKnowledgeQuery,
+  usePresignedUrlForViewingMutation,
+} from '@/api/learningModule'
 
-export default function SubCategoryItem() {
+export default function LearningModuleSubCategoryPage() {
   const { categoryId, tierId, subcategoryId } = useParams<{
     categoryId: string
     tierId: string
@@ -22,8 +26,16 @@ export default function SubCategoryItem() {
     typeOfFood?: string
   }>({})
 
-  // Fetch categories from API
-  const { data: categoriesResponse, isLoading } = useCategoriesQuery()
+  // Fetch categories from API with contentType=document
+  const { data: categoriesResponse, isLoading } = useCategoriesQuery(
+    'other',
+    'document'
+  )
+
+  console.log({ categoriesResponse })
+
+  const { mutate: fetchPresignedUrl } = usePresignedUrlForViewingMutation()
+  const newWindowRef = useRef<Window | null>(null)
 
   // Map route params to API category IDs
   const categoryMap: { [key: string]: string } = {
@@ -51,7 +63,7 @@ export default function SubCategoryItem() {
     ? {
         page: 1,
         limit: 12,
-        type: 'video' as const,
+        type: 'document' as const,
         categoryId: mappedCategoryId,
         subCategoryId: subCategoryId,
         productFlowIds: subcategoryId,
@@ -68,7 +80,7 @@ export default function SubCategoryItem() {
   const { data: learningData, isLoading: isLoadingData } =
     useLearningKnowledgeQuery(isViewingProductLine ? apiFilters : {})
 
-  const videos = learningData?.data?.items || []
+  const documents = learningData?.data?.items || []
 
   // Get product lines based on categoryId and tierId
   const getProductLines = () => {
@@ -141,6 +153,70 @@ export default function SubCategoryItem() {
     setAppliedFilters({})
   }
 
+  const handleView = (document: any) => {
+    const fileUrl = document.fileUrl
+    if (!fileUrl) {
+      console.error('No fileUrl available', document)
+      return
+    }
+
+    try {
+      newWindowRef.current = window.open('', '_blank')
+    } catch (err) {
+      console.warn('Could not open new window/tab immediately', err)
+      newWindowRef.current = null
+    }
+
+    fetchPresignedUrl(String(fileUrl), {
+      onSuccess: resp => {
+        const url = resp?.data?.presignedUrl
+        if (!url) {
+          console.error('Presigned URL missing in response', resp)
+          if (newWindowRef.current) {
+            try {
+              newWindowRef.current.close()
+            } catch {}
+            newWindowRef.current = null
+          }
+          return
+        }
+
+        if (newWindowRef.current) {
+          try {
+            newWindowRef.current.location.href = url
+          } catch (err) {
+            window.open(url, '_blank')
+          }
+        } else {
+          window.open(url, '_blank')
+        }
+
+        newWindowRef.current = null
+      },
+      onError: () => {
+        if (newWindowRef.current) {
+          try {
+            newWindowRef.current.close()
+          } catch {}
+          newWindowRef.current = null
+        }
+        console.error('Failed to fetch presigned URL')
+      },
+    })
+  }
+
+  const handleDownload = (document: any) => {
+    const blob = new Blob([document.content || ''], { type: 'text/plain' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `${document.title}.txt`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+  }
+
   const categoryName =
     categoryId === 'happy-dog'
       ? t('knowledgeHub.categories.happyDog')
@@ -152,8 +228,8 @@ export default function SubCategoryItem() {
       : t('knowledgeHub.superPremium')
 
   const handleSubCategoryClick = (productLineId: string) => {
-    // Navigate to the videos list for this specific product line
-    navigate(`/knowledge-hub/${categoryId}/${tierId}/${productLineId}`)
+    // Navigate to the documents list for this specific product line
+    navigate(`/learning-module/${categoryId}/${tierId}/${productLineId}`)
   }
 
   // Loading state
@@ -179,7 +255,29 @@ export default function SubCategoryItem() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b-[1px] border-[#003860] pb-5">
           <div className="flex items-center gap-[35px] text-lg">
             <button
-              onClick={() => navigate('/knowledge-hub')}
+              onClick={() => navigate('/learning-module')}
+              className="text-[#003863] text-[55px] heading-line"
+            >
+              {t('header.learningModule')}
+            </button>
+            <span className="">
+              <svg
+                width="13"
+                height="20"
+                viewBox="0 0 13 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.5 18.5L10.5 10L1.5 1.5"
+                  stroke="#003863"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <button
+              onClick={() => navigate(`/learning-module/${categoryId}`)}
               className="text-[#003863] text-[55px] heading-line"
             >
               {categoryName}
@@ -201,7 +299,9 @@ export default function SubCategoryItem() {
               </svg>
             </span>
             <button
-              onClick={() => navigate(`/knowledge-hub/${categoryId}`)}
+              onClick={() =>
+                navigate(`/learning-module/${categoryId}/${tierId}`)
+              }
               className="text-[#003863] text-[55px] heading-line"
             >
               {tierName}
@@ -257,13 +357,14 @@ export default function SubCategoryItem() {
             </div>
           </div>
         </div>
-        {/* Filters Section - Only show when viewing product line videos */}
+
+        {/* Filters Section - Only show when viewing product line documents */}
         {isViewingProductLine && (
           <div className="pt-6">
             <div className="flex flex-wrap items-center gap-4">
               {/* Age Group Filter */}
               {ageGroupFilter && (
-                <div className="">
+                <div className="flex items-center gap-2">
                   <label className="text-[#003863] font-semibold">
                     Age Group
                   </label>
@@ -302,7 +403,7 @@ export default function SubCategoryItem() {
 
               {/* Type of Food Filter */}
               {foodTypeFilter && (
-                <div className="">
+                <div className="flex items-center gap-2">
                   <label className="text-[#003863] font-semibold">
                     Type of Food
                   </label>
@@ -359,60 +460,61 @@ export default function SubCategoryItem() {
         )}
 
         <div className="">
-          {/* Main Content - Product Lines Grid or Videos Grid */}
+          {/* Main Content - Product Lines Grid or Documents Grid */}
           <div className="">
             {isViewingProductLine ? (
-              // Video Grid
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10">
-                {videos.length === 0 ? (
-                  <div className="col-span-3 text-center py-12">
-                    <p className="text-gray-600">No videos available</p>
+              // Document Grid
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-10">
+                {documents.length === 0 ? (
+                  <div className="col-span-2 text-center py-12">
+                    <p className="text-gray-600">No documents available</p>
                   </div>
                 ) : (
-                  videos.map((video: any, index: number) => (
+                  documents.map((document: any, index: number) => (
                     <motion.div
-                      key={video.id || video._id}
+                      key={document.id || document._id}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      onClick={() =>
-                        navigate(`/video/${video.id || video._id}`)
-                      }
-                      className="relative rounded-[20px] overflow-hidden cursor-pointer group"
+                      className="bg-[#E1EEF4] rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow"
                     >
-                      {/* Video Thumbnail */}
-                      <div className="relative aspect-video">
-                        <img
-                          className="w-full h-full object-cover"
-                          src={video.thumbnail || '/assets/images/cat.png'}
-                          alt={video.title}
-                        />
-                        {/* Play Button Overlay */}
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
-                          <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center">
-                            <svg
-                              width="24"
-                              height="28"
-                              viewBox="0 0 24 28"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M2 2L22 14L2 26V2Z"
-                                fill="#003863"
-                                stroke="#003863"
-                                strokeWidth="2"
-                              />
-                            </svg>
+                      <div className="flex gap-4">
+                        {/* Document Icon */}
+                        <div className="flex-shrink-0">
+                          <div className="w-16 h-16 bg-[#d4e7f6] rounded-lg flex items-center justify-center">
+                            <FileText className="h-8 w-8 text-[#003863]" />
                           </div>
                         </div>
-                      </div>
 
-                      {/* Video Title */}
-                      <div className="bg-white p-4">
-                        <h3 className="text-[#003863] text-[16px] font-semibold line-clamp-2">
-                          {video.title}
-                        </h3>
+                        {/* Content */}
+                        <div className="flex-grow">
+                          <h3 className="text-lg font-bold text-[#003863] mb-2">
+                            {document.title}
+                          </h3>
+                          <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                            {document.content ||
+                              document.description ||
+                              'No description available'}
+                          </p>
+
+                          {/* Action Buttons */}
+                          <div className="flex items-center gap-3">
+                            <button
+                              onClick={() => handleView(document)}
+                              className="flex items-center gap-2 bg-white text-[#003863] border border-[#003863] hover:bg-[#e1eef4] rounded-full px-4 py-2 text-sm font-medium transition-colors"
+                            >
+                              <Eye className="h-4 w-4" />
+                              View
+                            </button>
+                            <button
+                              onClick={() => handleDownload(document)}
+                              className="flex items-center gap-2 bg-[#003863] text-white hover:bg-[#002d4d] rounded-full px-4 py-2 text-sm font-medium transition-colors"
+                            >
+                              <Download className="h-4 w-4" />
+                              Download
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     </motion.div>
                   ))
