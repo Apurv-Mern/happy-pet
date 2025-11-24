@@ -26,12 +26,13 @@ const NavLink = ({
 }) => (
   <Link
     to={path}
-    className={`font-semibold hover:bg-[#0E213A] hover:text-[#fff] rounded-[40px] py-[14px] px-[28px]${
-      isActive ? '' : ''
+    className={`font-semibold rounded-[40px] py-[14px] px-[28px] transition-colors ${
+      isActive
+        ? 'bg-[#0E213A] text-[#fff]'
+        : 'hover:bg-[#0E213A] hover:text-[#fff]'
     }`}
   >
     {label}
-    {isActive && <span className="" />}
   </Link>
 )
 
@@ -131,18 +132,10 @@ export function Header() {
                 <img src="/assets/images/logo.png" alt="Happy Pet Logo" />
               </div>
             </Link>
-                        <nav className="hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit">
-            {publicNavItems.map(item => (
-              <NavLink
-                key={item.path}
-                path={item.path}
-                label={item.label}
-                isActive={location.pathname === item.path}
-              />
-            ))}
-
-            {isAuthenticated &&
-              protectedNavItems.map(item => (
+            <nav
+              className={` hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit ${isAuthenticated ? 'border-2 border-red-600' : ''}`}
+            >
+              {publicNavItems.map(item => (
                 <NavLink
                   key={item.path}
                   path={item.path}
@@ -151,43 +144,53 @@ export function Header() {
                 />
               ))}
 
-            {/* Language Selector Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-[16px] transition-colors ml-[6px]"
-              >
-                {' '}
-                <div>
-                  <span className="text-xl">🇬🇧</span>
-                  <span className="text-sm font-medium">Eng</span>
-                </div>
-                <ChevronDown className="h-4 w-4" />
-                <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center ml-1 border-[2px] border-[#003863]">
-                  <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
-                </div>
-              </button>
+              {isAuthenticated &&
+                protectedNavItems.map(item => (
+                  <NavLink
+                    key={item.path}
+                    path={item.path}
+                    label={item.label}
+                    isActive={location.pathname === item.path}
+                  />
+                ))}
 
-              {isDropdownOpen && (
-                <div className="absolute right-0 mt-3 w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-50">
-                  <h3 className="text-2xl font-semibold italic text-center mb-5">
-                    Select Language
-                  </h3>
-                  <div className="space-y-3">
-                    {availableLanguages.map(lang => (
-                      <button
-                        key={lang.code}
-                        onClick={() => handleSelectLanguage(lang.code)}
-                        className="flex w-full items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#003863] hover:shadow-lg transition"
-                      >
-                        <span className="text-xl">{lang.flag}</span>
-                        <span>{lang.name}</span>
-                      </button>
-                    ))}
+              {/* Language Selector Dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-[16px] transition-colors ml-[6px]"
+                >
+                  {' '}
+                  <div>
+                    <span className="text-xl">🇬🇧</span>
+                    <span className="text-sm font-medium">Eng</span>
                   </div>
-                </div>
-              )}
-            </div>
+                  <ChevronDown className="h-4 w-4" />
+                  <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center ml-1 border-[2px] border-[#003863]">
+                    <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
+                  </div>
+                </button>
+
+                {isDropdownOpen && (
+                  <div className="absolute right-0 mt-3 w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-50">
+                    <h3 className="text-2xl font-semibold italic text-center mb-5">
+                      Select Language
+                    </h3>
+                    <div className="space-y-3">
+                      {availableLanguages.map(lang => (
+                        <button
+                          key={lang.code}
+                          onClick={() => handleSelectLanguage(lang.code)}
+                          className="flex w-full items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#003863] hover:shadow-lg transition"
+                        >
+                          <span className="text-xl">{lang.flag}</span>
+                          <span>{lang.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             </nav>
 
             <div className="flex items-center gap-4 justify-end">
@@ -230,7 +233,6 @@ export function Header() {
                 )}
               </div>
             </div>
-
           </div>
 
           {/* Mobile Navigation Menu */}

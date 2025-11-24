@@ -25,12 +25,13 @@ const NavLink = ({
 }) => (
   <Link
     to={path}
-    className={`font-semibold hover:bg-[#0E213A] hover:text-[#fff] rounded-[40px] py-[14px] px-[28px] ${
-      isActive ? '' : ''
+    className={`font-semibold rounded-[40px] py-[14px] px-[28px] transition-colors ${
+      isActive
+        ? 'bg-[#0E213A] text-[#fff]'
+        : 'hover:bg-[#0E213A] hover:text-[#fff]'
     }`}
   >
     {label}
-    {isActive && <span className="" />}
   </Link>
 )
 

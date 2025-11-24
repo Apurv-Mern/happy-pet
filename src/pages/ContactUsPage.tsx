@@ -95,233 +95,6 @@ export function ContactUsPage() {
   return (
     <div className="bg-[url('/assets/images/background.png')] bg-cover bg-center py-20">
       {/* Header */}
-      {/* <div className="mx-auto max-w-[1200px] mb-10 sm:mb-16">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
-        >
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#003863] mb-2 sm:mb-3">
-            {t('contactPage.title')}
-          </h1>
-          <p className="text-base sm:text-lg text-gray-600">
-            {t('contactPage.subtitle')}
-          </p>
-        </motion.div>
-      </div> */}
-
-      {/* <div className="mx-auto max-w-[1200px] grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-       Contact Info Cards *
-        {contactInfoData.map((info, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow"
-          >
-            <div className="flex justify-center mb-4 text-[#003863]">
-              {info.icon}
-            </div>
-            <h3 className="text-2xl font-bold text-[#003863] mb-2">
-              {info.title}
-            </h3>
-            <p className="text-gray-600 mb-4 text-sm">{info.content}</p>
-            <div className="space-y-1">
-              {info.details.map((detail, i) => (
-                <p key={i} className="text-[#003863] font-medium text-sm">
-                  {detail}
-                </p>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-      </div> */}
-
-      {/* Contact Form */}
-      {/* <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="mx-auto max-w-[700px] bg-white rounded-2xl shadow-xl p-10"
-      >
-        <h2 className="text-3xl font-bold text-[#003863] mb-8 text-center">
-          {t('contactPage.formTitle')}
-        </h2>
-
-        {submitMessage && (
-          <div
-            className={`mb-6 p-4 rounded-lg text-center ${
-              submitMessage.includes('successfully')
-                ? 'bg-green-100 text-green-800'
-                : 'bg-red-100 text-red-800'
-            }`}
-          >
-            {submitMessage}
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-           Name Field
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-[#003863] mb-2"
-            >
-              {t('contactPage.fullName')}
-            </label>
-            <Input
-              id="name"
-              type="text"
-              placeholder={t('contactPage.fullNamePlaceholder')}
-              {...register('fullName')}
-              className="w-full border-2 border-[#cfe0e8] rounded-lg h-11 px-4 focus:border-[#003863] focus:outline-none transition-colors"
-            />
-            {errors.fullName && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.fullName.message}
-              </p>
-            )}
-          </div>
-
-         Email Field 
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-[#003863] mb-2"
-            >
-              {t('contactPage.email')}
-            </label>
-            <Input
-              id="email"
-              type="email"
-              placeholder={t('contactPage.emailPlaceholder')}
-              {...register('email')}
-              className="w-full border-2 border-[#cfe0e8] rounded-lg h-11 px-4 focus:border-[#003863] focus:outline-none transition-colors"
-            />
-            {errors.email && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.email.message}
-              </p>
-            )}
-          </div>
-
-      Phone Field 
-          <div>
-            <label
-              htmlFor="phone"
-              className="block text-sm font-medium text-[#003863] mb-2"
-            >
-              {t('contactPage.phone')}
-            </label>
-            <Input
-              id="phone"
-              type="tel"
-              placeholder={t('contactPage.phonePlaceholder')}
-              {...register('phone')}
-              className="w-full border-2 border-[#cfe0e8] rounded-lg h-11 px-4 focus:border-[#003863] focus:outline-none transition-colors"
-            />
-            {errors.phone && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.phone.message}
-              </p>
-            )}
-          </div>
-
-   Subject Field 
-          <div>
-            <label
-              htmlFor="subject"
-              className="block text-sm font-medium text-[#003863] mb-2"
-            >
-              {t('contactPage.subject')}
-            </label>
-            <Input
-              id="subject"
-              type="text"
-              placeholder={t('contactPage.subjectPlaceholder')}
-              {...register('subject')}
-              className="w-full border-2 border-[#cfe0e8] rounded-lg h-11 px-4 focus:border-[#003863] focus:outline-none transition-colors"
-            />
-            {errors.subject && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.subject.message}
-              </p>
-            )}
-          </div>
-
-        Message Field
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-[#003863] mb-2"
-            >
-              {t('contactPage.message')}
-            </label>
-            <textarea
-              id="message"
-              placeholder={t('contactPage.messagePlaceholder')}
-              {...register('message')}
-              rows={5}
-              className="w-full border-2 border-[#cfe0e8] rounded-lg px-4 py-3 focus:border-[#003863] focus:outline-none transition-colors resize-none"
-            />
-            {errors.message && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.message.message}
-              </p>
-            )}
-          </div>
-
-         Submit Button 
-          <Button
-            type="submit"
-            disabled={contactMutation.isPending}
-            className="w-full bg-[#003863] text-white hover:bg-[#002d4d] font-semibold rounded-lg h-11 flex items-center justify-center gap-2 transition-colors"
-          >
-            <Send className="h-5 w-5" />
-            {contactMutation.isPending
-              ? t('contactPage.sending')
-              : t('contactPage.sendMessage')}
-          </Button>
-        </form>
-      </motion.div> */}
-
-      {/* Social Media Section */}
-      {/* <div className="mx-auto max-w-[1200px] mt-16 text-center">
-        <h3 className="text-2xl font-bold text-[#003863] mb-6">
-          {t('contactPage.followUs')}
-        </h3>
-        <div className="flex justify-center gap-6">
-          <a
-            href="#"
-            className="bg-[#003863] text-white rounded-full h-12 w-12 flex items-center justify-center hover:bg-[#002d4d] transition-colors"
-          >
-            <FaFacebookF className="h-6 w-6" />
-          </a>
-          <a
-            href="#"
-            className="bg-[#003863] text-white rounded-full h-12 w-12 flex items-center justify-center hover:bg-[#002d4d] transition-colors"
-          >
-            <FaXTwitter className="h-6 w-6" />
-          </a>
-          <a
-            href="#"
-            className="bg-[#003863] text-white rounded-full h-12 w-12 flex items-center justify-center hover:bg-[#002d4d] transition-colors"
-          >
-            <FaInstagram className="h-6 w-6" />
-          </a>
-          <a
-            href="#"
-            className="bg-[#003863] text-white rounded-full h-12 w-12 flex items-center justify-center hover:bg-[#002d4d] transition-colors"
-          >
-            <FaLinkedinIn className="h-6 w-6" />
-          </a>
-        </div>
-      </div> */}
-
-      {/* new contact us start */}
-
       <div className="container mx-auto">
         <div className="text-center">
           <h2 className="heading-line text-[#003863] text-[64px]">
@@ -506,113 +279,151 @@ export function ContactUsPage() {
 
             {/* RIGHT SIDE – Form */}
             <div className="pt-10">
-              {/* First Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                {/* First Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label className="text-sm font-semibold text-[#003863]">
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      {...register('fullName')}
+                      className="w-full border-b border-[#003863] focus:outline-none py-2"
+                    />
+                    {errors.fullName && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.fullName.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="text-sm text-[#003863] font-semibold">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full border-b border-[#003863] focus:outline-none py-2"
+                    />
+                  </div>
+                </div>
+
+                {/* Second Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label className="text-sm text-[#003863] font-semibold">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      {...register('email')}
+                      className="w-full border-b border-[#003863] focus:outline-none py-2"
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="text-sm text-[#003863] font-semibold">
+                      Phone Number
+                    </label>
+                    <input
+                      type="text"
+                      {...register('phone')}
+                      className="w-full border-b border-[#003863] focus:outline-none py-2"
+                    />
+                    {errors.phone && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.phone.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Select Subject */}
+                <div className="mb-6">
+                  <label className="text-sm font-semibold text-[#003863] mb-6 block">
+                    Select Subject?
+                  </label>
+
+                  <div className="flex flex-wrap gap-[80px]">
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        value="General Inquiry"
+                        {...register('subject')}
+                        className="accent-[#003863]"
+                      />
+                      <span>General Inquiry</span>
+                    </label>
+
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        value="Support"
+                        {...register('subject')}
+                        className="accent-[#003863]"
+                      />
+                      <span>Support</span>
+                    </label>
+
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        value="Feedback"
+                        {...register('subject')}
+                        className="accent-[#003863]"
+                      />
+                      <span>Feedback</span>
+                    </label>
+
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        value="Other"
+                        {...register('subject')}
+                        className="accent-[#003863]"
+                      />
+                      <span>Other</span>
+                    </label>
+                  </div>
+                  {errors.subject && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.subject.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Message */}
+                <div className="mb-6">
                   <label className="text-sm font-semibold text-[#003863]">
-                    First Name
+                    Message
                   </label>
-                  <input
-                    type="text"
+                  <textarea
+                    placeholder="Write your message..."
+                    {...register('message')}
                     className="w-full border-b border-[#003863] focus:outline-none py-2"
-                  />
+                  ></textarea>
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.message.message}
+                    </p>
+                  )}
                 </div>
 
-                <div>
-                  <label className="text-sm text-[#003863] font-semibold">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full border-b border-[#003863] focus:outline-none py-2"
-                  />
-                </div>
-              </div>
-
-              {/* Second Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label className="text-sm text-[#003863] font-semibold">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full border-b border-[#003863] focus:outline-none py-2"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-sm text-[#003863] font-semibold">
-                    Phone Number
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full border-b border-[#003863] focus:outline-none py-2"
-                  />
-                </div>
-              </div>
-
-              {/* Select Subject */}
-              <div className="mb-6">
-                <label className="text-sm font-semibold text-[#003863] mb-6 block">
-                  Select Subject?
-                </label>
-
-                <div className="flex flex-wrap gap-[80px]">
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="radio"
-                      name="subject"
-                      checked
-                      className="accent-[#003863]"
-                    />
-                    <span>General Inquiry</span>
-                  </label>
-
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="radio"
-                      name="subject"
-                      className="accent-[#003863]"
-                    />
-                    <span>General Inquiry</span>
-                  </label>
-
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="radio"
-                      name="subject"
-                      className="accent-[#003863]"
-                    />
-                    <span>General Inquiry</span>
-                  </label>
-
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="radio"
-                      name="subject"
-                      className="accent-[#003863]"
-                    />
-                    <span>General Inquiry</span>
-                  </label>
-                </div>
-              </div>
-
-              {/* Message */}
-              <div className="mb-6">
-                <label className="text-sm font-semibold text-[#003863]">
-                  Message
-                </label>
-                <textarea
-                  placeholder="Write your message..."
-                  className="w-full border-b border-[#003863] focus:outline-none py-2"
-                ></textarea>
-              </div>
-
-              {/* Send Button */}
-              <button className="bg-[#003863] text-white px-8 py-3 rounded-lg shadow-md hover:bg-[#004c82] transition">
-                Send Message
-              </button>
+                {/* Send Button */}
+                <button
+                  type="submit"
+                  disabled={contactMutation.isPending}
+                  className="bg-[#003863] text-white px-8 py-3 rounded-lg shadow-md hover:bg-[#004c82] transition disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {contactMutation.isPending ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
               <img
                 className="relative left-[200px] bottom-[58px]"
                 src="/assets/images/letter.png"
