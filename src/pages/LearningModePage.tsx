@@ -12,7 +12,6 @@ import {
   PageHeader,
   CategorySidebar,
   DocumentsGrid,
-  PageSkeleton,
   DocumentGridSkeleton,
 } from '@/components/learning'
 import { useCategories } from '@/hooks/useCategories'
