@@ -166,16 +166,45 @@ export default function SubCategoryItem() {
     navigate(`/knowledge-hub/${categoryId}/${tierId}/${productLineId}`)
   }
 
-  // Loading state
+  // Skeleton loader for loading state
   if (
     isLoading ||
     (isViewingProductLine && (isLoadingData || isLoadingPresignedUrls))
   ) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003863] mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+      <div className="container mx-auto animate-pulse">
+        {/* Header skeleton */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b-[1px] border-gray-200 pb-5 mb-10">
+          <div className="flex items-center gap-[35px]">
+            <div className="h-14 bg-gray-200 rounded w-48"></div>
+            <div className="h-8 bg-gray-200 rounded w-24"></div>
+          </div>
+          <div className="h-12 bg-gray-200 rounded w-96 ml-auto"></div>
+        </div>
+
+        {/* Breadcrumb skeleton */}
+        <div className="flex gap-2 mb-8">
+          <div className="h-6 bg-gray-200 rounded w-24"></div>
+          <div className="h-6 bg-gray-200 rounded w-4"></div>
+          <div className="h-6 bg-gray-200 rounded w-32"></div>
+        </div>
+
+        {/* Title skeleton */}
+        <div className="mb-10">
+          <div className="h-12 bg-gray-200 rounded w-64 mb-2"></div>
+          <div className="h-6 bg-gray-200 rounded w-96"></div>
+        </div>
+
+        {/* Product grid skeleton */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[1, 2, 3, 4, 5, 6].map(i => (
+            <div key={i} className="bg-[#E3E6ED] rounded-[10px] p-6">
+              <div className="aspect-video bg-gray-300 rounded-xl mb-4"></div>
+              <div className="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+              <div className="h-4 bg-gray-300 rounded w-full mb-2"></div>
+              <div className="h-4 bg-gray-300 rounded w-5/6"></div>
+            </div>
+          ))}
         </div>
       </div>
     )

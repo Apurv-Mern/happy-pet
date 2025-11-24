@@ -29,7 +29,7 @@ const ProfilePage = () => {
 
   const handleLogout = () => {
     logout()
-    navigate('/login')
+    navigate('/')
   }
 
   const handleDiscardChanges = () => {

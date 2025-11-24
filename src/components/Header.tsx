@@ -13,6 +13,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useAuthStore } from '@/store/useAuthStore'
 import { useTranslation } from '@/contexts/I18nContext'
+import { UserDropdown } from './UserDropdown'
 
 // NavLink Component
 const NavLink = ({
@@ -41,8 +42,16 @@ export function Header() {
   const navigate = useNavigate()
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
-  const { isAuthenticated, logout, user } = useAuthStore()
+  const { isAuthenticated, logout } = useAuthStore()
   const { t, setLanguage, availableLanguages } = useTranslation()
+
+  // Check if current page is an authentication page
+  const isAuthPage = [
+    '/login',
+    '/signup',
+    '/forgot-password',
+    '/verify-email',
+  ].includes(location.pathname)
 
   // Define navigation items with translations
   const publicNavItems = [
@@ -208,18 +217,8 @@ export function Header() {
               {/* Login/User button - hidden on small mobile */}
               <div className="hidden sm:block">
                 {isAuthenticated ? (
-                  <button
-                    onClick={handleLogout}
-                    className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-5 pr-1 h-11 transition-colors"
-                  >
-                    <span className="text-white text-sm font-medium">
-                      {user?.name.slice(0, 5).toUpperCase() || 'User'}
-                    </span>
-                    <div className="bg-[#D4E7F6] rounded-full h-10 w-10 flex items-center justify-center ml-1">
-                      <LogOut className="h-5 w-5 text-black" />
-                    </div>
-                  </button>
-                ) : (
+                  <UserDropdown onLogout={handleLogout} />
+                ) : !isAuthPage ? (
                   <Link to="/login">
                     <div className="flex items-center bg-[#0E213A] rounded-full border-[1px] border-[#fff] pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] hover:bg-[#000] hover:text-[#fff] transition">
                       <span className="text-white text-sm font-medium">
@@ -230,7 +229,7 @@ export function Header() {
                       </div>
                     </div>
                   </Link>
-                )}
+                ) : null}
               </div>
             </div>
           </div>
@@ -321,21 +320,29 @@ export function Header() {
                 {/* Login/Logout Button for Mobile */}
                 <div className="pt-4 border-t border-gray-200">
                   {isAuthenticated ? (
-                    <button
-                      onClick={() => {
-                        handleLogout()
-                        setIsMobileMenuOpen(false)
-                      }}
-                      className="flex items-center justify-between w-full gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full px-5 h-11 transition-colors"
-                    >
-                      <span className="text-white text-sm font-medium">
-                        {user?.name || 'User'}
-                      </span>
-                      <div className="bg-[#D4E7F6] rounded-full h-9 w-9 flex items-center justify-center">
-                        <LogOut className="h-4 w-4 text-black" />
-                      </div>
-                    </button>
-                  ) : (
+                    <>
+                      <button
+                        onClick={() => {
+                          navigate('/profile')
+                          setIsMobileMenuOpen(false)
+                        }}
+                        className="w-full flex items-center justify-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full py-3 transition-colors mb-2"
+                      >
+                        <User className="h-5 w-5 text-white" />
+                        <span className="text-white font-medium">Profile</span>
+                      </button>
+                      <button
+                        onClick={() => {
+                          handleLogout()
+                          setIsMobileMenuOpen(false)
+                        }}
+                        className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 rounded-full py-3 transition-colors"
+                      >
+                        <LogOut className="h-5 w-5 text-white" />
+                        <span className="text-white font-medium">Logout</span>
+                      </button>
+                    </>
+                  ) : !isAuthPage ? (
                     <Link
                       to="/login"
                       onClick={() => setIsMobileMenuOpen(false)}
@@ -348,7 +355,7 @@ export function Header() {
                         <User className="h-4 w-4 text-black" />
                       </div>
                     </Link>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </div>

@@ -59,13 +59,38 @@ export default function CategorySubPage() {
     navigate(`/knowledge-hub/${categoryId}/${tierId}`)
   }
 
-  // Loading state
+  // Skeleton loader for loading state
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003863] mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+      <div className="container mx-auto animate-pulse">
+        {/* Breadcrumb skeleton */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b-[1px] border-gray-200 pb-5 mb-10">
+          <div className="flex items-center gap-[35px]">
+            <div className="h-14 bg-gray-200 rounded w-48"></div>
+            <div className="h-8 bg-gray-200 rounded w-8"></div>
+            <div className="h-10 bg-gray-200 rounded w-32"></div>
+          </div>
+        </div>
+
+        {/* Title skeleton */}
+        <div className="mb-12">
+          <div className="h-12 bg-gray-200 rounded w-72"></div>
+        </div>
+
+        {/* Premium tiers grid skeleton */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {[1, 2].map(i => (
+            <div key={i} className="bg-[#E3E6ED] rounded-[10px] p-8">
+              <div className="aspect-video bg-gray-300 rounded-xl mb-6"></div>
+              <div className="h-8 bg-gray-300 rounded w-48 mb-4"></div>
+              <div className="flex gap-1 mb-4">
+                {[1, 2, 3, 4, 5].map(star => (
+                  <div key={star} className="w-6 h-6 bg-gray-300 rounded"></div>
+                ))}
+              </div>
+              <div className="h-6 bg-gray-300 rounded w-32"></div>
+            </div>
+          ))}
         </div>
       </div>
     )
