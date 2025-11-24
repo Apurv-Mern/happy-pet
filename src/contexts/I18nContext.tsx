@@ -27,12 +27,12 @@ interface I18nContextType {
 const I18nContext = createContext<I18nContextType | undefined>(undefined)
 
 const availableLanguages = [
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'de', name: 'German', flag: '🇩🇪' },
-  { code: 'ar', name: 'Arabic', flag: '🇦🇪' },
-  { code: 'ms', name: 'Malay', flag: '🇲🇾' },
-  { code: 'th', name: 'Thai', flag: '🇹🇭' },
-  { code: 'id', name: 'Bahasa', flag: '🇮🇩' },
+  { code: 'en', name: 'English', flag: 'https://flagcdn.com/w40/gb.png' },
+  { code: 'de', name: 'German', flag: 'https://flagcdn.com/w40/de.png' },
+  { code: 'ar', name: 'Arabic', flag: 'https://flagcdn.com/w40/ae.png' },
+  { code: 'ms', name: 'Malay', flag: 'https://flagcdn.com/w40/my.png' },
+  { code: 'th', name: 'Thai', flag: 'https://flagcdn.com/w40/th.png' },
+  { code: 'id', name: 'Bahasa', flag: 'https://flagcdn.com/w40/id.png' },
 ]
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {

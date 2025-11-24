@@ -42,7 +42,7 @@ export function Header2() {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
   const { isAuthenticated, logout } = useAuthStore()
-  const { t, setLanguage, availableLanguages } = useTranslation()
+  const { t, setLanguage, availableLanguages, language } = useTranslation()
   const [selectedLanguage, setSelectedLanguage] = useState<string>('English')
 
   // Check if current page is an authentication page
@@ -360,8 +360,19 @@ export function Header2() {
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] text-white rounded-full h-11 pl-4 pr-1.5 transition-colors"
               >
-                <span className="text-xl">🇬🇧</span>
-                <span className="text-sm font-medium">Eng</span>
+                <img
+                  src={
+                    availableLanguages.find(l => l.code === language)?.flag ||
+                    'https://flagcdn.com/w40/gb.png'
+                  }
+                  alt="flag"
+                  className="w-6 h-4 object-cover rounded"
+                />
+                <span className="text-sm font-medium">
+                  {availableLanguages
+                    .find(l => l.code === language)
+                    ?.name.slice(0, 3) || 'Eng'}
+                </span>
                 <ChevronDown className="h-4 w-4" />
                 <div className="rounded-full bg-[#D4E7F6] h-10 w-10 flex items-center justify-center ml-1">
                   <MdLanguage className="text-black h-6 w-6" />
@@ -380,7 +391,11 @@ export function Header2() {
                         onClick={() => handleSelectLanguage(lang.code)}
                         className="flex w-full items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#003863] hover:shadow-lg transition"
                       >
-                        <span className="text-xl">{lang.flag}</span>
+                        <img
+                          src={lang.flag}
+                          alt={lang.name}
+                          className="w-6 h-4 object-cover rounded"
+                        />
                         <span>{lang.name}</span>
                       </button>
                     ))}
