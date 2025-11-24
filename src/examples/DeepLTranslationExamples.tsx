@@ -10,11 +10,11 @@ import {
   useTranslateObject,
   useTranslateObjects,
 } from '@/hooks/useTranslateDynamic'
+import { useLearningKnowledgeQuery } from '@/api/learningModule'
 
-// ============================================
 // Example 1: Translate a single text field
 // ============================================
-function VideoCard({
+export function VideoCard({
   video,
 }: {
   video: { title: string; description: string }
@@ -32,7 +32,7 @@ function VideoCard({
 // ============================================
 // Example 2: Translate entire object
 // ============================================
-function DocumentCard({
+export function DocumentCard({
   document,
 }: {
   document: { title: string; description: string; content: string }
@@ -59,7 +59,7 @@ function DocumentCard({
 // ============================================
 // Example 3: Translate array of items
 // ============================================
-function VideoList({
+export function VideoList({
   videos,
 }: {
   videos: Array<{ id: string; title: string; description: string }>
@@ -86,10 +86,9 @@ function VideoList({
   )
 }
 
-// ============================================
 // Example 4: Real-world Knowledge Hub usage
 // ============================================
-function KnowledgeHubVideoGrid() {
+export function KnowledgeHubVideoGrid() {
   const { data: learningData } = useLearningKnowledgeQuery({ type: 'video' })
 
   // Translate all video titles and descriptions
@@ -102,8 +101,8 @@ function KnowledgeHubVideoGrid() {
 
   return (
     <div className="grid grid-cols-3 gap-6">
-      {translatedVideos?.map(video => (
-        <div key={video.id} className="video-card">
+      {translatedVideos?.map((video, index) => (
+        <div key={index} className="video-card">
           <h3>{video.title}</h3>
           <p>{video.description}</p>
         </div>
@@ -112,10 +111,9 @@ function KnowledgeHubVideoGrid() {
   )
 }
 
-// ============================================
 // Example 5: Learning Module Documents
 // ============================================
-function LearningModuleDocuments() {
+export function LearningModuleDocuments() {
   const { data: learningData } = useLearningKnowledgeQuery({ type: 'document' })
 
   // Translate document titles and contents
@@ -129,8 +127,8 @@ function LearningModuleDocuments() {
   return (
     <div>
       {isTranslating && <div>Translating documents...</div>}
-      {translatedDocs?.map(doc => (
-        <div key={doc.id}>
+      {translatedDocs?.map((doc, index) => (
+        <div key={index}>
           <h3>{doc.title}</h3>
           <p>{doc.description}</p>
           <div>{doc.content}</div>
@@ -143,7 +141,7 @@ function LearningModuleDocuments() {
 // ============================================
 // Example 6: FAQ Page with dynamic content
 // ============================================
-function FAQPageWithTranslation({
+export function FAQPageWithTranslation({
   faqs,
 }: {
   faqs: Array<{ id: string; question: string; answer: string }>
