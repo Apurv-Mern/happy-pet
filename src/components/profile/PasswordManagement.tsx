@@ -24,7 +24,7 @@ export const PasswordManagement = ({
       <div className="space-y-6">
         {/* Type Current Password */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm text-[#003863] mb-2">
             Type Current Password
           </label>
           <input
@@ -32,14 +32,14 @@ export const PasswordManagement = ({
             name="currentPassword"
             value={passwordData.currentPassword}
             onChange={onPasswordChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#003863] focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
             placeholder="Enter current password"
           />
         </div>
 
         {/* Type New Password */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm text-[#003863] mb-2">
             Type New Password
           </label>
           <input
@@ -47,14 +47,14 @@ export const PasswordManagement = ({
             name="newPassword"
             value={passwordData.newPassword}
             onChange={onPasswordChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#003863] focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
             placeholder="Enter new password"
           />
         </div>
 
         {/* Confirm New Password */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm text-[#003863] mb-2">
             Confirm New Password
           </label>
           <input
@@ -62,22 +62,22 @@ export const PasswordManagement = ({
             name="confirmPassword"
             value={passwordData.confirmPassword}
             onChange={onPasswordChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#003863] focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
             placeholder="Confirm new password"
           />
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 pt-6">
+        <div className="flex justify-between gap-4 pt-6">
           <button
             onClick={onCancel}
-            className="flex-1 px-8 py-3 border-2 border-[#003863] text-[#003863] rounded-xl font-semibold hover:bg-gray-50 transition-all"
+            className="w-full max-w-[450px] px-8 py-3 border-2 border-[#003863] text-[#003863] rounded-xl font-semibold hover:bg-gray-50 transition-all"
           >
             Cancel
           </button>
           <button
             onClick={onSubmit}
-            className="flex-1 px-8 py-3 bg-[#003863] text-white rounded-xl font-semibold hover:bg-[#002d4d] transition-all"
+            className="w-full max-w-[450px] px-8 py-3 bg-[#003863] text-white rounded-xl font-semibold hover:bg-[#004c82] transition-all"
           >
             Proceed
           </button>

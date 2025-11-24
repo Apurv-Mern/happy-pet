@@ -75,12 +75,12 @@ const ProfilePage = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-8 px-4"
+      className=""
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="bg-[#E3E6ED] rounded-[10px] shadow-lg">
+        <div className="grid grid-cols-1 md:grid-cols-[24%_76%]">
           {/* Left Sidebar */}
-          <div className="lg:col-span-1">
+          <div className="">
             <ProfileSidebar
               user={user}
               activeSection={activeSection}
@@ -90,12 +90,12 @@ const ProfilePage = () => {
           </div>
 
           {/* Right Content */}
-          <div className="lg:col-span-2">
+          <div className="py-10 px-20">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-3xl shadow-lg p-8"
+              className=""
             >
               {activeSection === 'personal' && (
                 <PersonalInformation

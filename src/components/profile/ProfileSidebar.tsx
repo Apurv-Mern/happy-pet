@@ -29,7 +29,7 @@ export const ProfileSidebar = ({
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-3xl shadow-lg p-8"
+      className="bg-white rounded-[10px] h-full px-10 py-10"
     >
       <ProfileAvatar user={user} />
 
@@ -57,7 +57,7 @@ export const ProfileSidebar = ({
       {/* Logout Button */}
       <button
         onClick={onLogout}
-        className="w-full mt-6 flex items-center justify-center gap-2 bg-white border-2 border-[#003863] text-[#003863] px-6 py-3 rounded-xl font-semibold hover:bg-[#003863] hover:text-white transition-all"
+        className="w-full mt-6 flex items-center justify-center gap-2 bg-[#003863] border-2 text-[#fff] px-6 py-3 rounded-xl font-semibold hover:bg-[#004c82] hover:text-white transition-all"
       >
         <LogOut className="w-5 h-5" />
         <span>Logout</span>

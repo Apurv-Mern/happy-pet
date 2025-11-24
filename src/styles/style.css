@@ -13,7 +13,6 @@
 .search-bar:focus {
   outline: none !important;
   box-shadow: none !important;
-  border-color: #003863 !important;
 }
 .about-image{
       text-align: -webkit-right !important;
