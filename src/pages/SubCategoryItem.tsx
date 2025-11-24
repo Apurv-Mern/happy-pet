@@ -219,17 +219,17 @@ export default function SubCategoryItem() {
     >
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b-[1px] border-[#003860] pb-5">
-          <div className="flex items-center gap-[35px] text-lg">
+          <div className="flex items-center gap-[25px] text-lg">
             <button
               onClick={() => navigate('/knowledge-hub')}
-              className="text-[#003863] text-[55px] heading-line"
+              className="text-[#003863] text-[28px] heading-line"
             >
               {categoryName}
             </button>
             <span className="">
               <svg
                 width="13"
-                height="20"
+                height="13"
                 viewBox="0 0 13 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -244,7 +244,7 @@ export default function SubCategoryItem() {
             </span>
             <button
               onClick={() => navigate(`/knowledge-hub/${categoryId}`)}
-              className="text-[#003863] text-[55px] heading-line"
+              className="text-[#003863] text-[28px] heading-line"
             >
               {tierName}
             </button>
@@ -253,7 +253,7 @@ export default function SubCategoryItem() {
                 <span className="">
                   <svg
                     width="13"
-                    height="20"
+                    height="13"
                     viewBox="0 0 13 20"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -266,7 +266,7 @@ export default function SubCategoryItem() {
                     />
                   </svg>
                 </span>
-                <span className="text-[#003863] text-[55px] heading-line">
+                <span className="text-[#003863] text-[28px] heading-line">
                   {productLines.find(pl => pl.id === subcategoryId)?.name ||
                     subcategoryId}
                 </span>
@@ -274,11 +274,11 @@ export default function SubCategoryItem() {
             )}
           </div>
           <div className="about-image">
-            <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center">
+            <div className="w-full max-w-[380px] bg-[#003863] rounded-full px-4 py-3 flex items-center">
               <input
                 type="text"
                 placeholder={t('knowledgeHub.searchPlaceholder')}
-                className="bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
+                className="pl-3 bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
               />
               <button className="ml-3">
                 <svg
@@ -301,19 +301,19 @@ export default function SubCategoryItem() {
         </div>
         {/* Filters Section - Only show when viewing product line videos */}
         {isViewingProductLine && (
-          <div className="pt-6">
-            <div className="flex flex-wrap items-center gap-4">
-              {/* Age Group Filter */}
+          <div className='bg-white p-5 shadow-lg rounded-lg mt-5'>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+              {/* Age Group */}
               {ageGroupFilter && (
-                <div className="">
-                  <label className="text-[#003863] font-semibold">
+                <div className="w-full">
+                  <label className="text-[#003863] font-semibold block mb-1">
                     Age Group
                   </label>
-                  <div className="relative">
+                  <div className="relative h-[50px]">
                     <select
                       value={selectedAgeGroup}
                       onChange={e => setSelectedAgeGroup(e.target.value)}
-                      className="appearance-none bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-[#003863] cursor-pointer"
+                      className="appearance-none w-full h-full bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 pr-10 focus:outline-none cursor-pointer"
                     >
                       <option value="all">All</option>
                       {ageGroupFilter.options.map(option => (
@@ -322,37 +322,28 @@ export default function SubCategoryItem() {
                         </option>
                       ))}
                     </select>
+
+                    {/* Arrow */}
                     <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                      <svg
-                        width="12"
-                        height="8"
-                        viewBox="0 0 12 8"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M1 1L6 6L11 1"
-                          stroke="#003863"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                        />
+                      <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1L6 6L11 1" stroke="#003863" strokeWidth="2" strokeLinecap="round"/>
                       </svg>
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Type of Food Filter */}
+              {/* Food Type */}
               {foodTypeFilter && (
-                <div className="">
-                  <label className="text-[#003863] font-semibold">
+                <div className="w-full">
+                  <label className="text-[#003863] font-semibold block mb-1">
                     Type of Food
                   </label>
-                  <div className="relative">
+                  <div className="relative h-[50px]">
                     <select
                       value={selectedFoodType}
                       onChange={e => setSelectedFoodType(e.target.value)}
-                      className="appearance-none bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-[#003863] cursor-pointer"
+                      className="appearance-none w-full h-full bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 pr-10 focus:outline-none cursor-pointer"
                     >
                       <option value="all">All</option>
                       {foodTypeFilter.options.map(option => (
@@ -361,44 +352,42 @@ export default function SubCategoryItem() {
                         </option>
                       ))}
                     </select>
+
+                    {/* Arrow */}
                     <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                      <svg
-                        width="12"
-                        height="8"
-                        viewBox="0 0 12 8"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M1 1L6 6L11 1"
-                          stroke="#003863"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                        />
+                      <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1L6 6L11 1" stroke="#003863" strokeWidth="2" strokeLinecap="round"/>
                       </svg>
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Apply Button */}
-              <button
-                onClick={handleApplyFilters}
-                className="bg-[#003863] text-white px-8 py-2 rounded-[10px] font-semibold hover:bg-[#002d4d] transition-colors"
-              >
-                Apply
-              </button>
+              {/* Apply */}
+              <div className="w-full h-[50px] flex items-end">
+                <button
+                  onClick={handleApplyFilters}
+                  className="bg-[#003863] text-white w-full h-full rounded-[10px] font-semibold hover:bg-[#004c82] transition"
+                >
+                  Apply
+                </button>
+              </div>
 
-              {/* Reset Button */}
-              <button
-                onClick={handleResetFilters}
-                className="bg-white text-[#003863] border-2 border-[#003863] px-8 py-2 rounded-[10px] font-semibold hover:bg-gray-50 transition-colors"
-              >
-                Reset
-              </button>
+              {/* Reset */}
+              <div className="w-full h-[50px] flex items-end">
+                <button
+                  onClick={handleResetFilters}
+                  className="bg-[#E3E6ED] text-[#003863] w-full h-full border-2 border-[#003863] rounded-[10px] font-semibold hover:bg-[#004c82] hover:text-[#fff] transition"
+                >
+                  Reset
+                </button>
+              </div>
+
             </div>
           </div>
         )}
+        
+        
 
         <div className="">
           {/* Main Content - Product Lines Grid or Videos Grid */}
@@ -412,6 +401,8 @@ export default function SubCategoryItem() {
                   </div>
                 ) : (
                   videos.map((video: any, index: number) => (
+                    <div>
+
                     <motion.div
                       key={video.id || video._id}
                       initial={{ opacity: 0, y: 20 }}
@@ -424,7 +415,7 @@ export default function SubCategoryItem() {
                           navigate(`/video/${video.id || video._id}`)
                         }
                       }}
-                      className="relative rounded-[20px] overflow-hidden cursor-pointer group"
+                      className=" relative rounded-[20px] overflow-hidden cursor-pointer group"
                     >
                       {/* Video Thumbnail */}
                       <div className="relative aspect-video">
@@ -466,6 +457,7 @@ export default function SubCategoryItem() {
                         </h3>
                       </div>
                     </motion.div>
+                    </div>
                   ))
                 )}
               </div>

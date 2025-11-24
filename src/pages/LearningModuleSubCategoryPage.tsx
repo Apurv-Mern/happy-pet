@@ -310,17 +310,17 @@ export default function LearningModuleSubCategoryPage() {
     >
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b-[1px] border-[#003860] pb-5">
-          <div className="flex items-center gap-[35px] text-lg">
+          <div className="flex items-center gap-[25px] text-lg">
             <button
               onClick={() => navigate('/learning-module')}
-              className="text-[#003863] text-[55px] heading-line"
+              className="text-[#003863] text-[28px] heading-line"
             >
               {t('header.learningModule')}
             </button>
             <span className="">
               <svg
                 width="13"
-                height="20"
+                height="13"
                 viewBox="0 0 13 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -335,14 +335,14 @@ export default function LearningModuleSubCategoryPage() {
             </span>
             <button
               onClick={() => navigate(`/learning-module/${categoryId}`)}
-              className="text-[#003863] text-[55px] heading-line"
+              className="text-[#003863] text-[28px] heading-line"
             >
               {categoryName}
             </button>
             <span className="">
               <svg
                 width="13"
-                height="20"
+                height="13"
                 viewBox="0 0 13 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -359,7 +359,7 @@ export default function LearningModuleSubCategoryPage() {
               onClick={() =>
                 navigate(`/learning-module/${categoryId}/${tierId}`)
               }
-              className="text-[#003863] text-[55px] heading-line"
+              className="text-[#003863] text-[28px] heading-line"
             >
               {tierName}
             </button>
@@ -368,7 +368,7 @@ export default function LearningModuleSubCategoryPage() {
                 <span className="">
                   <svg
                     width="13"
-                    height="20"
+                    height="13"
                     viewBox="0 0 13 20"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -381,7 +381,7 @@ export default function LearningModuleSubCategoryPage() {
                     />
                   </svg>
                 </span>
-                <span className="text-[#003863] text-[55px] heading-line">
+                <span className="text-[#003863] text-[28px] heading-line">
                   {productLines.find(pl => pl.id === subcategoryId)?.name ||
                     subcategoryId}
                 </span>
@@ -389,11 +389,11 @@ export default function LearningModuleSubCategoryPage() {
             )}
           </div>
           <div className="about-image">
-            <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center">
+            <div className="w-full max-w-[380px] bg-[#003863] rounded-full px-4 py-3 flex items-center">
               <input
                 type="text"
                 placeholder={t('knowledgeHub.searchPlaceholder')}
-                className="bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
+                className="pl-3 bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
               />
               <button className="ml-3">
                 <svg
@@ -417,19 +417,19 @@ export default function LearningModuleSubCategoryPage() {
 
         {/* Filters Section - Only show when viewing product line documents */}
         {isViewingProductLine && (
-          <div className="pt-6">
-            <div className="flex flex-wrap items-center gap-4">
-              {/* Age Group Filter */}
+          <div className='bg-white p-5 shadow-lg rounded-lg mt-5'>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+              {/* Age Group */}
               {ageGroupFilter && (
-                <div className="flex items-center gap-2">
-                  <label className="text-[#003863] font-semibold">
+                <div className="w-full">
+                  <label className="text-[#003863] font-semibold block mb-1">
                     Age Group
                   </label>
-                  <div className="relative">
+                  <div className="relative h-[50px]">
                     <select
                       value={selectedAgeGroup}
                       onChange={e => setSelectedAgeGroup(e.target.value)}
-                      className="appearance-none bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-[#003863] cursor-pointer"
+                      className="appearance-none w-full h-full bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 pr-10 focus:outline-none cursor-pointer"
                     >
                       <option value="all">All</option>
                       {ageGroupFilter.options.map(option => (
@@ -438,37 +438,28 @@ export default function LearningModuleSubCategoryPage() {
                         </option>
                       ))}
                     </select>
+
+                    {/* Arrow */}
                     <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                      <svg
-                        width="12"
-                        height="8"
-                        viewBox="0 0 12 8"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M1 1L6 6L11 1"
-                          stroke="#003863"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                        />
+                      <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1L6 6L11 1" stroke="#003863" strokeWidth="2" strokeLinecap="round"/>
                       </svg>
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Type of Food Filter */}
+              {/* Food Type */}
               {foodTypeFilter && (
-                <div className="flex items-center gap-2">
-                  <label className="text-[#003863] font-semibold">
+                <div className="w-full">
+                  <label className="text-[#003863] font-semibold block mb-1">
                     Type of Food
                   </label>
-                  <div className="relative">
+                  <div className="relative h-[50px]">
                     <select
                       value={selectedFoodType}
                       onChange={e => setSelectedFoodType(e.target.value)}
-                      className="appearance-none bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-[#003863] cursor-pointer"
+                      className="appearance-none w-full h-full bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 pr-10 focus:outline-none cursor-pointer"
                     >
                       <option value="all">All</option>
                       {foodTypeFilter.options.map(option => (
@@ -477,41 +468,37 @@ export default function LearningModuleSubCategoryPage() {
                         </option>
                       ))}
                     </select>
+
+                    {/* Arrow */}
                     <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                      <svg
-                        width="12"
-                        height="8"
-                        viewBox="0 0 12 8"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M1 1L6 6L11 1"
-                          stroke="#003863"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                        />
+                      <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1L6 6L11 1" stroke="#003863" strokeWidth="2" strokeLinecap="round"/>
                       </svg>
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Apply Button */}
-              <button
-                onClick={handleApplyFilters}
-                className="bg-[#003863] text-white px-8 py-2 rounded-[10px] font-semibold hover:bg-[#002d4d] transition-colors"
-              >
-                Apply
-              </button>
+              {/* Apply */}
+              <div className="w-full h-[50px] flex items-end">
+                <button
+                  onClick={handleApplyFilters}
+                  className="bg-[#003863] text-white w-full h-full rounded-[10px] font-semibold hover:bg-[#004c82] transition"
+                >
+                  Apply
+                </button>
+              </div>
 
-              {/* Reset Button */}
-              <button
-                onClick={handleResetFilters}
-                className="bg-white text-[#003863] border-2 border-[#003863] px-8 py-2 rounded-[10px] font-semibold hover:bg-gray-50 transition-colors"
-              >
-                Reset
-              </button>
+              {/* Reset */}
+              <div className="w-full h-[50px] flex items-end">
+                <button
+                  onClick={handleResetFilters}
+                  className="bg-[#E3E6ED] text-[#003863] w-full h-full border-2 border-[#003863] rounded-[10px] font-semibold hover:bg-[#004c82] hover:text-[#fff] transition"
+                >
+                  Reset
+                </button>
+              </div>
+
             </div>
           </div>
         )}
@@ -533,13 +520,18 @@ export default function LearningModuleSubCategoryPage() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="bg-[#E1EEF4] rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+                      className="bg-[#E3E6ED] rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow"
                     >
                       <div className="flex gap-4">
                         {/* Document Icon */}
                         <div className="flex-shrink-0">
-                          <div className="w-16 h-16 bg-[#d4e7f6] rounded-lg flex items-center justify-center">
-                            <FileText className="h-8 w-8 text-[#003863]" />
+                          <div className="border-2 border-[#003863] rounded-full p-3">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="7.33301" y="5.86401" width="20.5314" height="24.9218" rx="2" stroke="#003863" stroke-width="2"/>
+                            <path d="M13.1992 13.1938H21.9984" stroke="#003863" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M13.1992 19.0579H21.9984" stroke="#003863" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M13.1992 24.9219H19.0653" stroke="#003863" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
                           </div>
                         </div>
 
@@ -558,16 +550,22 @@ export default function LearningModuleSubCategoryPage() {
                           <div className="flex items-center gap-3">
                             <button
                               onClick={() => handleView(document)}
-                              className="flex items-center gap-2 bg-white text-[#003863] border border-[#003863] hover:bg-[#e1eef4] rounded-full px-4 py-2 text-sm font-medium transition-colors"
-                            >
-                              <Eye className="h-4 w-4" />
+                              className="flex items-center gap-2 bg-white text-[#003863] border border-[#003863] hover:bg-[#fff] rounded-full px-4 py-2 text-sm font-medium transition-colors"
+                            >                              
+                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M9.59863 7.39697C10.8138 7.39697 11.7987 8.38148 11.7988 9.59521C11.7988 10.8091 10.8138 11.7944 9.59863 11.7944C8.38364 11.7942 7.39941 10.8089 7.39941 9.59521C7.39957 8.38164 8.38374 7.39724 9.59863 7.39697Z" stroke="#003860" stroke-width="2"/>
+                              <path d="M15.9751 8.53651C16.3677 8.99697 16.564 9.2272 16.564 9.59564C16.564 9.96407 16.3677 10.1943 15.9751 10.6548C14.7704 12.0677 12.3671 14.3934 9.59875 14.3934C6.83044 14.3934 4.42706 12.0677 3.2224 10.6548C2.82981 10.1943 2.63351 9.96407 2.63351 9.59564C2.63351 9.2272 2.82981 8.99697 3.2224 8.53651C4.42706 7.12359 6.83044 4.79785 9.59875 4.79785C12.3671 4.79785 14.7704 7.12359 15.9751 8.53651Z" stroke="#003860" stroke-width="2"/>
+                              </svg>
                               View
                             </button>
                             <button
                               onClick={() => handleDownload(document)}
-                              className="flex items-center gap-2 bg-[#003863] text-white hover:bg-[#002d4d] rounded-full px-4 py-2 text-sm font-medium transition-colors"
-                            >
-                              <Download className="h-4 w-4" />
+                              className="flex items-center text-[#003863] gap-2 bg-[#fff] border border-[#003863] hover:bg-[#fff] rounded-full px-4 py-2 text-sm font-medium transition-colors"
+                            >                             
+                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M9.59924 11.1948L8.89226 11.9021L9.59924 12.6088L10.3062 11.9021L9.59924 11.1948ZM10.5992 3.99815C10.5992 3.44586 10.1515 2.99815 9.59924 2.99815C9.04696 2.99815 8.59924 3.44586 8.59924 3.99815L9.59924 3.99815L10.5992 3.99815ZM5.59961 7.19667L4.89263 7.90391L8.89226 11.9021L9.59924 11.1948L10.3062 10.4876L6.30659 6.48943L5.59961 7.19667ZM9.59924 11.1948L10.3062 11.9021L14.3058 7.90391L13.5989 7.19667L12.8919 6.48943L8.89226 10.4876L9.59924 11.1948ZM9.59924 11.1948L10.5992 11.1948L10.5992 3.99815L9.59924 3.99815L8.59924 3.99815L8.59924 11.1948L9.59924 11.1948Z" fill="#003863"/>
+                              <path d="M4 12.7942L4 13.5938C4 14.4771 4.71628 15.1931 5.59985 15.1931L13.5991 15.1931C14.4827 15.1931 15.199 14.4771 15.199 13.5938V12.7942" stroke="#003863" stroke-width="2"/>
+                              </svg>
                               Download
                             </button>
                           </div>

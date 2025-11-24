@@ -106,17 +106,17 @@ export default function LearningModuleCategoryPage() {
       <div className="container mx-auto">
         {/* Header Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b-[1px] border-[#003860] pb-5">
-          <div className="flex items-center gap-[35px] text-lg">
+          <div className="flex items-center gap-[25px] text-lg">
             <button
               onClick={() => navigate('/learning-module')}
-              className="text-[#003863] text-[55px] heading-line"
+              className="text-[#003863] text-[28px] heading-line"
             >
               {t('header.learningModule')}
             </button>
             <span className="">
               <svg
                 width="13"
-                height="20"
+                height="13"
                 viewBox="0 0 13 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -129,16 +129,16 @@ export default function LearningModuleCategoryPage() {
                 />
               </svg>
             </span>
-            <h1 className="text-[#003863] text-[55px] heading-line">
+            <h1 className="text-[#003863] text-[28px] heading-line">
               {categoryName}
             </h1>
           </div>
           <div className="about-image">
-            <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center">
+            <div className="w-full max-w-[380px] bg-[#003863] rounded-full px-4 py-3 flex items-center">
               <input
                 type="text"
                 placeholder={t('knowledgeHub.searchPlaceholder')}
-                className="bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
+                className="pl-3 bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
               />
               <button className="ml-3">
                 <svg
