@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { useAuthStore } from '@/store/useAuthStore'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import {
   Select,
   SelectContent,
@@ -35,7 +35,7 @@ export function SignupPage() {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const { isAuthenticated, register: registerUser } = useAuthStore()
+  const { isAuthenticated } = useAuthStore()
   const [selectedCountryCode, setSelectedCountryCode] = useState('+971')
   const { toast } = useToast()
   const registerMutation = useRegisterMutation()

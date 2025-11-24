@@ -10,13 +10,13 @@ interface FAQItem {
 }
 
 export function FAQPage() {
-  const [expandedId, setExpandedId] = useState<string>('1')
+  const [expandedId, setExpandedId] = useState<string | null>(null)
   const { t } = useTranslation()
 
   const faqData: FAQItem[] = t('faqPage.questions')
 
   const toggleAccordion = (id: string) => {
-    setExpandedId(expandedId === id ? '' : id)
+    setExpandedId(expandedId === id ? null : id)
   }
 
   return (
@@ -67,11 +67,11 @@ export function FAQPage() {
           </div> */}
 
           <div className="space-y-4 w-full">
-            {faqData.map(item => (
-              <div key={item.id} className="">
+            {faqData.map((item, index) => (
+              <div key={item.id || index} className="">
                 {/* HEADER */}
                 <button
-                  onClick={() => toggleAccordion(item.id)}
+                  onClick={() => toggleAccordion(item.id || String(index))}
                   className="relative w-full flex items-center rounded-[5px] justify-between bg-[#003863] text-white pl-12 pr-6 py-4"
                 >
                   {/* LEFT WHITE RIBBON SHAPE */}
@@ -83,13 +83,15 @@ export function FAQPage() {
                   {/* ARROW */}
                   <ChevronDown
                     className={`h-5 w-5 transition-transform ${
-                      expandedId === item.id ? 'rotate-180' : ''
+                      expandedId === (item.id || String(index))
+                        ? 'rotate-180'
+                        : ''
                     }`}
                   />
                 </button>
 
                 {/* CONTENT (STAYS OUTSIDE HEADER) */}
-                {expandedId === item.id && (
+                {expandedId === (item.id || String(index)) && (
                   <div className="bg-white px-6 py-4 border-[1px] border-[#003863] rounded-[5px] mt-[10px]">
                     <p className="text-[#003863] text-[18px] leading-relaxed">
                       {item.answer}

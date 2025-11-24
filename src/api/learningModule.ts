@@ -1,4 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
+import React from 'react'
 import { apiClient } from './axios'
 import { LearningModulesResponse, PresignedUrlResponse } from '@/types'
 
@@ -86,4 +87,77 @@ export const usePresignedUrlForViewingMutation = () => {
       learningModuleApi.getPresignedUrlForViewing(s3Url),
     retry: 1,
   })
+}
+
+// Custom hook to fetch presigned URLs for multiple items
+export const usePresignedUrls = (
+  items: any[] | undefined,
+  enabled: boolean = true
+) => {
+  const [processedItems, setProcessedItems] = React.useState<any[]>([])
+  const [isLoading, setIsLoading] = React.useState(false)
+
+  React.useEffect(() => {
+    if (!items || items.length === 0 || !enabled) {
+      setProcessedItems([])
+      return
+    }
+
+    const fetchPresignedUrls = async () => {
+      setIsLoading(true)
+      try {
+        const itemsWithPresignedUrls = await Promise.all(
+          items.map(async item => {
+            const promises: Promise<any>[] = []
+            const urls: any = {}
+
+            // Fetch presigned URL for thumbnailUrl if it exists
+            if (item.thumbnailUrl) {
+              promises.push(
+                learningModuleApi
+                  .getPresignedUrlForViewing(item.thumbnailUrl)
+                  .then(response => {
+                    urls.presignedThumbnailUrl = response.data.presignedUrl
+                  })
+                  .catch(() => {
+                    urls.presignedThumbnailUrl = item.thumbnailUrl
+                  })
+              )
+            }
+
+            // Fetch presigned URL for fileUrl if it exists
+            if (item.fileUrl) {
+              promises.push(
+                learningModuleApi
+                  .getPresignedUrlForViewing(item.fileUrl)
+                  .then(response => {
+                    urls.presignedFileUrl = response.data.presignedUrl
+                  })
+                  .catch(() => {
+                    urls.presignedFileUrl = item.fileUrl
+                  })
+              )
+            }
+
+            await Promise.all(promises)
+
+            return {
+              ...item,
+              ...urls,
+            }
+          })
+        )
+        setProcessedItems(itemsWithPresignedUrls)
+      } catch (error) {
+        console.error('Error fetching presigned URLs:', error)
+        setProcessedItems(items)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchPresignedUrls()
+  }, [items, enabled])
+
+  return { items: processedItems, isLoading }
 }
