@@ -321,7 +321,7 @@ export function Header2() {
           </div>
 
           {/* Desktop Navigation Menu */}
-          <nav className="hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit">
+           <nav className={`hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit ${isAuthenticated ? '' : 'border-2 border-red-800'}`}>
             {publicNavItems.map(item => (
               <NavLink
                 key={item.path}

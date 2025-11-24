@@ -187,7 +187,7 @@ export default function KnowledgeHubPage() {
       <div className="">
         <div>
           <div className="flex justify-between items-center border-b-[1px] border-[#003860] pb-[11px]">
-            <h2 className="text-[#003863] text-[55px] heading-line">
+            <h2 className="text-[#003863] text-[28px] heading-line">
               {breadcrumb
                 ? breadcrumb.subcategoryName
                 : categories.find(c => c.id === selectedCategory)?.name}
@@ -198,11 +198,11 @@ export default function KnowledgeHubPage() {
               >
                 {t('knowledgeHub.viewAllCategories')}
               </button> */}
-            <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center mb-5">
+            <div className="w-full max-w-[380px] bg-[#003863] rounded-full px-4 py-3 flex items-center mb-5">
               <input
                 type="text"
                 placeholder={t('knowledgeHub.searchPlaceholder')}
-                className="bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
+                className="pl-3 bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
               />
 
               <button className="ml-3">
