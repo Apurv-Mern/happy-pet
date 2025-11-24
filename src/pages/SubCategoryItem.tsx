@@ -3,7 +3,10 @@ import { motion } from 'framer-motion'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useCategoriesQuery, Filter } from '@/api/categories'
 import { useState } from 'react'
-import { useLearningKnowledgeQuery } from '@/api/learningModule'
+import {
+  useLearningKnowledgeQuery,
+  usePresignedUrls,
+} from '@/api/learningModule'
 
 export default function SubCategoryItem() {
   const { categoryId, tierId, subcategoryId } = useParams<{
@@ -68,7 +71,14 @@ export default function SubCategoryItem() {
   const { data: learningData, isLoading: isLoadingData } =
     useLearningKnowledgeQuery(isViewingProductLine ? apiFilters : {})
 
-  const videos = learningData?.data?.items || []
+  // Fetch presigned URLs for videos
+  const { items: videosWithPresignedUrls, isLoading: isLoadingPresignedUrls } =
+    usePresignedUrls(
+      learningData?.data?.items,
+      !isLoadingData && isViewingProductLine
+    )
+
+  const videos = videosWithPresignedUrls || []
 
   // Get product lines based on categoryId and tierId
   const getProductLines = () => {
@@ -157,7 +167,10 @@ export default function SubCategoryItem() {
   }
 
   // Loading state
-  if (isLoading || (isViewingProductLine && isLoadingData)) {
+  if (
+    isLoading ||
+    (isViewingProductLine && (isLoadingData || isLoadingPresignedUrls))
+  ) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -375,16 +388,25 @@ export default function SubCategoryItem() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      onClick={() =>
-                        navigate(`/video/${video.id || video._id}`)
-                      }
+                      onClick={() => {
+                        if (video.presignedFileUrl) {
+                          window.open(video.presignedFileUrl, '_blank')
+                        } else {
+                          navigate(`/video/${video.id || video._id}`)
+                        }
+                      }}
                       className="relative rounded-[20px] overflow-hidden cursor-pointer group"
                     >
                       {/* Video Thumbnail */}
                       <div className="relative aspect-video">
                         <img
                           className="w-full h-full object-cover"
-                          src={video.thumbnail || '/assets/images/cat.png'}
+                          src={
+                            video.presignedThumbnailUrl ||
+                            video.thumbnailUrl ||
+                            video.thumbnail ||
+                            '/assets/images/cat.png'
+                          }
                           alt={video.title}
                         />
                         {/* Play Button Overlay */}

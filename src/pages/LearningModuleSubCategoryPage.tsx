@@ -7,6 +7,7 @@ import { FileText, Eye, Download } from 'lucide-react'
 import {
   useLearningKnowledgeQuery,
   usePresignedUrlForViewingMutation,
+  usePresignedUrls,
 } from '@/api/learningModule'
 
 export default function LearningModuleSubCategoryPage() {
@@ -80,7 +81,16 @@ export default function LearningModuleSubCategoryPage() {
   const { data: learningData, isLoading: isLoadingData } =
     useLearningKnowledgeQuery(isViewingProductLine ? apiFilters : {})
 
-  const documents = learningData?.data?.items || []
+  // Fetch presigned URLs for documents
+  const {
+    items: documentsWithPresignedUrls,
+    isLoading: isLoadingPresignedUrls,
+  } = usePresignedUrls(
+    learningData?.data?.items,
+    !isLoadingData && isViewingProductLine
+  )
+
+  const documents = documentsWithPresignedUrls || []
 
   // Get product lines based on categoryId and tierId
   const getProductLines = () => {
@@ -154,6 +164,13 @@ export default function LearningModuleSubCategoryPage() {
   }
 
   const handleView = (document: any) => {
+    // If presignedFileUrl is already available, use it directly
+    if (document.presignedFileUrl) {
+      window.open(document.presignedFileUrl, '_blank')
+      return
+    }
+
+    // Fallback: fetch presigned URL if not available
     const fileUrl = document.fileUrl
     if (!fileUrl) {
       console.error('No fileUrl available', document)
@@ -233,7 +250,10 @@ export default function LearningModuleSubCategoryPage() {
   }
 
   // Loading state
-  if (isLoading || (isViewingProductLine && isLoadingData)) {
+  if (
+    isLoading ||
+    (isViewingProductLine && (isLoadingData || isLoadingPresignedUrls))
+  ) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">

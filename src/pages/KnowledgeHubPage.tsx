@@ -4,6 +4,10 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useCategoriesQuery } from '@/api/categories'
+import {
+  useLearningKnowledgeQuery,
+  usePresignedUrls,
+} from '@/api/learningModule'
 
 interface Video {
   id: string
@@ -11,6 +15,10 @@ interface Video {
   description: string
   thumbnail: string
   category: string
+  thumbnailUrl?: string
+  presignedThumbnailUrl?: string
+  fileUrl?: string
+  presignedFileUrl?: string
 }
 
 interface Category {
@@ -46,40 +54,32 @@ export default function KnowledgeHubPage() {
     }
   }, [categoryId, tierId, subcategoryId])
 
-  const videos: Video[] = [
-    {
-      id: '1',
-      title: "There's nothing quite like the pure joy of a happy dog",
-      description:
-        "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment. Whether it's a walk in the park, a favorite treat, or a simple belly rub, a dog's happiness is contagious.",
-      thumbnail: '/path-to-dog-video-thumbnail.jpg',
-      category: 'happy-dog',
-    },
-    {
-      id: '2',
-      title: "There's nothing quite like the pure joy of a happy dog",
-      description:
-        "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment. Whether it's a walk in the park, a favorite treat, or a simple belly rub, a dog's happiness is contagious.",
-      thumbnail: '/path-to-dog-video-thumbnail-2.jpg',
-      category: 'happy-dog',
-    },
-    {
-      id: '3',
-      title: "There's nothing quite like the pure joy of a happy dog",
-      description:
-        "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment.",
-      thumbnail: '/path-to-dog-video-thumbnail-3.jpg',
-      category: 'happy-dog',
-    },
-    {
-      id: '4',
-      title: "There's nothing quite like the pure joy of a happy dog",
-      description:
-        "There's nothing quite like the pure joy of a happy dog. With every wag of the tail and sparkle in their eyes, they remind us to live in the moment.",
-      thumbnail: '/path-to-dog-video-thumbnail-4.jpg',
-      category: 'happy-dog',
-    },
-  ]
+  // Map route category IDs to API category IDs
+  const categoryMap: { [key: string]: string } = {
+    'happy-dog': 'DOG',
+    'happy-cat': 'CAT',
+  }
+
+  // Build API filters based on selected category
+  const apiFilters = {
+    page: 1,
+    limit: 50,
+    type: 'video' as const,
+    categoryId:
+      selectedCategory === 'all-categories'
+        ? 'ALL'
+        : categoryMap[selectedCategory] || undefined,
+  }
+
+  // Fetch videos from API
+  const { data: learningData, isLoading: isLoadingVideos } =
+    useLearningKnowledgeQuery(apiFilters)
+
+  // Fetch presigned URLs for videos
+  const { items: videosWithPresignedUrls, isLoading: isLoadingPresignedUrls } =
+    usePresignedUrls(learningData?.data?.items, !isLoadingVideos)
+
+  const videos: Video[] = videosWithPresignedUrls || []
   // Build categories from API with counts
   const categories: Category[] = [
     {
@@ -130,7 +130,7 @@ export default function KnowledgeHubPage() {
 
   const breadcrumb = getBreadcrumb()
 
-  if (categoriesLoading) {
+  if (categoriesLoading || isLoadingVideos || isLoadingPresignedUrls) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -284,15 +284,27 @@ export default function KnowledgeHubPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    onClick={() => navigate(`/video/${video.id}`)}
+                    onClick={() => {
+                      if (video.presignedFileUrl) {
+                        window.open(video.presignedFileUrl, '_blank')
+                      } else {
+                        navigate(`/video/${video.id}`)
+                      }
+                    }}
                     className="cursor-pointer"
                   >
                     <div className="bg-[#E3E6ED] rounded-[10px] h-full p-6">
                       <div className="relative group cursor-pointer">
                         <div className="relative rounded-xl overflow-hidden aspect-video bg-gray-200">
-                          {video.thumbnail ? (
+                          {video.presignedThumbnailUrl ||
+                          video.thumbnailUrl ||
+                          video.thumbnail ? (
                             <img
-                              src={video.thumbnail}
+                              src={
+                                video.presignedThumbnailUrl ||
+                                video.thumbnailUrl ||
+                                video.thumbnail
+                              }
                               alt={video.title}
                               className="w-full h-full object-cover"
                             />

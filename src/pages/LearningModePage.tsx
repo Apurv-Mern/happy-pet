@@ -4,7 +4,11 @@ import { motion } from 'framer-motion'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useCategoriesQuery } from '@/api/categories'
 import { FileText, Eye, Download } from 'lucide-react'
-import { usePresignedUrlForViewingMutation } from '@/api/learningModule'
+import {
+  usePresignedUrlForViewingMutation,
+  useLearningKnowledgeQuery,
+  usePresignedUrls,
+} from '@/api/learningModule'
 import { Button } from '@/components/ui/button'
 
 interface Category {
@@ -26,23 +30,34 @@ export default function LearningModePage() {
   const { mutate: fetchPresignedUrl } = usePresignedUrlForViewingMutation()
   const newWindowRef = useRef<Window | null>(null)
 
-  // Mock documents data - will be replaced with API later
-  const modules = [
-    {
-      id: '1',
-      _id: '1',
-      title: 'Complete Guide to Pet Nutrition',
-      content:
-        'Comprehensive guide covering all aspects of pet nutrition and dietary requirements for your pets...',
-    },
-    {
-      id: '2',
-      _id: '2',
-      title: "Understanding Your Pet's Dietary Needs",
-      content:
-        'Learn about the specific nutritional requirements and feeding schedules for different pets...',
-    },
-  ]
+  // Map route category IDs to API category IDs
+  const categoryMap: { [key: string]: string } = {
+    'happy-dog': 'DOG',
+    'happy-cat': 'CAT',
+  }
+
+  // Build API filters based on selected category
+  const apiFilters = {
+    page: 1,
+    limit: 50,
+    type: 'document' as const,
+    categoryId:
+      selectedCategory === 'all-categories'
+        ? 'ALL'
+        : categoryMap[selectedCategory] || undefined,
+  }
+
+  // Fetch documents from API
+  const { data: learningData, isLoading: isLoadingDocuments } =
+    useLearningKnowledgeQuery(apiFilters)
+
+  // Fetch presigned URLs for documents
+  const {
+    items: documentsWithPresignedUrls,
+    isLoading: isLoadingPresignedUrls,
+  } = usePresignedUrls(learningData?.data?.items, !isLoadingDocuments)
+
+  const modules = documentsWithPresignedUrls || []
 
   // Build categories array from API
   const categories: Category[] = [
@@ -71,15 +86,17 @@ export default function LearningModePage() {
       })) || []),
   ]
 
-  const handleView = (module: {
-    id?: string
-    _id?: string
-    title: string
-    content: string
-  }) => {
-    const docId = module._id ?? module.id
-    if (!docId) {
-      console.error('No document id available for module', module)
+  const handleView = (module: any) => {
+    // If presignedFileUrl is already available, use it directly
+    if (module.presignedFileUrl) {
+      window.open(module.presignedFileUrl, '_blank')
+      return
+    }
+
+    // Fallback: fetch presigned URL if not available
+    const fileUrl = module.fileUrl
+    if (!fileUrl) {
+      console.error('No file URL available for module', module)
       return
     }
 
@@ -90,7 +107,7 @@ export default function LearningModePage() {
       newWindowRef.current = null
     }
 
-    fetchPresignedUrl(String(docId), {
+    fetchPresignedUrl(fileUrl, {
       onSuccess: resp => {
         const url = resp?.data?.presignedUrl
         if (!url) {
@@ -128,12 +145,20 @@ export default function LearningModePage() {
     })
   }
 
-  const handleDownload = (module: {
-    id: string
-    title: string
-    content: string
-  }) => {
-    const blob = new Blob([module.content], { type: 'text/plain' })
+  const handleDownload = (module: any) => {
+    // If presignedFileUrl is already available, use it directly
+    if (module.presignedFileUrl) {
+      const link = document.createElement('a')
+      link.href = module.presignedFileUrl
+      link.download = module.title || 'document'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      return
+    }
+
+    // Fallback to old method
+    const blob = new Blob([module.content || ''], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
@@ -144,7 +169,7 @@ export default function LearningModePage() {
     URL.revokeObjectURL(url)
   }
 
-  if (categoriesLoading) {
+  if (categoriesLoading || isLoadingDocuments || isLoadingPresignedUrls) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -260,7 +285,7 @@ export default function LearningModePage() {
                         {module.title}
                       </h3>
                       <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
-                        {module.content}
+                        {module.description}
                       </p>
 
                       {/* Action Buttons */}

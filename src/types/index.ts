@@ -52,6 +52,10 @@ export interface LearningModule {
   category: string
   thumbnail?: string
   description?: string
+  fileUrl?: string
+  thumbnailUrl?: string
+  presignedFileUrl?: string
+  presignedThumbnailUrl?: string
 }
 
 export interface PaginationData {

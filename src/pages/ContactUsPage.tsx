@@ -72,10 +72,9 @@ export function ContactUsPage() {
       onSuccess: response => {
         if (response.success) {
           toast({
-            title: 'Message Sent!',
+            title: t('contactPage.messageSent'),
             description:
-              response.message ||
-              "Thank you for contacting us! We'll get back to you soon.",
+              response.message || t('contactPage.messageSentDescription'),
           })
           reset()
         }
@@ -83,10 +82,10 @@ export function ContactUsPage() {
       onError: (error: any) => {
         toast({
           variant: 'destructive',
-          title: 'Failed to Send',
+          title: t('contactPage.messageFailed'),
           description:
             error.response?.data?.message ||
-            'Failed to send message. Please try again.',
+            t('contactPage.messageFailedDescription'),
         })
       },
     })
@@ -98,10 +97,10 @@ export function ContactUsPage() {
       <div className="container mx-auto">
         <div className="text-center">
           <h2 className="heading-line text-[#003863] text-[64px]">
-            Contact Us
+            {t('contactPage.title')}
           </h2>
           <p className="text-[#003863] text-[18px] mb-4">
-            Any question or remarks? Just write us a message!
+            {t('contactPage.description')}
           </p>
         </div>
         <div className="border border-[#003863] rounded-[10px] p-[16px] bg-white">
@@ -109,10 +108,10 @@ export function ContactUsPage() {
             {/* LEFT SIDE – Contact Info */}
             <div className="bg-[#003863] text-white p-8 relative overflow-hidden rounded-[10px]">
               <h2 className="text-[28px] font-semibold mb-2">
-                Contact Information
+                {t('contactPage.formTitle')}
               </h2>
               <p className="text-[18px] mb-6 text-[#C9C9C9]">
-                Say something to start a live chat!
+                {t('contactPage.description')}
               </p>
 
               <div className="space-y-8 mt-10">
@@ -284,11 +283,12 @@ export function ContactUsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label className="text-sm font-semibold text-[#003863]">
-                      First Name
+                      {t('contactPage.fullName')}
                     </label>
                     <input
                       type="text"
                       {...register('fullName')}
+                      placeholder={t('contactPage.fullNamePlaceholder')}
                       className="w-full border-b border-[#003863] focus:outline-none py-2"
                     />
                     {errors.fullName && (
@@ -300,10 +300,11 @@ export function ContactUsPage() {
 
                   <div>
                     <label className="text-sm text-[#003863] font-semibold">
-                      Last Name
+                      {t('contactPage.fullName')}
                     </label>
                     <input
                       type="text"
+                      placeholder={t('contactPage.fullNamePlaceholder')}
                       className="w-full border-b border-[#003863] focus:outline-none py-2"
                     />
                   </div>
@@ -313,11 +314,12 @@ export function ContactUsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label className="text-sm text-[#003863] font-semibold">
-                      Email
+                      {t('contactPage.email')}
                     </label>
                     <input
                       type="email"
                       {...register('email')}
+                      placeholder={t('contactPage.emailPlaceholder')}
                       className="w-full border-b border-[#003863] focus:outline-none py-2"
                     />
                     {errors.email && (
@@ -329,11 +331,12 @@ export function ContactUsPage() {
 
                   <div>
                     <label className="text-sm text-[#003863] font-semibold">
-                      Phone Number
+                      {t('contactPage.phone')}
                     </label>
                     <input
                       type="text"
                       {...register('phone')}
+                      placeholder={t('contactPage.phonePlaceholder')}
                       className="w-full border-b border-[#003863] focus:outline-none py-2"
                     />
                     {errors.phone && (
@@ -347,7 +350,7 @@ export function ContactUsPage() {
                 {/* Select Subject */}
                 <div className="mb-6">
                   <label className="text-sm font-semibold text-[#003863] mb-6 block">
-                    Select Subject?
+                    {t('contactPage.subject')}
                   </label>
 
                   <div className="flex flex-wrap gap-[80px]">
@@ -401,10 +404,10 @@ export function ContactUsPage() {
                 {/* Message */}
                 <div className="mb-6">
                   <label className="text-sm font-semibold text-[#003863]">
-                    Message
+                    {t('contactPage.message')}
                   </label>
                   <textarea
-                    placeholder="Write your message..."
+                    placeholder={t('contactPage.messagePlaceholder')}
                     {...register('message')}
                     className="w-full border-b border-[#003863] focus:outline-none py-2"
                   ></textarea>
@@ -421,7 +424,9 @@ export function ContactUsPage() {
                   disabled={contactMutation.isPending}
                   className="bg-[#003863] text-white px-8 py-3 rounded-lg shadow-md hover:bg-[#004c82] transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {contactMutation.isPending ? 'Sending...' : 'Send Message'}
+                  {contactMutation.isPending
+                    ? t('contactPage.sending')
+                    : t('contactPage.sendMessage')}
                 </button>
               </form>
               <img
