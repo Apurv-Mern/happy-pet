@@ -44,6 +44,14 @@ export function Header() {
   const { isAuthenticated, logout, user } = useAuthStore()
   const { t, setLanguage, availableLanguages } = useTranslation()
 
+  // Check if current page is an authentication page
+  const isAuthPage = [
+    '/login',
+    '/signup',
+    '/forgot-password',
+    '/verify-email',
+  ].includes(location.pathname)
+
   // Define navigation items with translations
   const publicNavItems = [
     { path: '/', label: t('header.home') },
@@ -219,7 +227,7 @@ export function Header() {
                       <LogOut className="h-5 w-5 text-black" />
                     </div>
                   </button>
-                ) : (
+                ) : !isAuthPage ? (
                   <Link to="/login">
                     <div className="flex items-center bg-[#0E213A] rounded-full border-[1px] border-[#fff] pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] hover:bg-[#000] hover:text-[#fff] transition">
                       <span className="text-white text-sm font-medium">
@@ -230,7 +238,7 @@ export function Header() {
                       </div>
                     </div>
                   </Link>
-                )}
+                ) : null}
               </div>
             </div>
           </div>
@@ -335,7 +343,7 @@ export function Header() {
                         <LogOut className="h-4 w-4 text-black" />
                       </div>
                     </button>
-                  ) : (
+                  ) : !isAuthPage ? (
                     <Link
                       to="/login"
                       onClick={() => setIsMobileMenuOpen(false)}
@@ -348,7 +356,7 @@ export function Header() {
                         <User className="h-4 w-4 text-black" />
                       </div>
                     </Link>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </div>

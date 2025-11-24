@@ -44,6 +44,14 @@ export function Header2() {
   const { t, setLanguage, availableLanguages } = useTranslation()
   const [selectedLanguage, setSelectedLanguage] = useState<string>('English')
 
+  // Check if current page is an authentication page
+  const isAuthPage = [
+    '/login',
+    '/signup',
+    '/forgot-password',
+    '/verify-email',
+  ].includes(location.pathname)
+
   // Define navigation items with translations
   const publicNavItems = [
     { path: '/', label: t('header.home') },
@@ -244,7 +252,7 @@ export function Header2() {
                         </span>
                         <LogOut className="h-5 w-5 text-white" />
                       </button>
-                    ) : (
+                    ) : !isAuthPage ? (
                       <Link
                         to="/login"
                         className="w-full flex items-center justify-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full py-3 transition-colors"
@@ -255,7 +263,7 @@ export function Header2() {
                         </span>
                         <User className="h-5 w-5 text-white" />
                       </Link>
-                    )}
+                    ) : null}
                   </div>
                 </div>
               </div>
@@ -304,7 +312,7 @@ export function Header2() {
                       <LogOut className="h-5 w-5 text-black" />
                     </div>
                   </button>
-                ) : (
+                ) : !isAuthPage ? (
                   <Link to="/login">
                     <div className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-5 pr-1 h-11 transition-colors">
                       <span className="text-white text-sm font-medium">
@@ -315,13 +323,13 @@ export function Header2() {
                       </div>
                     </div>
                   </Link>
-                )}
+                ) : null}
               </div>
             </div>
           </div>
 
           {/* Desktop Navigation Menu */}
-          <nav className="hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit">
+          <nav className={`hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit ${isAuthenticated ? '' : 'border-2 border-red-800'}`}>
             {publicNavItems.map(item => (
               <NavLink
                 key={item.path}

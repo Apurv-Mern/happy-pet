@@ -16,6 +16,7 @@ export interface LearningKnowledgeFilters {
   typeOfFood?: string
   sortBy?: string
   sortOrder?: 'asc' | 'desc'
+  search?: string
 }
 
 export const learningModuleApi = {
@@ -48,6 +49,7 @@ export const learningModuleApi = {
     if (filters.typeOfFood) params.append('typeOfFood', filters.typeOfFood)
     if (filters.sortBy) params.append('sortBy', filters.sortBy)
     if (filters.sortOrder) params.append('sortOrder', filters.sortOrder)
+    if (filters.search) params.append('search', filters.search)
 
     const queryString = params.toString()
     const { data } = await apiClient.get<LearningModulesResponse>(
