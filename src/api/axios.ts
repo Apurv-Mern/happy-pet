@@ -1,8 +1,15 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios'
-import { API_BASE_URL, STORAGE_KEYS } from '@/utils/constants'
+import { API_BASE_URL, SOCKET_URL, STORAGE_KEYS } from '@/utils/constants'
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+
+export const socketClient = axios.create({
+  baseURL: SOCKET_URL,
   headers: {
     'Content-Type': 'application/json',
   },
