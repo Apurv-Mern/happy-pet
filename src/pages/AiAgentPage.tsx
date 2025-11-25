@@ -1,5 +1,14 @@
 import { useState, useRef } from 'react'
-import { Send, Trash2, Pause, Play } from 'lucide-react'
+import {
+  Send,
+  Trash2,
+  Pause,
+  Play,
+  ChevronDown,
+  Video,
+  Headphones,
+  MessageCircle,
+} from 'lucide-react'
 import { motion } from 'framer-motion'
 
 interface Message {
@@ -11,6 +20,7 @@ interface Message {
   audioUrl?: string
 }
 
+type ChatType = 'audio' | 'video' | 'chat'
 export default function AIAgentPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -21,6 +31,8 @@ export default function AIAgentPage() {
       timestamp: new Date(),
     },
   ])
+  const [selectedChatType, setSelectedChatType] = useState<ChatType>('audio')
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   // const [inputMessage, setInputMessage] = useState('')
   // const [isRecording, setIsRecording] = useState(false)
   const [isPlayingAudio, setIsPlayingAudio] = useState<string | null>(null)
@@ -270,28 +282,126 @@ export default function AIAgentPage() {
         </motion.div>
       </div>
 
-      <div className="w-full bg-[#E3E6ED] border-[2px] border-[#003863] rounded-[20px] flex items-center px-4 py-3">
-        <button className="w-10 h-10 flex items-center justify-center rounded-full text-[#003863]">
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 36 36"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+      <div className="w-full bg-[#E3E6ED] border-[2px] border-[#003863] rounded-[20px] flex items-center px-4 py-3 relative">
+        {/* Plus Icon Button with Dropdown */}
+        <div className="relative">
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="w-10 h-10 flex items-center justify-center rounded-full text-[#003863] hover:bg-white/50 transition-colors"
           >
-            <g clip-path="url(#clip0_1254_29576)">
-              <path
-                d="M17.7474 0C7.94582 0 0 7.94582 0 17.7474C0 27.5494 7.94582 35.4947 17.7474 35.4947C27.5494 35.4947 35.4947 27.5494 35.4947 17.7474C35.4947 7.94582 27.5494 0 17.7474 0ZM17.7474 33.3112C9.18481 33.3112 2.21842 26.3099 2.21842 17.7473C2.21842 9.18474 9.18481 2.21835 17.7474 2.21835C26.3099 2.21835 33.2763 9.18478 33.2763 17.7473C33.2763 26.3098 26.3099 33.3112 17.7474 33.3112ZM25.5118 16.6381H18.8566V9.98289C18.8566 9.3706 18.3596 8.87368 17.7474 8.87368C17.1351 8.87368 16.6381 9.3706 16.6381 9.98289V16.6381H9.98289C9.3706 16.6381 8.87368 17.1351 8.87368 17.7474C8.87368 18.3596 9.3706 18.8566 9.98289 18.8566H16.6381V25.5118C16.6381 26.1241 17.1351 26.621 17.7474 26.621C18.3596 26.621 18.8566 26.1241 18.8566 25.5118V18.8566H25.5118C26.1241 18.8566 26.621 18.3596 26.621 17.7474C26.621 17.1351 26.1241 16.6381 25.5118 16.6381Z"
-                fill="#003863"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_1254_29576">
-                <rect width="35.4947" height="35.4947" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-        </button>
+            <svg
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_1254_29576)">
+                <path
+                  d="M17.7474 0C7.94582 0 0 7.94582 0 17.7474C0 27.5494 7.94582 35.4947 17.7474 35.4947C27.5494 35.4947 35.4947 27.5494 35.4947 17.7474C35.4947 7.94582 27.5494 0 17.7474 0ZM17.7474 33.3112C9.18481 33.3112 2.21842 26.3099 2.21842 17.7473C2.21842 9.18474 9.18481 2.21835 17.7474 2.21835C26.3099 2.21835 33.2763 9.18478 33.2763 17.7473C33.2763 26.3098 26.3099 33.3112 17.7474 33.3112ZM25.5118 16.6381H18.8566V9.98289C18.8566 9.3706 18.3596 8.87368 17.7474 8.87368C17.1351 8.87368 16.6381 9.3706 16.6381 9.98289V16.6381H9.98289C9.3706 16.6381 8.87368 17.1351 8.87368 17.7474C8.87368 18.3596 9.3706 18.8566 9.98289 18.8566H16.6381V25.5118C16.6381 26.1241 17.1351 26.621 17.7474 26.621C18.3596 26.621 18.8566 26.1241 18.8566 25.5118V18.8566H25.5118C26.1241 18.8566 26.621 18.3596 26.621 17.7474C26.621 17.1351 26.1241 16.6381 25.5118 16.6381Z"
+                  fill="#003863"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1254_29576">
+                  <rect width="35.4947" height="35.4947" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+
+          {/* Chat Type Dropdown */}
+          {isDropdownOpen && (
+            <div className="absolute bottom-full left-0 mb-2 z-50">
+              <div className="bg-white rounded-[20px] border-2 border-[#003863] shadow-lg p-2 min-w-[200px]">
+                {/* Selected Chat Type Display */}
+                <div
+                  className={`flex items-center justify-between gap-3 px-4 py-2 rounded-[15px] mb-2 ${
+                    selectedChatType === 'audio' || selectedChatType === 'video'
+                      ? 'bg-[#E8F4FF]'
+                      : ''
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    {selectedChatType === 'audio' && (
+                      <>
+                        <Headphones className="h-5 w-5 text-[#003863]" />
+                        <span className="text-[#003863] font-medium">
+                          Audio Chat
+                        </span>
+                      </>
+                    )}
+
+                    {selectedChatType === 'video' && (
+                      <>
+                        <Video className="h-5 w-5 text-[#003863]" />
+                        <span className="text-[#003863] font-medium">
+                          Video Chat
+                        </span>
+                      </>
+                    )}
+
+                    {selectedChatType === 'chat' && (
+                      <>
+                        <MessageCircle className="h-5 w-5 text-[#003863]" />
+                        <span className="text-[#003863] font-medium">Chat</span>
+                      </>
+                    )}
+                  </div>
+
+                  <div className="bg-[#0066CC] rounded-full p-1">
+                    <ChevronDown className="h-4 w-4 text-white" />
+                  </div>
+                </div>
+
+                {/* Dropdown Options */}
+                <div className="space-y-1">
+                  {selectedChatType !== 'audio' && (
+                    <button
+                      onClick={() => {
+                        setSelectedChatType('audio')
+                        setIsDropdownOpen(false)
+                      }}
+                      className="w-full flex items-center gap-3 px-4 py-2 rounded-[15px] hover:bg-[#F5F5F5] transition-colors"
+                    >
+                      <Headphones className="h-5 w-5 text-[#003863]" />
+                      <span className="text-[#003863] font-medium">
+                        Audio Chat
+                      </span>
+                    </button>
+                  )}
+                  {selectedChatType !== 'video' && (
+                    <button
+                      onClick={() => {
+                        setSelectedChatType('video')
+                        setIsDropdownOpen(false)
+                      }}
+                      className="w-full flex items-center gap-3 px-4 py-2 rounded-[15px] hover:bg-[#F5F5F5] transition-colors"
+                    >
+                      <Video className="h-5 w-5 text-[#003863]" />
+                      <span className="text-[#003863] font-medium">
+                        Video Chat
+                      </span>
+                    </button>
+                  )}
+                  {selectedChatType !== 'chat' && (
+                    <button
+                      onClick={() => {
+                        setSelectedChatType('chat')
+                        setIsDropdownOpen(false)
+                      }}
+                      className="w-full flex items-center gap-3 px-4 py-2 rounded-[15px] hover:bg-[#F5F5F5] transition-colors"
+                    >
+                      <MessageCircle className="h-5 w-5 text-[#003863]" />
+                      <span className="text-[#003863] font-medium">Chat</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
         <input
           type="text"
           placeholder="Type here..."
