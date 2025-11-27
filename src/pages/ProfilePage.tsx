@@ -29,7 +29,20 @@ const ProfilePage = () => {
     resetPasswordData,
   } = useProfileForm(profileData || user)
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    // Delete AI Agent session if it exists
+    const aiAgentSessionId = localStorage.getItem('ai_agent_session_id')
+    if (aiAgentSessionId) {
+      try {
+        const { chatApi } = await import('@/api/chat')
+        await chatApi.deleteSession(aiAgentSessionId)
+        localStorage.removeItem('ai_agent_session_id')
+        console.log('AI Agent session deleted on logout')
+      } catch (error) {
+        console.error('Failed to delete AI Agent session:', error)
+      }
+    }
+
     logout()
     navigate('/')
   }

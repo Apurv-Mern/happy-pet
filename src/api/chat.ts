@@ -116,7 +116,7 @@ export const chatApi = {
   },
 
   deleteSession: async (sessionId: string): Promise<void> => {
-    await apiClient.delete(`/chat/sessions/${sessionId}`)
+    await apiClient.delete(`/v1/chat/sessions/${sessionId}`)
   },
 
   // Message Management
@@ -136,13 +136,16 @@ export const chatApi = {
     payload: {
       text: string
       requestedFormat?: 'text' | 'audio' | 'video'
-      responseFormat?: 'text' | 'audio'
+      responseFormat?: 'text' | 'audio' | 'video'
       language?: string
     }
   ): Promise<SendMessageResponse['data']> => {
+    const { responseFormat, ...rest } = payload
+    const finalPayload = responseFormat === 'video' ? rest : payload
+
     const { data } = await apiClient.post<SendMessageResponse>(
       `/v1/chat/sessions/${sessionId}/messages`,
-      payload
+      finalPayload
     )
     return data.data
   },
@@ -153,7 +156,7 @@ export const chatApi = {
     options?: {
       text?: string
       requestedFormat?: 'text' | 'audio' | 'video'
-      responseFormat?: 'text' | 'audio'
+      responseFormat?: 'text' | 'audio' | 'video'
       language?: string
     }
   ): Promise<SendMessageResponse['data']> => {
@@ -162,7 +165,8 @@ export const chatApi = {
     if (options?.text) formData.append('text', options.text)
     if (options?.requestedFormat)
       formData.append('requestedFormat', options.requestedFormat)
-    if (options?.responseFormat)
+    // Don't send responseFormat if it's 'video'
+    if (options?.responseFormat && options.responseFormat !== 'video')
       formData.append('responseFormat', options.responseFormat)
     if (options?.language) formData.append('language', options.language)
 
@@ -217,5 +221,13 @@ export const chatApi = {
       }
     )
     return data.data
+  },
+
+  // Get presigned URL for video media
+  getPresignedUrl: async (mediaId: string): Promise<string> => {
+    const { data } = await apiClient.get<{ data: { presignedUrl: string } }>(
+      `/v1/media/${mediaId}/presigned-url`
+    )
+    return data.data.presignedUrl
   },
 }

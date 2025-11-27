@@ -9,9 +9,15 @@ import {
   Headphones,
   MessageCircle,
   Loader2,
+  ExternalLink,
+  FileText,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { chatApi, type ChatMessage as ApiChatMessage } from '@/api/chat'
+import {
+  chatApi,
+  type ChatMessage as ApiChatMessage,
+  type FileRecommendation,
+} from '@/api/chat'
 import { useChatRealtime } from '@/hooks/useChatRealtime'
 import { useTranslation } from '@/contexts/I18nContext'
 
@@ -45,6 +51,9 @@ export default function AIAgentPage() {
   const [isRecording, setIsRecording] = useState(false)
   const [isPlayingAudio, setIsPlayingAudio] = useState<string | null>(null)
   const [audioBlob, setAudioBlob] = useState<Blob | null>(null)
+  const [recommendations, setRecommendations] = useState<FileRecommendation[]>(
+    []
+  )
 
   // Refs
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -53,7 +62,9 @@ export default function AIAgentPage() {
   const inputRef = useRef<HTMLInputElement>(null)
 
   // Convert API message to UI message format
-  const convertApiMessageToMessage = (apiMessage: ApiChatMessage): Message => {
+  const convertApiMessageToMessage = async (
+    apiMessage: ApiChatMessage
+  ): Promise<Message> => {
     const audioVariant = apiMessage.variants?.find(
       v => v.type === 'audio' && v.status === 'ready'
     )
@@ -62,6 +73,16 @@ export default function AIAgentPage() {
     )
     const textVariant = apiMessage.variants?.find(v => v.type === 'text')
 
+    // Fetch presigned URL for video if available
+    let videoUrl: string | undefined
+    if (videoVariant?.mediaId) {
+      try {
+        videoUrl = await chatApi.getPresignedUrl(videoVariant.mediaId)
+      } catch (error) {
+        console.error('Failed to fetch video presigned URL:', error)
+      }
+    }
+
     return {
       id: apiMessage._id,
       type: apiMessage.senderType === 'user' ? 'user' : 'ai',
@@ -69,7 +90,7 @@ export default function AIAgentPage() {
       timestamp: new Date(apiMessage.createdAt),
       isVoice: !!audioVariant,
       audioUrl: audioVariant?.mediaId,
-      videoUrl: videoVariant?.mediaId,
+      videoUrl: videoUrl,
       status: audioVariant?.status || videoVariant?.status,
     }
   }
@@ -77,17 +98,17 @@ export default function AIAgentPage() {
   // WebSocket connection for real-time updates
   const { emitTyping } = useChatRealtime({
     sessionId,
-    onNewMessage: (message: ApiChatMessage) => {
+    onNewMessage: async (message: ApiChatMessage) => {
       // Add new message from WebSocket
-      setMessages(prev => [...prev, convertApiMessageToMessage(message)])
+      const convertedMessage = await convertApiMessageToMessage(message)
+      setMessages(prev => [...prev, convertedMessage])
       scrollToBottom()
     },
-    onMessageUpdate: (message: ApiChatMessage) => {
+    onMessageUpdate: async (message: ApiChatMessage) => {
       // Update existing message (e.g., when media is ready)
+      const convertedMessage = await convertApiMessageToMessage(message)
       setMessages(prev =>
-        prev.map(msg =>
-          msg.id === message._id ? convertApiMessageToMessage(message) : msg
-        )
+        prev.map(msg => (msg.id === message._id ? convertedMessage : msg))
       )
     },
     onAssetUpdate: data => {
@@ -136,6 +157,7 @@ export default function AIAgentPage() {
           // Use existing session
           const existingSession = sessionsResponse.sessions[0]
           setSessionId(existingSession._id)
+          localStorage.setItem('ai_agent_session_id', existingSession._id)
 
           // Load message history
           setIsLoadingMessages(true)
@@ -143,12 +165,16 @@ export default function AIAgentPage() {
             existingSession._id,
             { page: 1, limit: 50 }
           )
-          setMessages(messagesResponse.messages.map(convertApiMessageToMessage))
+          const convertedMessages = await Promise.all(
+            messagesResponse.messages.map(convertApiMessageToMessage)
+          )
+          setMessages(convertedMessages)
           setIsLoadingMessages(false)
         } else {
           // Create new session
           const newSession = await chatApi.createSession('AI Agent Chat')
           setSessionId(newSession._id)
+          localStorage.setItem('ai_agent_session_id', newSession._id)
         }
       } catch (error) {
         console.error('Failed to initialize session:', error)
@@ -165,6 +191,34 @@ export default function AIAgentPage() {
   useEffect(() => {
     scrollToBottom()
   }, [messages])
+
+  // Warn user before closing tab if there are messages
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (messages.length > 0) {
+        e.preventDefault()
+        e.returnValue =
+          'Your chat history will be cleared if you leave this page. Are you sure?'
+
+        // Delete session when page reloads
+        if (sessionId) {
+          // Use sendBeacon for reliable cleanup during page unload
+          navigator.sendBeacon(
+            `${import.meta.env.VITE_API_BASE_URL || 'https://happypet-backend.24livehost.com/api'}/v1/chat/sessions/${sessionId}`,
+            JSON.stringify({ _method: 'DELETE' })
+          )
+        }
+
+        return e.returnValue
+      }
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload)
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload)
+    }
+  }, [messages, sessionId])
 
   // Auto-start recording when Audio Chat is selected
   useEffect(() => {
@@ -234,8 +288,12 @@ export default function AIAgentPage() {
           : selectedChatType === 'video'
             ? 'video'
             : 'text'
-      const responseFormat: 'text' | 'audio' =
-        selectedChatType === 'audio' ? 'audio' : 'text'
+      const responseFormat: 'text' | 'audio' | 'video' =
+        selectedChatType === 'video'
+          ? 'video'
+          : selectedChatType === 'audio'
+            ? 'audio'
+            : 'text'
 
       const response = await chatApi.sendTextMessage(sessionId, {
         text: userMessageText,
@@ -245,21 +303,25 @@ export default function AIAgentPage() {
       })
 
       // Remove temp message and add real messages
+      const newMessages: Message[] = []
+      if (response.userMessage) {
+        newMessages.push(await convertApiMessageToMessage(response.userMessage))
+      }
+      if (response.assistantMessage) {
+        newMessages.push(
+          await convertApiMessageToMessage(response.assistantMessage)
+        )
+      }
+
       setMessages(prev => {
         const filtered = prev.filter(msg => msg.id !== tempUserMessage.id)
-        const newMessages: Message[] = []
-
-        if (response.userMessage) {
-          newMessages.push(convertApiMessageToMessage(response.userMessage))
-        }
-        if (response.assistantMessage) {
-          newMessages.push(
-            convertApiMessageToMessage(response.assistantMessage)
-          )
-        }
-
         return [...filtered, ...newMessages]
       })
+
+      // Update recommendations if available
+      if (response.recommendations && response.recommendations.length > 0) {
+        setRecommendations(response.recommendations)
+      }
     } catch (error) {
       console.error('Failed to send message:', error)
       // Remove temp message on error
@@ -331,8 +393,12 @@ export default function AIAgentPage() {
           : selectedChatType === 'video'
             ? 'video'
             : 'text'
-      const responseFormat: 'text' | 'audio' =
-        selectedChatType === 'audio' ? 'audio' : 'text'
+      const responseFormat: 'text' | 'audio' | 'video' =
+        selectedChatType === 'video'
+          ? 'video'
+          : selectedChatType === 'audio'
+            ? 'audio'
+            : 'text'
 
       // Convert Blob to File
       const audioFile = new File([audioBlob], 'recording.webm', {
@@ -346,21 +412,25 @@ export default function AIAgentPage() {
       })
 
       // Replace temp message with real messages
+      const newMessages: Message[] = []
+      if (response.userMessage) {
+        newMessages.push(await convertApiMessageToMessage(response.userMessage))
+      }
+      if (response.assistantMessage) {
+        newMessages.push(
+          await convertApiMessageToMessage(response.assistantMessage)
+        )
+      }
+
       setMessages(prev => {
         const filtered = prev.filter(msg => msg.id !== tempId)
-        const newMessages: Message[] = []
-
-        if (response.userMessage) {
-          newMessages.push(convertApiMessageToMessage(response.userMessage))
-        }
-        if (response.assistantMessage) {
-          newMessages.push(
-            convertApiMessageToMessage(response.assistantMessage)
-          )
-        }
-
         return [...filtered, ...newMessages]
       })
+
+      // Update recommendations if available
+      if (response.recommendations && response.recommendations.length > 0) {
+        setRecommendations(response.recommendations)
+      }
 
       setAudioBlob(null)
     } catch (error) {
@@ -411,6 +481,30 @@ export default function AIAgentPage() {
       handleSendMessage()
     }
   }
+
+  // Function to delete current session (called on logout)
+  const deleteCurrentSession = async () => {
+    if (sessionId) {
+      try {
+        await chatApi.deleteSession(sessionId)
+        localStorage.removeItem('ai_agent_session_id')
+        console.log('Session deleted successfully')
+      } catch (error) {
+        console.error('Failed to delete session:', error)
+      }
+    }
+  }
+
+  // Expose deleteCurrentSession globally for logout handler
+  useEffect(() => {
+    // Store function reference in window for access from Header
+    ;(window as any).deleteAiAgentSession = deleteCurrentSession
+
+    return () => {
+      // Cleanup on unmount
+      delete (window as any).deleteAiAgentSession
+    }
+  }, [sessionId])
 
   if (isLoadingSession) {
     return (
@@ -489,6 +583,47 @@ export default function AIAgentPage() {
                     <p className="text-sm leading-relaxed whitespace-pre-line">
                       {message.content}
                     </p>
+
+                    {/* Video player for video messages */}
+                    {message.videoUrl && (
+                      <div className="mt-3 rounded-lg overflow-hidden">
+                        <video
+                          src={message.videoUrl}
+                          controls
+                          className="w-full max-h-96 rounded-lg"
+                          preload="metadata"
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    )}
+
+                    {/* Show recommendations for the last AI message */}
+                    {message.type === 'ai' &&
+                      index === messages.length - 1 &&
+                      recommendations.length > 0 && (
+                        <div className="mt-2 space-y-1.5">
+                          <p className="text-xs font-semibold text-[#003863] mb-1.5">
+                            📄 Recommended Documents
+                          </p>
+                          {recommendations.map((rec, recIndex) => (
+                            <a
+                              key={rec.documentId || recIndex}
+                              href={rec.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 p-2 bg-white/50 border border-[#003863]/30 rounded-lg hover:bg-[#E8F4FF] transition-colors group text-left"
+                            >
+                              <FileText className="h-3.5 w-3.5 text-[#003863] flex-shrink-0" />
+                              <span className="text-xs text-[#003863] font-medium truncate flex-1">
+                                {rec.fileName}
+                              </span>
+                              <ExternalLink className="h-3 w-3 text-[#003863] flex-shrink-0 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                            </a>
+                          ))}
+                        </div>
+                      )}
+
                     <p className="text-xs opacity-70 mt-2">
                       {message.timestamp.toLocaleTimeString([], {
                         hour: '2-digit',
@@ -686,7 +821,15 @@ export default function AIAgentPage() {
         <input
           ref={inputRef}
           type="text"
-          placeholder={isRecording ? 'Recording...' : 'Type here...'}
+          placeholder={
+            isRecording
+              ? 'Recording...'
+              : selectedChatType === 'audio'
+                ? 'Audio Chat - Voice input...'
+                : selectedChatType === 'video'
+                  ? 'Video Chat - Type here...'
+                  : 'Chat - Type here...'
+          }
           value={inputMessage}
           onChange={handleInputChange}
           onKeyPress={handleKeyPress}
