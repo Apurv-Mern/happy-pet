@@ -7,49 +7,52 @@ import { useContactMutation } from '@/api/contact'
 import { useToast } from '@/hooks/use-toast'
 import { useTranslation } from '@/contexts/I18nContext'
 
-const contactSchema = z.object({
-  fullName: z.string().min(2, 'fullName must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
-  phone: z.string().min(10, 'Phone number must be at least 10 characters'),
-  subject: z.string().min(5, 'Subject must be at least 5 characters'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
-})
-
-type ContactFormData = z.infer<typeof contactSchema>
-
-// interface ContactInfo {
-//   icon: React.ReactNode
-//   title: string
-//   content: string
-//   details: string[]
-// }
-
-// const contactInfoData: ContactInfo[] = [
-//   {
-//     icon: <Mail className="h-8 w-8" />,
-//     title: 'Email',
-//     content: 'Get in touch via email',
-//     details: ['support@happypet.com', 'info@happypet.com'],
-//   },
-//   {
-//     icon: <Phone className="h-8 w-8" />,
-//     title: 'Phone',
-//     content: 'Call us anytime',
-//     details: ['+91 6789456874587', '+1 (555) 123-4567'],
-//   },
-//   {
-//     icon: <MapPin className="h-8 w-8" />,
-//     title: 'Location',
-//     content: 'Visit our office',
-//     details: ['Jaipur, India', '123 Pet Street, Happy Town'],
-//   },
-// ]
-
 export function ContactUsPage() {
-  // const [submitMessage, setSubmitMessage] = useState('')
   const { toast } = useToast()
   const contactMutation = useContactMutation()
   const { t } = useTranslation()
+
+  // Validation schema using translations
+  const contactSchema = z.object({
+    firstName: z.string().min(2, t('validation.nameMinLength')),
+    lastName: z.string().min(2, t('validation.nameMinLength')),
+    email: z.string().email(t('validation.emailRequired')),
+    phone: z.string().min(10, t('validation.phoneMinLength')),
+    subject: z.string().min(5, t('validation.subjectRequired')),
+    message: z.string().min(10, t('validation.messageMinLength')),
+  })
+
+  type ContactFormData = z.infer<typeof contactSchema>
+
+  // interface ContactInfo {
+  //   icon: React.ReactNode
+  //   title: string
+  //   content: string
+  //   details: string[]
+  // }
+
+  // const contactInfoData: ContactInfo[] = [
+  //   {
+  //     icon: <Mail className="h-8 w-8" />,
+  //     title: 'Email',
+  //     content: 'Get in touch via email',
+  //     details: ['support@happypet.com', 'info@happypet.com'],
+  //   },
+  //   {
+  //     icon: <Phone className="h-8 w-8" />,
+  //     title: 'Phone',
+  //     content: 'Call us anytime',
+  //     details: ['+91 6789456874587', '+1 (555) 123-4567'],
+  //   },
+  //   {
+  //     icon: <MapPin className="h-8 w-8" />,
+  //     title: 'Location',
+  //     content: 'Visit our office',
+  //     details: ['Jaipur, India', '123 Pet Street, Happy Town'],
+  //   },
+  // ]
+
+  // ...existing code...
 
   const {
     register,
@@ -59,7 +62,8 @@ export function ContactUsPage() {
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      fullName: '',
+      firstName: '',
+      lastName: '',
       email: '',
       phone: '',
       subject: '',
@@ -68,7 +72,16 @@ export function ContactUsPage() {
   })
 
   const onSubmit = async (data: ContactFormData) => {
-    contactMutation.mutate(data, {
+    // Combine firstName and lastName into fullName
+    const payload = {
+      fullName: `${data.firstName} ${data.lastName}`.trim(),
+      email: data.email,
+      phone: data.phone,
+      subject: data.subject,
+      message: data.message,
+    }
+
+    contactMutation.mutate(payload, {
       onSuccess: response => {
         if (response.success) {
           toast({
@@ -135,7 +148,12 @@ export function ContactUsPage() {
                       />
                     </svg>
                   </span>
-                  <span className="text-[16px]">6789456874587</span>
+                  <a
+                    href="tel:+916789456874587"
+                    className="text-[16px] hover:underline"
+                  >
+                    +91 6789456874587
+                  </a>
                 </div>
 
                 {/* Email */}
@@ -154,9 +172,12 @@ export function ContactUsPage() {
                       />
                     </svg>
                   </span>
-                  <span className="text-[16px] underline cursor-pointer">
+                  <a
+                    href="mailto:Youremaillid@gmail.com"
+                    className="text-[16px] underline cursor-pointer"
+                  >
                     Youremaillid@gmail.com
-                  </span>
+                  </a>
                 </div>
 
                 {/* Location */}
@@ -175,16 +196,26 @@ export function ContactUsPage() {
                       />
                     </svg>
                   </span>
-                  <span className="text-[16px] leading-[22px]">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=132+Dartmouth+Street+Boston+MA+02156"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[16px] leading-[22px] hover:underline"
+                  >
                     132 Dartmouth Street Boston, Massachusetts 02156 United
                     States
-                  </span>
+                  </a>
                 </div>
               </div>
 
               {/* Social Icons */}
               <div className="flex gap-4 absolute bottom-[30px]">
-                <span className="cursor-pointer">
+                <a
+                  href="https://facebook.com/happypet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer"
+                >
                   <svg
                     width="28"
                     height="28"
@@ -204,8 +235,13 @@ export function ContactUsPage() {
                       </clipPath>
                     </defs>
                   </svg>
-                </span>
-                <span className="cursor-pointer">
+                </a>
+                <a
+                  href="https://twitter.com/happypet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer"
+                >
                   <svg
                     width="28"
                     height="28"
@@ -218,8 +254,13 @@ export function ContactUsPage() {
                       fill="white"
                     />
                   </svg>
-                </span>
-                <span className="cursor-pointer">
+                </a>
+                <a
+                  href="https://instagram.com/happypet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer"
+                >
                   <svg
                     width="28"
                     height="28"
@@ -247,8 +288,13 @@ export function ContactUsPage() {
                       </clipPath>
                     </defs>
                   </svg>
-                </span>
-                <span className="cursor-pointer">
+                </a>
+                <a
+                  href="https://linkedin.com/company/happypet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer"
+                >
                   <svg
                     width="28"
                     height="28"
@@ -268,7 +314,7 @@ export function ContactUsPage() {
                       </clipPath>
                     </defs>
                   </svg>
-                </span>
+                </a>
               </div>
 
               {/* Decorative Circles */}
@@ -283,30 +329,36 @@ export function ContactUsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label className="text-sm font-semibold text-[#003863]">
-                      {t('contactPage.fullName')}
+                      {t('contactPage.firstName')}
                     </label>
                     <input
                       type="text"
-                      {...register('fullName')}
-                      placeholder={t('contactPage.fullNamePlaceholder')}
+                      {...register('firstName')}
+                      placeholder={t('contactPage.firstNamePlaceholder')}
                       className="w-full border-b border-[#003863] focus:outline-none py-2"
                     />
-                    {errors.fullName && (
+                    {errors.firstName && (
                       <p className="text-red-500 text-sm mt-1">
-                        {errors.fullName.message}
+                        {errors.firstName.message}
                       </p>
                     )}
                   </div>
 
                   <div>
                     <label className="text-sm text-[#003863] font-semibold">
-                      {t('contactPage.fullName')}
+                      {t('contactPage.lastName')}
                     </label>
                     <input
                       type="text"
-                      placeholder={t('contactPage.fullNamePlaceholder')}
+                      {...register('lastName')}
+                      placeholder={t('contactPage.lastNamePlaceholder')}
                       className="w-full border-b border-[#003863] focus:outline-none py-2"
                     />
+                    {errors.lastName && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.lastName.message}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -352,46 +404,42 @@ export function ContactUsPage() {
                   <label className="text-sm font-semibold text-[#003863] mb-6 block">
                     {t('contactPage.subject')}
                   </label>
-
                   <div className="flex flex-wrap gap-[80px]">
                     <label className="flex items-center gap-2">
                       <input
                         type="radio"
-                        value="General Inquiry"
+                        value={t('contactPage.subjectGeneralInquiry')}
                         {...register('subject')}
                         className="accent-[#003863]"
                       />
-                      <span>General Inquiry</span>
+                      <span>{t('contactPage.subjectGeneralInquiry')}</span>
                     </label>
-
                     <label className="flex items-center gap-2">
                       <input
                         type="radio"
-                        value="Support"
+                        value={t('contactPage.subjectSupport')}
                         {...register('subject')}
                         className="accent-[#003863]"
                       />
-                      <span>Support</span>
+                      <span>{t('contactPage.subjectSupport')}</span>
                     </label>
-
                     <label className="flex items-center gap-2">
                       <input
                         type="radio"
-                        value="Feedback"
+                        value={t('contactPage.subjectFeedback')}
                         {...register('subject')}
                         className="accent-[#003863]"
                       />
-                      <span>Feedback</span>
+                      <span>{t('contactPage.subjectFeedback')}</span>
                     </label>
-
                     <label className="flex items-center gap-2">
                       <input
                         type="radio"
-                        value="Other"
+                        value={t('contactPage.subjectOther')}
                         {...register('subject')}
                         className="accent-[#003863]"
                       />
-                      <span>Other</span>
+                      <span>{t('contactPage.subjectOther')}</span>
                     </label>
                   </div>
                   {errors.subject && (

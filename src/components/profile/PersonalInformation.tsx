@@ -1,3 +1,5 @@
+import { useTranslation } from '@/contexts/I18nContext'
+
 interface PersonalInformationProps {
   formData: {
     firstName: string
@@ -20,10 +22,12 @@ export const PersonalInformation = ({
   onSave,
   onDiscard,
 }: PersonalInformationProps) => {
+  const { t } = useTranslation()
+
   return (
     <>
       <h3 className="text-[30px] font-bold text-[#003863] mb-8">
-        Personal Information
+        {t('profilePage.personalInformation')}
       </h3>
 
       <div className="space-y-6">
@@ -31,7 +35,7 @@ export const PersonalInformation = ({
         <div className="flex justify-between">
           <div className="w-full max-w-[450px]">
             <label className="block text-sm text-[#003863] mb-2">
-              First Name
+              {t('profilePage.firstName')}
             </label>
             <input
               type="text"
@@ -39,12 +43,12 @@ export const PersonalInformation = ({
               value={formData.firstName}
               onChange={onInputChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
-              placeholder="Enter first name"
+              placeholder={t('profilePage.firstNamePlaceholder')}
             />
           </div>
           <div className="w-full max-w-[450px]">
             <label className="block text-sm text-[#003863] mb-2">
-              Last Name
+              {t('profilePage.lastName')}
             </label>
             <input
               type="text"
@@ -52,34 +56,38 @@ export const PersonalInformation = ({
               value={formData.lastName}
               onChange={onInputChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
-              placeholder="Enter last name"
+              placeholder={t('profilePage.lastNamePlaceholder')}
             />
           </div>
         </div>
 
         {/* Email */}
         <div>
-          <label className="block text-sm text-[#003863] mb-2">Email</label>
+          <label className="block text-sm text-[#003863] mb-2">
+            {t('profilePage.email')}
+          </label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={onInputChange}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
-            placeholder="Enter email"
+            placeholder={t('profilePage.emailPlaceholder')}
           />
         </div>
 
         {/* Address */}
         <div>
-          <label className="block text-sm text-[#003863] mb-2">Address</label>
+          <label className="block text-sm text-[#003863] mb-2">
+            {t('profilePage.address')}
+          </label>
           <input
             type="text"
             name="address"
             value={formData.address}
             onChange={onInputChange}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
-            placeholder="Enter address"
+            placeholder={t('profilePage.addressPlaceholder')}
           />
         </div>
 
@@ -87,7 +95,7 @@ export const PersonalInformation = ({
         <div className="flex justify-between">
           <div className="w-full max-w-[450px]">
             <label className="block text-sm text-[#003863] mb-2">
-              Company Name
+              {t('profilePage.companyName')}
             </label>
             <input
               type="text"
@@ -95,12 +103,12 @@ export const PersonalInformation = ({
               value={formData.companyName}
               onChange={onInputChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
-              placeholder="Enter company name"
+              placeholder={t('profilePage.companyNamePlaceholder')}
             />
           </div>
           <div className="w-full max-w-[450px]">
             <label className="block text-sm text-[#003863] mb-2">
-              Phone Number
+              {t('profilePage.phoneNumber')}
             </label>
             <input
               type="tel"
@@ -108,7 +116,7 @@ export const PersonalInformation = ({
               value={formData.phoneNumber}
               onChange={onInputChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
-              placeholder="Enter phone number"
+              placeholder={t('profilePage.phoneNumberPlaceholder')}
             />
           </div>
         </div>
@@ -116,7 +124,9 @@ export const PersonalInformation = ({
         {/* D.O.B & Postal Code */}
         <div className="flex justify-between">
           <div className="w-full max-w-[450px]">
-            <label className="block text-sm text-[#003863] mb-2">D.O.B</label>
+            <label className="block text-sm text-[#003863] mb-2">
+              {t('profilePage.dob')}
+            </label>
             <input
               type="date"
               name="dob"
@@ -127,7 +137,7 @@ export const PersonalInformation = ({
           </div>
           <div className="w-full max-w-[450px]">
             <label className="block text-sm text-[#003863] mb-2">
-              Postal Code
+              {t('profilePage.postalCode')}
             </label>
             <input
               type="text"
@@ -135,7 +145,7 @@ export const PersonalInformation = ({
               value={formData.postalCode}
               onChange={onInputChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
-              placeholder="Enter postal code"
+              placeholder={t('profilePage.postalCodePlaceholder')}
             />
           </div>
         </div>
@@ -146,13 +156,13 @@ export const PersonalInformation = ({
             onClick={onDiscard}
             className="w-full max-w-[450px] px-8 py-3 border-2 border-[#003863] text-[#003863] rounded-xl font-semibold hover:bg-gray-50 transition-all"
           >
-            Discard Changes
+            {t('profilePage.discardChanges')}
           </button>
           <button
             onClick={onSave}
             className="w-full max-w-[450px] px-8 py-3 bg-[#003863] text-white rounded-xl font-semibold hover:bg-[#004c82] transition-all"
           >
-            Save Changes
+            {t('profilePage.saveChanges')}
           </button>
         </div>
       </div>

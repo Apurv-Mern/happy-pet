@@ -3,6 +3,8 @@ import { useAuthStore } from '@/store/useAuthStore'
 import { useState } from 'react'
 import { User, Lock, HelpCircle, FileText } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from '@/contexts/I18nContext'
+import { useQueryClient } from '@tanstack/react-query'
 import {
   ProfileSidebar,
   PersonalInformation,
@@ -13,14 +15,18 @@ import { useProfileForm } from '@/hooks/useProfileForm'
 import { useProfileQuery } from '@/api/user'
 
 const ProfilePage = () => {
+  const { t } = useTranslation()
   const { user, logout } = useAuthStore()
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
   const [activeSection, setActiveSection] = useState('personal')
   const { data: profileData, isLoading } = useProfileQuery()
 
   const {
     formData,
     passwordData,
+    profileImage,
+    setProfileImage,
     handleInputChange,
     handlePasswordChange,
     handleSaveChanges,
@@ -43,6 +49,9 @@ const ProfilePage = () => {
       }
     }
 
+    // Clear all React Query cache
+    queryClient.clear()
+
     logout()
     navigate('/')
   }
@@ -59,25 +68,25 @@ const ProfilePage = () => {
     {
       id: 'personal',
       icon: User,
-      label: 'Personal Information',
+      label: t('profilePage.personalInformation'),
       onClick: () => setActiveSection('personal'),
     },
     {
       id: 'password',
       icon: Lock,
-      label: 'Password Management',
+      label: t('profilePage.passwordManagement'),
       onClick: () => setActiveSection('password'),
     },
     {
       id: 'help',
       icon: HelpCircle,
-      label: 'Help Center',
+      label: t('profilePage.helpCenter'),
       onClick: () => setActiveSection('help'),
     },
     {
       id: 'terms',
       icon: FileText,
-      label: 'Terms & Policies',
+      label: t('profilePage.termsAndPolicies'),
       onClick: () => {
         // TODO: Navigate to terms page
         console.log('Terms & Policies')
@@ -94,7 +103,9 @@ const ProfilePage = () => {
     >
       {isLoading ? (
         <div className="flex items-center justify-center min-h-[400px]">
-          <div className="text-lg text-gray-600">Loading profile...</div>
+          <div className="text-lg text-gray-600">
+            {t('profilePage.loadingProfile')}
+          </div>
         </div>
       ) : (
         <div className="bg-[#E3E6ED] rounded-[10px] shadow-lg">
@@ -106,6 +117,8 @@ const ProfilePage = () => {
                 activeSection={activeSection}
                 menuItems={menuItems}
                 onLogout={handleLogout}
+                profileImage={profileImage}
+                onImageChange={setProfileImage}
               />
             </div>
 

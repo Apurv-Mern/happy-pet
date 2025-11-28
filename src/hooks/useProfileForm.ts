@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { User } from '@/types'
+import { useChangePasswordMutation, useUpdateProfileMutation } from '@/api/auth'
+import { useToast } from '@/hooks/use-toast'
 
 interface ProfileFormData {
   firstName: string
@@ -10,6 +12,9 @@ interface ProfileFormData {
   phoneNumber: string
   dob: string
   postalCode: string
+  country?: string
+  timezone?: string
+  preferredLanguage?: string
 }
 
 interface PasswordFormData {
@@ -19,6 +24,11 @@ interface PasswordFormData {
 }
 
 export const useProfileForm = (user: User | null) => {
+  const { toast } = useToast()
+  const changePasswordMutation = useChangePasswordMutation()
+  const updateProfileMutation = useUpdateProfileMutation()
+  const [profileImage, setProfileImage] = useState<File | null>(null)
+
   const [formData, setFormData] = useState<ProfileFormData>({
     firstName: user?.name?.split(' ')[0] || '',
     lastName: user?.name?.split(' ').slice(1).join(' ') || '',
@@ -29,7 +39,28 @@ export const useProfileForm = (user: User | null) => {
     dob: '',
     postalCode: '',
   })
-  console.log(formData)
+
+  // Update form data when user data changes
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        firstName: user?.name?.split(' ')[0] || '',
+        lastName: user?.name?.split(' ').slice(1).join(' ') || '',
+        email: user?.email || '',
+        address: '',
+        companyName: user?.company || '',
+        phoneNumber: user?.phoneNumber || '',
+        dob: '',
+        postalCode: '',
+      })
+    }
+  }, [user])
+
+  console.log('Profile data:', {
+    company: user?.company,
+    phoneNumber: user?.phoneNumber,
+    formData,
+  })
   const [passwordData, setPasswordData] = useState<PasswordFormData>({
     currentPassword: '',
     newPassword: '',
@@ -47,8 +78,56 @@ export const useProfileForm = (user: User | null) => {
   }
 
   const handleSaveChanges = () => {
-    // TODO: Implement API call to save profile
-    console.log('Saving changes:', formData)
+    console.log('handleSaveChanges called')
+    console.log('formData:', formData)
+
+    const formDataToSend = new FormData()
+
+    // Combine first and last name
+    const fullName = `${formData.firstName} ${formData.lastName}`.trim()
+    formDataToSend.append('name', fullName)
+
+    // Add other fields
+    formDataToSend.append('phoneNumber', formData.phoneNumber)
+    formDataToSend.append('company', formData.companyName)
+
+    // Add optional fields if they exist
+    if (formData.country) formDataToSend.append('country', formData.country)
+    if (formData.timezone) formDataToSend.append('timezone', formData.timezone)
+    if (formData.preferredLanguage)
+      formDataToSend.append('preferredLanguage', formData.preferredLanguage)
+
+    // Add profile image if selected
+    if (profileImage) {
+      formDataToSend.append('profileImage', profileImage)
+    }
+
+    console.log('Sending FormData to API...')
+    // Log FormData contents
+    for (let pair of formDataToSend.entries()) {
+      console.log(pair[0] + ': ' + pair[1])
+    }
+
+    updateProfileMutation.mutate(formDataToSend, {
+      onSuccess: response => {
+        console.log('Profile update success:', response)
+        toast({
+          title: 'Profile Updated',
+          description:
+            response.message || 'Your profile has been updated successfully.',
+        })
+      },
+      onError: (error: any) => {
+        console.error('Profile update error:', error)
+        toast({
+          variant: 'destructive',
+          title: 'Update Failed',
+          description:
+            error.response?.data?.message ||
+            'Failed to update profile. Please try again.',
+        })
+      },
+    })
   }
 
   const resetPersonalInfo = () => {
@@ -74,21 +153,53 @@ export const useProfileForm = (user: User | null) => {
 
   const handlePasswordSubmit = () => {
     if (passwordData.newPassword !== passwordData.confirmPassword) {
-      alert('New passwords do not match!')
+      toast({
+        variant: 'destructive',
+        title: 'Password Mismatch',
+        description: 'New passwords do not match!',
+      })
       return
     }
-    // TODO: Implement API call to change password
-    console.log('Changing password')
+
+    changePasswordMutation.mutate(
+      {
+        currentPassword: passwordData.currentPassword,
+        newPassword: passwordData.newPassword,
+      },
+      {
+        onSuccess: response => {
+          toast({
+            title: 'Password Changed',
+            description:
+              response.message ||
+              'Your password has been updated successfully.',
+          })
+          resetPasswordData()
+        },
+        onError: err => {
+          console.error('Change password error:', err)
+          toast({
+            variant: 'destructive',
+            title: 'Password Change Failed',
+            description:
+              err.response?.data?.message || 'Failed to change password.',
+          })
+        },
+      }
+    )
   }
 
   return {
     formData,
     passwordData,
+    profileImage,
+    setProfileImage,
     handleInputChange,
     handlePasswordChange,
     handleSaveChanges,
     handlePasswordSubmit,
     resetPersonalInfo,
     resetPasswordData,
+    isUpdatingProfile: updateProfileMutation.isPending,
   }
 }

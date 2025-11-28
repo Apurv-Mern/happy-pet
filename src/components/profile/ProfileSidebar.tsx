@@ -3,6 +3,7 @@ import { ChevronRight, LogOut } from 'lucide-react'
 import { ProfileAvatar } from './ProfileAvatar'
 import { User as UserType } from '@/types'
 import { LucideIcon } from 'lucide-react'
+import { useTranslation } from '@/contexts/I18nContext'
 
 interface MenuItem {
   id: string
@@ -16,6 +17,8 @@ interface ProfileSidebarProps {
   activeSection: string
   menuItems: MenuItem[]
   onLogout: () => void
+  profileImage: File | null
+  onImageChange: (file: File | null) => void
 }
 
 export const ProfileSidebar = ({
@@ -23,7 +26,11 @@ export const ProfileSidebar = ({
   activeSection,
   menuItems,
   onLogout,
+  profileImage,
+  onImageChange,
 }: ProfileSidebarProps) => {
+  const { t } = useTranslation()
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -31,7 +38,11 @@ export const ProfileSidebar = ({
       transition={{ duration: 0.5 }}
       className="bg-white rounded-[10px] h-full px-10 py-10"
     >
-      <ProfileAvatar user={user} />
+      <ProfileAvatar
+        user={user}
+        profileImage={profileImage}
+        onImageChange={onImageChange}
+      />
 
       {/* Menu Items */}
       <nav className="space-y-2">
@@ -60,7 +71,7 @@ export const ProfileSidebar = ({
         className="w-full mt-6 flex items-center justify-center gap-2 bg-[#003863] border-2 text-[#fff] px-6 py-3 rounded-xl font-semibold hover:bg-[#004c82] hover:text-white transition-all"
       >
         <LogOut className="w-5 h-5" />
-        <span>Logout</span>
+        <span>{t('profilePage.logout')}</span>
       </button>
     </motion.div>
   )

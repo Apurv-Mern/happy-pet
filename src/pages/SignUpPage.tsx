@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, Link, useLocation } from 'react-router-dom'
+import { useTranslation } from '@/contexts/I18nContext'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -19,11 +20,32 @@ import { useRegisterMutation, useSendOtpMutation } from '@/api/auth'
 import { useToast } from '@/hooks/use-toast'
 
 const signupSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  email: z.string().email('Invalid email address'),
+  name: z
+    .string()
+    .min(4, 'Name is required')
+    .refine(val => val.trim().length > 0, {
+      message: 'Name cannot be only whitespace',
+    }),
+  email: z
+    .string()
+    .min(1, 'Email is required')
+    .email('Email is required')
+    .refine(val => val.trim().length > 0, {
+      message: 'Email cannot be only whitespace',
+    }),
   companyName: z.string().optional(),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
-  phoneNumber: z.string().optional(),
+  password: z
+    .string()
+    .min(6, 'Password is required')
+    .refine(val => val.trim().length > 0, {
+      message: 'Password cannot be only whitespace',
+    }),
+  phoneNumber: z
+    .string()
+    .min(1, 'Phone number is required')
+    .refine(val => val.trim().length > 0, {
+      message: 'Phone number cannot be only whitespace',
+    }),
   timezone: z.string().optional(),
   preferredLanguage: z.string().optional(),
   userType: z.enum(['public', 'admin']).default('public'),
@@ -35,6 +57,8 @@ export function SignupPage() {
   const navigate = useNavigate()
   const location = useLocation()
 
+  const { t } = useTranslation()
+
   const { isAuthenticated } = useAuthStore()
   const [selectedCountryCode, setSelectedCountryCode] = useState('+971')
   const { toast } = useToast()
@@ -45,7 +69,6 @@ export function SignupPage() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    setValue,
   } = useForm<SignupFormData>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
@@ -66,63 +89,59 @@ export function SignupPage() {
   }, [isAuthenticated, navigate, location])
 
   const onSubmit = async (data: SignupFormData) => {
-    registerMutation.mutate(
-      {
+    try {
+      // Combine country code with phone number
+      const fullPhoneNumber = `${selectedCountryCode}${data.phoneNumber}`
+
+      const response = await registerMutation.mutateAsync({
         email: data.email,
         password: data.password,
         name: data.name,
-        companyName: data.companyName,
+        company: data.companyName,
         preferredLanguage: data.preferredLanguage,
-        phoneNumber: data.phoneNumber,
+        phoneNumber: fullPhoneNumber,
         timezone: data.timezone,
         userType: data.userType,
-      },
-      {
-        onSuccess: response => {
-          if (response.success) {
-            // Send OTP after successful registration
-            sendOtpMutation.mutate(
-              { email: data.email },
-              {
-                onSuccess: () => {
-                  toast({
-                    title: 'Registration Successful!',
-                    description:
-                      'Please check your email for verification code.',
-                  })
+      })
 
-                  // Navigate to verify email page with email
-                  navigate('/verify-email', {
-                    state: { email: data.email },
-                    replace: true,
-                  })
-                },
-                onError: (otpError: any) => {
-                  console.error('Send OTP error:', otpError)
-                  toast({
-                    variant: 'destructive',
-                    title: 'Failed to Send OTP',
-                    description:
-                      otpError.response?.data?.message ||
-                      'Could not send verification code. Please try again.',
-                  })
-                },
-              }
-            )
-          }
-        },
-        onError: (error: any) => {
-          console.error('Registration error:', error)
+      if (response?.success) {
+        try {
+          await sendOtpMutation.mutateAsync({ email: data.email })
+          toast({
+            title:
+              t('signupPage.registrationSuccess') || 'Registration Successful!',
+            description:
+              t('signupPage.checkEmailForVerification') ||
+              'Please check your email for verification code.',
+          })
+
+          navigate('/verify-email', {
+            state: { email: data.email },
+            replace: true,
+          })
+        } catch (otpError: any) {
+          console.error('Send OTP error:', otpError)
           toast({
             variant: 'destructive',
-            title: 'Registration Failed',
+            title: t('signupPage.failedToSendOtp') || 'Failed to Send OTP',
             description:
-              error.response?.data?.message ||
-              'An error occurred during registration. Please try again.',
+              otpError.response?.data?.message ||
+              t('signupPage.couldNotSendVerification') ||
+              'Could not send verification code. Please try again.',
           })
-        },
+        }
       }
-    )
+    } catch (error: any) {
+      console.error('Registration error:', error)
+      toast({
+        variant: 'destructive',
+        title: t('signupPage.registrationFailed') || 'Registration Failed',
+        description:
+          error.response?.data?.message ||
+          t('signupPage.tryAgain') ||
+          'An error occurred during registration. Please try again.',
+      })
+    }
   }
 
   if (isAuthenticated) {
@@ -141,7 +160,7 @@ export function SignupPage() {
           {/* Header Section */}
           <CardContent className="bg-[#003863] py-6 px-6">
             <h1 className="text-[#fff] heading-line text-[60px] text-center">
-              Register
+              {t('signupPage.register')}
             </h1>
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -153,12 +172,12 @@ export function SignupPage() {
                   htmlFor="name"
                   className="text-xs font-medium text-white block"
                 >
-                  Name
+                  {t('signupPage.name')}
                 </label>
                 <Input
                   id="name"
                   type="text"
-                  placeholder="Enter Your Name"
+                  placeholder={t('signupPage.namePlaceholder')}
                   {...register('name')}
                   className="w-full bg-white text-gray-900  text-sm placeholder:text-gray-400"
                 />
@@ -173,12 +192,12 @@ export function SignupPage() {
                   htmlFor="email"
                   className="text-xs font-medium text-white block"
                 >
-                  Email
+                  {t('signupPage.email')}
                 </label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="Enter Your Email"
+                  placeholder={t('signupPage.emailPlaceholder')}
                   {...register('email')}
                   className="w-full bg-white text-gray-900  text-sm placeholder:text-gray-400"
                 />
@@ -193,7 +212,7 @@ export function SignupPage() {
                   htmlFor="phoneNumber"
                   className="text-xs font-medium text-white block"
                 >
-                  Your phoneNumber Number
+                  {t('signupPage.phoneNumber')}
                 </label>
                 <div className="flex gap-2">
                   <div className="flex items-center bg-white  rounded-[15px] px-3 gap-2 min-w-[85px]">
@@ -202,7 +221,6 @@ export function SignupPage() {
                       value={selectedCountryCode}
                       onValueChange={(value: string) => {
                         setSelectedCountryCode(value)
-                        setValue('phoneNumber', value)
                       }}
                     >
                       <SelectTrigger className="border-none h-10 w-[60px] p-0 focus:ring-0">
@@ -219,7 +237,7 @@ export function SignupPage() {
                   <Input
                     id="phoneNumber"
                     type="tel"
-                    placeholder=""
+                    placeholder={t('signupPage.phoneNumberPlaceholder')}
                     {...register('phoneNumber')}
                     className="flex-1 bg-white text-gray-900  text-sm"
                   />
@@ -237,12 +255,12 @@ export function SignupPage() {
                   htmlFor="companyName"
                   className="text-xs font-medium text-white block"
                 >
-                  Company Name ( Optional )
+                  {t('signupPage.companyName')}
                 </label>
                 <Input
                   id="companyName"
                   type="text"
-                  placeholder=""
+                  placeholder={t('signupPage.companyNamePlaceholder')}
                   {...register('companyName')}
                   className="w-full bg-white text-gray-900  text-sm"
                 />
@@ -254,12 +272,12 @@ export function SignupPage() {
                   htmlFor="password"
                   className="text-xs font-medium text-white block"
                 >
-                  Password
+                  {t('signupPage.password')}
                 </label>
                 <Input
                   id="password"
                   type="password"
-                  placeholder="Enter Your Password"
+                  placeholder={t('signupPage.passwordPlaceholder')}
                   {...register('password')}
                   className="w-full bg-white text-gray-900  text-sm placeholder:text-gray-400"
                 />
@@ -273,18 +291,42 @@ export function SignupPage() {
               {/* Register Button */}
               <Button
                 type="submit"
-                className="w-full bg-white text-[#003057] hover:bg-[#004C82] hover:text-[#fff] font-semibold rounded-full h-12 text-sm mt-5"
-                disabled={isSubmitting}
+                className="w-full bg-white text-[#003057] hover:bg-[#004C82] hover:text-[#fff] font-semibold rounded-full h-12 text-sm mt-5 flex items-center justify-center"
+                disabled={isSubmitting || registerMutation.isPending}
               >
-                {isSubmitting ? 'Registering...' : 'Register'}
+                {(isSubmitting || registerMutation.isPending) && (
+                  <svg
+                    className="animate-spin -ml-1 mr-2 h-5 w-5 text-[#003057]"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    ></path>
+                  </svg>
+                )}
+                {isSubmitting || registerMutation.isPending
+                  ? t('signupPage.registering')
+                  : t('signupPage.signupButton')}
               </Button>
 
               {/* Login Link */}
               <div className="text-center pt-2">
                 <p className="text-xs text-white">
-                  Already have an account !!{' '}
+                  {t('signupPage.haveAccount')}{' '}
                   <Link to="/login" className="font-semibold hover:underline">
-                    Login
+                    {t('loginPage.loginButton')}
                   </Link>
                 </p>
               </div>
