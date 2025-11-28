@@ -5,7 +5,6 @@ import {
   Pause,
   Play,
   ChevronDown,
-  Video,
   Headphones,
   MessageCircle,
   Loader2,
