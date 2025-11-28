@@ -69,7 +69,6 @@ export function SignupPage() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    setValue,
   } = useForm<SignupFormData>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
@@ -293,9 +292,9 @@ export function SignupPage() {
               <Button
                 type="submit"
                 className="w-full bg-white text-[#003057] hover:bg-[#004C82] hover:text-[#fff] font-semibold rounded-full h-12 text-sm mt-5 flex items-center justify-center"
-                disabled={isSubmitting || registerMutation.isLoading}
+                disabled={isSubmitting || registerMutation.isPending}
               >
-                {(isSubmitting || registerMutation.isLoading) && (
+                {(isSubmitting || registerMutation.isPending) && (
                   <svg
                     className="animate-spin -ml-1 mr-2 h-5 w-5 text-[#003057]"
                     xmlns="http://www.w3.org/2000/svg"
@@ -317,7 +316,7 @@ export function SignupPage() {
                     ></path>
                   </svg>
                 )}
-                {isSubmitting || registerMutation.isLoading
+                {isSubmitting || registerMutation.isPending
                   ? t('signupPage.registering')
                   : t('signupPage.signupButton')}
               </Button>

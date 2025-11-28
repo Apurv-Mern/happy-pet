@@ -1,6 +1,5 @@
 import { memo } from 'react'
 import { motion } from 'framer-motion'
-import { FileText, Eye, Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 interface Module {

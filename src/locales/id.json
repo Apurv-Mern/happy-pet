@@ -143,14 +143,15 @@
         "signupLink": "Daftar",
         "failedToSendOtp": "Gagal mengirim OTP",
         "failedToSendOtpDescription": "Tidak dapat mengirim kode verifikasi. Silakan coba lagi.",
-        "welcomeBack": "Selamat datang kembali, {name}!",
+        "welcomeBack": "Selamat datang kembali!",
         "loginSuccess": "Masuk Berhasil",
         "loginFailed": "Masuk Gagal",
         "invalidCredentials": "Email atau kata sandi tidak valid",
         "emailNotVerified": "Email Belum Diverifikasi",
         "verificationCodeSent": "Kode verifikasi dikirim. Silakan periksa email Anda.",
         "showPassword": "Tampilkan kata sandi",
-        "hidePassword": "Sembunyikan kata sandi"
+        "hidePassword": "Sembunyikan kata sandi",
+        "loggingIn": "Masuk..."
     },
     "signupPage": {
         "register": "Daftar",

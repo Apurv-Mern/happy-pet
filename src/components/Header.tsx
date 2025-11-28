@@ -3,12 +3,6 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Phone, Search, User, ChevronDown, LogOut, Menu, X } from 'lucide-react'
 import { MdLanguage } from 'react-icons/md'
-import {
-  FaFacebookF,
-  FaXTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from 'react-icons/fa6'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useAuthStore } from '@/store/useAuthStore'

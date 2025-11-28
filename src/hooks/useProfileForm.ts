@@ -176,7 +176,7 @@ export const useProfileForm = (user: User | null) => {
           })
           resetPasswordData()
         },
-        onError: (error: any) => {
+        onError: () => {
           toast({
             variant: 'destructive',
             title: 'Password Change Failed',

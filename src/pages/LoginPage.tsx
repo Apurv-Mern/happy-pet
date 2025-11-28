@@ -98,9 +98,7 @@ export function LoginPage() {
       )
       toast({
         title: t('loginPage.loginSuccess'),
-        description: t('loginPage.welcomeBack', {
-          name: response.data.user.name,
-        }),
+        description: t('loginPage.welcomeBack'),
       })
       const from =
         (location.state as { from?: { pathname?: string } })?.from?.pathname ||
