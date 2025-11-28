@@ -170,7 +170,7 @@ export default function AIAgentPage() {
                   className={`max-w-[70%] px-4 py-3 ${
                     message.type === 'user'
                       ? 'bg-[#003863] text-white rounded-tr-[25px] rounded-bl-[25px] rounded-br-[25px]'
-                      : 'border-[1px] border-[#003863] rounded-tl-[25px] rounded-tr-[25px] rounded-bl-[25px]'
+                      : 'bg-[#fff] border-[1px] border-[#003863] rounded-tl-[25px] rounded-tr-[25px] rounded-bl-[25px]'
                   }`}
                 >
                   {message.isVoice && message.audioUrl && (
@@ -313,7 +313,7 @@ export default function AIAgentPage() {
           {/* Chat Type Dropdown */}
           {isDropdownOpen && (
             <div className="absolute bottom-full left-0 mb-2 z-50">
-              <div className="bg-white rounded-[20px] border-2 border-[#003863] shadow-lg p-2 min-w-[200px]">
+              <div className="bg-[#E3E6ED] rounded-[20px] border-2 border-[#003863] shadow-lg p-2 min-w-[300px]">
                 {/* Selected Chat Type Display */}
                 <div
                   className={`flex items-center justify-between gap-3 px-4 py-2 rounded-[15px] mb-2 ${
@@ -334,7 +334,7 @@ export default function AIAgentPage() {
 
                     {selectedChatType === 'video' && (
                       <>
-                        <Video className="h-5 w-5 text-[#003863]" />
+                          <Video className="h-5 w-5 text-[#003863]" />
                         <span className="text-[#003863] font-medium">
                           Video Chat
                         </span>

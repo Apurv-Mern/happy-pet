@@ -24,15 +24,15 @@ export const PageHeader = memo(
 
     return (
       <div className="flex justify-between items-center border-b-[1px] border-[#003860] pb-[11px]">
-        <h2 className="text-[#003863] text-[55px] heading-line">{title}</h2>
-        <div className="w-full max-w-[380px] bg-[#003863] rounded-[15px] px-4 py-3 flex items-center mb-5">
+        <h2 className="text-[#003863] text-[28px] heading-line">{title}</h2>
+        <div className="w-full max-w-[380px] bg-[#003863] rounded-full px-4 py-3 flex items-center mb-5">
           <input
             type="text"
             placeholder={searchPlaceholder}
             value={searchQuery}
             onChange={e => onSearchChange(e.target.value)}
             onKeyPress={handleKeyPress}
-            className="bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
+            className="pl-3 bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
             autoComplete="off"
           />
           <button className="ml-3" onClick={onSearchSubmit}>

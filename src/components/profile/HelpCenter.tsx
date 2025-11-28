@@ -8,6 +8,7 @@ interface FAQ {
   answer: string
 }
 
+
 const helpFaqs: FAQ[] = [
   {
     id: 1,
@@ -60,30 +61,30 @@ export const HelpCenter = () => {
       <div className="flex gap-2 mb-6">
         <button
           onClick={() => setActiveHelpTab('general')}
-          className={`px-6 py-2 rounded-lg font-medium transition-all ${
+          className={`px-6 py-2 rounded-[2px] font-medium ${
             activeHelpTab === 'general'
               ? 'bg-[#003863] text-white'
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              : 'bg-white border-[0.5px] border-[#003863] text-[#003863]'
           }`}
         >
           General
         </button>
         <button
           onClick={() => setActiveHelpTab('account')}
-          className={`px-6 py-2 rounded-lg font-medium transition-all ${
+          className={`px-6 py-2 rounded-[2px] font-medium ${
             activeHelpTab === 'account'
               ? 'bg-[#003863] text-white'
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              : 'bg-white border-[0.5px] border-[#003863] text-[#003863]'
           }`}
         >
           Account
         </button>
         <button
           onClick={() => setActiveHelpTab('service')}
-          className={`px-6 py-2 rounded-lg font-medium transition-all ${
+          className={`px-6 py-2 rounded-[2px] font-medium ${
             activeHelpTab === 'service'
               ? 'bg-[#003863] text-white'
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              : 'bg-white border-[0.5px] border-[#003863] text-[#003863]'
           }`}
         >
           Service
@@ -100,53 +101,55 @@ export const HelpCenter = () => {
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
           placeholder="Search"
-          className="w-full pl-12 pr-4 py-3 bg-[#003863] text-white placeholder-white rounded-xl focus:outline-none focus:ring-2 focus:ring-[#004C82]"
+          className="w-full pl-12 pr-4 py-3 bg-[#003863] text-white placeholder-white rounded-full search-bar"
         />
       </div>
 
       {/* FAQ Accordion */}
       <div className="space-y-4">
         {helpFaqs.map(faq => (
-          <div key={faq.id} className="border-b border-gray-200">
+          <div
+            key={faq.id}
+            className="rounded-[10px] overflow-hidden border border-[#003863] shadow-sm"
+          >
             <button
               onClick={() =>
                 setExpandedFaq(expandedFaq === faq.id ? null : faq.id)
               }
-              className="w-full flex items-center justify-between py-4 text-left group"
+              className={`w-full flex items-center justify-between px-3 py-3 text-left transition-colors
+                ${
+                  expandedFaq === faq.id
+                    ? 'bg-white text-[#003863] border-b-[1px] border-[#003863]' 
+                    : 'bg-[#003863] text-white hover:bg-[#004577]'
+                }`}
             >
-              <div className="flex items-start gap-3 flex-1">
-                <div
-                  className={`mt-1 p-1 rounded transition-colors ${
-                    expandedFaq === faq.id ? 'bg-[#003863]' : 'bg-gray-200'
-                  }`}
-                >
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
-                      expandedFaq === faq.id
-                        ? 'rotate-180 text-white'
-                        : 'text-gray-600'
-                    }`}
-                  />
-                </div>
-                <span className="text-lg font-semibold text-[#003863] group-hover:text-[#004C82]">
-                  {faq.question}
-                </span>
-              </div>
+              {/* Question Text */}
+              <span className="text-lg font-semibold">{faq.question}</span>
+
+              {/* Arrow Icon */}
+              <ChevronDown
+                className={`w-5 h-5 transition-transform ${
+                  expandedFaq === faq.id ? 'rotate-180 text-[#003863]' : 'text-white'
+                }`}
+              />
             </button>
+
+            {/* Answer Section */}
             {expandedFaq === faq.id && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
-                className="pb-4 pl-10 pr-4"
+                className="bg-white px-6 py-4"
               >
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                <p className="text-[#003863] leading-relaxed">{faq.answer}</p>
               </motion.div>
             )}
           </div>
         ))}
       </div>
+
     </>
   )
 }
