@@ -1,3 +1,5 @@
+import { useTranslation } from '@/contexts/I18nContext'
+
 interface PasswordManagementProps {
   passwordData: {
     currentPassword: string
@@ -15,17 +17,19 @@ export const PasswordManagement = ({
   onSubmit,
   onCancel,
 }: PasswordManagementProps) => {
+  const { t } = useTranslation()
+
   return (
     <>
       <h3 className="text-2xl font-bold text-[#003863] mb-8">
-        Password Management
+        {t('profilePage.passwordManagement')}
       </h3>
 
       <div className="space-y-6">
         {/* Type Current Password */}
         <div>
           <label className="block text-sm text-[#003863] mb-2">
-            Type Current Password
+            {t('profilePage.currentPassword')}
           </label>
           <input
             type="password"
@@ -33,14 +37,14 @@ export const PasswordManagement = ({
             value={passwordData.currentPassword}
             onChange={onPasswordChange}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
-            placeholder="Enter current password"
+            placeholder={t('profilePage.currentPasswordPlaceholder')}
           />
         </div>
 
         {/* Type New Password */}
         <div>
           <label className="block text-sm text-[#003863] mb-2">
-            Type New Password
+            {t('profilePage.newPassword')}
           </label>
           <input
             type="password"
@@ -48,14 +52,14 @@ export const PasswordManagement = ({
             value={passwordData.newPassword}
             onChange={onPasswordChange}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
-            placeholder="Enter new password"
+            placeholder={t('profilePage.newPasswordPlaceholder')}
           />
         </div>
 
         {/* Confirm New Password */}
         <div>
           <label className="block text-sm text-[#003863] mb-2">
-            Confirm New Password
+            {t('profilePage.confirmPassword')}
           </label>
           <input
             type="password"
@@ -63,7 +67,7 @@ export const PasswordManagement = ({
             value={passwordData.confirmPassword}
             onChange={onPasswordChange}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
-            placeholder="Confirm new password"
+            placeholder={t('profilePage.confirmPasswordPlaceholder')}
           />
         </div>
 
@@ -73,13 +77,13 @@ export const PasswordManagement = ({
             onClick={onCancel}
             className="w-full max-w-[450px] px-8 py-3 border-2 border-[#003863] text-[#003863] rounded-xl font-semibold hover:bg-gray-50 transition-all"
           >
-            Cancel
+            {t('profilePage.cancel')}
           </button>
           <button
             onClick={onSubmit}
             className="w-full max-w-[450px] px-8 py-3 bg-[#003863] text-white rounded-xl font-semibold hover:bg-[#004c82] transition-all"
           >
-            Proceed
+            {t('profilePage.proceed')}
           </button>
         </div>
       </div>

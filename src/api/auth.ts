@@ -40,6 +40,23 @@ export const authApi = {
     const { data } = await apiClient.post('/auth/verify-otp', payload)
     return data
   },
+
+  changePassword: async (payload: {
+    currentPassword: string
+    newPassword: string
+  }): Promise<any> => {
+    const { data } = await apiClient.put('/auth/password', payload)
+    return data
+  },
+
+  updateProfile: async (formData: FormData): Promise<any> => {
+    const { data } = await apiClient.put('/auth/profile', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    return data
+  },
 }
 
 // React Query hooks
@@ -75,5 +92,19 @@ export const useSendOtpMutation = () => {
   return useMutation({
     mutationFn: authApi.sendOtp,
     mutationKey: ['sendOtp'],
+  })
+}
+
+export const useChangePasswordMutation = () => {
+  return useMutation({
+    mutationFn: authApi.changePassword,
+    mutationKey: ['changePassword'],
+  })
+}
+
+export const useUpdateProfileMutation = () => {
+  return useMutation({
+    mutationFn: authApi.updateProfile,
+    mutationKey: ['updateProfile'],
   })
 }

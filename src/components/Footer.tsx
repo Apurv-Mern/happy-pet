@@ -6,33 +6,11 @@ import {
   FaLinkedinIn,
 } from 'react-icons/fa6'
 import { Mail, Phone } from 'lucide-react'
+import { useTranslation } from '@/contexts/I18nContext'
 
-// Footer data configuration
-const footerData = {
-  brand: {
-    description: 'Empowering Pet Owners with Knowledge for Happier Pets.',
-  },
-  mainMenu: [
-    { label: 'Home', path: '/' },
-    { label: 'About Us', path: '/about' },
-    { label: 'Faqs', path: '/faqs' },
-    { label: 'Contact Us', path: '/contact' },
-  ],
-  menu: [
-    { label: 'Knowledge Hub', path: '/knowledge-hub' },
-    { label: 'Learning Module', path: '/learning-module' },
-    { label: 'AI Agent', path: '/ai-agent' },
-  ],
-  contact: {
-    email: 'Youremailid@gmail.com',
-    phone: '6789456874587',
-  },
-  social: [
-    { icon: FaFacebookF, label: 'Facebook', href: '#' },
-    { icon: FaXTwitter, label: 'Twitter', href: '#' },
-    { icon: FaInstagram, label: 'Instagram', href: '#' },
-    { icon: FaLinkedinIn, label: 'LinkedIn', href: '#' },
-  ],
+const footerContact = {
+  email: 'Youremailid@gmail.com',
+  phone: '6789456874587',
 }
 
 // Reusable components
@@ -70,6 +48,24 @@ const SocialIcon = ({
 )
 
 export function Footer() {
+  const { t } = useTranslation()
+  const mainMenu = [
+    { label: t('header.home'), path: '/' },
+    { label: t('header.about'), path: '/about' },
+    { label: t('header.faqs'), path: '/faqs' },
+    { label: t('header.contact'), path: '/contact' },
+  ]
+  const menu = [
+    { label: t('header.knowledgeHub'), path: '/knowledge-hub' },
+    { label: t('header.learningModule'), path: '/learning-module' },
+    { label: t('header.aiAgent'), path: '/ai-agent' },
+  ]
+  const social = [
+    { icon: FaFacebookF, label: 'Facebook', href: '#' },
+    { icon: FaXTwitter, label: 'Twitter', href: '#' },
+    { icon: FaInstagram, label: 'Instagram', href: '#' },
+    { icon: FaLinkedinIn, label: 'LinkedIn', href: '#' },
+  ]
   return (
     <footer className="bg-[#003863] bg-[url('/assets/images/footer-image.png')] bg-cover bg-center text-white">
       {/* Main Footer Content */}
@@ -83,15 +79,17 @@ export function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed opacity-90 mt-4">
-              {footerData.brand.description}
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Main Menu */}
           <div className="pl-0 md:pl-10 pr-0 md:pr-10">
-            <h3 className="text-lg font-semibold mb-4">Main Menu</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {t('footer.mainMenu')}
+            </h3>
             <ul className="space-y-3 text-sm">
-              {footerData.mainMenu.map(item => (
+              {mainMenu.map(item => (
                 <li key={item.path}>
                   <FooterLink to={item.path}>{item.label}</FooterLink>
                 </li>
@@ -101,9 +99,9 @@ export function Footer() {
 
           {/* Menu */}
           <div className="pl-0 md:pl-10 pr-0 md:pr-10">
-            <h3 className="text-lg font-semibold mb-4">Menu</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.menu')}</h3>
             <ul className="space-y-3 text-sm">
-              {footerData.menu.map(item => (
+              {menu.map(item => (
                 <li key={item.path}>
                   <FooterLink to={item.path}>{item.label}</FooterLink>
                 </li>
@@ -113,31 +111,33 @@ export function Footer() {
 
           {/* Contact */}
           <div className="pl-0 md:pl-10">
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {t('footer.contactUs')}
+            </h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2 opacity-90">
                 <Mail className="h-4 w-4" />
                 <a
-                  href={`mailto:${footerData.contact.email}`}
+                  href={`mailto:${footerContact.email}`}
                   className="hover:underline"
                 >
-                  {footerData.contact.email}
+                  {t('footer.email')}
                 </a>
               </li>
               <li className="flex items-center gap-2 opacity-90">
                 <Phone className="h-4 w-4" />
                 <a
-                  href={`tel:${footerData.contact.phone}`}
+                  href={`tel:${footerContact.phone}`}
                   className="hover:underline"
                 >
-                  {footerData.contact.phone}
+                  {t('footer.phone')}
                 </a>
               </li>
             </ul>
 
             {/* Social Media Icons */}
             <div className="flex items-center gap-4 mt-6">
-              {footerData.social.map(social => (
+              {social.map(social => (
                 <SocialIcon
                   key={social.label}
                   icon={social.icon}
@@ -154,7 +154,7 @@ export function Footer() {
       <div className="bg-[#002947] border-t border-[#004266]">
         <div className="mx-auto max-w-[1400px] px-6 py-4 text-center">
           <p className="text-sm opacity-90">
-            © 2025 Happypet.com All rights reserved
+            © 2025 Happypet.com {t('footer.allRightsReserved')}
           </p>
         </div>
       </div>
