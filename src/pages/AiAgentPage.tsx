@@ -528,7 +528,7 @@ export default function AIAgentPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="h-auto overflow-y-auto py-10">
+          <div className="custom-scrollbar pr-10 py-10">
             {isLoadingMessages ? (
               <div className="flex items-center justify-center py-10">
                 <Loader2 className="h-6 w-6 animate-spin text-[#003863]" />
@@ -553,7 +553,7 @@ export default function AIAgentPage() {
                     className={`max-w-[70%] px-4 py-3 ${
                       message.type === 'user'
                         ? 'bg-[#003863] text-white rounded-tr-[25px] rounded-bl-[25px] rounded-br-[25px]'
-                        : 'border-[1px] border-[#003863] rounded-tl-[25px] rounded-tr-[25px] rounded-bl-[25px]'
+                        : 'border-[1px] bg-[#fff] border-[#003863] rounded-tl-[25px] rounded-tr-[25px] rounded-bl-[25px]'
                     }`}
                   >
                     {message.isVoice && message.audioUrl && (
@@ -696,7 +696,7 @@ export default function AIAgentPage() {
       </div>
 
       {/* Input Area */}
-      <div className="w-full bg-[#E3E6ED] border-[2px] border-[#003863] rounded-[20px] flex items-center px-4 py-3 relative">
+      <div className="w-full bg-[#E3E6ED] border-[2px] border-[#003863] rounded-[20px] flex items-center px-4 py-3 relative mt-10">
         {/* Plus Icon Button with Dropdown */}
         <div className="relative">
           <button

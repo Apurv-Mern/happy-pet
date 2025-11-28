@@ -1,10 +1,4 @@
 import { Link } from 'react-router-dom'
-import {
-  FaFacebookF,
-  FaXTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from 'react-icons/fa6'
 import { Mail, Phone } from 'lucide-react'
 import { useTranslation } from '@/contexts/I18nContext'
 
@@ -14,13 +8,7 @@ const footerContact = {
 }
 
 // Reusable components
-const FooterLink = ({
-  to,
-  children,
-}: {
-  to: string
-  children: React.ReactNode
-}) => (
+const FooterLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
   <Link
     to={to}
     className="opacity-90 hover:opacity-100 hover:underline transition-all"
@@ -29,21 +17,9 @@ const FooterLink = ({
   </Link>
 )
 
-const SocialIcon = ({
-  icon: Icon,
-  label,
-  href,
-}: {
-  icon: any
-  label: string
-  href: string
-}) => (
-  <a
-    href={href}
-    className="hover:opacity-80 transition-opacity"
-    aria-label={label}
-  >
-    <Icon className="h-5 w-5" />
+const SocialIcon = ({ svg, label, href }: { svg: any; label: string; href: string }) => (
+  <a href={href} className="hover:opacity-80 transition-opacity" aria-label={label}>
+    {svg}
   </a>
 )
 
@@ -150,7 +126,7 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom Copyright Bar */}
+      {/* Bottom Bar */}
       <div className="bg-[#002947] border-t border-[#004266]">
         <div className="mx-auto max-w-[1400px] px-6 py-4 text-center">
           <p className="text-sm opacity-90">
