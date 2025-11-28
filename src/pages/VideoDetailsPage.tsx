@@ -1,14 +1,19 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { ChevronLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useEffect, useRef } from 'react'
 
 interface Video {
   id: string
   title: string
   description: string
-  videoUrl: string
+  videoUrl?: string
   category: string
-  duration: string
+  duration?: string
+  thumbnailUrl?: string
+  presignedThumbnailUrl?: string
+  fileUrl?: string
+  presignedFileUrl?: string
 }
 
 // interface Category {
@@ -37,14 +42,29 @@ const videos: Video[] = [
 export default function VideoDetailPage() {
   const { videoId } = useParams<{ videoId: string }>()
   const navigate = useNavigate()
+  const location = useLocation()
+  const videoRef = useRef<HTMLVideoElement>(null)
 
-  const video = videos.find(v => v.id === videoId)
+  // Get video from location state or fallback to local videos array
+  const stateVideo = location.state?.video
+  const video = stateVideo || videos.find(v => v.id === videoId)
+
+  // Auto-play video when component mounts
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log('Autoplay failed:', error)
+      })
+    }
+  }, [video])
 
   if (!video) {
     return <div>Video not found</div>
   }
 
   const fullDescription = video.description
+  const videoSource = video.presignedFileUrl || video.fileUrl || video.videoUrl
+  const thumbnailSource = video.presignedThumbnailUrl || video.thumbnailUrl
 
   return (
     <div className="min-h-screen">
@@ -108,11 +128,13 @@ export default function VideoDetailPage() {
             <div className="mb-6">
               <div className="">
                 <video
+                  ref={videoRef}
                   className="w-full h-full rounded-[20px]"
                   controls
-                  poster={`/thumbnails/${video.id}.jpg`}
+                  autoPlay
+                  poster={thumbnailSource}
                 >
-                  <source src={video.videoUrl} type="video/mp4" />
+                  <source src={videoSource} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -121,7 +143,7 @@ export default function VideoDetailPage() {
               <div className="">
                 <div>
                   <h3 className="text-[36px] text-[#003863] font-semibold py-5">
-                    There’s nothing quite like the pure joy of a happy dog
+                    {video.title}
                   </h3>
                   <p className="text-[#000] text-[18px] whitespace-pre-line">
                     {fullDescription}

@@ -14,6 +14,7 @@ import { motion } from 'framer-motion'
 import { useAuthStore } from '@/store/useAuthStore'
 import { useTranslation } from '@/contexts/I18nContext'
 import { UserDropdown } from './UserDropdown'
+import { chatApi } from '@/api/chat'
 
 // NavLink Component
 const NavLink = ({
@@ -72,9 +73,22 @@ export function Header() {
     setIsDropdownOpen(false)
   }
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    navigate('/')
+
+    // Delete AI Agent session if it exists
+    const aiAgentSessionId = localStorage.getItem('ai_agent_session_id')
+    if (aiAgentSessionId) {
+      try {
+        await chatApi.deleteSession(aiAgentSessionId)
+        localStorage.removeItem('ai_agent_session_id')
+        console.log('AI Agent session deleted on logout')
+      } catch (error) {
+        console.error('Failed to delete AI Agent session:', error)
+      }
+    }
+
     logout()
-    navigate('/login')
   }
 
   return (
