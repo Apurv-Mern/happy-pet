@@ -747,14 +747,15 @@ export default function AIAgentPage() {
                       </>
                     )}
 
-                    {selectedChatType === 'video' && (
+                    {/* Video Chat Display - Disabled */}
+                    {/* {selectedChatType === 'video' && (
                       <>
                           <Video className="h-5 w-5 text-[#003863]" />
                         <span className="text-[#003863] font-medium">
                           Video Chat
                         </span>
                       </>
-                    )}
+                    )} */}
 
                     {selectedChatType === 'chat' && (
                       <>
@@ -798,7 +799,8 @@ export default function AIAgentPage() {
                       </span>
                     </button>
                   )}
-                  {selectedChatType !== 'video' && (
+                  {/* Video Chat - Disabled */}
+                  {/* {selectedChatType !== 'video' && (
                     <button
                       onClick={() => {
                         setSelectedChatType('video')
@@ -811,7 +813,7 @@ export default function AIAgentPage() {
                         Video Chat
                       </span>
                     </button>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>

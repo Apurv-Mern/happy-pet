@@ -176,11 +176,13 @@ export const useProfileForm = (user: User | null) => {
           })
           resetPasswordData()
         },
-        onError: () => {
+        onError: err => {
+          console.error('Change password error:', err)
           toast({
             variant: 'destructive',
             title: 'Password Change Failed',
-            description: 'Please provide all required fields',
+            description:
+              err.response?.data?.message || 'Failed to change password.',
           })
         },
       }
