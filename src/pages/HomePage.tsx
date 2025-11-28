@@ -118,7 +118,7 @@ export function HomePage() {
                 <img
                   src="/assets/images/icon1.png"
                   alt="Dog Icon"
-                  className="w-25 h-25 p-1 rounded-full bg-[#E1EEF4]"
+                  className="w-25 h-25 p-1 rounded-full bg-[#003863]"
                 />
               </div>
 
@@ -133,7 +133,7 @@ export function HomePage() {
                   />
                 </span>
               </button> */}
-              <button className="group absolute w-full max-w-[300px] text-[30px] bottom-0 left-0 bg-[#fff] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#003863]  hover:bg-[#003863] hover:text-[#fff] transition">
+              <button className="group absolute w-full max-w-[300px] text-[30px] bottom-0 left-0 bg-[#0E213A] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#fff]  hover:bg-[#003863] hover:text-[#fff] transition">
                 {t('homePage.knowledgeHub')}
                 <span className="absolute right-[24px] top-[10px] text-white text-sm">
                   <svg
@@ -141,7 +141,7 @@ export function HomePage() {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    className="rotate-[-25deg] transition-all duration-300 fill-[#003863] group-hover:fill-[#fff] w-[26px] h-[26px] bi bi-suit-heart"
+                    className="rotate-[-25deg] transition-all duration-300 fill-[#fff] group-hover:fill-[#fff] w-[26px] h-[26px] bi bi-suit-heart"
                     viewBox="0 0 16 16"
                   >
                     <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
@@ -169,11 +169,11 @@ export function HomePage() {
               </div>
 
               {/* <!-- Bottom label --> */}
-              <button className="absolute w-full max-w-[180px] sm:max-w-[250px] md:max-w-[300px] text-[30px] bottom-0 left-0 bg-[#fff] pt-[26px]  pb-[26px] rounded-tr-[20px] sm:rounded-tr-[25px] md:rounded-tr-[30px] text-[#003863]  hover:bg-[#003863] hover:text-[#fff] transition">
+              <button className="absolute w-full max-w-[180px] sm:max-w-[250px] md:max-w-[300px] text-[30px] bottom-0 left-0 bg-[#0E213A] pt-[26px]  pb-[26px] rounded-tr-[20px] sm:rounded-tr-[25px] md:rounded-tr-[30px] text-[#fff]  hover:bg-[#003863] hover:text-[#fff] transition">
                 {t('homePage.aiAgent')}
                 <span className="absolute right-[12px] sm:right-[20px] md:right-[35px] top-[5px] sm:top-[8px] md:top-[10px] text-white text-sm">
                   <img
-                    src="/assets/images/start 2.png"
+                    src="/assets/images/start.png"
                     alt=""
                     className="w-[20px] sm:w-[25px] md:w-auto"
                   />
@@ -195,7 +195,7 @@ export function HomePage() {
                 <img
                   src="/assets/images/icon3.png"
                   alt="Dog Icon"
-                  className="w-25 h-25 p-1 rounded-full bg-[#E1EEF4]"
+                  className="w-25 h-25 p-1 rounded-full bg-[#003863]"
                 />
               </div>
 
@@ -210,7 +210,7 @@ export function HomePage() {
                   />
                 </span>
               </button> */}
-              <button className="group absolute w-full max-w-[300px] text-[30px] bottom-0 left-0 bg-[#fff] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#003863] hover:bg-[#003863] hover:text-[#fff] transition">
+              <button className="group absolute w-full max-w-[300px] text-[30px] bottom-0 left-0 bg-[#0E213A] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#fff] hover:bg-[#003863] hover:text-[#fff] transition">
                 {t('homePage.knowledgeHub')}
                 <span className="absolute right-[20px] top-[10px] text-white text-sm">
                   <svg
@@ -218,7 +218,7 @@ export function HomePage() {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    className="transition-all duration-300 fill-[#003863] group-hover:fill-[#fff] w-[28px] h-[28px]  bi bi-play-circle-fill"
+                    className="transition-all duration-300 fill-[#fff] group-hover:fill-[#fff] w-[28px] h-[28px]  bi bi-play-circle-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />

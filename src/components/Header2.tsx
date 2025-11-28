@@ -331,7 +331,7 @@ export function Header2() {
       </div>
 
       {/* Main navigation section with blue background and paw prints */}
-      <div className="bg-[url('/assets/images/hedar2.png')] bg-cover bg-center py-10">
+      <div className="bg-[url('/assets/images/hedar2.png')] bg-cover bg-center py-10 relative z-10">
         {/* Paw print pattern background */}
 
         <div className="container mx-auto">
@@ -403,7 +403,7 @@ export function Header2() {
             <div className="relative">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full  pl-4 transition-colors"
+                className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full  pl-4 transition-colors ml-[6px]"
               >
                 <img
                   src={
@@ -419,7 +419,8 @@ export function Header2() {
                     ?.name.slice(0, 3) || 'Eng'}
                 </span>
                 <ChevronDown className="h-4 w-4" />
-                <div className="rounded-full bg-[#fff] border-[3px] border-[#003863] h-[48px] w-[48px] flex items-center justify-center ml-1"> 
+                <div className='h-[28px] w-[1px] bg-[#fff]'></div>
+                <div className="rounded-full bg-[#fff] border-[3px] border-[#003863] h-[48px] w-[48px] flex items-center justify-center"> 
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="12" r="8" stroke="#003863" stroke-width="2"/>
                   <ellipse cx="12" cy="12" rx="3" ry="8" stroke="#003863" stroke-width="2"/>

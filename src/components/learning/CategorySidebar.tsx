@@ -28,8 +28,8 @@ export const CategorySidebar = memo(
     )
 
     return (
-      <div className="bg-[#E3E6ED] rounded-[15px] overflow-hidden sticky top-4">
-        <div className="bg-[#003863] text-white px-6 py-4">
+      <div className="bg-[#E3E6ED] rounded-bl-[15px] rounded-br-[15px]">
+        <div className="bg-[#003863] rounded-tl-[15px] rounded-tr-[15px] text-white px-6 py-4">
           <h2 className="text-xl font-bold">{title}</h2>
         </div>
         <div>

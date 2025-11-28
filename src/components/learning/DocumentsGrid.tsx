@@ -46,7 +46,7 @@ export const DocumentsGrid = memo(
                 <h3 className="text-lg font-bold text-[#003863] mb-2">
                   {module.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                <p className="text-gray-600 text-sm mb-4">
                   {module.description}
                 </p>
 
