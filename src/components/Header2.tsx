@@ -114,19 +114,13 @@ const PublicScreenshotNav = ({
       {isDropdownOpen && (
         <>
           <div
-            className="fixed inset-0 z-[9998]"
+            className="z-[9998]"
             onClick={() => {
               console.log('Public nav backdrop clicked')
               setIsDropdownOpen(false)
             }}
           />
-          <div
-            className="fixed w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-[9999]"
-            style={{
-              top: `${dropdownPosition.top}px`,
-              right: `${dropdownPosition.right}px`,
-            }}
-          >
+          <div className="fixed w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-[9999]">
             <h3 className="text-2xl font-semibold italic text-center mb-5">
               Select Language
             </h3>
