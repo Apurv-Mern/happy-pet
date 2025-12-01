@@ -224,7 +224,7 @@ export function Header() {
               </div>
             </Link>
             <nav
-              className={` hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit ${isAuthenticated ? '' : ''}`}
+              className={`  hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit  ${isAuthenticated ? '' : ''}`}
             >
               {publicNavItems.map(item => (
                 <NavLink

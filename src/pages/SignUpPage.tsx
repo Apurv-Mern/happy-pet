@@ -217,7 +217,7 @@ export function SignupPage() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-[540px] m-auto py-14"
       >
-        <Card className=" shadow-2xl bg-white overflow-visible relative z-10">
+        <Card className="">
           {/* Header Section */}
           <CardContent className="bg-[#003863] rounded-[30px] py-6 px-6 overflow-visible">
             <h1 className="text-[#fff] heading-line text-[60px] text-center">
@@ -322,15 +322,7 @@ export function SignupPage() {
                     {isCountryDropdownOpen && (
                       <>
                         <div
-                          className="fixed inset-0 z-[99998]"
-                          onClick={() => setIsCountryDropdownOpen(false)}
-                        />
-                        <div
-                          className="fixed w-64 max-h-80 overflow-y-auto rounded-[20px] border border-[#0E213A] bg-white shadow-2xl z-[99999]"
-                          style={{
-                            top: `${countryDropdownPosition.top}px`,
-                            left: `${countryDropdownPosition.left}px`,
-                          }}
+                          className="absolute w-64 max-h-80 rounded-[20px] bg-white shadow-2xl z-[99999]"
                         >
                           <div className="p-2">
                             {countryCodes.map(country => (

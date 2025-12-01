@@ -1,13 +1,15 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Phone, Search, User, LogOut, Menu, X } from 'lucide-react'
+import { Phone, Search, User, LogOut, ChevronDown, Menu, X } from 'lucide-react'
 import React, { useState, useEffect } from 'react'
 import { useAuthStore } from '@/store/useAuthStore'
 import { useTranslation } from '@/contexts/I18nContext'
 import { UserDropdown } from './UserDropdown'
 import { chatApi } from '@/api/chat'
 import { useQueryClient } from '@tanstack/react-query'
+import { MdLanguage } from 'react-icons/md'
+
 
 // NavLink Component
 const NavLink = ({
@@ -44,7 +46,7 @@ const PublicScreenshotNav = ({
   dropdownButtonRef,
   dropdownPosition,
 }: any) => (
-  <div className="bg-white rounded-full flex items-center px-3 py-1 shadow-md relative">
+  <div className="  hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit  ">
     {publicNavItems.map((item: any) => (
       <NavLink
         key={item.path}
@@ -65,7 +67,7 @@ const PublicScreenshotNav = ({
           )
           setIsDropdownOpen(!isDropdownOpen)
         }}
-        className="ml-2 flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-4 pr-1 h-11 transition-colors"
+        className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-[16px] transition-colors ml-[6px]"
       >
         <img
           src={
@@ -84,30 +86,10 @@ const PublicScreenshotNav = ({
             .find((l: any) => l.code === language)
             ?.name.slice(0, 3) || 'Eng'}
         </span>
-        <div className="bg-white rounded-full h-9 w-9 flex items-center justify-center">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="12" cy="12" r="8" stroke="#003863" strokeWidth="2" />
-            <ellipse
-              cx="12"
-              cy="12"
-              rx="3"
-              ry="8"
-              stroke="#003863"
-              strokeWidth="2"
-            />
-            <path
-              d="M4 12H20"
-              stroke="#003863"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
+        <ChevronDown className="h-4 w-4" />
+        <div className='w-[0.64px] h-[25px] bg-[#fff]'></div>
+        <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center border-[2px] border-[#003863]">
+          <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
         </div>
       </button>
 
@@ -167,7 +149,7 @@ const AuthenticatedNav = ({
   dropdownButtonRef,
   dropdownPosition,
 }: any) => (
-  <nav className="hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit">
+  <nav className="hidden lg:flex items-center justify-center text-sm font-medium bg-white rounded-full py-[5px] px-[5px] mx-auto max-w-fit">
     {publicNavItems.map((item: any) => (
       <NavLink
         key={item.path}
@@ -187,7 +169,7 @@ const AuthenticatedNav = ({
     ))}
 
     {/* Language Selector Dropdown */}
-    <div className="relative z-50 language-dropdown-container">
+    <div className="relative z-50">
       <button
         ref={dropdownButtonRef}
         onClick={e => {
@@ -216,48 +198,17 @@ const AuthenticatedNav = ({
               ?.name.slice(0, 3) || 'Eng'}
           </span>
         </div>
-        <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center ml-1 border-[2px] border-[#003863]">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="12" cy="12" r="8" stroke="#003863" strokeWidth="2" />
-            <ellipse
-              cx="12"
-              cy="12"
-              rx="3"
-              ry="8"
-              stroke="#003863"
-              strokeWidth="2"
-            />
-            <path
-              d="M4 12H20"
-              stroke="#003863"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
+        <ChevronDown className="h-4 w-4" />
+        <div className='w-[0.64px] h-[25px] bg-[#fff]'></div>
+        <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center border-[2px] border-[#003863]">
+          <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
         </div>
       </button>
 
       {isDropdownOpen && (
         <>
           <div
-            className="fixed inset-0 z-[9998]"
-            onClick={() => {
-              console.log('Backdrop clicked')
-              setIsDropdownOpen(false)
-            }}
-          />
-          <div
-            className="fixed w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-[9999]"
-            style={{
-              top: `${dropdownPosition.top}px`,
-              right: `${dropdownPosition.right}px`,
-            }}
+            className="absolute w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-[9999]"
           >
             <h3 className="text-2xl font-semibold italic text-center mb-5">
               Select Language
