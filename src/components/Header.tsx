@@ -207,7 +207,7 @@ export function Header() {
 
       {/* Main navigation section with blue background and paw prints */}
       <motion.div
-        className="bg-[url('/assets/images/bg-header.png')] bg-bottom bg-cover bg-no-repeat h-[950px] drop-shadow-[0_35px_35px_rgba(0,0,0,0.45)]"
+        className="bg-[url('/assets/images/bg-header.png')] bg-bottom bg-cover bg-no-repeat h-full min-h-[800px] 2xl:min-h-[1000px] xl:min-h-[800px] lg:min-h-[800px] md:min-h-[650px] sm:min-h-[800px] drop-shadow-[0_35px_35px_rgba(0,0,0,0.45)]"
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.08 }}
@@ -216,7 +216,7 @@ export function Header() {
 
         <div className="container mx-auto">
           {/* Logo and Navigation */}
-          <div className="grid grid-cols-1 md:grid-cols-[0.4fr_auto_0.3fr] items-center gap-4 pt-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.4fr_auto_0.3fr]  md:grid-cols-[0.4fr_auto_0.3fr] sm:grid-cols-[0.4fr_auto_0.3fr] items-center gap-4 pt-16">
             <Link to="/">
               {/* Logo placeholder - replace with your actual logo */}
               <div>
@@ -268,7 +268,8 @@ export function Header() {
                     </span>
                   </div>
                   <ChevronDown className="h-4 w-4" />
-                  <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center ml-1 border-[2px] border-[#003863]">
+                  <div className='w-[0.64px] h-[25px] bg-[#fff]'></div>
+                  <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center border-[2px] border-[#003863]">
                     <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
                   </div>
                 </button>
@@ -409,6 +410,7 @@ export function Header() {
                           }}
                           className="flex w-full items-center gap-3 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-[#003863] hover:bg-gray-200 transition"
                         >
+                          
                           <span className="text-xl">{lang.flag}</span>
                           <span>{lang.name}</span>
                         </button>
@@ -461,10 +463,10 @@ export function Header() {
             </div>
           )}
 
-          <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-0 mt-6">
+          <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row items-center gap-6 lg:gap-0 mt-6">
             {/* Left column - text (shows first on mobile) */}
             <div className="w-full lg:basis-2/3 px-4 lg:px-0">
-              <h3 className="text-[28px] sm:text-[38px] md:text-[55px] lg:text-[85px] text-[#fff] leading-tight heading-line">
+              <h3 className="text-[28px] sm:text-[38px] md:text-[45px] lg:text-[85px] text-[#fff] leading-tight heading-line">
                 {t('header.heroTitle')}
               </h3>
               <p className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] text-[#fff] font-semibold mt-3">
@@ -493,7 +495,7 @@ export function Header() {
 
             {/* Right column - background image (shows second on mobile) */}
             <div className="">
-              <img src="/assets/images/image1.png" alt="" />
+              <img src="/assets/images/image1.png" alt="" className="max-w-[400px] sm:max-w-[400px] md:w-full md:max-w-full lg:w-full lg:max-w-full xl:w-full xl:max-w-full 2xl:w-full 2xl:max-w-full" />
             </div>
           </div>
         </div>

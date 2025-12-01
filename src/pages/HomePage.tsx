@@ -20,67 +20,67 @@ export function HomePage() {
         <div className="container mx-auto px-4 pb-4 pt-4 sm:pb-6 sm:pt-6">
           <div className="">
             <div className="w-full">
-              <div className="relative flex flex-wrap justify-between items-center gap-2 sm:gap-4">
-                <div className="absolute top-[80px] sm:top-[120px] md:top-[160px] left-[20px] sm:left-[40px] md:left-[53px] max-w-[calc(100%-40px)] sm:max-w-[1330px] w-full h-[2px] sm:h-[3px] bg-[#003863]"></div>
+              <div className="relative flex flex-wrap justify-center items-center gap-2 sm:gap-4 sm:justify-center md:justify-center lg:justify-between">
+                <div className="absolute top-[80px] sm:top-[120px] md:top-[160px] left-[20px] hidden sm:left-[40px] md:left-[53px] sm:hidden  md:hidden lg:block lg:max-w-[818px] xl:max-w-[1074px] 2xl:max-w-[1330px] max-w-[1330px] w-full h-[2px] sm:h-[3px] bg-[#003863]"></div>
                 <div className="flex flex-col items-center text-center">
                   <div className="items-center justify-center">
                     <img
                       src="/assets/images/health1.png"
                       alt="Cat"
-                      className="w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] md:w-[110px] md:h-[110px]"
+                      className="md:w-[110px] md:h-[110px]"
                     />
                   </div>
-                  <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863]"></div>
+                  <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863] hidden sm:hidden md:hidden lg:block"></div>
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <div className="items-center justify-center">
                     <img
                       src="/assets/images/health2.png"
                       alt="Cat"
-                      className="w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] md:w-[110px] md:h-[110px]"
+                      className="md:w-[110px] md:h-[110px]"
                     />
                   </div>
-                  <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863]"></div>
+                  <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863] hidden sm:hidden md:hidden lg:block"></div>
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <div className="items-center justify-center">
                     <img
                       src="/assets/images/health3.png"
                       alt="Cat"
-                      className="w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] md:w-[110px] md:h-[110px]"
+                      className="md:w-[110px] md:h-[110px]"
                     />
                   </div>
-                  <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863]"></div>
+                  <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863] hidden sm:hidden md:hidden lg:block"></div>
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <div className="items-center justify-center">
                     <img
                       src="/assets/images/health4.png"
                       alt="Cat"
-                      className="w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] md:w-[110px] md:h-[110px]"
+                      className="md:w-[110px] md:h-[110px]"
                     />
                   </div>
-                  <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863]"></div>
+                  <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863] hidden sm:hidden md:hidden lg:block"></div>
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <div className="items-center justify-center">
                     <img
                       src="/assets/images/health5.png"
                       alt="Cat"
-                      className="w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] md:w-[110px] md:h-[110px]"
+                      className="md:w-[110px] md:h-[110px]"
                     />
                   </div>
-                  <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863]"></div>
+                  <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863] hidden sm:hidden md:hidden lg:block"></div>
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <div className="flex items-center justify-center">
                     <img
                       src="/assets/images/All-in-One.png"
                       alt="Human"
-                      className="w-[60px] sm:w-[80px] md:w-auto"
+                      className=""
                     />
                   </div>
-                  <div className="ml-[40px] sm:ml-[55px] md:ml-[72px] mt-[-4px] w-[2px] sm:w-[3px] h-[60px] sm:h-[80px] md:h-[101px] bg-[#003863]"></div>
+                  <div className="ml-[40px] sm:ml-[55px] md:ml-[72px] mt-[-4px] w-[2px] sm:w-[3px] h-[60px] sm:h-[80px] md:h-[101px] bg-[#003863] hidden sm:hidden md:hidden lg:block"></div>
                 </div>
               </div>
             </div>
@@ -93,7 +93,7 @@ export function HomePage() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="relative max-w-[610px] w-full bg-[url('/assets/images/curve-border.png')] bg-no-repeat bg-contain bg-center text-center pt-0 py-8 px-4 sm:px-6">
+        <div className="relative max-w-[610px] w-full bg-none lg:bg-[url('/assets/images/curve-border.png')] bg-no-repeat bg-contain bg-center text-center pt-0 py-8 px-4 sm:px-6">
           <h2 className="heading-line text-[#003863] text-[28px] sm:text-[40px] md:text-[55px]">
             {t('homePage.title')}
           </h2>
@@ -103,7 +103,7 @@ export function HomePage() {
         </div>
       </motion.section>
       <div className="container mx-auto pb-8 sm:pb-10 md:pb-14 px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-[65px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-10 md:gap-[65px]">
           <div>
             <div className="relative rounded-3xl overflow-hidden shadow-lg">
               {/* <!-- Background Image --> */}
@@ -236,8 +236,8 @@ export function HomePage() {
         transition={{ duration: 0.55, delay: 0.08 }}
       >
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-8">
-            <div className="max-w-[650px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="">
               <span className="text-[#003863] text-[16px] sm:text-[18px] md:text-[20px] font-semibold relative">
                 {t('homePage.ourStory')}{' '}
                 <img
@@ -279,7 +279,7 @@ export function HomePage() {
               <img
                 src="/assets/images/our-story.png"
                 alt="Our Story Image"
-                className="w-full h-auto rounded-3xl shadow-lg"
+                className="w-full max-w-[550px] rounded-[30px] about-image"
               />
             </div>
           </div>
@@ -291,7 +291,7 @@ export function HomePage() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, delay: 0.12 }}
       >
-        <div className="relative max-w-[740px] w-full bg-[url('/assets/images/curve-border2.png')] bg-no-repeat bg-contain bg-center text-center pt-0 pb-[36px] px-6">
+        <div className="relative max-w-[740px] w-full lg:bg-[url('/assets/images/curve-border2.png')] bg-no-repeat bg-contain bg-center text-center pt-0 pb-[36px] px-6">
           <h2 className="heading-line text-[#003863] text-[55px]">
             {t('homePage.smartLearningTitle')}
           </h2>
