@@ -23,11 +23,13 @@
     "contact": "HUBUNGI KAMI",
     "knowledgeHub": "PUSAT PENGETAHUAN",
     "learningModule": "MODUL PEMBELAJARAN",
-    "aiAgent": "AGEN AI",
+    "aiAgent": "ASISTEN AI",
     "profile": "Profil",
     "logout": "Keluar",
     "login": "Masuk",
     "signup": "Daftar",
+    "loginRegister": "Masuk / Daftar",
+    "language": "Bahasa",
     "changePassword": "Ubah Kata Sandi",
     "phoneNumber": "+91 6799009980",
     "selectLanguage": "Pilih Bahasa",
@@ -276,11 +278,11 @@
     ]
   },
   "languages": {
-    "de": "Deutsch",
-    "en": "English",
-    "ar": "العربية",
-    "ms": "Bahasa Melayu",
-    "th": "ภาษาไทย",
+    "de": "Jerman",
+    "en": "Inggris",
+    "ar": "Arab",
+    "ms": "Melayu",
+    "th": "Thai",
     "id": "Bahasa Indonesia"
   },
   "validation": {

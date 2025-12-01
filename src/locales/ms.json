@@ -21,13 +21,15 @@
     "about": "TENTANG KAMI",
     "faqs": "SOALAN LAZIM",
     "contact": "HUBUNGI KAMI",
-    "knowledgeHub": "PUSAT PENGETAHUAN",
+    "knowledgeHub": "HUB PENGETAHUAN",
     "learningModule": "MODUL PEMBELAJARAN",
-    "aiAgent": "EJEN AI",
+    "aiAgent": "PEMBANTU AI",
     "profile": "Profil",
     "logout": "Log Keluar",
     "login": "Log Masuk",
     "signup": "Daftar",
+    "loginRegister": "Log Masuk / Daftar",
+    "language": "Bahasa",
     "changePassword": "Tukar Kata Laluan",
     "phoneNumber": "+91 6799009980",
     "selectLanguage": "Pilih Bahasa",
@@ -276,12 +278,12 @@
     ]
   },
   "languages": {
-    "de": "Deutsch",
-    "en": "English",
-    "ar": "العربية",
+    "de": "Jerman",
+    "en": "Inggeris",
+    "ar": "Arab",
     "ms": "Bahasa Melayu",
-    "th": "ภาษาไทย",
-    "id": "Bahasa Indonesia"
+    "th": "Thai",
+    "id": "Indonesia"
   },
   "validation": {
     "required": "Medan ini diperlukan",

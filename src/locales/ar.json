@@ -28,6 +28,8 @@
     "logout": "تسجيل الخروج",
     "login": "تسجيل الدخول",
     "signup": "إنشاء حساب",
+    "loginRegister": "تسجيل الدخول / التسجيل",
+    "language": "اللغة",
     "changePassword": "تغيير كلمة المرور",
     "phoneNumber": "+91 6799009980",
     "selectLanguage": "اختر اللغة",
@@ -276,12 +278,12 @@
     ]
   },
   "languages": {
-    "de": "Deutsch",
-    "en": "English",
+    "de": "الألمانية",
+    "en": "الإنجليزية",
     "ar": "العربية",
-    "ms": "Bahasa Melayu",
-    "th": "ภาษาไทย",
-    "id": "Bahasa Indonesia"
+    "ms": "الماليزية",
+    "th": "التايلاندية",
+    "id": "الإندونيسية"
   },
   "validation": {
     "required": "هذا الحقل مطلوب",

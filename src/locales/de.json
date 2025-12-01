@@ -28,6 +28,8 @@
     "logout": "Abmelden",
     "login": "Anmelden",
     "signup": "Registrieren",
+    "loginRegister": "Anmelden / Registrieren",
+    "language": "Sprache",
     "changePassword": "Passwort ändern",
     "phoneNumber": "+91 6799009980",
     "selectLanguage": "Sprache auswählen",
@@ -281,7 +283,7 @@
     "ar": "Arabisch",
     "ms": "Malaiisch",
     "th": "Thailändisch",
-    "id": "Bahasa"
+    "id": "Indonesisch"
   },
   "validation": {
     "required": "Dieses Feld ist erforderlich",
