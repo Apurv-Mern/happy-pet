@@ -14,10 +14,14 @@ export function ContactUsPage() {
 
   // Validation schema using translations
   const contactSchema = z.object({
-    firstName: z.string().min(2, t('validation.nameMinLength')),
-    lastName: z.string().min(2, t('validation.nameMinLength')),
-    email: z.string().email(t('validation.emailRequired')),
-    phone: z.string().min(10, t('validation.phoneMinLength')),
+    firstName: z.string().min(4, t('validation.nameMinLength')),
+    lastName: z.string().min(4, t('validation.nameMinLength')),
+    email: z.string().email(t('validation.invalidEmail')),
+    phone: z
+      .string()
+      .min(7, t('validation.phoneMinLength'))
+      .max(15, t('validation.phoneMaxLength'))
+      .regex(/^[0-9]+$/, t('validation.phoneInvalid')),
     subject: z.string().min(5, t('validation.subjectRequired')),
     message: z.string().min(10, t('validation.messageMinLength')),
   })

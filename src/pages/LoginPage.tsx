@@ -71,6 +71,7 @@ export function LoginPage() {
         try {
           await sendOtpMutation.mutateAsync({ email: data.email })
           toast({
+            variant: 'success',
             title: t('loginPage.emailNotVerified'),
             description: t('loginPage.verificationCodeSent'),
           })
@@ -97,6 +98,7 @@ export function LoginPage() {
         response.data.tokens.refreshToken
       )
       toast({
+        variant: 'success',
         title: t('loginPage.loginSuccess'),
         description: t('loginPage.welcomeBack'),
       })

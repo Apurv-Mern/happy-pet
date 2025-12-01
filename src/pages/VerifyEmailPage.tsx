@@ -92,6 +92,7 @@ export function VerifyEmailPage() {
         onSuccess: response => {
           if (response.success) {
             toast({
+              variant: 'success',
               title: 'Email Verified!',
               description: 'Your email has been verified successfully.',
             })
@@ -119,6 +120,7 @@ export function VerifyEmailPage() {
         onSuccess: response => {
           if (response.success) {
             toast({
+              variant: 'success',
               title: 'OTP Resent',
               description:
                 'A new verification code has been sent to your email.',
@@ -132,8 +134,7 @@ export function VerifyEmailPage() {
           toast({
             variant: 'destructive',
             title: 'Resend Failed',
-            description:
-              error.response?.data?.message || 'Failed to resend OTP',
+            description: 'Failed to resend OTP, please try again later.',
           })
         },
       }
@@ -212,7 +213,7 @@ export function VerifyEmailPage() {
                   'Sending...'
                 ) : countdown > 0 ? (
                   <>
-                    Resend Code <span className="ml-2">{countdown}</span>
+                    Resend Code<span className="ml-2">{countdown} sec</span>
                   </>
                 ) : (
                   'Resend Code'
