@@ -9,28 +9,53 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Eye, EyeOff } from 'lucide-react'
+import { useTranslation } from '@/contexts/I18nContext'
 
-const changePasswordSchema = z
-  .object({
-    oldPassword: z.string().min(6, 'Password must be at least 6 characters'),
-    newPassword: z.string().min(6, 'Password must be at least 6 characters'),
-    confirmPassword: z.string().min(6, 'Password must be at least 6 characters'),
-  })
-  .refine(data => data.newPassword === data.confirmPassword, {
-    message: "Passwords don't match",
-    path: ['confirmPassword'],
-  })
-
-type ChangePasswordFormData = z.infer<typeof changePasswordSchema>
+type ChangePasswordFormData = {
+  oldPassword: string
+  newPassword: string
+  confirmPassword: string
+}
 
 export function ChangePasswordPage() {
   const navigate = useNavigate()
   const { isAuthenticated } = useAuthStore()
+  const { t } = useTranslation()
   const [showPasswords, setShowPasswords] = useState({
     oldPassword: false,
     newPassword: false,
     confirmPassword: false,
   })
+
+  // Create dynamic validation schema with translations
+  const changePasswordSchema = z
+    .object({
+      oldPassword: z
+        .string()
+        .min(
+          6,
+          t('validation.passwordMinLength') ||
+            'Password must be at least 6 characters'
+        ),
+      newPassword: z
+        .string()
+        .min(
+          6,
+          t('validation.passwordMinLength') ||
+            'Password must be at least 6 characters'
+        ),
+      confirmPassword: z
+        .string()
+        .min(
+          6,
+          t('validation.passwordMinLength') ||
+            'Password must be at least 6 characters'
+        ),
+    })
+    .refine(data => data.newPassword === data.confirmPassword, {
+      message: t('validation.passwordMismatch') || "Passwords don't match",
+      path: ['confirmPassword'],
+    })
 
   const {
     register,
@@ -61,7 +86,9 @@ export function ChangePasswordPage() {
     return null
   }
 
-  const togglePasswordVisibility = (field: 'oldPassword' | 'newPassword' | 'confirmPassword') => {
+  const togglePasswordVisibility = (
+    field: 'oldPassword' | 'newPassword' | 'confirmPassword'
+  ) => {
     setShowPasswords(prev => ({
       ...prev,
       [field]: !prev[field],
@@ -119,7 +146,9 @@ export function ChangePasswordPage() {
                   </button>
                 </div>
                 {errors.oldPassword && (
-                  <p className="text-sm text-red-300">{errors.oldPassword.message}</p>
+                  <p className="text-sm text-red-300">
+                    {errors.oldPassword.message}
+                  </p>
                 )}
               </div>
 
@@ -152,7 +181,9 @@ export function ChangePasswordPage() {
                   </button>
                 </div>
                 {errors.newPassword && (
-                  <p className="text-sm text-red-300">{errors.newPassword.message}</p>
+                  <p className="text-sm text-red-300">
+                    {errors.newPassword.message}
+                  </p>
                 )}
               </div>
 
@@ -185,7 +216,9 @@ export function ChangePasswordPage() {
                   </button>
                 </div>
                 {errors.confirmPassword && (
-                  <p className="text-sm text-red-300">{errors.confirmPassword.message}</p>
+                  <p className="text-sm text-red-300">
+                    {errors.confirmPassword.message}
+                  </p>
                 )}
               </div>
 
@@ -214,4 +247,3 @@ export function ChangePasswordPage() {
     </div>
   )
 }
-

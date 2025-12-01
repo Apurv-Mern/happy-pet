@@ -286,6 +286,7 @@
         "required": "This field is required",
         "emailRequired": "Email is required",
         "invalidEmail": "Invalid email address",
+        "passwordRequired": "Password is required",
         "passwordMinLength": "Password must be at least 6 characters",
         "passwordMismatch": "Passwords do not match",
         "phoneMinLength": "Phone number must be at least 10 characters",

@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Phone, Search, User, ChevronDown, LogOut, Menu, X } from 'lucide-react'
+import { Phone, Search, User, LogOut, Menu, X } from 'lucide-react'
 import React, { useState, useEffect } from 'react'
 import { useAuthStore } from '@/store/useAuthStore'
 import { useTranslation } from '@/contexts/I18nContext'
@@ -104,27 +104,28 @@ const AuthenticatedNav = ({
     {/* Language Selector Dropdown */}
     <div className="relative">
       <button
-        onClick={() => setIsDropdownOpen((prev: boolean) => !prev)}
-        className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-4 transition-colors"
+        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-[16px] transition-colors ml-[6px]"
       >
-        <img
-          src={
-            availableLanguages.find((l: any) => l.code === language)?.flag ||
-            'https://flagcdn.com/w40/gb.png'
-          }
-          alt="flag"
-          className="w-6 h-4 object-cover rounded"
-        />
-        <span className="text-sm font-medium">
-          {availableLanguages
-            .find((l: any) => l.code === language)
-            ?.name.slice(0, 3) || 'Eng'}
-        </span>
-        <ChevronDown className="h-4 w-4" />
-        <div className="rounded-full bg-[#fff] border-[3px] border-[#003863] h-[48px] w-[48px] flex items-center justify-center ml-1">
+        <div className="flex items-center gap-2">
+          <img
+            src={
+              availableLanguages.find((l: any) => l.code === language)?.flag ||
+              'https://flagcdn.com/w40/gb.png'
+            }
+            alt="flag"
+            className="w-6 h-4 object-cover rounded"
+          />
+          <span className="text-sm font-medium">
+            {availableLanguages
+              .find((l: any) => l.code === language)
+              ?.name.slice(0, 3) || 'Eng'}
+          </span>
+        </div>
+        <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center ml-1 border-[2px] border-[#003863]">
           <svg
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -216,6 +217,9 @@ export function Header2() {
     }
   }, [isMobileMenuOpen])
 
+  // Close dropdown when clicking outside - removed as it conflicts with toggle button
+  // The backdrop in the dropdown component handles this instead
+
   const handleSelectLanguage = (code: string) => {
     setLanguage(code)
     setIsDropdownOpen(false)
@@ -226,6 +230,7 @@ export function Header2() {
     setSelectedLanguage(langName)
     const lang = availableLanguages.find(l => l.name === langName)
     if (lang) {
+      console.log(lang)
       setLanguage(lang.code)
     }
   }

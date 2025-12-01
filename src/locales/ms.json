@@ -286,6 +286,7 @@
         "required": "Medan ini diperlukan",
         "emailRequired": "E-mel diperlukan",
         "invalidEmail": "Alamat e-mel tidak sah",
+        "passwordRequired": "Kata laluan diperlukan",
         "passwordMinLength": "Kata laluan mestilah sekurang-kurangnya 6 aksara",
         "passwordMismatch": "Kata laluan tidak sepadan",
         "phoneMinLength": "Nombor telefon mestilah sekurang-kurangnya 10 digit",

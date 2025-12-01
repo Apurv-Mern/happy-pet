@@ -286,6 +286,7 @@
         "required": "Bidang ini wajib diisi",
         "emailRequired": "Email wajib diisi",
         "invalidEmail": "Alamat email tidak valid",
+        "passwordRequired": "Kata sandi wajib diisi",
         "passwordMinLength": "Kata sandi harus minimal 6 karakter",
         "passwordMismatch": "Kata sandi tidak cocok",
         "phoneMinLength": "Nomor telepon harus minimal 10 digit",

@@ -9,49 +9,18 @@ import { useAuthStore } from '@/store/useAuthStore'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent } from '@/components/ui/card'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 import { useRegisterMutation, useSendOtpMutation } from '@/api/auth'
 import { useToast } from '@/hooks/use-toast'
 
-const signupSchema = z.object({
-  name: z
-    .string()
-    .min(4, 'Name is required')
-    .refine(val => val.trim().length > 0, {
-      message: 'Name cannot be only whitespace',
-    }),
-  email: z
-    .string()
-    .min(1, 'Email is required')
-    .email('Email is required')
-    .refine(val => val.trim().length > 0, {
-      message: 'Email cannot be only whitespace',
-    }),
-  companyName: z.string().optional(),
-  password: z
-    .string()
-    .min(6, 'Password is required')
-    .refine(val => val.trim().length > 0, {
-      message: 'Password cannot be only whitespace',
-    }),
-  phoneNumber: z
-    .string()
-    .min(1, 'Phone number is required')
-    .refine(val => val.trim().length > 0, {
-      message: 'Phone number cannot be only whitespace',
-    }),
-  timezone: z.string().optional(),
-  preferredLanguage: z.string().optional(),
-  userType: z.enum(['public', 'admin']).default('public'),
-})
-
-type SignupFormData = z.infer<typeof signupSchema>
+type SignupFormData = {
+  name: string
+  email: string
+  companyName?: string
+  password: string
+  timezone?: string
+  preferredLanguage?: string
+  userType: 'public' | 'admin'
+}
 
 export function SignupPage() {
   const navigate = useNavigate()
@@ -60,23 +29,56 @@ export function SignupPage() {
   const { t } = useTranslation()
 
   const { isAuthenticated } = useAuthStore()
-  const [selectedCountryCode, setSelectedCountryCode] = useState('+971')
   const { toast } = useToast()
   const registerMutation = useRegisterMutation()
   const sendOtpMutation = useSendOtpMutation()
+
+  // Create dynamic validation schema with translations
+  const signupSchemaWithTranslations = z.object({
+    name: z
+      .string()
+      .min(
+        4,
+        t('validation.nameMinLength') || 'Name must be at least 2 characters'
+      )
+      .refine(val => val.trim().length > 0, {
+        message: t('validation.required') || 'This field is required',
+      }),
+    email: z
+      .string()
+      .min(1, t('validation.emailRequired') || 'Email is required')
+      .email(t('validation.invalidEmail') || 'Invalid email address')
+      .refine(val => val.trim().length > 0, {
+        message: t('validation.emailRequired') || 'Email is required',
+      }),
+    companyName: z.string().optional(),
+    password: z
+      .string()
+      .min(
+        6,
+        t('validation.passwordMinLength') ||
+          'Password must be at least 6 characters'
+      )
+      .refine(val => val.trim().length > 0, {
+        message: t('validation.passwordMinLength') || 'Password is required',
+      }),
+    timezone: z.string().optional(),
+    preferredLanguage: z.string().optional(),
+    userType: z.enum(['public', 'admin']).default('public'),
+  })
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<SignupFormData>({
-    resolver: zodResolver(signupSchema),
+    resolver: zodResolver(signupSchemaWithTranslations),
     defaultValues: {
       name: '',
       email: '',
       preferredLanguage: 'en',
       password: '',
-      phoneNumber: '',
+      // phoneNumber: '',
       timezone: '',
       userType: 'public',
     },
@@ -91,7 +93,7 @@ export function SignupPage() {
   const onSubmit = async (data: SignupFormData) => {
     try {
       // Combine country code with phone number
-      const fullPhoneNumber = `${selectedCountryCode}${data.phoneNumber}`
+      // const fullPhoneNumber = `${selectedCountryCode}${data.phoneNumber}`
 
       const response = await registerMutation.mutateAsync({
         email: data.email,
@@ -99,7 +101,7 @@ export function SignupPage() {
         name: data.name,
         company: data.companyName,
         preferredLanguage: data.preferredLanguage,
-        phoneNumber: fullPhoneNumber,
+        // phoneNumber: fullPhoneNumber,
         timezone: data.timezone,
         userType: data.userType,
       })
@@ -207,7 +209,7 @@ export function SignupPage() {
               </div>
 
               {/* phoneNumber Number Field with Country Code */}
-              <div className="space-y-1.5">
+              {/* <div className="space-y-1.5">
                 <label
                   htmlFor="phoneNumber"
                   className="text-xs font-medium text-white block"
@@ -247,7 +249,7 @@ export function SignupPage() {
                     {errors.phoneNumber.message}
                   </p>
                 )}
-              </div>
+              </div> */}
 
               {/* Company Name Field */}
               <div className="space-y-1.5">

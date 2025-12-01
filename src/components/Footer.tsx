@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom'
 import { Mail, Phone } from 'lucide-react'
 import { useTranslation } from '@/contexts/I18nContext'
+import {
+  FaFacebookF,
+  FaXTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from 'react-icons/fa6'
 
 const footerContact = {
   email: 'Youremailid@gmail.com',
@@ -8,7 +14,13 @@ const footerContact = {
 }
 
 // Reusable components
-const FooterLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
+const FooterLink = ({
+  to,
+  children,
+}: {
+  to: string
+  children: React.ReactNode
+}) => (
   <Link
     to={to}
     className="opacity-90 hover:opacity-100 hover:underline transition-all"
@@ -17,8 +29,20 @@ const FooterLink = ({ to, children }: { to: string; children: React.ReactNode })
   </Link>
 )
 
-const SocialIcon = ({ svg, label, href }: { svg: any; label: string; href: string }) => (
-  <a href={href} className="hover:opacity-80 transition-opacity" aria-label={label}>
+const SocialIcon = ({
+  svg,
+  label,
+  href,
+}: {
+  svg: any
+  label: string
+  href: string
+}) => (
+  <a
+    href={href}
+    className="hover:opacity-80 transition-opacity"
+    aria-label={label}
+  >
     {svg}
   </a>
 )
@@ -116,7 +140,7 @@ export function Footer() {
               {social.map(social => (
                 <SocialIcon
                   key={social.label}
-                  icon={social.icon}
+                  svg={social.icon}
                   label={social.label}
                   href={social.href}
                 />
