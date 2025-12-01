@@ -148,7 +148,7 @@
     "verificationCodeSent": "تم إرسال رمز التحقق. يرجى التحقق من بريدك الإلكتروني.",
     "failedToSendOtp": "فشل في إرسال رمز التحقق",
     "failedToSendOtpDescription": "تعذر إرسال رمز التحقق. الرجاء المحاولة مرة أخرى.",
-    "welcomeBack": "مرحبًا بعودتك، {name}!",
+    "welcomeBack": "مرحبًا بعودتك!",
     "loggingIn": "جارٍ تسجيل الدخول...",
     "showPassword": "إظهار كلمة المرور",
     "hidePassword": "إخفاء كلمة المرور"
@@ -215,6 +215,7 @@
     "name": "الاسم",
     "email": "البريد الإلكتروني",
     "userType": "نوع المستخدم",
+    "profileUpdate": "تحديث الملف الشخصي",
     "preferredLanguage": "اللغة المفضلة",
     "notAvailable": "غير متوفر",
     "personalInformation": "المعلومات الشخصية",

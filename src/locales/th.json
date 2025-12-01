@@ -148,7 +148,7 @@
     "verificationCodeSent": "ส่งรหัสยืนยันแล้ว กรุณาตรวจสอบอีเมลของคุณ",
     "failedToSendOtp": "ไม่สามารถส่งรหัสยืนยันได้",
     "failedToSendOtpDescription": "ไม่สามารถส่งรหัสยืนยัน กรุณาลองใหม่อีกครั้ง",
-    "welcomeBack": "ยินดีต้อนรับกลับ, {name}!",
+    "welcomeBack": "ยินดีต้อนรับกลับ",
     "loggingIn": "กำลังเข้าสู่ระบบ...",
     "showPassword": "แสดงรหัสผ่าน",
     "hidePassword": "ซ่อนรหัสผ่าน"
@@ -215,6 +215,7 @@
     "name": "ชื่อ",
     "email": "อีเมล",
     "userType": "ประเภทผู้ใช้",
+    "profileUpdate": "อัปเดตโปรไฟล์",
     "preferredLanguage": "ภาษาที่ต้องการ",
     "notAvailable": "ไม่มี",
     "personalInformation": "ข้อมูลส่วนบุคคล",

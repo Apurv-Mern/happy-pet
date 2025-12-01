@@ -215,6 +215,7 @@
     "name": "Nama",
     "email": "Email",
     "userType": "Tipe Pengguna",
+    "profileUpdate": "Perbarui Profil",
     "preferredLanguage": "Bahasa Pilihan",
     "notAvailable": "T/A",
     "personalInformation": "Informasi Pribadi",

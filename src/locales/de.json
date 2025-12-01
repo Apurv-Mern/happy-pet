@@ -148,7 +148,7 @@
     "verificationCodeSent": "Verifizierungscode gesendet. Bitte überprüfen Sie Ihre E-Mail.",
     "failedToSendOtp": "Fehler beim Senden der OTP",
     "failedToSendOtpDescription": "Der Bestätigungscode konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
-    "welcomeBack": "Willkommen zurück, {name}!",
+    "welcomeBack": "Willkommen zurück",
     "loggingIn": "Einloggen...",
     "showPassword": "Passwort anzeigen",
     "hidePassword": "Passwort verbergen"
@@ -215,6 +215,7 @@
     "name": "Name",
     "email": "E-Mail",
     "userType": "Benutzertyp",
+    "profileUpdate": "Profilaktualisierung",
     "preferredLanguage": "Bevorzugte Sprache",
     "notAvailable": "Nicht verfügbar",
     "personalInformation": "Persönliche Informationen",

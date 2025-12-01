@@ -215,6 +215,7 @@
     "name": "Name",
     "email": "Email",
     "userType": "User Type",
+    "profileUpdate": "Profile Update",
     "preferredLanguage": "Preferred Language",
     "notAvailable": "N/A",
     "personalInformation": "Personal Information",

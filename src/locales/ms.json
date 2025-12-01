@@ -148,7 +148,7 @@
     "verificationCodeSent": "Kod pengesahan dihantar. Sila semak e-mel anda.",
     "failedToSendOtp": "Gagal menghantar OTP",
     "failedToSendOtpDescription": "Tidak dapat menghantar kod pengesahan. Sila cuba lagi.",
-    "welcomeBack": "Selamat datang kembali, {name}!",
+    "welcomeBack": "Selamat datang kembali",
     "loggingIn": "Log masuk...",
     "showPassword": "Tunjukkan kata laluan",
     "hidePassword": "Sembunyikan kata laluan"
@@ -215,6 +215,7 @@
     "name": "Nama",
     "email": "E-mel",
     "userType": "Jenis Pengguna",
+    "profileUpdate": "Kemas Kini Profil",
     "preferredLanguage": "Bahasa Pilihan",
     "notAvailable": "T/A",
     "personalInformation": "Maklumat Peribadi",
