@@ -32,28 +32,22 @@ export function ChangePasswordPage() {
     .object({
       oldPassword: z
         .string()
-        .min(
-          6,
-          t('validation.passwordMinLength') ||
-            'Password must be at least 6 characters'
+        .min(8, t('validation.passwordMinLength'))
+        .regex(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/,
+          t('validation.passwordComplexity')
         ),
       newPassword: z
         .string()
-        .min(
-          6,
-          t('validation.passwordMinLength') ||
-            'Password must be at least 6 characters'
+        .min(8, t('validation.passwordMinLength'))
+        .regex(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/,
+          t('validation.passwordComplexity')
         ),
-      confirmPassword: z
-        .string()
-        .min(
-          6,
-          t('validation.passwordMinLength') ||
-            'Password must be at least 6 characters'
-        ),
+      confirmPassword: z.string().min(8, t('validation.passwordMinLength')),
     })
     .refine(data => data.newPassword === data.confirmPassword, {
-      message: t('validation.passwordMismatch') || "Passwords don't match",
+      message: t('validation.passwordMismatch'),
       path: ['confirmPassword'],
     })
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useForm } from 'react-hook-form'
@@ -12,11 +12,27 @@ import { Card, CardContent } from '@/components/ui/card'
 import { useRegisterMutation, useSendOtpMutation } from '@/api/auth'
 import { useToast } from '@/hooks/use-toast'
 
+// Country codes with flags
+const countryCodes = [
+  { code: '+971', country: 'UAE', flag: 'https://flagcdn.com/w40/ae.png' },
+  {
+    code: '+966',
+    country: 'Saudi Arabia',
+    flag: 'https://flagcdn.com/w40/sa.png',
+  },
+  { code: '+1', country: 'USA', flag: 'https://flagcdn.com/w40/us.png' },
+  { code: '+49', country: 'Germany', flag: 'https://flagcdn.com/w40/de.png' },
+  { code: '+60', country: 'Malaysia', flag: 'https://flagcdn.com/w40/my.png' },
+  { code: '+66', country: 'Thailand', flag: 'https://flagcdn.com/w40/th.png' },
+  { code: '+62', country: 'Indonesia', flag: 'https://flagcdn.com/w40/id.png' },
+]
+
 type SignupFormData = {
   name: string
   email: string
   companyName?: string
   password: string
+  phoneNumber: string
   timezone?: string
   preferredLanguage?: string
   userType: 'public' | 'admin'
@@ -33,35 +49,43 @@ export function SignupPage() {
   const registerMutation = useRegisterMutation()
   const sendOtpMutation = useSendOtpMutation()
 
+  // Country code dropdown state
+  const [selectedCountryCode, setSelectedCountryCode] = useState('+971')
+  const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false)
+  const countryDropdownRef = useRef<HTMLButtonElement>(null)
+  const [countryDropdownPosition, setCountryDropdownPosition] = useState({
+    top: 0,
+    left: 0,
+  })
+
   // Create dynamic validation schema with translations
   const signupSchemaWithTranslations = z.object({
     name: z
       .string()
-      .min(
-        4,
-        t('validation.nameMinLength') || 'Name must be at least 2 characters'
-      )
+      .min(4, t('validation.nameMinLength'))
       .refine(val => val.trim().length > 0, {
-        message: t('validation.required') || 'This field is required',
+        message: t('validation.required'),
       }),
     email: z
       .string()
-      .min(1, t('validation.emailRequired') || 'Email is required')
-      .email(t('validation.invalidEmail') || 'Invalid email address')
+      .min(1, t('validation.emailRequired'))
+      .email(t('validation.invalidEmail'))
       .refine(val => val.trim().length > 0, {
-        message: t('validation.emailRequired') || 'Email is required',
+        message: t('validation.emailRequired'),
       }),
+    phoneNumber: z
+      .string()
+      .min(7, t('validation.phoneMinLength'))
+      .max(15, t('validation.phoneMaxLength'))
+      .regex(/^[0-9]+$/, t('validation.phoneInvalid')),
     companyName: z.string().optional(),
     password: z
       .string()
-      .min(
-        6,
-        t('validation.passwordMinLength') ||
-          'Password must be at least 6 characters'
-      )
-      .refine(val => val.trim().length > 0, {
-        message: t('validation.passwordMinLength') || 'Password is required',
-      }),
+      .min(8, t('validation.passwordMinLength'))
+      .regex(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/,
+        t('validation.passwordComplexity')
+      ),
     timezone: z.string().optional(),
     preferredLanguage: z.string().optional(),
     userType: z.enum(['public', 'admin']).default('public'),
@@ -78,7 +102,7 @@ export function SignupPage() {
       email: '',
       preferredLanguage: 'en',
       password: '',
-      // phoneNumber: '',
+      phoneNumber: '',
       timezone: '',
       userType: 'public',
     },
@@ -90,10 +114,44 @@ export function SignupPage() {
     }
   }, [isAuthenticated, navigate, location])
 
+  // Handle country dropdown positioning and outside clicks
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement
+      if (!target.closest('.country-dropdown-container')) {
+        setIsCountryDropdownOpen(false)
+      }
+    }
+
+    const updatePosition = () => {
+      if (countryDropdownRef.current) {
+        const rect = countryDropdownRef.current.getBoundingClientRect()
+        setCountryDropdownPosition({
+          top: rect.bottom + window.scrollY + 8,
+          left: rect.left + window.scrollX,
+        })
+      }
+    }
+
+    if (isCountryDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('scroll', updatePosition, true)
+      window.addEventListener('resize', updatePosition)
+
+      updatePosition()
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('scroll', updatePosition, true)
+      window.removeEventListener('resize', updatePosition)
+    }
+  }, [isCountryDropdownOpen])
+
   const onSubmit = async (data: SignupFormData) => {
     try {
       // Combine country code with phone number
-      // const fullPhoneNumber = `${selectedCountryCode}${data.phoneNumber}`
+      const fullPhoneNumber = `${selectedCountryCode}${data.phoneNumber}`
 
       const response = await registerMutation.mutateAsync({
         email: data.email,
@@ -101,7 +159,7 @@ export function SignupPage() {
         name: data.name,
         company: data.companyName,
         preferredLanguage: data.preferredLanguage,
-        // phoneNumber: fullPhoneNumber,
+        phoneNumber: fullPhoneNumber,
         timezone: data.timezone,
         userType: data.userType,
       })
@@ -110,6 +168,7 @@ export function SignupPage() {
         try {
           await sendOtpMutation.mutateAsync({ email: data.email })
           toast({
+            variant: 'success',
             title:
               t('signupPage.registrationSuccess') || 'Registration Successful!',
             description:
@@ -158,9 +217,9 @@ export function SignupPage() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-[540px] m-auto py-14"
       >
-        <Card className="border-[#0E213A] rounded-[30px] shadow-2xl bg-white overflow-hidden">
+        <Card className="border-[#0E213A] rounded-[30px] shadow-2xl bg-white overflow-visible relative z-10">
           {/* Header Section */}
-          <CardContent className="bg-[#003863] py-6 px-6">
+          <CardContent className="bg-[#003863] py-6 px-6 overflow-visible">
             <h1 className="text-[#fff] heading-line text-[60px] text-center">
               {t('signupPage.register')}
             </h1>
@@ -208,8 +267,8 @@ export function SignupPage() {
                 )}
               </div>
 
-              {/* phoneNumber Number Field with Country Code */}
-              {/* <div className="space-y-1.5">
+              {/* Phone Number Field with Country Code */}
+              <div className="space-y-1.5">
                 <label
                   htmlFor="phoneNumber"
                   className="text-xs font-medium text-white block"
@@ -217,31 +276,105 @@ export function SignupPage() {
                   {t('signupPage.phoneNumber')}
                 </label>
                 <div className="flex gap-2">
-                  <div className="flex items-center bg-white  rounded-[15px] px-3 gap-2 min-w-[85px]">
-                    <span className="text-xl">🇦🇪</span>
-                    <Select
-                      value={selectedCountryCode}
-                      onValueChange={(value: string) => {
-                        setSelectedCountryCode(value)
+                  {/* Country Code Dropdown */}
+                  <div className="relative country-dropdown-container">
+                    <button
+                      ref={countryDropdownRef}
+                      type="button"
+                      onClick={e => {
+                        e.stopPropagation()
+                        setIsCountryDropdownOpen(!isCountryDropdownOpen)
                       }}
+                      className="flex items-center bg-white rounded-[15px] px-3 py-2 gap-2 min-w-[110px] h-[42px] hover:bg-gray-50 transition-colors"
                     >
-                      <SelectTrigger className="border-none h-10 w-[60px] p-0 focus:ring-0">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="+971">+971</SelectItem>
-                        <SelectItem value="+91">+91</SelectItem>
-                        <SelectItem value="+1">+1</SelectItem>
-                        <SelectItem value="+44">+44</SelectItem>
-                      </SelectContent>
-                    </Select>
+                      <img
+                        src={
+                          countryCodes.find(c => c.code === selectedCountryCode)
+                            ?.flag || 'https://flagcdn.com/w40/ae.png'
+                        }
+                        alt="flag"
+                        className="w-6 h-4 object-cover rounded"
+                        onError={e => {
+                          const target = e.target as HTMLImageElement
+                          target.src =
+                            'https://via.placeholder.com/24x16?text=Flag'
+                        }}
+                      />
+                      <span className="text-sm font-medium text-gray-900">
+                        {selectedCountryCode}
+                      </span>
+                      <svg
+                        className="w-4 h-4 text-gray-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+
+                    {/* Country Dropdown Menu */}
+                    {isCountryDropdownOpen && (
+                      <>
+                        <div
+                          className="fixed inset-0 z-[99998]"
+                          onClick={() => setIsCountryDropdownOpen(false)}
+                        />
+                        <div
+                          className="fixed w-64 max-h-80 overflow-y-auto rounded-[20px] border border-[#0E213A] bg-white shadow-2xl z-[99999]"
+                          style={{
+                            top: `${countryDropdownPosition.top}px`,
+                            left: `${countryDropdownPosition.left}px`,
+                          }}
+                        >
+                          <div className="p-2">
+                            {countryCodes.map(country => (
+                              <button
+                                key={country.code}
+                                type="button"
+                                onClick={e => {
+                                  e.stopPropagation()
+                                  setSelectedCountryCode(country.code)
+                                  setIsCountryDropdownOpen(false)
+                                }}
+                                className="flex w-full items-center gap-3 rounded-[15px] px-4 py-3 text-sm font-medium text-[#003863] hover:bg-[#F3FBFF] transition"
+                              >
+                                <img
+                                  src={country.flag}
+                                  alt={country.country}
+                                  className="w-6 h-4 object-cover rounded"
+                                  onError={e => {
+                                    const target = e.target as HTMLImageElement
+                                    target.src =
+                                      'https://via.placeholder.com/24x16?text=Flag'
+                                  }}
+                                />
+                                <span className="flex-1 text-left">
+                                  {country.country}
+                                </span>
+                                <span className="font-semibold">
+                                  {country.code}
+                                </span>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
+
+                  {/* Phone Number Input */}
                   <Input
                     id="phoneNumber"
                     type="tel"
                     placeholder={t('signupPage.phoneNumberPlaceholder')}
                     {...register('phoneNumber')}
-                    className="flex-1 bg-white text-gray-900  text-sm"
+                    className="flex-1 bg-white text-gray-900 text-sm placeholder:text-gray-400"
                   />
                 </div>
                 {errors.phoneNumber && (
@@ -249,7 +382,7 @@ export function SignupPage() {
                     {errors.phoneNumber.message}
                   </p>
                 )}
-              </div> */}
+              </div>
 
               {/* Company Name Field */}
               <div className="space-y-1.5">
@@ -286,6 +419,11 @@ export function SignupPage() {
                 {errors.password && (
                   <p className="text-xs text-red-300">
                     {errors.password.message}
+                  </p>
+                )}
+                {!errors.password && (
+                  <p className="text-xs text-gray-300">
+                    {t('validation.passwordHelper')}
                   </p>
                 )}
               </div>

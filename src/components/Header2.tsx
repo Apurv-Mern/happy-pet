@@ -33,41 +33,130 @@ const NavLink = ({
 
 // Desktop nav when NOT authenticated (screenshot-style pill)
 // Parent will center this with flex.
-const PublicScreenshotNav = () => (
-  <div className="bg-white rounded-full flex items-center px-3 py-1 shadow-md">
-    <NavLink path="/" label="Home" isActive={false} />
-    <NavLink path="/about" label="About Us" isActive={false} />
-    <NavLink path="/faqs" label="FAQ's" isActive={false} />
-    <NavLink path="/contact" label="Contact Us" isActive={false} />
+const PublicScreenshotNav = ({
+  publicNavItems,
+  location,
+  isDropdownOpen,
+  setIsDropdownOpen,
+  availableLanguages,
+  language,
+  handleSelectLanguage,
+  dropdownButtonRef,
+  dropdownPosition,
+}: any) => (
+  <div className="bg-white rounded-full flex items-center px-3 py-1 shadow-md relative">
+    {publicNavItems.map((item: any) => (
+      <NavLink
+        key={item.path}
+        path={item.path}
+        label={item.label}
+        isActive={location.pathname === item.path}
+      />
+    ))}
 
-    <button className="ml-2 flex items-center gap-2 bg-[#0E213A] text-white rounded-full pl-4 pr-1 h-11">
-      <span className="text-sm font-medium">Eng</span>
-      <div className="bg-white rounded-full h-9 w-9 flex items-center justify-center">
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="12" cy="12" r="8" stroke="#003863" strokeWidth="2" />
-          <ellipse
-            cx="12"
-            cy="12"
-            rx="3"
-            ry="8"
-            stroke="#003863"
-            strokeWidth="2"
+    <div className="relative language-dropdown-container">
+      <button
+        ref={dropdownButtonRef}
+        onClick={e => {
+          e.stopPropagation()
+          console.log(
+            'Public nav language button clicked, current state:',
+            isDropdownOpen
+          )
+          setIsDropdownOpen(!isDropdownOpen)
+        }}
+        className="ml-2 flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-4 pr-1 h-11 transition-colors"
+      >
+        <img
+          src={
+            availableLanguages.find((l: any) => l.code === language)?.flag ||
+            'https://flagcdn.com/w40/gb.png'
+          }
+          alt="flag"
+          className="w-5 h-3 object-cover rounded"
+          onError={e => {
+            const target = e.target as HTMLImageElement
+            target.src = 'https://via.placeholder.com/40x24?text=Flag'
+          }}
+        />
+        <span className="text-sm font-medium">
+          {availableLanguages
+            .find((l: any) => l.code === language)
+            ?.name.slice(0, 3) || 'Eng'}
+        </span>
+        <div className="bg-white rounded-full h-9 w-9 flex items-center justify-center">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="12" cy="12" r="8" stroke="#003863" strokeWidth="2" />
+            <ellipse
+              cx="12"
+              cy="12"
+              rx="3"
+              ry="8"
+              stroke="#003863"
+              strokeWidth="2"
+            />
+            <path
+              d="M4 12H20"
+              stroke="#003863"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
+      </button>
+
+      {isDropdownOpen && (
+        <>
+          <div
+            className="fixed inset-0 z-[9998]"
+            onClick={() => {
+              console.log('Public nav backdrop clicked')
+              setIsDropdownOpen(false)
+            }}
           />
-          <path
-            d="M4 12H20"
-            stroke="#003863"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-      </div>
-    </button>
+          <div
+            className="fixed w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-[9999]"
+            style={{
+              top: `${dropdownPosition.top}px`,
+              right: `${dropdownPosition.right}px`,
+            }}
+          >
+            <h3 className="text-2xl font-semibold italic text-center mb-5">
+              Select Language
+            </h3>
+            <div className="space-y-3">
+              {availableLanguages.map((lang: any) => (
+                <button
+                  key={lang.code}
+                  onClick={e => {
+                    e.stopPropagation()
+                    handleSelectLanguage(lang.code)
+                  }}
+                  className="flex w-full items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#003863] hover:shadow-lg transition"
+                >
+                  <img
+                    src={lang.flag}
+                    alt={lang.name}
+                    className="w-6 h-4 object-cover rounded"
+                    onError={e => {
+                      const target = e.target as HTMLImageElement
+                      target.src = 'https://via.placeholder.com/40x24?text=Flag'
+                    }}
+                  />
+                  <span>{lang.name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
   </div>
 )
 
@@ -81,6 +170,8 @@ const AuthenticatedNav = ({
   availableLanguages,
   language,
   handleSelectLanguage,
+  dropdownButtonRef,
+  dropdownPosition,
 }: any) => (
   <nav className="hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit">
     {publicNavItems.map((item: any) => (
@@ -102,9 +193,14 @@ const AuthenticatedNav = ({
     ))}
 
     {/* Language Selector Dropdown */}
-    <div className="relative">
+    <div className="relative z-50 language-dropdown-container">
       <button
-        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        ref={dropdownButtonRef}
+        onClick={e => {
+          e.stopPropagation()
+          console.log('Language button clicked, current state:', isDropdownOpen)
+          setIsDropdownOpen(!isDropdownOpen)
+        }}
         className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-[16px] transition-colors ml-[6px]"
       >
         <div className="flex items-center gap-2">
@@ -115,6 +211,10 @@ const AuthenticatedNav = ({
             }
             alt="flag"
             className="w-6 h-4 object-cover rounded"
+            onError={e => {
+              const target = e.target as HTMLImageElement
+              target.src = 'https://via.placeholder.com/40x24?text=Flag'
+            }}
           />
           <span className="text-sm font-medium">
             {availableLanguages
@@ -150,27 +250,49 @@ const AuthenticatedNav = ({
       </button>
 
       {isDropdownOpen && (
-        <div className="absolute right-0 mt-3 w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-50">
-          <h3 className="text-2xl font-semibold italic text-center mb-5">
-            Select Language
-          </h3>
-          <div className="space-y-3">
-            {availableLanguages.map((lang: any) => (
-              <button
-                key={lang.code}
-                onClick={() => handleSelectLanguage(lang.code)}
-                className="flex w-full items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#003863] hover:shadow-lg transition"
-              >
-                <img
-                  src={lang.flag}
-                  alt={lang.name}
-                  className="w-6 h-4 object-cover rounded"
-                />
-                <span>{lang.name}</span>
-              </button>
-            ))}
+        <>
+          <div
+            className="fixed inset-0 z-[9998]"
+            onClick={() => {
+              console.log('Backdrop clicked')
+              setIsDropdownOpen(false)
+            }}
+          />
+          <div
+            className="fixed w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-[9999]"
+            style={{
+              top: `${dropdownPosition.top}px`,
+              right: `${dropdownPosition.right}px`,
+            }}
+          >
+            <h3 className="text-2xl font-semibold italic text-center mb-5">
+              Select Language
+            </h3>
+            <div className="space-y-3">
+              {availableLanguages.map((lang: any) => (
+                <button
+                  key={lang.code}
+                  onClick={e => {
+                    e.stopPropagation()
+                    handleSelectLanguage(lang.code)
+                  }}
+                  className="flex w-full items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#003863] hover:shadow-lg transition"
+                >
+                  <img
+                    src={lang.flag}
+                    alt={lang.name}
+                    className="w-6 h-4 object-cover rounded"
+                    onError={e => {
+                      const target = e.target as HTMLImageElement
+                      target.src = 'https://via.placeholder.com/40x24?text=Flag'
+                    }}
+                  />
+                  <span>{lang.name}</span>
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   </nav>
@@ -181,6 +303,8 @@ export function Header2() {
   const navigate = useNavigate()
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
+  const dropdownButtonRef = React.useRef<HTMLButtonElement>(null)
+  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, right: 0 })
   const { isAuthenticated, logout } = useAuthStore()
   const { t, setLanguage, availableLanguages, language } = useTranslation()
   const [selectedLanguage, setSelectedLanguage] = useState<string>('English')
@@ -217,10 +341,38 @@ export function Header2() {
     }
   }, [isMobileMenuOpen])
 
-  // Close dropdown when clicking outside - removed as it conflicts with toggle button
-  // The backdrop in the dropdown component handles this instead
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement
+      if (!target.closest('.language-dropdown-container')) {
+        setIsDropdownOpen(false)
+      }
+    }
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+
+      // Calculate dropdown position
+      if (dropdownButtonRef.current) {
+        const rect = dropdownButtonRef.current.getBoundingClientRect()
+        setDropdownPosition({
+          top: rect.bottom + window.scrollY + 12,
+          right: window.innerWidth - rect.right + window.scrollX,
+        })
+        console.log('Dropdown opened at:', {
+          top: rect.bottom + 12,
+          right: window.innerWidth - rect.right,
+        })
+      }
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isDropdownOpen])
 
   const handleSelectLanguage = (code: string) => {
+    console.log('Selected language code:', code)
     setLanguage(code)
     setIsDropdownOpen(false)
   }
@@ -430,7 +582,17 @@ export function Header2() {
             {/* Center: screenshot nav only when NOT authenticated */}
             {!isAuthenticated && (
               <div className="hidden lg:flex flex-1 justify-center">
-                <PublicScreenshotNav />
+                <PublicScreenshotNav
+                  publicNavItems={publicNavItems}
+                  location={location}
+                  isDropdownOpen={isDropdownOpen}
+                  setIsDropdownOpen={setIsDropdownOpen}
+                  availableLanguages={availableLanguages}
+                  language={language}
+                  handleSelectLanguage={handleSelectLanguage}
+                  dropdownButtonRef={dropdownButtonRef}
+                  dropdownPosition={dropdownPosition}
+                />
               </div>
             )}
 
@@ -466,6 +628,8 @@ export function Header2() {
               availableLanguages={availableLanguages}
               language={language}
               handleSelectLanguage={handleSelectLanguage}
+              dropdownButtonRef={dropdownButtonRef}
+              dropdownPosition={dropdownPosition}
             />
           )}
         </div>

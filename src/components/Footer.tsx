@@ -30,20 +30,20 @@ const FooterLink = ({
 )
 
 const SocialIcon = ({
-  svg,
+  Icon,
   label,
   href,
 }: {
-  svg: any
+  Icon: any
   label: string
   href: string
 }) => (
   <a
     href={href}
-    className="hover:opacity-80 transition-opacity"
+    className="hover:opacity-80 transition-opacity text-white text-xl"
     aria-label={label}
   >
-    {svg}
+    <Icon />
   </a>
 )
 
@@ -137,12 +137,12 @@ export function Footer() {
 
             {/* Social Media Icons */}
             <div className="flex items-center gap-4 mt-6">
-              {social.map(social => (
+              {social.map(item => (
                 <SocialIcon
-                  key={social.label}
-                  svg={social.icon}
-                  label={social.label}
-                  href={social.href}
+                  key={item.label}
+                  Icon={item.icon}
+                  label={item.label}
+                  href={item.href}
                 />
               ))}
             </div>
