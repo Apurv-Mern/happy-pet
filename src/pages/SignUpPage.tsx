@@ -217,9 +217,9 @@ export function SignupPage() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-[540px] m-auto py-14"
       >
-        <Card className="border-[#0E213A] rounded-[30px] shadow-2xl bg-white overflow-visible relative z-10">
+        <Card className=" shadow-2xl bg-white overflow-visible relative z-10">
           {/* Header Section */}
-          <CardContent className="bg-[#003863] py-6 px-6 overflow-visible">
+          <CardContent className="bg-[#003863] rounded-[30px] py-6 px-6 overflow-visible">
             <h1 className="text-[#fff] heading-line text-[60px] text-center">
               {t('signupPage.register')}
             </h1>

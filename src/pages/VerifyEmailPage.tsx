@@ -130,7 +130,7 @@ export function VerifyEmailPage() {
             inputRefs.current[0]?.focus()
           }
         },
-        onError: (error: any) => {
+        onError: () => {
           toast({
             variant: 'destructive',
             title: 'Resend Failed',
