@@ -26,19 +26,47 @@ interface I18nContextType {
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined)
 
-const availableLanguages = [
-  { code: 'en', name: 'English', flag: 'https://flagcdn.com/w40/gb.png' },
-  { code: 'de', name: 'German', flag: 'https://flagcdn.com/w40/de.png' },
-  { code: 'ar', name: 'Arabic', flag: 'https://flagcdn.com/w40/ae.png' },
-  { code: 'ms', name: 'Malay', flag: 'https://flagcdn.com/w40/my.png' },
-  { code: 'th', name: 'Thai', flag: 'https://flagcdn.com/w40/th.png' },
-  { code: 'id', name: 'Bahasa', flag: 'https://flagcdn.com/w40/id.png' },
-]
-
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<string>(() => {
     return localStorage.getItem('language') || 'en'
   })
+
+  // Get translated language names based on current language
+  const getAvailableLanguages = () => {
+    const currentTranslations = translations[language] || translations['en']
+    return [
+      {
+        code: 'en',
+        name: currentTranslations.languages.en,
+        flag: 'https://flagcdn.com/w40/gb.png',
+      },
+      {
+        code: 'de',
+        name: currentTranslations.languages.de,
+        flag: 'https://flagcdn.com/w40/de.png',
+      },
+      {
+        code: 'ar',
+        name: currentTranslations.languages.ar,
+        flag: 'https://flagcdn.com/w40/ae.png',
+      },
+      {
+        code: 'ms',
+        name: currentTranslations.languages.ms,
+        flag: 'https://flagcdn.com/w40/my.png',
+      },
+      {
+        code: 'th',
+        name: currentTranslations.languages.th,
+        flag: 'https://flagcdn.com/w40/th.png',
+      },
+      {
+        code: 'id',
+        name: currentTranslations.languages.id,
+        flag: 'https://flagcdn.com/w40/id.png',
+      },
+    ]
+  }
 
   useEffect(() => {
     localStorage.setItem('language', language)
@@ -80,7 +108,12 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <I18nContext.Provider
-      value={{ language, setLanguage, t, availableLanguages }}
+      value={{
+        language,
+        setLanguage,
+        t,
+        availableLanguages: getAvailableLanguages(),
+      }}
     >
       {children}
     </I18nContext.Provider>

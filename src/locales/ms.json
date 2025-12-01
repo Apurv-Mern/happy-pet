@@ -21,13 +21,15 @@
     "about": "TENTANG KAMI",
     "faqs": "SOALAN LAZIM",
     "contact": "HUBUNGI KAMI",
-    "knowledgeHub": "PUSAT PENGETAHUAN",
+    "knowledgeHub": "HUB PENGETAHUAN",
     "learningModule": "MODUL PEMBELAJARAN",
-    "aiAgent": "EJEN AI",
+    "aiAgent": "PEMBANTU AI",
     "profile": "Profil",
     "logout": "Log Keluar",
     "login": "Log Masuk",
     "signup": "Daftar",
+    "loginRegister": "Log Masuk / Daftar",
+    "language": "Bahasa",
     "changePassword": "Tukar Kata Laluan",
     "phoneNumber": "+91 6799009980",
     "selectLanguage": "Pilih Bahasa",
@@ -148,7 +150,7 @@
     "verificationCodeSent": "Kod pengesahan dihantar. Sila semak e-mel anda.",
     "failedToSendOtp": "Gagal menghantar OTP",
     "failedToSendOtpDescription": "Tidak dapat menghantar kod pengesahan. Sila cuba lagi.",
-    "welcomeBack": "Selamat datang kembali, {name}!",
+    "welcomeBack": "Selamat datang kembali",
     "loggingIn": "Log masuk...",
     "showPassword": "Tunjukkan kata laluan",
     "hidePassword": "Sembunyikan kata laluan"
@@ -215,6 +217,7 @@
     "name": "Nama",
     "email": "E-mel",
     "userType": "Jenis Pengguna",
+    "profileUpdate": "Kemas Kini Profil",
     "preferredLanguage": "Bahasa Pilihan",
     "notAvailable": "T/A",
     "personalInformation": "Maklumat Peribadi",
@@ -275,12 +278,12 @@
     ]
   },
   "languages": {
-    "de": "Deutsch",
-    "en": "English",
-    "ar": "العربية",
+    "de": "Jerman",
+    "en": "Inggeris",
+    "ar": "Arab",
     "ms": "Bahasa Melayu",
-    "th": "ภาษาไทย",
-    "id": "Bahasa Indonesia"
+    "th": "Thai",
+    "id": "Indonesia"
   },
   "validation": {
     "required": "Medan ini diperlukan",

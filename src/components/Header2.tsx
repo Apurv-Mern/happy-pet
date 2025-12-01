@@ -403,34 +403,16 @@ export function Header2() {
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <Link
-                    to="/"
-                    className="text-[#003863] hover:text-[#035FA6] font-medium py-2 px-4 rounded-lg hover:bg-[#F3FBFF] transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Home
-                  </Link>
-                  <Link
-                    to="/about"
-                    className="text-[#003863] hover:text-[#035FA6] font-medium py-2 px-4 rounded-lg hover:bg-[#F3FBFF] transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    About Us
-                  </Link>
-                  <Link
-                    to="/contact"
-                    className="text-[#003863] hover:text-[#035FA6] font-medium py-2 px-4 rounded-lg hover:bg-[#F3FBFF] transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Contact Us
-                  </Link>
-                  <Link
-                    to="/faq"
-                    className="text-[#003863] hover:text-[#035FA6] font-medium py-2 px-4 rounded-lg hover:bg-[#F3FBFF] transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    FAQ's
-                  </Link>
+                  {publicNavItems.map(item => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className="text-[#003863] hover:text-[#035FA6] font-medium py-2 px-4 rounded-lg hover:bg-[#F3FBFF] transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
 
                   {isAuthenticated && (
                     <>
@@ -450,7 +432,7 @@ export function Header2() {
                   <div className="pt-4 border-t border-gray-200">
                     <div className="flex items-center justify-between py-2 px-4">
                       <span className="text-[#003863] font-medium">
-                        Language
+                        {t('header.language')}
                       </span>
                       <select
                         value={selectedLanguage}
@@ -478,7 +460,7 @@ export function Header2() {
                         >
                           <User className="h-5 w-5 text-white" />
                           <span className="text-white font-medium">
-                            Profile
+                            {t('header.profile')}
                           </span>
                         </button>
                         <button
@@ -489,7 +471,9 @@ export function Header2() {
                           className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 rounded-full py-3 transition-colors"
                         >
                           <LogOut className="h-5 w-5 text-white" />
-                          <span className="text-white font-medium">Logout</span>
+                          <span className="text-white font-medium">
+                            {t('header.logout')}
+                          </span>
                         </button>
                       </>
                     ) : !isAuthPage ? (
@@ -499,7 +483,7 @@ export function Header2() {
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         <span className="text-white font-medium">
-                          Login / Register
+                          {t('header.loginRegister')}
                         </span>
                         <User className="h-5 w-5 text-white" />
                       </Link>
@@ -550,7 +534,7 @@ export function Header2() {
                   <Link to="/login">
                     <div className="flex items-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full pl-5 pr-1 h-11 transition-colors">
                       <span className="text-white text-sm font-medium">
-                        Login / Register
+                        {t('header.loginRegister')}
                       </span>
                       <div className="bg-[#D4E7F6] rounded-full h-10 w-10 flex items-center justify-center ml-1">
                         <User className="h-5 w-5 text-black" />

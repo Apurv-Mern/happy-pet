@@ -28,6 +28,8 @@
     "logout": "Abmelden",
     "login": "Anmelden",
     "signup": "Registrieren",
+    "loginRegister": "Anmelden / Registrieren",
+    "language": "Sprache",
     "changePassword": "Passwort ändern",
     "phoneNumber": "+91 6799009980",
     "selectLanguage": "Sprache auswählen",
@@ -148,7 +150,7 @@
     "verificationCodeSent": "Verifizierungscode gesendet. Bitte überprüfen Sie Ihre E-Mail.",
     "failedToSendOtp": "Fehler beim Senden der OTP",
     "failedToSendOtpDescription": "Der Bestätigungscode konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
-    "welcomeBack": "Willkommen zurück, {name}!",
+    "welcomeBack": "Willkommen zurück",
     "loggingIn": "Einloggen...",
     "showPassword": "Passwort anzeigen",
     "hidePassword": "Passwort verbergen"
@@ -215,6 +217,7 @@
     "name": "Name",
     "email": "E-Mail",
     "userType": "Benutzertyp",
+    "profileUpdate": "Profilaktualisierung",
     "preferredLanguage": "Bevorzugte Sprache",
     "notAvailable": "Nicht verfügbar",
     "personalInformation": "Persönliche Informationen",
@@ -280,7 +283,7 @@
     "ar": "Arabisch",
     "ms": "Malaiisch",
     "th": "Thailändisch",
-    "id": "Bahasa"
+    "id": "Indonesisch"
   },
   "validation": {
     "required": "Dieses Feld ist erforderlich",
