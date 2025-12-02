@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { X } from 'lucide-react'
@@ -34,7 +34,6 @@ export default function LearningModePage() {
     useCategoriesQuery('other', 'document', language)
 
   const { mutate: fetchPresignedUrl } = usePresignedUrlForViewingMutation()
-  const newWindowRef = useRef<Window | null>(null)
 
   // Map route category IDs to API category IDs
   const categoryMap: { [key: string]: string } = {

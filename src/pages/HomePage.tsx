@@ -211,7 +211,7 @@ export function HomePage() {
                 </span>
               </button> */}
               <button className="group absolute w-full max-w-[300px] text-[30px] bottom-0 left-0 bg-[#0E213A] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#fff] hover:bg-[#003863] hover:text-[#fff] transition">
-                {t('homePage.knowledgeHub')}
+                {t('homePage.learningModule')}
                 <span className="absolute right-[20px] top-[10px] text-white text-sm">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

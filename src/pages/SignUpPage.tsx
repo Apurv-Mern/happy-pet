@@ -53,10 +53,6 @@ export function SignupPage() {
   const [selectedCountryCode, setSelectedCountryCode] = useState('+971')
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false)
   const countryDropdownRef = useRef<HTMLButtonElement>(null)
-  const [countryDropdownPosition, setCountryDropdownPosition] = useState({
-    top: 0,
-    left: 0,
-  })
 
   // Create dynamic validation schema with translations
   const signupSchemaWithTranslations = z.object({
@@ -125,11 +121,6 @@ export function SignupPage() {
 
     const updatePosition = () => {
       if (countryDropdownRef.current) {
-        const rect = countryDropdownRef.current.getBoundingClientRect()
-        setCountryDropdownPosition({
-          top: rect.bottom + window.scrollY + 8,
-          left: rect.left + window.scrollX,
-        })
       }
     }
 

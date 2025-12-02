@@ -43,7 +43,6 @@ const PublicScreenshotNav = ({
   language,
   handleSelectLanguage,
   dropdownButtonRef,
-  dropdownPosition,
 }: any) => (
   <div className="  hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit  ">
     {publicNavItems.map((item: any) => (
@@ -146,7 +145,6 @@ const AuthenticatedNav = ({
   language,
   handleSelectLanguage,
   dropdownButtonRef,
-  dropdownPosition,
 }: any) => (
   <nav className="hidden lg:flex items-center justify-center text-sm font-medium bg-white rounded-full py-[5px] px-[5px] mx-auto max-w-fit">
     {publicNavItems.map((item: any) => (
