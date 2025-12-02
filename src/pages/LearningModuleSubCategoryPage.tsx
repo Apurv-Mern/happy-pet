@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useCategoriesQuery, Filter } from '@/api/categories'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { X } from 'lucide-react'
 
 import {
@@ -48,7 +48,6 @@ export default function LearningModuleSubCategoryPage() {
   console.log({ categoriesResponse })
 
   const { mutate: fetchPresignedUrl } = usePresignedUrlForViewingMutation()
-  const newWindowRef = useRef<Window | null>(null)
 
   // Map route params to API category IDs
   const categoryMap: { [key: string]: string } = {
@@ -785,7 +784,9 @@ export default function LearningModuleSubCategoryPage() {
           >
             {/* Modal Header */}
             <div className="bg-[#003863] text-white p-6 flex items-center justify-between">
-              <h2 className="text-2xl font-bold pr-8">{viewingDocument.title}</h2>
+              <h2 className="text-2xl font-bold pr-8">
+                {viewingDocument.title}
+              </h2>
               <button
                 onClick={closeViewModal}
                 className="flex-shrink-0 hover:bg-white/20 rounded-full p-2 transition-colors"
@@ -808,7 +809,9 @@ export default function LearningModuleSubCategoryPage() {
                 />
               ) : (
                 <div className="flex items-center justify-center py-12 px-6">
-                  <p className="text-gray-600">Unable to load document. Please try downloading it instead.</p>
+                  <p className="text-gray-600">
+                    Unable to load document. Please try downloading it instead.
+                  </p>
                 </div>
               )}
             </div>
