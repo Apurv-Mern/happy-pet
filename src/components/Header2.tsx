@@ -10,7 +10,6 @@ import { chatApi } from '@/api/chat'
 import { useQueryClient } from '@tanstack/react-query'
 import { MdLanguage } from 'react-icons/md'
 
-
 // NavLink Component
 const NavLink = ({
   path,
@@ -87,7 +86,7 @@ const PublicScreenshotNav = ({
             ?.name.slice(0, 3) || 'Eng'}
         </span>
         <ChevronDown className="h-4 w-4" />
-        <div className='w-[0.64px] h-[25px] bg-[#fff]'></div>
+        <div className="w-[0.64px] h-[25px] bg-[#fff]"></div>
         <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center border-[2px] border-[#003863]">
           <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
         </div>
@@ -169,7 +168,7 @@ const AuthenticatedNav = ({
     ))}
 
     {/* Language Selector Dropdown */}
-    <div className="relative z-50">
+    <div className="relative language-dropdown-container">
       <button
         ref={dropdownButtonRef}
         onClick={e => {
@@ -199,7 +198,7 @@ const AuthenticatedNav = ({
           </span>
         </div>
         <ChevronDown className="h-4 w-4" />
-        <div className='w-[0.64px] h-[25px] bg-[#fff]'></div>
+        <div className="w-[0.64px] h-[25px] bg-[#fff]"></div>
         <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center border-[2px] border-[#003863]">
           <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
         </div>
@@ -208,8 +207,10 @@ const AuthenticatedNav = ({
       {isDropdownOpen && (
         <>
           <div
-            className="absolute w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-[9999]"
-          >
+            className="fixed inset-0 z-[9998]"
+            onClick={() => setIsDropdownOpen(false)}
+          />
+          <div className="absolute right-0 mt-3 w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-[9999]">
             <h3 className="text-2xl font-semibold italic text-center mb-5">
               Select Language
             </h3>

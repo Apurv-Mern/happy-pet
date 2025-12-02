@@ -268,7 +268,7 @@ export function Header() {
                     </span>
                   </div>
                   <ChevronDown className="h-4 w-4" />
-                  <div className='w-[0.64px] h-[25px] bg-[#fff]'></div>
+                  <div className="w-[0.64px] h-[25px] bg-[#fff]"></div>
                   <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center border-[2px] border-[#003863]">
                     <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
                   </div>
@@ -320,12 +320,26 @@ export function Header() {
                   <Link to="/login">
                     <div className="flex items-center bg-[#0E213A] rounded-full border-[1px] border-[#fff] pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] hover:bg-[#000] hover:text-[#fff] transition">
                       <span className="text-white text-sm font-medium">
-                        Login / Register
+                        {t('header.loginRegister')}
                       </span>
-                      <div className="ml-2 sm:ml-3 flex items-center justify-center w-[45px] h-[45px] bg-[#fff] rounded-full">                        
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24.0806 23.5912C24.6702 23.4683 25.0213 22.8521 24.7395 22.3199C24.0074 20.9373 22.8168 19.7225 21.2785 18.8044C19.365 17.6625 17.0205 17.0435 14.6086 17.0435C12.1967 17.0435 9.85217 17.6625 7.93867 18.8044C6.40039 19.7225 5.20977 20.9373 4.47766 22.3199C4.19581 22.8521 4.54692 23.4683 5.13653 23.5912L6.44772 23.8644C11.8305 24.9862 17.3867 24.9862 22.7694 23.8644L24.0806 23.5912Z" fill="#0E213A"/>
-                        <circle cx="14.6089" cy="9.7393" r="6.08696" fill="#0E213A"/>
+                      <div className="ml-2 sm:ml-3 flex items-center justify-center w-[45px] h-[45px] bg-[#fff] rounded-full">
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 30 30"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M24.0806 23.5912C24.6702 23.4683 25.0213 22.8521 24.7395 22.3199C24.0074 20.9373 22.8168 19.7225 21.2785 18.8044C19.365 17.6625 17.0205 17.0435 14.6086 17.0435C12.1967 17.0435 9.85217 17.6625 7.93867 18.8044C6.40039 19.7225 5.20977 20.9373 4.47766 22.3199C4.19581 22.8521 4.54692 23.4683 5.13653 23.5912L6.44772 23.8644C11.8305 24.9862 17.3867 24.9862 22.7694 23.8644L24.0806 23.5912Z"
+                            fill="#0E213A"
+                          />
+                          <circle
+                            cx="14.6089"
+                            cy="9.7393"
+                            r="6.08696"
+                            fill="#0E213A"
+                          />
                         </svg>
                       </div>
                     </div>
@@ -410,7 +424,6 @@ export function Header() {
                           }}
                           className="flex w-full items-center gap-3 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-[#003863] hover:bg-gray-200 transition"
                         >
-                          
                           <span className="text-xl">{lang.flag}</span>
                           <span>{lang.name}</span>
                         </button>
@@ -431,7 +444,9 @@ export function Header() {
                         className="w-full flex items-center justify-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full py-3 transition-colors mb-2"
                       >
                         <User className="h-5 w-5 text-white" />
-                        <span className="text-white font-medium">Profile</span>
+                        <span className="text-white font-medium">
+                          {t('header.profile')}
+                        </span>
                       </button>
                       <button
                         onClick={() => {
@@ -441,7 +456,9 @@ export function Header() {
                         className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 rounded-full py-3 transition-colors"
                       >
                         <LogOut className="h-5 w-5 text-white" />
-                        <span className="text-white font-medium">Logout</span>
+                        <span className="text-white font-medium">
+                          {t('header.logout')}
+                        </span>
                       </button>
                     </>
                   ) : !isAuthPage ? (
@@ -451,7 +468,7 @@ export function Header() {
                       className="flex items-center justify-between w-full gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full px-5 h-11 transition-colors"
                     >
                       <span className="text-white text-sm font-medium">
-                        Login / Register
+                        {t('header.loginRegister')}
                       </span>
                       <div className="bg-[#D4E7F6] rounded-full h-9 w-9 flex items-center justify-center">
                         <User className="h-4 w-4 text-black" />
@@ -495,7 +512,11 @@ export function Header() {
 
             {/* Right column - background image (shows second on mobile) */}
             <div className="">
-              <img src="/assets/images/image1.png" alt="" className="max-w-[400px] sm:max-w-[400px] md:w-full md:max-w-full lg:w-full lg:max-w-full xl:w-full xl:max-w-full 2xl:w-full 2xl:max-w-full" />
+              <img
+                src="/assets/images/image1.png"
+                alt=""
+                className="max-w-[400px] sm:max-w-[400px] md:w-full md:max-w-full lg:w-full lg:max-w-full xl:w-full xl:max-w-full 2xl:w-full 2xl:max-w-full"
+              />
             </div>
           </div>
         </div>

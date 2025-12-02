@@ -194,13 +194,29 @@ export function SignupPage() {
       }
     } catch (error: any) {
       console.error('Registration error:', error)
+
+      // Get the error message from backend
+      const backendMessage = error.response?.data?.message || ''
+
+      // Translate common backend error messages
+      let errorDescription = backendMessage
+      if (
+        backendMessage.toLowerCase().includes('user already exists') ||
+        backendMessage.toLowerCase().includes('already exists')
+      ) {
+        errorDescription = t('signupPage.userAlreadyExists')
+      } else if (backendMessage) {
+        errorDescription = backendMessage
+      } else {
+        errorDescription =
+          t('signupPage.tryAgain') ||
+          'An error occurred during registration. Please try again.'
+      }
+
       toast({
         variant: 'destructive',
         title: t('signupPage.registrationFailed') || 'Registration Failed',
-        description:
-          error.response?.data?.message ||
-          t('signupPage.tryAgain') ||
-          'An error occurred during registration. Please try again.',
+        description: errorDescription,
       })
     }
   }
@@ -321,9 +337,7 @@ export function SignupPage() {
                     {/* Country Dropdown Menu */}
                     {isCountryDropdownOpen && (
                       <>
-                        <div
-                          className="absolute w-64 max-h-80 rounded-[20px] bg-white shadow-2xl z-[99999]"
-                        >
+                        <div className="absolute w-64 max-h-80 rounded-[20px] bg-white shadow-2xl z-[99999]">
                           <div className="p-2">
                             {countryCodes.map(country => (
                               <button

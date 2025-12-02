@@ -5,11 +5,11 @@ interface PersonalInformationProps {
     firstName: string
     lastName: string
     email: string
-    address: string
+    // address: string
     companyName: string
     phoneNumber: string
-    dob: string
-    postalCode: string
+    // dob: string
+    // postalCode: string
   }
   onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   onSave: () => void
@@ -77,7 +77,7 @@ export const PersonalInformation = ({
         </div>
 
         {/* Address */}
-        <div>
+        {/* <div>
           <label className="block text-sm text-[#003863] mb-2">
             {t('profilePage.address')}
           </label>
@@ -89,7 +89,7 @@ export const PersonalInformation = ({
             className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
             placeholder={t('profilePage.addressPlaceholder')}
           />
-        </div>
+        </div> */}
 
         {/* Company Name & Phone Number */}
         <div className="flex justify-between">
@@ -122,7 +122,7 @@ export const PersonalInformation = ({
         </div>
 
         {/* D.O.B & Postal Code */}
-        <div className="flex justify-between">
+        {/* <div className="flex justify-between">
           <div className="w-full max-w-[450px]">
             <label className="block text-sm text-[#003863] mb-2">
               {t('profilePage.dob')}
@@ -148,7 +148,7 @@ export const PersonalInformation = ({
               placeholder={t('profilePage.postalCodePlaceholder')}
             />
           </div>
-        </div>
+        </div> */}
 
         {/* Action Buttons */}
         <div className="flex justify-between pt-6">

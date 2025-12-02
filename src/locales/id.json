@@ -180,6 +180,7 @@
     "registrationSuccess": "Pendaftaran Berhasil!",
     "registrationSuccessDescription": "Silakan periksa email Anda untuk kode verifikasi.",
     "registrationFailed": "Pendaftaran Gagal",
+    "userAlreadyExists": "Pengguna sudah ada",
     "checkEmailForVerification": "Silakan periksa email Anda untuk kode verifikasi."
   },
   "forgotPasswordPage": {

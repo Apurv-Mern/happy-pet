@@ -180,6 +180,7 @@
     "registrationSuccess": "Pendaftaran Berjaya!",
     "registrationSuccessDescription": "Sila semak e-mel anda untuk kod pengesahan.",
     "registrationFailed": "Pendaftaran Gagal",
+    "userAlreadyExists": "Pengguna sudah wujud",
     "checkEmailForVerification": "Sila semak e-mel anda untuk kod pengesahan."
   },
   "forgotPasswordPage": {

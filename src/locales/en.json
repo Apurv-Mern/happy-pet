@@ -180,6 +180,7 @@
     "registrationSuccess": "Registration Successful!",
     "registrationSuccessDescription": "Please check your email for verification code.",
     "registrationFailed": "Registration Failed",
+    "userAlreadyExists": "User already exists",
     "checkEmailForVerification": "Please check your email for the verification code."
   },
   "forgotPasswordPage": {

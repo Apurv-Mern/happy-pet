@@ -177,10 +177,11 @@
     "registering": "กำลังลงทะเบียน...",
     "haveAccount": "มีบัญชีอยู่แล้ว?",
     "loginLink": "เข้าสู่ระบบ",
-    "registrationSuccess": "ลงทะเบียนสำเร็จ!",
-    "registrationSuccessDescription": "กรุณาตรวจสอบอีเมลของคุณสำหรับรหัสยืนยัน",
+    "registrationSuccess": "การลงทะเบียนสำเร็จ!",
+    "registrationSuccessDescription": "โปรดตรวจสอบอีเมลของคุณสำหรับรหัสยืนยัน",
     "registrationFailed": "การลงทะเบียนล้มเหลว",
-    "checkEmailForVerification": "กรุณาตรวจสอบอีเมลของคุณสำหรับรหัสยืนยัน"
+    "userAlreadyExists": "มีผู้ใช้อยู่แล้ว",
+    "checkEmailForVerification": "โปรดตรวจสอบอีเมลของคุณสำหรับรหัสยืนยัน"
   },
   "forgotPasswordPage": {
     "title": "ลืมรหัสผ่าน?",
