@@ -16,7 +16,7 @@ import {
 import { useCategories } from '@/hooks/useCategories'
 
 export default function KnowledgeHubPage() {
-  const { t } = useTranslation()
+  const { t, language } = useTranslation()
   const { categoryId, tierId, subcategoryId } = useParams<{
     categoryId?: string
     tierId?: string
@@ -30,7 +30,7 @@ export default function KnowledgeHubPage() {
 
   // Fetch categories from API
   const { data: categoriesResponse, isLoading: categoriesLoading } =
-    useCategoriesQuery('other', 'video')
+    useCategoriesQuery('other', 'video', language)
 
   // Update selectedCategory when route params change
   useEffect(() => {

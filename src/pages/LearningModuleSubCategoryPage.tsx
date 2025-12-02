@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useCategoriesQuery, Filter } from '@/api/categories'
 import { useState, useRef } from 'react'
+import { X } from 'lucide-react'
 
 import {
   useLearningKnowledgeQuery,
@@ -16,7 +17,7 @@ export default function LearningModuleSubCategoryPage() {
     tierId: string
     subcategoryId?: string
   }>()
-  const { t } = useTranslation()
+  const { t, language } = useTranslation()
   const navigate = useNavigate()
 
   // Filter state
@@ -27,10 +28,15 @@ export default function LearningModuleSubCategoryPage() {
     typeOfFood?: string
   }>({})
 
+  // Modal state for description
+  const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false)
+  const [selectedDocument, setSelectedDocument] = useState<any>(null)
+
   // Fetch categories from API with contentType=document
   const { data: categoriesResponse, isLoading } = useCategoriesQuery(
     'other',
-    'document'
+    'document',
+    language
   )
 
   console.log({ categoriesResponse })
@@ -247,6 +253,23 @@ export default function LearningModuleSubCategoryPage() {
   const handleSubCategoryClick = (productLineId: string) => {
     // Navigate to the documents list for this specific product line
     navigate(`/learning-module/${categoryId}/${tierId}/${productLineId}`)
+  }
+
+  const handleReadMore = (document: any) => {
+    setSelectedDocument(document)
+    setIsDescriptionModalOpen(true)
+  }
+
+  const closeDescriptionModal = () => {
+    setIsDescriptionModalOpen(false)
+    setSelectedDocument(null)
+  }
+
+  // Truncate text to 3 lines (approximately 120-150 characters)
+  const truncateText = (text: string, maxLength: number = 150) => {
+    if (!text) return 'No description available'
+    if (text.length <= maxLength) return text
+    return text.substring(0, maxLength) + '...'
   }
 
   // Skeleton loader for loading state
@@ -578,14 +601,25 @@ export default function LearningModuleSubCategoryPage() {
                           <h3 className="text-lg font-bold text-[#003863] mb-2">
                             {document.title}
                           </h3>
-                          <p className="text-gray-600 text-sm mb-4">
-                            {document.content ||
-                              document.description ||
-                              'No description available'}
+                          <p className="text-gray-600 text-sm mb-2 line-clamp-3">
+                            {truncateText(
+                              document.content || document.description || ''
+                            )}
                           </p>
 
+                          {/* Read More Button - Only show if text is longer than truncation */}
+                          {(document.content || document.description || '')
+                            .length > 150 && (
+                            <button
+                              onClick={() => handleReadMore(document)}
+                              className="text-[#003863] text-sm font-semibold hover:underline mb-3"
+                            >
+                              Read more
+                            </button>
+                          )}
+
                           {/* Action Buttons */}
-                          <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-3 mt-2">
                             <button
                               onClick={() => handleView(document)}
                               className="flex items-center gap-2 bg-white text-[#003863] border border-[#003863] hover:bg-[#fff] rounded-full px-4 py-2 text-sm font-medium transition-colors"
@@ -693,6 +727,51 @@ export default function LearningModuleSubCategoryPage() {
           </div>
         </div>
       </div>
+
+      {/* Description Modal */}
+      {isDescriptionModalOpen && selectedDocument && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[80vh] overflow-hidden"
+          >
+            {/* Modal Header */}
+            <div className="bg-[#003863] text-white p-6 flex items-center justify-between">
+              <h2 className="text-2xl font-bold pr-8">
+                {selectedDocument.title}
+              </h2>
+              <button
+                onClick={closeDescriptionModal}
+                className="flex-shrink-0 hover:bg-white/20 rounded-full p-2 transition-colors"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 overflow-y-auto max-h-[calc(80vh-120px)]">
+              <p className="text-gray-700 text-base leading-relaxed whitespace-pre-wrap">
+                {selectedDocument.content ||
+                  selectedDocument.description ||
+                  'No description available'}
+              </p>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="bg-gray-50 px-6 py-4 flex justify-end gap-3 border-t">
+              <button
+                onClick={closeDescriptionModal}
+                className="bg-[#003863] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#004c82] transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </motion.div>
   )
 }

@@ -50,11 +50,14 @@ export interface CategoriesResponse {
 export const categoryApi = {
   getCategories: async (
     itemType: string = 'other',
-    contentType: string = 'document'
+    contentType: string = 'document',
+    language?: string
   ): Promise<CategoriesResponse> => {
-    const { data } = await apiClient.get<CategoriesResponse>(
-      `/v1/categories?itemType=${itemType}&contentType=${contentType}`
-    )
+    let url = `/v1/categories?itemType=${itemType}&contentType=${contentType}`
+    if (language) {
+      url += `&language=${language}`
+    }
+    const { data } = await apiClient.get<CategoriesResponse>(url)
     return data
   },
 }
@@ -62,11 +65,12 @@ export const categoryApi = {
 // React Query Hooks
 export const useCategoriesQuery = (
   itemType: string = 'other',
-  contentType: string = 'document'
+  contentType: string = 'document',
+  language?: string
 ) => {
   return useQuery({
-    queryKey: ['categories', itemType, contentType],
-    queryFn: () => categoryApi.getCategories(itemType, contentType),
+    queryKey: ['categories', itemType, contentType, language],
+    queryFn: () => categoryApi.getCategories(itemType, contentType, language),
     staleTime: 5 * 60 * 1000, // 5 minutes
   })
 }

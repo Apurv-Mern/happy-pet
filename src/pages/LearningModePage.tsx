@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { X } from 'lucide-react'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useCategoriesQuery } from '@/api/categories'
 import {
@@ -18,15 +19,19 @@ import { useCategories } from '@/hooks/useCategories'
 
 export default function LearningModePage() {
   const navigate = useNavigate()
-  const { t } = useTranslation()
+  const { t, language } = useTranslation()
   const [selectedCategory, setSelectedCategory] =
     useState<string>('all-categories')
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [searchTerm, setSearchTerm] = useState<string>('')
+  const [isViewModalOpen, setIsViewModalOpen] = useState(false)
+  const [viewingModule, setViewingModule] = useState<any>(null)
+  const [documentUrl, setDocumentUrl] = useState<string>('')
+  const [isLoadingContent, setIsLoadingContent] = useState(false)
 
   // Fetch categories from API with contentType=document for learning modules
   const { data: categoriesResponse, isLoading: categoriesLoading } =
-    useCategoriesQuery('other', 'document')
+    useCategoriesQuery('other', 'document', language)
 
   const { mutate: fetchPresignedUrl } = usePresignedUrlForViewingMutation()
   const newWindowRef = useRef<Window | null>(null)
@@ -74,9 +79,14 @@ export default function LearningModePage() {
   }
 
   const handleView = (module: any) => {
+    setViewingModule(module)
+    setIsViewModalOpen(true)
+    setIsLoadingContent(true)
+
     // If presignedFileUrl is already available, use it directly
     if (module.presignedFileUrl) {
-      window.open(module.presignedFileUrl, '_blank')
+      setDocumentUrl(module.presignedFileUrl)
+      setIsLoadingContent(false)
       return
     }
 
@@ -84,14 +94,9 @@ export default function LearningModePage() {
     const fileUrl = module.fileUrl
     if (!fileUrl) {
       console.error('No file URL available for module', module)
+      setDocumentUrl('')
+      setIsLoadingContent(false)
       return
-    }
-
-    try {
-      newWindowRef.current = window.open('', '_blank')
-    } catch (err) {
-      console.warn('Could not open new window/tab immediately', err)
-      newWindowRef.current = null
     }
 
     fetchPresignedUrl(fileUrl, {
@@ -99,37 +104,27 @@ export default function LearningModePage() {
         const url = resp?.data?.presignedUrl
         if (!url) {
           console.error('Presigned URL missing in response', resp)
-          if (newWindowRef.current) {
-            try {
-              newWindowRef.current.close()
-            } catch {}
-            newWindowRef.current = null
-          }
+          setDocumentUrl('')
+          setIsLoadingContent(false)
           return
         }
 
-        if (newWindowRef.current) {
-          try {
-            newWindowRef.current.location.href = url
-          } catch (err) {
-            window.open(url, '_blank')
-          }
-        } else {
-          window.open(url, '_blank')
-        }
-
-        newWindowRef.current = null
+        setDocumentUrl(url)
+        setIsLoadingContent(false)
       },
       onError: () => {
-        if (newWindowRef.current) {
-          try {
-            newWindowRef.current.close()
-          } catch {}
-          newWindowRef.current = null
-        }
         console.error('Failed to fetch presigned URL')
+        setDocumentUrl('')
+        setIsLoadingContent(false)
       },
     })
+  }
+
+  const closeViewModal = () => {
+    setIsViewModalOpen(false)
+    setViewingModule(null)
+    setDocumentUrl('')
+    setIsLoadingContent(false)
   }
 
   const handleDownload = (module: any) => {
@@ -249,6 +244,71 @@ export default function LearningModePage() {
           </div>
         </div>
       </div>
+
+      {/* View Document Modal */}
+      {isViewModalOpen && viewingModule && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+          onClick={closeViewModal}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden"
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="bg-[#003863] text-white p-6 flex items-center justify-between">
+              <h2 className="text-2xl font-bold pr-8">{viewingModule.title}</h2>
+              <button
+                onClick={closeViewModal}
+                className="flex-shrink-0 hover:bg-white/20 rounded-full p-2 transition-colors"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-0 overflow-hidden max-h-[calc(85vh-180px)]">
+              {isLoadingContent ? (
+                <div className="flex items-center justify-center py-12">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003863]"></div>
+                </div>
+              ) : documentUrl ? (
+                <iframe
+                  src={documentUrl}
+                  className="w-full h-[calc(85vh-180px)] border-0"
+                  title={viewingModule.title}
+                />
+              ) : (
+                <div className="flex items-center justify-center py-12 px-6">
+                  <p className="text-gray-600">
+                    Unable to load document. Please try downloading it instead.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="bg-gray-50 px-6 py-4 flex justify-end gap-3 border-t">
+              <button
+                onClick={() => handleDownload(viewingModule)}
+                className="bg-white text-[#003863] border border-[#003863] px-6 py-2 rounded-full font-semibold hover:bg-gray-50 transition-colors"
+              >
+                Download
+              </button>
+              <button
+                onClick={closeViewModal}
+                className="bg-[#003863] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#004c82] transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </motion.div>
   )
 }

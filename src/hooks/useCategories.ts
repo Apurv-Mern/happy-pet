@@ -41,7 +41,9 @@ export function useCategories(
           category =>
             category.id !== 'ALL_CATEGORIES' &&
             category.id !== 'all-categories' &&
-            category.name?.toLowerCase() !== 'all categories'
+            category.id !== 'ALL' &&
+            !category.name?.toLowerCase().includes('all') &&
+            !category.name?.toLowerCase().includes('alle')
         )
         ?.map(category => ({
           id:

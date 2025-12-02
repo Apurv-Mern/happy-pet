@@ -13,11 +13,15 @@ interface PremiumTier {
 
 export default function CategorySubPage() {
   const { categoryId } = useParams<{ categoryId: string }>()
-  const { t } = useTranslation()
+  const { t, language } = useTranslation()
   const navigate = useNavigate()
 
   // Fetch categories from API
-  const { data: categoriesResponse, isLoading } = useCategoriesQuery()
+  const { data: categoriesResponse, isLoading } = useCategoriesQuery(
+    'other',
+    'document',
+    language
+  )
 
   // Get premium tiers dynamically from API
   const getPremiumTiers = (): PremiumTier[] => {
