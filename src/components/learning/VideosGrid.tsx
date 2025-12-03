@@ -24,7 +24,7 @@ export const VideosGrid = memo(({ videos, navigate }: VideosGridProps) => {
   const { t } = useTranslation()
 
   return (
-    <div className="grid grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {videos.length === 0 ? (
         <div className="col-span-3 text-center py-12">
           <p className="text-gray-600">{t('knowledgeHub.noVideosAvailable')}</p>

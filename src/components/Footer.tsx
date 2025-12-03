@@ -166,8 +166,9 @@ export function Footer() {
 
   return (
     <footer className="bg-[#003863] bg-[url('/assets/images/footer-image.png')] bg-cover bg-center text-white">
-      <div className="mx-auto max-w-[1400px] px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 divide-x-0 md:divide-x divide-white/20">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-10 divide-x-0  lg:divide-x">
+          
           {/* Brand Section */}
           <div className="space-y-4 pr-0 md:pr-10">
             <img src="/assets/images/logo2.png" alt="" />
@@ -175,7 +176,7 @@ export function Footer() {
           </div>
 
           {/* Main Menu */}
-          <div className="pl-0 md:pl-10 pr-0 md:pr-10">
+          <div className="text-center sm:text-justify lg:text-justify pl-0 md:pl-10 pr-0 md:pr-10">
             <h3 className="font-semibold mb-4">{t('footer.mainMenu')}</h3>
             <ul className="space-y-3 text-sm">
               {mainMenu.map(item => (
@@ -187,7 +188,7 @@ export function Footer() {
           </div>
 
           {/* Menu */}
-          <div className="pl-0 md:pl-10 pr-0 md:pr-10">
+          <div className="text-center sm:text-justify lg:text-justify pl-0 md:pl-10 pr-0 md:pr-10">
             <h3 className="font-semibold mb-4">{t('footer.menu')}</h3>
             <ul className="space-y-3 text-sm">
               {menu.map(item => (
@@ -199,69 +200,31 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="pl-0 md:pl-10">
+          <div className="text-center sm:text-justify lg:text-justify pl-0 lg:pl-10">
             <h3 className="font-semibold mb-4">{t('footer.contactUs')}</h3>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2 opacity-90">
-                <svg
-                  width="27"
-                  height="26"
-                  viewBox="0 0 27 26"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M23.5025 12.584C23.5025 10.612 22.8433 8.68954 21.6174 7.08659C20.3916 5.48364 18.6606 4.28076 16.6677 3.64687C14.6749 3.01299 12.5201 2.97995 10.5062 3.5524C8.49219 4.12484 6.72018 5.27402 5.43899 6.83853C4.1578 8.40303 3.4318 10.3043 3.36294 12.2752C3.29408 14.2462 3.88582 16.1879 5.05507 17.8276C6.22431 19.4672 7.91231 20.7225 9.88201 21.4172C11.8517 22.1118 14.0041 22.2109 16.037 21.7005"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                  <ellipse
-                    cx="13.43"
-                    cy="12.5841"
-                    rx="4.47667"
-                    ry="4.19469"
-                    stroke="white"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M17.9066 9.43811V13.9809C17.9066 15.5261 19.1593 16.7788 20.7045 16.7788C22.2498 16.7788 23.5024 15.5261 23.5024 13.9809V12.5841"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <a
-                  href={`mailto:${footerContact.email}`}
-                  className="hover:underline"
-                >
+              <li className="justify-center sm:justify-start lg:justify-start flex items-center gap-2 opacity-90">
+              <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.5025 12.584C23.5025 10.612 22.8433 8.68954 21.6174 7.08659C20.3916 5.48364 18.6606 4.28076 16.6677 3.64687C14.6749 3.01299 12.5201 2.97995 10.5062 3.5524C8.49219 4.12484 6.72018 5.27402 5.43899 6.83853C4.1578 8.40303 3.4318 10.3043 3.36294 12.2752C3.29408 14.2462 3.88582 16.1879 5.05507 17.8276C6.22431 19.4672 7.91231 20.7225 9.88201 21.4172C11.8517 22.1118 14.0041 22.2109 16.037 21.7005" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <ellipse cx="13.43" cy="12.5841" rx="4.47667" ry="4.19469" stroke="white" stroke-width="2"/>
+              <path d="M17.9066 9.43811V13.9809C17.9066 15.5261 19.1593 16.7788 20.7045 16.7788C22.2498 16.7788 23.5024 15.5261 23.5024 13.9809V12.5841" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+                <a href={`mailto:${footerContact.email}`} className="hover:underline">
                   {t('footer.email')}
                 </a>
               </li>
-              <li className="flex items-center gap-2 opacity-90">
-                <svg
-                  width="27"
-                  height="26"
-                  viewBox="0 0 27 26"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6.67962 3.32038L7.29289 2.70711C7.68342 2.31658 8.31658 2.31658 8.70711 2.70711L11.2929 5.29289C11.6834 5.68342 11.6834 6.31658 11.2929 6.70711L9.50048 8.49952C9.2016 8.7984 9.1275 9.255 9.31653 9.63307C10.4093 11.8186 12.1814 13.5907 14.3669 14.6835C14.745 14.8725 15.2016 14.7984 15.5005 14.4995L17.2929 12.7071C17.6834 12.3166 18.3166 12.3166 18.7071 12.7071L21.2929 15.2929C21.6834 15.6834 21.6834 16.3166 21.2929 16.7071L20.6796 17.3204C18.5683 19.4317 15.2257 19.6693 12.837 17.8777L11.6286 16.9714C9.88504 15.6638 8.33622 14.115 7.02857 12.3714L6.12226 11.163C4.33072 8.7743 4.56827 5.43173 6.67962 3.32038Z"
-                    fill="white"
-                  />
-                </svg>
-                <a
-                  href={`tel:${footerContact.phone}`}
-                  className="hover:underline"
-                >
+              <li className="justify-center sm:justify-start lg:justify-start flex items-center gap-2 opacity-90">                
+              <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.67962 3.32038L7.29289 2.70711C7.68342 2.31658 8.31658 2.31658 8.70711 2.70711L11.2929 5.29289C11.6834 5.68342 11.6834 6.31658 11.2929 6.70711L9.50048 8.49952C9.2016 8.7984 9.1275 9.255 9.31653 9.63307C10.4093 11.8186 12.1814 13.5907 14.3669 14.6835C14.745 14.8725 15.2016 14.7984 15.5005 14.4995L17.2929 12.7071C17.6834 12.3166 18.3166 12.3166 18.7071 12.7071L21.2929 15.2929C21.6834 15.6834 21.6834 16.3166 21.2929 16.7071L20.6796 17.3204C18.5683 19.4317 15.2257 19.6693 12.837 17.8777L11.6286 16.9714C9.88504 15.6638 8.33622 14.115 7.02857 12.3714L6.12226 11.163C4.33072 8.7743 4.56827 5.43173 6.67962 3.32038Z" fill="white"/>
+              </svg>
+                <a href={`tel:${footerContact.phone}`} className="hover:underline">
                   {t('footer.phone')}
                 </a>
               </li>
             </ul>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-4 mt-6">
+            <div className="justify-center sm:justify-start lg:justify-start flex items-center gap-4 mt-6">
               {social.map(item => (
                 <SocialIcon
                   key={item.label}

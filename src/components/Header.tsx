@@ -207,7 +207,7 @@ export function Header() {
 
       {/* Main navigation section with blue background and paw prints */}
       <motion.div
-        className="bg-[url('/assets/images/bg-header.png')] bg-bottom bg-cover bg-no-repeat h-full min-h-[800px] 2xl:min-h-[1000px] xl:min-h-[800px] lg:min-h-[800px] md:min-h-[650px] sm:min-h-[800px] drop-shadow-[0_35px_35px_rgba(0,0,0,0.45)]"
+        className="bg-[url('/assets/images/mobilebg2.png')] lg:bg-[url('/assets/images/bg-header.png')] md:bg-[url('/assets/images/bg-header.png')] bg-bottom bg-cover bg-no-repeat h-full min-h-[720px] 2xl:min-h-[1000px] xl:min-h-[800px] lg:min-h-[800px] md:min-h-[650px] sm:bg-[url('/assets/images/mobilebg2.png')] sm:min-h-[850px]  md:drop-shadow-[0_35px_35px_rgba(0,0,0,0.45)]"
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.08 }}
@@ -480,43 +480,41 @@ export function Header() {
             </div>
           )}
 
-          <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row items-center gap-6 lg:gap-0 mt-6">
+          <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row 2xl:px-[24px] items-center gap-6 sm:gap-0 lg:gap-0 mt-6">
             {/* Left column - text (shows first on mobile) */}
-            <div className="w-full lg:basis-2/3 px-4 lg:px-0">
+            <div className="text-center sm:text-center md:text-left">
               <h3 className="text-[28px] sm:text-[38px] md:text-[45px] lg:text-[85px] text-[#fff] leading-tight heading-line">
                 {t('header.heroTitle')}
               </h3>
               <p className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] text-[#fff] font-semibold mt-3">
                 {t('header.heroSubtitle')}
               </p>
-              <button className="flex items-center bg-[#fff] text-black font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#0E213A] hover:text-[#fff] transition">
-                {t('header.getStarted')}
-                <span className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[49px] lg:h-[49px] bg-[#0E213A] rounded-full border-[2px]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-3 h-3 sm:w-4 sm:h-4 text-[#fff]"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="3"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </span>
-              </button>
+              <div className='about-image2'>
+                <button className="flex items-center bg-[#fff] text-black font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#0E213A] hover:text-[#fff] transition">
+                  {t('header.getStarted')}
+                  <span className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[49px] lg:h-[49px] bg-[#0E213A] rounded-full border-[2px]">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-3 h-3 sm:w-4 sm:h-4 text-[#fff]"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="3"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
             </div>
 
             {/* Right column - background image (shows second on mobile) */}
-            <div className="">
-              <img
-                src="/assets/images/image1.png"
-                alt=""
-                className="max-w-[400px] sm:max-w-[400px] md:w-full md:max-w-full lg:w-full lg:max-w-full xl:w-full xl:max-w-full 2xl:w-full 2xl:max-w-full"
-              />
+            <div className="order-first sm:order-first md:order-last">
+              <img src="/assets/images/image1.png" alt="" className="w-full px-[16px] max-w-[600px] sm:max-w-[600px] md:w-full md:max-w-full lg:w-full lg:max-w-full xl:w-full xl:max-w-[800px] 2xl:w-full " />
             </div>
           </div>
         </div>

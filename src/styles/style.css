@@ -17,6 +17,9 @@
 .about-image {
   text-align: -webkit-right !important;
 }
+.about-image2{
+  text-align: -webkit-center;
+}
 .faq-pointer {
   clip-path: polygon(0 0, 70% 0, 100% 50%, 70% 100%, 0 100%);
   position: absolute;
@@ -31,7 +34,7 @@
   border: 1px solid #3d4760;
   border-radius: 5px;
 }
-.custom-scrollbar{
+.custom-scrollbar {
   height: 100%;
   max-height: 700px;
   overflow-y: auto;
@@ -59,6 +62,15 @@
    box-shadow: 0px 25px 40px rgba(0, 0, 0, 0.45) !important;
 } */
 
-
-
 /* responcive css */
+
+@media screen and (max-width: 1024px) {
+  .about-image {
+    text-align: center !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .about-image2{
+  text-align: -webkit-left;
+}
+}

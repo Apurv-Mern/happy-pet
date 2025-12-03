@@ -111,27 +111,27 @@ export function ContactUsPage() {
   return (
     <div className="bg-[url('/assets/images/background.png')] bg-auto bg-repeat bg-center py-20">
       {/* Header */}
-      <div className="container mx-auto">
+      <div className="container mx-auto px-5 md:px-0">
         <div className="text-center">
-          <h2 className="heading-line text-[#003863] text-[64px]">
+          <h2 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
             {t('contactPage.title')}
           </h2>
-          <p className="text-[#003863] text-[18px] mb-4">
+          <p className="text-[#003863] text-[16px] md:text-[18px] mb-4">
             {t('contactPage.description')}
           </p>
         </div>
         <div className="border border-[#003863] rounded-[10px] p-[16px] bg-white">
-          <div className="grid grid-cols-1 md:grid-cols-[30%_66%] gap-[60px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[30%_66%] xl:grid-cols-[29%_66%] 2xl:grid-cols-[30%_66%] md:gap-[40px] lg:gap-[40px] xl:gap-[60px]">
             {/* LEFT SIDE – Contact Info */}
-            <div className="bg-[#003863] text-white p-8 relative overflow-hidden rounded-[10px]">
-              <h2 className="text-[28px] font-semibold mb-2">
+            <div className="bg-[#003863] text-white p-8 relative overflow-hidden rounded-[10px] min-h-[500px] md:min-h-[500px]">
+              <h2 className="text-[20px] md:text-[28px] font-semibold mb-2">
                 {t('contactPage.formTitle')}
               </h2>
-              <p className="text-[18px] mb-6 text-[#C9C9C9]">
+              <p className="text-[16px] md:text-[18px] md:mb-6 text-[#C9C9C9]">
                 {t('contactPage.description')}
               </p>
 
-              <div className="space-y-8 mt-10">
+              <div className="space-y-8 mt-5 md:mt-10">
                 {/* Phone */}
                 <div className="flex items-center gap-6">
                   <span className="text-xl">
@@ -408,7 +408,7 @@ export function ContactUsPage() {
                   <label className="text-sm font-semibold text-[#003863] mb-6 block">
                     {t('contactPage.subject')}
                   </label>
-                  <div className="flex flex-wrap gap-[80px]">
+                  <div className="flex flex-wrap gap-[30px] md:gap-[80px]">
                     <label className="flex items-center gap-2">
                       <input
                         type="radio"
@@ -482,7 +482,7 @@ export function ContactUsPage() {
                 </button>
               </form>
               <img
-                className="relative left-[200px] bottom-[58px]"
+                className="hidden sm:block relative left-[200px] bottom-[58px]"
                 src="/assets/images/letter.png"
                 alt=""
               />

@@ -195,7 +195,7 @@ export default function CategorySubPage() {
             </div> */}
 
           {/* Main Content - Premium Tiers Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[120px] mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] md:gap-[50px] lg:gap-[120px] mt-16">
             {premiumTiers.map((tier, index) => (
               <motion.div
                 key={tier.id}
@@ -251,7 +251,7 @@ export default function CategorySubPage() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-white text-[32px] font-semibold text-center mb-3">
+                    <h3 className="text-white text-[20px] sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[32px] font-semibold text-center mb-3">
                       {tier.title}
                     </h3>
 
