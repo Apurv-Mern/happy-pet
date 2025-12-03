@@ -110,6 +110,18 @@ export function SignupPage() {
     }
   }, [isAuthenticated, navigate, location])
 
+  // Prevent back navigation after signup/login
+  useEffect(() => {
+    if (isAuthenticated) {
+      window.history.pushState(null, '', window.location.href)
+      const handlePopState = () => {
+        window.history.pushState(null, '', window.location.href)
+      }
+      window.addEventListener('popstate', handlePopState)
+      return () => window.removeEventListener('popstate', handlePopState)
+    }
+  }, [isAuthenticated])
+
   // Handle country dropdown positioning and outside clicks
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

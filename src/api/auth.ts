@@ -27,7 +27,9 @@ export const authApi = {
   },
 
   refreshToken: async (refreshToken: string): Promise<any> => {
-    const { data } = await apiClient.post('/auth/refresh', { refreshToken })
+    const { data } = await apiClient.post('/auth/refresh-token', {
+      refreshToken,
+    })
     return data
   },
 
@@ -106,5 +108,12 @@ export const useUpdateProfileMutation = () => {
   return useMutation({
     mutationFn: authApi.updateProfile,
     mutationKey: ['updateProfile'],
+  })
+}
+
+export const useRefreshTokenMutation = () => {
+  return useMutation({
+    mutationFn: authApi.refreshToken,
+    mutationKey: ['refreshToken'],
   })
 }

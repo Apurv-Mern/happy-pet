@@ -58,6 +58,18 @@ export function LoginPage() {
     }
   }, [isAuthenticated, navigate, location])
 
+  // Prevent back navigation after login
+  useEffect(() => {
+    if (isAuthenticated) {
+      window.history.pushState(null, '', window.location.href)
+      const handlePopState = () => {
+        window.history.pushState(null, '', window.location.href)
+      }
+      window.addEventListener('popstate', handlePopState)
+      return () => window.removeEventListener('popstate', handlePopState)
+    }
+  }, [isAuthenticated])
+
   const onSubmit = async (data: LoginFormData) => {
     try {
       const response = await loginMutation.mutateAsync({

@@ -5,9 +5,24 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { motion } from 'framer-motion'
 import { useTranslation } from '@/contexts/I18nContext'
+import { useAuthStore } from '@/store/useAuthStore'
+import { useEffect } from 'react'
 
 export function HomePage() {
   const { t } = useTranslation()
+  const { isAuthenticated } = useAuthStore()
+
+  // Prevent back navigation to login/signup after authentication
+  useEffect(() => {
+    if (isAuthenticated) {
+      window.history.pushState(null, '', window.location.href)
+      const handlePopState = () => {
+        window.history.pushState(null, '', window.location.href)
+      }
+      window.addEventListener('popstate', handlePopState)
+      return () => window.removeEventListener('popstate', handlePopState)
+    }
+  }, [isAuthenticated])
 
   return (
     <motion.div

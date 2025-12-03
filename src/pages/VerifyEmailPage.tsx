@@ -99,12 +99,11 @@ export function VerifyEmailPage() {
             navigate('/login', { replace: true })
           }
         },
-        onError: (error: any) => {
+        onError: () => {
           toast({
             variant: 'destructive',
             title: 'Verification Failed',
-            description:
-              error.response?.data?.message || 'Invalid or expired OTP',
+            description: 'Invalid or expired OTP',
           })
         },
       }
