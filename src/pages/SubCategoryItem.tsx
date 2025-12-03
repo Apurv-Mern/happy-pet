@@ -301,7 +301,7 @@ export default function SubCategoryItem() {
         </div>
         {/* Filters Section - Only show when viewing product line videos */}
         {isViewingProductLine && (
-          <div className='bg-white p-5 shadow-lg rounded-lg mt-5'>
+          <div className="bg-white p-5 shadow-lg rounded-lg mt-5">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
               {/* Age Group */}
               {ageGroupFilter && (
@@ -326,7 +326,12 @@ export default function SubCategoryItem() {
                     {/* Arrow */}
                     <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                       <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                        <path d="M1 1L6 6L11 1" stroke="#003863" strokeWidth="2" strokeLinecap="round"/>
+                        <path
+                          d="M1 1L6 6L11 1"
+                          stroke="#003863"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -356,7 +361,12 @@ export default function SubCategoryItem() {
                     {/* Arrow */}
                     <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                       <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                        <path d="M1 1L6 6L11 1" stroke="#003863" strokeWidth="2" strokeLinecap="round"/>
+                        <path
+                          d="M1 1L6 6L11 1"
+                          stroke="#003863"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -382,12 +392,9 @@ export default function SubCategoryItem() {
                   Reset
                 </button>
               </div>
-
             </div>
           </div>
         )}
-        
-        
 
         <div className="">
           {/* Main Content - Product Lines Grid or Videos Grid */}
@@ -402,61 +409,58 @@ export default function SubCategoryItem() {
                 ) : (
                   videos.map((video: any, index: number) => (
                     <div>
-
-                    <motion.div
-                      key={video.id || video._id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      onClick={() => {
-                        if (video.presignedFileUrl) {
-                          window.open(video.presignedFileUrl, '_blank')
-                        } else {
-                          navigate(`/video/${video.id || video._id}`)
-                        }
-                      }}
-                      className=" relative rounded-[20px] overflow-hidden cursor-pointer group"
-                    >
-                      {/* Video Thumbnail */}
-                      <div className="relative aspect-video">
-                        <img
-                          className="w-full h-full object-cover"
-                          src={
-                            video.presignedThumbnailUrl ||
-                            video.thumbnailUrl ||
-                            video.thumbnail ||
-                            '/assets/images/cat.png'
-                          }
-                          alt={video.title}
-                        />
-                        {/* Play Button Overlay */}
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
-                          <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center">
-                            <svg
-                              width="24"
-                              height="28"
-                              viewBox="0 0 24 28"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M2 2L22 14L2 26V2Z"
-                                fill="#003863"
-                                stroke="#003863"
-                                strokeWidth="2"
-                              />
-                            </svg>
+                      <motion.div
+                        key={video.id || video._id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        onClick={() => {
+                          navigate(`/video/${video.id || video._id}`, {
+                            state: { video },
+                          })
+                        }}
+                        className=" relative rounded-[20px] overflow-hidden cursor-pointer group"
+                      >
+                        {/* Video Thumbnail */}
+                        <div className="relative aspect-video">
+                          <img
+                            className="w-full h-full object-cover"
+                            src={
+                              video.presignedThumbnailUrl ||
+                              video.thumbnailUrl ||
+                              video.thumbnail ||
+                              '/assets/images/cat.png'
+                            }
+                            alt={video.title}
+                          />
+                          {/* Play Button Overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
+                            <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center">
+                              <svg
+                                width="24"
+                                height="28"
+                                viewBox="0 0 24 28"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M2 2L22 14L2 26V2Z"
+                                  fill="#003863"
+                                  stroke="#003863"
+                                  strokeWidth="2"
+                                />
+                              </svg>
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      {/* Video Title */}
-                      <div className="bg-white p-4">
-                        <h3 className="text-[#003863] text-[16px] font-semibold line-clamp-2">
-                          {video.title}
-                        </h3>
-                      </div>
-                    </motion.div>
+                        {/* Video Title */}
+                        <div className="bg-white p-4">
+                          <h3 className="text-[#003863] text-[16px] font-semibold line-clamp-2">
+                            {video.title}
+                          </h3>
+                        </div>
+                      </motion.div>
                     </div>
                   ))
                 )}
