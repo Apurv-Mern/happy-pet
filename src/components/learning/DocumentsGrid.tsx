@@ -18,7 +18,7 @@ interface DocumentsGridProps {
 export const DocumentsGrid = memo(
   ({ modules, handleView, handleDownload }: DocumentsGridProps) => {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-6">
         {modules.map((module, index) => (
           <motion.div
             key={module.id}

@@ -27,9 +27,9 @@ export function FAQPage() {
         transition={{ duration: 0.5, delay: 1 * 0.1 }}
         className=""
       >
-        <div className="container mx-auto py-20">
+        <div className="container mx-auto py-20 px-5 md:px-0">
           <div className="border-b-[1px] border-[#003860] mb-[26px]">
-            <h1 className="heading-line text-[#003863] text-[64px]">
+            <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
               {t('faqPage.title')}
             </h1>
           </div>
@@ -78,7 +78,7 @@ export function FAQPage() {
                   <span className="faq-pointer absolute left-0 top-0 h-full w-6 bg-white"></span>
 
                   {/* QUESTION TEXT */}
-                  <span className="text-left text-[20px]">{item.question}</span>
+                  <span className="text-left text-[16px] sm:text-[16px] md:text-[20px]">{item.question}</span>
 
                   {/* ARROW */}
                   <ChevronDown
@@ -92,8 +92,8 @@ export function FAQPage() {
 
                 {/* CONTENT (STAYS OUTSIDE HEADER) */}
                 {expandedId === (item.id || String(index)) && (
-                  <div className="bg-white px-6 py-4 border-[1px] border-[#003863] rounded-[5px] mt-[10px]">
-                    <p className="text-[#003863] text-[18px] leading-relaxed">
+                  <div className="bg-white px-3 py-3 md:px-6 md:py-4 border-[1px] border-[#003863] rounded-[5px] mt-[10px]">
+                    <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[18px] leading-relaxed">
                       {item.answer}
                     </p>
                   </div>
