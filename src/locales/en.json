@@ -131,7 +131,7 @@
     "lastNamePlaceholder": "Enter your last name",
     "email": "Email Address",
     "phone": "Phone Number",
-    "subject": "Subject",
+    "subject": "Select Subject",
     "subjectGeneralInquiry": "General Inquiry",
     "subjectSupport": "Support",
     "subjectFeedback": "Feedback",
@@ -209,13 +209,14 @@
     "checkEmailForVerification": "Please check your email for the verification code."
   },
   "forgotPasswordPage": {
-    "title": "Forgot Password ?",
-    "description": "Don't worry. Enter your E-mail address to reset your password.",
+    "title": "Forgot Password?",
+    "dontWorry": "Don't worry!",
+    "enterEmail": "Enter your E-mail address to reset your password",
     "email": "E-Mail",
     "emailPlaceholder": "Enter Your E-mail",
     "sendResetLink": "Send Reset Link",
     "sending": "Sending...",
-    "backToLogin": "Back to Login"
+    "backToLogin": "Back to Login?"
   },
   "verifyEmailPage": {
     "title": "Verify Email",
@@ -240,7 +241,8 @@
   },
   "profilePage": {
     "title": "My Profile",
-    "name": "Name",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
     "email": "Email",
     "userType": "User Type",
     "profileUpdate": "Profile Update",
@@ -268,6 +270,7 @@
     "postalCodePlaceholder": "Enter postal code",
     "discardChanges": "Discard Changes",
     "saveChanges": "Save Changes",
+    "saving": "Saving...",
     "currentPassword": "Type Current Password",
     "newPassword": "Type New Password",
     "confirmPassword": "Confirm New Password",

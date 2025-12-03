@@ -1,5 +1,5 @@
 import { useTranslation } from '@/contexts/I18nContext'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Eye, EyeOff } from 'lucide-react'
 
 interface PasswordManagementProps {
@@ -52,6 +52,21 @@ export const PasswordManagement = ({
       [field]: true,
     }))
   }
+
+  // Reset touched state when form is cleared (after successful password change)
+  useEffect(() => {
+    if (
+      !passwordData.currentPassword &&
+      !passwordData.newPassword &&
+      !passwordData.confirmPassword
+    ) {
+      setTouched({
+        currentPassword: false,
+        newPassword: false,
+        confirmPassword: false,
+      })
+    }
+  }, [passwordData])
 
   // Validation logic
   const validationErrors: ValidationErrors = useMemo(() => {

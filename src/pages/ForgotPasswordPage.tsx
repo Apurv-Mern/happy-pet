@@ -62,9 +62,14 @@ export function ForgotPasswordPage() {
             <h1 className="text-[#fff] heading-line text-[60px] text-center">
               {t('forgotPasswordPage.title')}
             </h1>
-            <p className="text-white text-[16px] font-semibold py-4">
-              {t('forgotPasswordPage.description')}
-            </p>
+            <div className="text-center py-4">
+              <p className="text-white text-[20px] font-semibold">
+                {t('forgotPasswordPage.dontWorry')}
+              </p>
+              <p className="text-white text-[16px] font-normal mt-2">
+                {t('forgotPasswordPage.enterEmail')}
+              </p>
+            </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <div className="space-y-2">
@@ -97,12 +102,12 @@ export function ForgotPasswordPage() {
               </Button>
 
               <div className="text-center pt-2">
-                <p className="text-xs text-white">
-                  {t('forgotPasswordPage.backToLogin')}{' '}
-                  <Link to="/login" className="font-semibold hover:underline ">
-                    {t('loginPage.loginButton')}
-                  </Link>
-                </p>
+                <Link
+                  to="/login"
+                  className="text-xs text-white hover:underline"
+                >
+                  {t('forgotPasswordPage.backToLogin')}
+                </Link>
               </div>
             </form>
           </CardContent>

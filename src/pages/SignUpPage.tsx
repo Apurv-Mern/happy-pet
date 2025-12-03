@@ -42,7 +42,7 @@ export function SignupPage() {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const { t } = useTranslation()
+  const { t, language } = useTranslation()
 
   const { isAuthenticated } = useAuthStore()
   const { toast } = useToast()
@@ -161,7 +161,7 @@ export function SignupPage() {
         password: data.password,
         name: data.name,
         company: data.companyName,
-        preferredLanguage: data.preferredLanguage,
+        preferredLanguage: language, // Use current selected language from context
         phoneNumber: fullPhoneNumber,
         timezone: data.timezone,
         userType: data.userType,

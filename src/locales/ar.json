@@ -131,7 +131,7 @@
     "lastNamePlaceholder": "أدخل اسم العائلة",
     "email": "عنوان البريد الإلكتروني",
     "phone": "رقم الهاتف",
-    "subject": "الموضوع",
+    "subject": " اختر الموضوع",
     "subjectGeneralInquiry": "استفسار عام",
     "subjectSupport": "الدعم",
     "subjectFeedback": "ملاحظات",
@@ -209,13 +209,14 @@
     "checkEmailForVerification": "يرجى التحقق من بريدك الإلكتروني للحصول على رمز التحقق."
   },
   "forgotPasswordPage": {
-    "title": "هل نسيت كلمة المرور؟",
-    "description": "لا تقلق. أدخل عنوان بريدك الإلكتروني لإعادة تعيين كلمة المرور.",
+    "title": "نسيت كلمة المرور؟",
+    "dontWorry": "لا تقلق!",
+    "enterEmail": "أدخل عنوان بريدك الإلكتروني لإعادة تعيين كلمة المرور",
     "email": "البريد الإلكتروني",
     "emailPlaceholder": "أدخل بريدك الإلكتروني",
     "sendResetLink": "إرسال رابط إعادة التعيين",
     "sending": "جارٍ الإرسال...",
-    "backToLogin": "العودة إلى تسجيل الدخول"
+    "backToLogin": "العودة إلى تسجيل الدخول؟"
   },
   "verifyEmailPage": {
     "title": "تحقق من البريد الإلكتروني",
@@ -241,6 +242,8 @@
   "profilePage": {
     "title": "ملفي الشخصي",
     "name": "الاسم",
+    "fullName": "الاسم الكامل",
+    "fullNamePlaceholder": "أدخل اسمك الكامل",
     "email": "البريد الإلكتروني",
     "userType": "نوع المستخدم",
     "profileUpdate": "تحديث الملف الشخصي",
@@ -268,6 +271,7 @@
     "postalCodePlaceholder": "أدخل الرمز البريدي",
     "discardChanges": "تجاهل التغييرات",
     "saveChanges": "حفظ التغييرات",
+    "saving": "جارٍ الحفظ...",
     "currentPassword": "اكتب كلمة المرور الحالية",
     "newPassword": "اكتب كلمة المرور الجديدة",
     "confirmPassword": "تأكيد كلمة المرور الجديدة",

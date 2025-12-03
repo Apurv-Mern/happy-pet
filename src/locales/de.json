@@ -131,7 +131,7 @@
     "lastNamePlaceholder": "Geben Sie Ihren Nachnamen ein",
     "email": "E-Mail-Adresse",
     "phone": "Telefonnummer",
-    "subject": "Betreff",
+    "subject": "Thema auswählen",
     "subjectGeneralInquiry": "Allgemeine Anfrage",
     "subjectSupport": "Unterstützung",
     "subjectFeedback": "Feedback",
@@ -210,12 +210,13 @@
   },
   "forgotPasswordPage": {
     "title": "Passwort vergessen?",
-    "description": "Keine Sorge. Geben Sie Ihre E-Mail-Adresse ein, um Ihr Passwort zurückzusetzen.",
+    "dontWorry": "Keine Sorge!",
+    "enterEmail": "Geben Sie Ihre E-Mail-Adresse ein, um Ihr Passwort zurückzusetzen",
     "email": "E-Mail",
     "emailPlaceholder": "Geben Sie Ihre E-Mail ein",
     "sendResetLink": "Zurücksetzungslink senden",
     "sending": "Senden...",
-    "backToLogin": "Zurück zur Anmeldung"
+    "backToLogin": "Zurück zur Anmeldung?"
   },
   "verifyEmailPage": {
     "title": "E-Mail verifizieren",
@@ -241,6 +242,8 @@
   "profilePage": {
     "title": "Mein Profil",
     "name": "Name",
+    "fullName": "Vollständiger Name",
+    "fullNamePlaceholder": "Geben Sie Ihren vollständigen Namen ein",
     "email": "E-Mail",
     "userType": "Benutzertyp",
     "profileUpdate": "Profilaktualisierung",
@@ -268,6 +271,7 @@
     "postalCodePlaceholder": "Postleitzahl eingeben",
     "discardChanges": "Änderungen verwerfen",
     "saveChanges": "Änderungen speichern",
+    "saving": "Speichern...",
     "currentPassword": "Aktuelles Passwort eingeben",
     "newPassword": "Neues Passwort eingeben",
     "confirmPassword": "Neues Passwort bestätigen",

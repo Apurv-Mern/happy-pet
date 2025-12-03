@@ -131,7 +131,7 @@
     "lastNamePlaceholder": "Masukkan nama belakang Anda",
     "email": "Alamat Email",
     "phone": "Nomor Telepon",
-    "subject": "Subjek",
+    "subject": "Pilih Subjek",
     "subjectGeneralInquiry": "Pertanyaan Umum",
     "subjectSupport": "Dukungan",
     "subjectFeedback": "Masukan",
@@ -210,12 +210,13 @@
   },
   "forgotPasswordPage": {
     "title": "Lupa Kata Sandi?",
-    "description": "Jangan khawatir. Masukkan alamat email Anda untuk mereset kata sandi Anda.",
+    "dontWorry": "Jangan khawatir!",
+    "enterEmail": "Masukkan alamat email Anda untuk mengatur ulang kata sandi Anda",
     "email": "Email",
     "emailPlaceholder": "Masukkan Email Anda",
     "sendResetLink": "Kirim Tautan Reset",
     "sending": "Mengirim...",
-    "backToLogin": "Kembali ke Masuk"
+    "backToLogin": "Kembali ke Login?"
   },
   "verifyEmailPage": {
     "title": "Verifikasi Email",
@@ -241,6 +242,8 @@
   "profilePage": {
     "title": "Profil Saya",
     "name": "Nama",
+    "fullName": "Nama Lengkap",
+    "fullNamePlaceholder": "Masukkan nama lengkap Anda",
     "email": "Email",
     "userType": "Tipe Pengguna",
     "profileUpdate": "Perbarui Profil",
@@ -268,6 +271,7 @@
     "postalCodePlaceholder": "Masukkan kode pos",
     "discardChanges": "Buang Perubahan",
     "saveChanges": "Simpan Perubahan",
+    "saving": "Menyimpan...",
     "currentPassword": "Ketik Kata Sandi Saat Ini",
     "newPassword": "Ketik Kata Sandi Baru",
     "confirmPassword": "Konfirmasi Kata Sandi Baru",

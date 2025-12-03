@@ -131,7 +131,7 @@
     "lastNamePlaceholder": "กรอกนามสกุลของคุณ",
     "email": "ที่อยู่อีเมล",
     "phone": "หมายเลขโทรศัพท์",
-    "subject": "หัวข้อ",
+    "subject": "เลือกหัวข้อ",
     "subjectGeneralInquiry": "สอบถามทั่วไป",
     "subjectSupport": "สนับสนุน",
     "subjectFeedback": "ข้อเสนอแนะ",
@@ -210,12 +210,13 @@
   },
   "forgotPasswordPage": {
     "title": "ลืมรหัสผ่าน?",
-    "description": "ไม่ต้องกังวล กรอกที่อยู่อีเมลของคุณเพื่อรีเซ็ตรหัสผ่าน",
+    "dontWorry": "ไม่ต้องกังวล!",
+    "enterEmail": "ป้อนที่อยู่อีเมลของคุณเพื่อรีเซ็ตรหัสผ่านของคุณ",
     "email": "อีเมล",
     "emailPlaceholder": "กรอกอีเมลของคุณ",
     "sendResetLink": "ส่งลิงก์รีเซ็ต",
     "sending": "กำลังส่ง...",
-    "backToLogin": "กลับไปยังหน้าเข้าสู่ระบบ"
+    "backToLogin": "กลับไปยังหน้าเข้าสู่ระบบ?"
   },
   "verifyEmailPage": {
     "title": "ยืนยันอีเมล",
@@ -241,6 +242,8 @@
   "profilePage": {
     "title": "โปรไฟล์ของฉัน",
     "name": "ชื่อ",
+    "fullName": "ชื่อเต็ม",
+    "fullNamePlaceholder": "กรอกชื่อเต็มของคุณ",
     "email": "อีเมล",
     "userType": "ประเภทผู้ใช้",
     "profileUpdate": "อัปเดตโปรไฟล์",
@@ -268,6 +271,7 @@
     "postalCodePlaceholder": "กรอกรหัสไปรษณีย์",
     "discardChanges": "ยกเลิกการเปลี่ยนแปลง",
     "saveChanges": "บันทึกการเปลี่ยนแปลง",
+    "saving": "กำลังบันทึก...",
     "currentPassword": "พิมพ์รหัสผ่านปัจจุบัน",
     "newPassword": "พิมพ์รหัสผ่านใหม่",
     "confirmPassword": "ยืนยันรหัสผ่านใหม่",
