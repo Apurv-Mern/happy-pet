@@ -180,6 +180,7 @@
     "registrationSuccess": "تم التسجيل بنجاح!",
     "registrationSuccessDescription": "يرجى التحقق من بريدك الإلكتروني للحصول على رمز التحقق.",
     "registrationFailed": "فشل التسجيل",
+    "userAlreadyExists": "المستخدم موجود بالفعل",
     "checkEmailForVerification": "يرجى التحقق من بريدك الإلكتروني للحصول على رمز التحقق."
   },
   "forgotPasswordPage": {

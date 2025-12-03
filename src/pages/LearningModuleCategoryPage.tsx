@@ -13,13 +13,14 @@ interface PremiumTier {
 
 export default function LearningModuleCategoryPage() {
   const { categoryId } = useParams<{ categoryId: string }>()
-  const { t } = useTranslation()
+  const { t, language } = useTranslation()
   const navigate = useNavigate()
 
   // Fetch categories from API with contentType=document
   const { data: categoriesResponse, isLoading } = useCategoriesQuery(
     'other',
-    'document'
+    'document',
+    language
   )
 
   // Map route params to API category IDs

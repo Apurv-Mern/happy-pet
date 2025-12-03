@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { User, LogOut } from 'lucide-react'
 import { useAuthStore } from '../store/useAuthStore'
+import { useTranslation } from '@/contexts/I18nContext'
 
 interface UserDropdownProps {
   onLogout: () => void
@@ -11,6 +12,7 @@ export const UserDropdown = ({ onLogout }: UserDropdownProps) => {
   const navigate = useNavigate()
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState<boolean>(false)
   const { user } = useAuthStore()
+  const { t } = useTranslation()
 
   return (
     <div className="relative">
@@ -37,7 +39,7 @@ export const UserDropdown = ({ onLogout }: UserDropdownProps) => {
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
             >
               <User className="h-4 w-4" />
-              <span>Profile</span>
+              <span>{t('header.profile')}</span>
             </button>
             <button
               onClick={() => {
@@ -47,7 +49,7 @@ export const UserDropdown = ({ onLogout }: UserDropdownProps) => {
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-red-600 hover:bg-gray-100 transition-colors"
             >
               <LogOut className="h-4 w-4" />
-              <span>Logout</span>
+              <span>{t('header.logout')}</span>
             </button>
           </div>
         </div>

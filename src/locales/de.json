@@ -178,9 +178,10 @@
     "haveAccount": "Haben Sie bereits ein Konto?",
     "loginLink": "Anmelden",
     "registrationSuccess": "Registrierung erfolgreich!",
-    "registrationSuccessDescription": "Bitte überprüfen Sie Ihre E-Mail auf den Verifizierungscode.",
+    "registrationSuccessDescription": "Bitte überprüfen Sie Ihre E-Mail auf den Bestätigungscode.",
     "registrationFailed": "Registrierung fehlgeschlagen",
-    "checkEmailForVerification": "Bitte überprüfen Sie Ihre E-Mail auf den Verifizierungscode."
+    "userAlreadyExists": "Benutzer existiert bereits",
+    "checkEmailForVerification": "Bitte überprüfen Sie Ihre E-Mail auf den Bestätigungscode."
   },
   "forgotPasswordPage": {
     "title": "Passwort vergessen?",

@@ -50,7 +50,7 @@
     "title": "Explore Our Pet Services",
     "subtitle": "We offer the best services for your pets, contact us today and book a service",
     "knowledgeHub": "Knowledge Hub",
-    "aiAgent": "AI Agent",
+    "aiAgent": "AI Assistant",
     "learningModule": "Learning Module",
     "ourStory": "Our Story",
     "ourStoryTitle": "We are a fully committed to your pet's well-being",
@@ -180,6 +180,7 @@
     "registrationSuccess": "Registration Successful!",
     "registrationSuccessDescription": "Please check your email for verification code.",
     "registrationFailed": "Registration Failed",
+    "userAlreadyExists": "User already exists",
     "checkEmailForVerification": "Please check your email for the verification code."
   },
   "forgotPasswordPage": {

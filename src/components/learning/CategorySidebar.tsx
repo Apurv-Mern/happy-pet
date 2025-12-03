@@ -44,7 +44,7 @@ export const CategorySidebar = memo(
               } ${selectedCategory === category.id ? 'bg-[#D0D2D9]' : ''}`}
             >
               <span className="text-[#003863] text-[18px] font-semibold">
-                {category.name}
+                Happy {category.name}
               </span>
             </button>
           ))}

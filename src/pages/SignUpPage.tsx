@@ -53,10 +53,6 @@ export function SignupPage() {
   const [selectedCountryCode, setSelectedCountryCode] = useState('+971')
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false)
   const countryDropdownRef = useRef<HTMLButtonElement>(null)
-  const [countryDropdownPosition, setCountryDropdownPosition] = useState({
-    top: 0,
-    left: 0,
-  })
 
   // Create dynamic validation schema with translations
   const signupSchemaWithTranslations = z.object({
@@ -125,11 +121,6 @@ export function SignupPage() {
 
     const updatePosition = () => {
       if (countryDropdownRef.current) {
-        const rect = countryDropdownRef.current.getBoundingClientRect()
-        setCountryDropdownPosition({
-          top: rect.bottom + window.scrollY + 8,
-          left: rect.left + window.scrollX,
-        })
       }
     }
 
@@ -194,13 +185,29 @@ export function SignupPage() {
       }
     } catch (error: any) {
       console.error('Registration error:', error)
+
+      // Get the error message from backend
+      const backendMessage = error.response?.data?.message || ''
+
+      // Translate common backend error messages
+      let errorDescription = backendMessage
+      if (
+        backendMessage.toLowerCase().includes('user already exists') ||
+        backendMessage.toLowerCase().includes('already exists')
+      ) {
+        errorDescription = t('signupPage.userAlreadyExists')
+      } else if (backendMessage) {
+        errorDescription = backendMessage
+      } else {
+        errorDescription =
+          t('signupPage.tryAgain') ||
+          'An error occurred during registration. Please try again.'
+      }
+
       toast({
         variant: 'destructive',
         title: t('signupPage.registrationFailed') || 'Registration Failed',
-        description:
-          error.response?.data?.message ||
-          t('signupPage.tryAgain') ||
-          'An error occurred during registration. Please try again.',
+        description: errorDescription,
       })
     }
   }
@@ -321,9 +328,7 @@ export function SignupPage() {
                     {/* Country Dropdown Menu */}
                     {isCountryDropdownOpen && (
                       <>
-                        <div
-                          className="absolute w-64 max-h-80 rounded-[20px] bg-white shadow-2xl z-[99999]"
-                        >
+                        <div className="absolute w-64 max-h-80 rounded-[20px] bg-white shadow-2xl z-[99999]">
                           <div className="p-2">
                             {countryCodes.map(country => (
                               <button
