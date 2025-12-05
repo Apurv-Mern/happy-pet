@@ -14,7 +14,7 @@ export default function SubCategoryItem() {
     tierId: string
     subcategoryId?: string
   }>()
-  const { t } = useTranslation()
+  const { t, language } = useTranslation()
   const navigate = useNavigate()
 
   // Filter state
@@ -64,6 +64,7 @@ export default function SubCategoryItem() {
         ...(appliedFilters.typeOfFood && appliedFilters.typeOfFood !== 'all'
           ? { typeOfFood: appliedFilters.typeOfFood }
           : {}),
+        language,
       }
     : {}
 

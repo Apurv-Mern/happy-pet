@@ -60,6 +60,7 @@ export default function KnowledgeHubPage() {
         ? 'ALL'
         : categoryMap[selectedCategory] || undefined,
     ...(searchTerm && { search: searchTerm }),
+    language,
   }
 
   // Fetch videos from API

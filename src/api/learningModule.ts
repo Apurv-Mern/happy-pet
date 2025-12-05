@@ -17,6 +17,7 @@ export interface LearningKnowledgeFilters {
   sortBy?: string
   sortOrder?: 'asc' | 'desc'
   search?: string
+  language?: string
 }
 
 export const learningModuleApi = {
@@ -50,6 +51,7 @@ export const learningModuleApi = {
     if (filters.sortBy) params.append('sortBy', filters.sortBy)
     if (filters.sortOrder) params.append('sortOrder', filters.sortOrder)
     if (filters.search) params.append('search', filters.search)
+    if (filters.language) params.append('language', filters.language)
 
     const queryString = params.toString()
     const { data } = await apiClient.get<LearningModulesResponse>(

@@ -28,6 +28,7 @@ export default function LearningModePage() {
   const [viewingModule, setViewingModule] = useState<any>(null)
   const [documentUrl, setDocumentUrl] = useState<string>('')
   const [isLoadingContent, setIsLoadingContent] = useState(false)
+  const [iframeLoading, setIframeLoading] = useState(true)
 
   // Fetch categories from API with contentType=document for learning modules
   const { data: categoriesResponse, isLoading: categoriesLoading } =
@@ -51,6 +52,7 @@ export default function LearningModePage() {
         ? 'ALL'
         : categoryMap[selectedCategory] || undefined,
     ...(searchTerm && { search: searchTerm }),
+    language,
   }
 
   // Fetch documents from API
@@ -68,6 +70,31 @@ export default function LearningModePage() {
   // Process categories using custom hook
   const categories = useCategories(categoriesResponse)
 
+  // Helper function to get file extension
+  const getFileExtension = (url: string) => {
+    const urlWithoutQuery = url.split('?')[0]
+    const parts = urlWithoutQuery.split('.')
+    return parts[parts.length - 1].toLowerCase()
+  }
+
+  // Helper function to get viewer URL based on file type
+  const getViewerUrl = (fileUrl: string) => {
+    const extension = getFileExtension(fileUrl)
+
+    // PDF files can be displayed directly
+    if (extension === 'pdf') {
+      return `${fileUrl}#view=FitH`
+    }
+
+    // DOC, DOCX, XLS, XLSX, PPT, PPTX - use Google Docs Viewer
+    if (['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'].includes(extension)) {
+      return `https://docs.google.com/viewer?url=${encodeURIComponent(fileUrl)}&embedded=true`
+    }
+
+    // Default: return the URL as-is
+    return fileUrl
+  }
+
   // Category click handler
   const handleCategoryClick = (categoryId: string) => {
     if (categoryId === 'happy-dog' || categoryId === 'happy-cat') {
@@ -81,11 +108,26 @@ export default function LearningModePage() {
     setViewingModule(module)
     setIsViewModalOpen(true)
     setIsLoadingContent(true)
+    setIframeLoading(true)
+    setDocumentUrl('') // Reset URL
 
     // If presignedFileUrl is already available, use it directly
     if (module.presignedFileUrl) {
-      setDocumentUrl(module.presignedFileUrl)
-      setIsLoadingContent(false)
+      const viewerUrl = getViewerUrl(module.presignedFileUrl)
+
+      // Add a small delay to ensure modal is rendered
+      setTimeout(() => {
+        setDocumentUrl(viewerUrl)
+        setIsLoadingContent(false)
+
+        // Timeout fallback - if iframe doesn't load in 10 seconds, hide loading
+        setTimeout(() => {
+          if (iframeLoading) {
+            console.log('Iframe load timeout - hiding spinner')
+            setIframeLoading(false)
+          }
+        }, 10000)
+      }, 100)
       return
     }
 
@@ -95,6 +137,7 @@ export default function LearningModePage() {
       console.error('No file URL available for module', module)
       setDocumentUrl('')
       setIsLoadingContent(false)
+      setIframeLoading(false)
       return
     }
 
@@ -105,16 +148,24 @@ export default function LearningModePage() {
           console.error('Presigned URL missing in response', resp)
           setDocumentUrl('')
           setIsLoadingContent(false)
+          setIframeLoading(false)
           return
         }
 
-        setDocumentUrl(url)
+        const viewerUrl = getViewerUrl(url)
+        setDocumentUrl(viewerUrl)
         setIsLoadingContent(false)
+
+        // Timeout fallback - if iframe doesn't load in 10 seconds, hide loading
+        setTimeout(() => {
+          setIframeLoading(false)
+        }, 10000)
       },
       onError: () => {
         console.error('Failed to fetch presigned URL')
         setDocumentUrl('')
         setIsLoadingContent(false)
+        setIframeLoading(false)
       },
     })
   }
@@ -124,30 +175,83 @@ export default function LearningModePage() {
     setViewingModule(null)
     setDocumentUrl('')
     setIsLoadingContent(false)
+    setIframeLoading(true)
   }
 
-  const handleDownload = (module: any) => {
-    // If presignedFileUrl is already available, use it directly
-    if (module.presignedFileUrl) {
-      const link = document.createElement('a')
-      link.href = module.presignedFileUrl
-      link.download = module.title || 'document'
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      return
-    }
+  const handleDownload = async (module: any) => {
+    try {
+      // Get the presigned URL (either already available or fetch it)
+      let downloadUrl = module.presignedFileUrl
 
-    // Fallback to old method
-    const blob = new Blob([module.content || ''], { type: 'text/plain' })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement('a')
-    link.href = url
-    link.download = `${module.title}.txt`
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-    URL.revokeObjectURL(url)
+      if (!downloadUrl) {
+        // Need to fetch presigned URL first
+        const fileUrl = module.fileUrl
+        if (!fileUrl) {
+          console.error('No fileUrl available for download', module)
+          return
+        }
+
+        // Fetch presigned URL synchronously for download
+        const resp = await new Promise<any>((resolve, reject) => {
+          fetchPresignedUrl(fileUrl, {
+            onSuccess: resolve,
+            onError: reject,
+          })
+        })
+
+        downloadUrl = resp?.data?.presignedUrl
+        if (!downloadUrl) {
+          console.error('Failed to get presigned URL for download')
+          return
+        }
+      }
+
+      // Get file extension from URL
+      const extension = getFileExtension(downloadUrl)
+      const fileName = `${module.title}.${extension}`
+
+      try {
+        // Try to fetch the file as a blob (works if CORS is properly configured)
+        const response = await fetch(downloadUrl, {
+          mode: 'cors',
+        })
+
+        if (!response.ok) throw new Error('Fetch failed')
+
+        const blob = await response.blob()
+
+        // Create a blob URL
+        const blobUrl = URL.createObjectURL(blob)
+
+        // Create a temporary anchor element to trigger download
+        const link = document.createElement('a')
+        link.href = blobUrl
+        link.download = fileName
+
+        // Append to body, click, and remove
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+
+        // Clean up the blob URL
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 100)
+      } catch (fetchError) {
+        // Fallback: direct download link (works for same-origin or CORS-enabled URLs)
+        console.log('Blob fetch failed, using direct download', fetchError)
+
+        const link = document.createElement('a')
+        link.href = downloadUrl
+        link.download = fileName
+        link.target = '_blank'
+        link.rel = 'noopener noreferrer'
+
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      }
+    } catch (error) {
+      console.error('Error downloading document:', error)
+    }
   }
 
   // Skeleton loader component for initial page load
@@ -270,17 +374,36 @@ export default function LearningModePage() {
             </div>
 
             {/* Modal Body */}
-            <div className="p-0 overflow-hidden max-h-[calc(85vh-180px)]">
+            <div className="p-0 overflow-hidden max-h-[calc(85vh-180px)] relative">
               {isLoadingContent ? (
-                <div className="flex items-center justify-center py-12">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003863]"></div>
+                <div className="flex flex-col items-center justify-center py-12">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003863] mb-4"></div>
+                  <p className="text-gray-600">Loading document...</p>
                 </div>
               ) : documentUrl ? (
-                <iframe
-                  src={documentUrl}
-                  className="w-full h-[calc(85vh-180px)] border-0"
-                  title={viewingModule.title}
-                />
+                <>
+                  {iframeLoading && (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10">
+                      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003863] mb-4"></div>
+                      <p className="text-gray-600">Loading content...</p>
+                    </div>
+                  )}
+                  <iframe
+                    key={documentUrl}
+                    src={documentUrl}
+                    className="w-full h-[calc(85vh-180px)] border-0"
+                    title={viewingModule.title}
+                    allow="autoplay"
+                    onLoad={() => {
+                      console.log('Iframe loaded successfully')
+                      setIframeLoading(false)
+                    }}
+                    onError={e => {
+                      console.error('Iframe error:', e)
+                      setIframeLoading(false)
+                    }}
+                  />
+                </>
               ) : (
                 <div className="flex items-center justify-center py-12 px-6">
                   <p className="text-gray-600">
