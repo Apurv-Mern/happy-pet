@@ -135,8 +135,8 @@ export const PersonalInformation = ({
         </div> */}
 
         {/* Company Name & Phone Number */}
-        <div className="flex justify-between">
-          <div className="w-full max-w-[450px]">
+        <div className="lg:block xl:flex xl:justify-between">
+          <div className="w-full md:max-w-full lg:max-w-full xl:max-w-[450px]">
             <label className="block text-sm text-[#003863] mb-2">
               {t('profilePage.companyName')}
             </label>
@@ -149,11 +149,11 @@ export const PersonalInformation = ({
               placeholder={t('profilePage.companyNamePlaceholder')}
             />
           </div>
-          <div className="w-full max-w-[450px]">
+          <div className="w-full md:max-w-full lg:max-w-full xl:max-w-[450px]">
             <label className="block text-sm text-[#003863] mb-2">
               {t('profilePage.phoneNumber')}
             </label>
-            <div className="flex gap-2">
+            <div className="lg:flex gap-2">
               {/* Country Code Dropdown */}
               <div className="relative country-dropdown-container">
                 <button
@@ -163,7 +163,7 @@ export const PersonalInformation = ({
                     e.stopPropagation()
                     setIsCountryDropdownOpen(!isCountryDropdownOpen)
                   }}
-                  className="flex items-center bg-white border border-gray-300 rounded-xl px-3 py-3 gap-2 min-w-[110px] h-[50px] hover:bg-gray-50 transition-colors"
+                  className="flex items-center bg-white border border-gray-300 rounded-xl px-3 py-3 gap-2 w-full md:max-w-full lg:max-w-[110px] h-[50px] hover:bg-gray-50 transition-colors"
                 >
                   <img
                     src={
@@ -255,7 +255,7 @@ export const PersonalInformation = ({
                   } as React.ChangeEvent<HTMLInputElement>
                   onInputChange(syntheticEvent)
                 }}
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-xl search-bar"
+                className="flex-1 px-4 py-3 border border-gray-300 rounded-xl search-bar w-full"
                 placeholder={t('profilePage.phoneNumberPlaceholder')}
               />
             </div>
@@ -292,7 +292,7 @@ export const PersonalInformation = ({
         </div> */}
 
         {/* Action Buttons */}
-        <div className="flex justify-between pt-6">
+        <div className="md:block md:gap-4 lg:flex lg:gap-4 xl:flex xl:justify-between pt-6">
           <button
             onClick={onDiscard}
             disabled={isLoading}

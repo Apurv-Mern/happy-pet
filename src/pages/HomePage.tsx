@@ -31,7 +31,7 @@ export function HomePage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="">
+      <div className="container mx-auto">
         <div className="px-4 pb-4 pt-4 sm:pb-6 sm:pt-6">
           <div className="">
             <div className="w-full">
