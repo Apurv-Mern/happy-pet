@@ -52,6 +52,7 @@ export default function LearningModePage() {
         ? 'ALL'
         : categoryMap[selectedCategory] || undefined,
     ...(searchTerm && { search: searchTerm }),
+    language,
   }
 
   // Fetch documents from API

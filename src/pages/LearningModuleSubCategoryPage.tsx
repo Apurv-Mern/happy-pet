@@ -86,6 +86,7 @@ export default function LearningModuleSubCategoryPage() {
         ...(appliedFilters.typeOfFood && appliedFilters.typeOfFood !== 'all'
           ? { typeOfFood: appliedFilters.typeOfFood }
           : {}),
+        language,
       }
     : {}
 

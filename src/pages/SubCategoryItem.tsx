@@ -64,6 +64,7 @@ export default function SubCategoryItem() {
         ...(appliedFilters.typeOfFood && appliedFilters.typeOfFood !== 'all'
           ? { typeOfFood: appliedFilters.typeOfFood }
           : {}),
+        language,
       }
     : {}
 
