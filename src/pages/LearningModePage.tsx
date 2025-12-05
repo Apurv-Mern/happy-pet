@@ -255,7 +255,7 @@ export default function LearningModePage() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden"
+            className="bg-white rounded-2xl shadow-2xl w-full max-h-[85vh] overflow-hidden"
             onClick={e => e.stopPropagation()}
           >
             {/* Modal Header */}

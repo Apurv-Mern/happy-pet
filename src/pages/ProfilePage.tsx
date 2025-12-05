@@ -109,7 +109,7 @@ const ProfilePage = () => {
         </div>
       ) : (
         <div className="bg-[#E3E6ED] rounded-[10px] shadow-lg">
-          <div className="grid grid-cols-1 md:grid-cols-[24%_76%]">
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-[38%_62%] xl:grid-cols-[30%_70%] 2xl:grid-cols-[24%_76%]">
             {/* Left Sidebar */}
             <div className="">
               <ProfileSidebar

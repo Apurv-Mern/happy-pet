@@ -328,7 +328,7 @@ export default function LearningModuleSubCategoryPage() {
     >
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b-[1px] border-[#003860] pb-5">
-          <div className="flex items-center gap-[25px] text-lg">
+          <div className="sm:flex md:flex lg:flex items-center gap-[25px] text-lg">
             <button
               onClick={() => navigate('/learning-module')}
               className="text-[#003863] text-[28px] heading-line"
@@ -731,7 +731,7 @@ export default function LearningModuleSubCategoryPage() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[80vh] overflow-hidden"
+            className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full overflow-hidden"
           >
             {/* Modal Header */}
             <div className="bg-[#003863] text-white p-6 flex items-center justify-between">
@@ -779,7 +779,7 @@ export default function LearningModuleSubCategoryPage() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden"
+            className="bg-white rounded-2xl shadow-2xl w-full max-h-[85vh] overflow-hidden"
             onClick={e => e.stopPropagation()}
           >
             {/* Modal Header */}

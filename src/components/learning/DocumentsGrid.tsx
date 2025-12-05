@@ -174,7 +174,7 @@ export const DocumentsGrid = memo(
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[80vh] overflow-hidden"
+              className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full overflow-hidden"
             >
               {/* Modal Header */}
               <div className="bg-[#003863] text-white p-6 flex items-center justify-between">

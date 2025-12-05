@@ -67,7 +67,7 @@ export const ProfileSidebar = ({
 
       {/* Logout Button */}
       <button
-        onClick={onLogout}
+        onClick={onLogout}  
         className="w-full mt-6 flex items-center justify-center gap-2 bg-[#003863] border-2 text-[#fff] px-6 py-3 rounded-xl font-semibold hover:bg-[#004c82] hover:text-white transition-all"
       >
         <LogOut className="w-5 h-5" />

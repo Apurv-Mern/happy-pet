@@ -29,6 +29,10 @@ import LearningModuleSubCategoryPage from './pages/LearningModuleSubCategoryPage
 import { Toaster } from './components/ui/toaster'
 import VideoDetailPage from './pages/VideoDetailsPage.tsx'
 import { Header2 } from './components/Header2.tsx'
+import SocialCommitment from './pages/SocialCommitment.tsx'
+import NutritionalConcept from './pages/NutritionalConcept.tsx'
+import ManufacturingProcess from './pages/ManufacturingProcess.tsx'
+import BrandHistory from './pages/BrandHistory.tsx'
 
 function HeaderWrapper() {
   const location = useLocation()
@@ -49,6 +53,10 @@ function App() {
         <Route path="/faqs" element={<FAQPage />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/social-commitment" element={<SocialCommitment />} />
+        <Route path="/nutritional-concept" element={<NutritionalConcept />} />
+        <Route path="/manufacturing-process" element={<ManufacturingProcess />} />
+        <Route path="/brand-history" element={<BrandHistory />} />
 
         <Route element={<ProtectedRoute />}>
           <Route

@@ -8,6 +8,17 @@ export default {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    container: {
+      center: true,
+       padding: "16px",
+      screens: {
+        sm: "600px",
+        md: "728px",
+        lg: "984px",
+        xl: "1240px",
+        "2xl": "1450px", 
+      },
+  },
     extend: {
       borderRadius: {
         lg: 'var(--radius)',

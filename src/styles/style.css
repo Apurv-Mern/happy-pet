@@ -20,6 +20,7 @@
 .about-image2{
   text-align: -webkit-center;
 }
+
 .faq-pointer {
   clip-path: polygon(0 0, 70% 0, 100% 50%, 70% 100%, 0 100%);
   position: absolute;
@@ -56,6 +57,16 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #002947;
 }
+/* @media (min-width: 1536px) {
+    .container {
+        max-width: 1440px !important;
+    }
+}
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1200px !important;
+    }
+} */
 
 /* 
 .shadow-bottom {
