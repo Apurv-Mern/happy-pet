@@ -349,13 +349,43 @@ export function Header() {
             </div>
           </div>
 
-          {/* Mobile Navigation Menu */}
-
-          {/* Mobile Navigation Menu */}
+          {/* Mobile Navigation Drawer */}
+          {/* Backdrop */}
           {isMobileMenuOpen && (
-            <div className="lg:hidden mt-4 bg-white rounded-3xl p-6 shadow-xl animate-in slide-in-from-top">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            />
+          )}
+
+          {/* Drawer */}
+          <motion.div
+            initial={{ x: '-100%' }}
+            animate={{ x: isMobileMenuOpen ? 0 : '-100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed top-0 left-0 h-full w-[280px] sm:w-[320px] bg-white shadow-2xl z-50 lg:hidden overflow-y-auto"
+          >
+            <div className="p-6">
+              {/* Close Button and Logo */}
+              <div className="flex items-center justify-between mb-6">
+                <img
+                  src="/assets/images/logo.png"
+                  alt="Happy Pet Logo"
+                  className="h-10"
+                />
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                >
+                  <X className="h-6 w-6 text-[#003863]" />
+                </button>
+              </div>
+
               {/* Search bar for mobile */}
-              <div className="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2 mb-4">
+              <div className="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2 mb-6">
                 <Input
                   placeholder="Search..."
                   className="border-none focus-visible:outline-none focus:ring-0 focus:border-transparent h-9 text-[#003863] placeholder:text-[#003863] bg-transparent"
@@ -366,13 +396,13 @@ export function Header() {
               </div>
 
               {/* Mobile Menu Items */}
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-2">
                 {publicNavItems.map(item => (
                   <Link
                     key={item.path}
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-[#003863] font-medium py-2 px-4 rounded-lg transition-colors ${
+                    className={`text-[#003863] font-medium py-3 px-4 rounded-lg transition-colors ${
                       location.pathname === item.path
                         ? 'bg-[#E1EEF4] text-[#035FA6]'
                         : 'hover:bg-gray-100'
@@ -388,7 +418,7 @@ export function Header() {
                       key={item.path}
                       to={item.path}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`text-[#003863] font-medium py-2 px-4 rounded-lg transition-colors ${
+                      className={`text-[#003863] font-medium py-3 px-4 rounded-lg transition-colors ${
                         location.pathname === item.path
                           ? 'bg-[#E1EEF4] text-[#035FA6]'
                           : 'hover:bg-gray-100'
@@ -398,15 +428,25 @@ export function Header() {
                     </Link>
                   ))}
 
-                {/* Language Selector in Mobile Menu */}
+                {/* Language Selector in Drawer */}
                 <div className="pt-4 border-t border-gray-200">
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     className="flex items-center justify-between w-full gap-2 bg-[#003d66] hover:bg-[#002d4d] text-white rounded-full h-11 px-4 transition-colors"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="text-xl">🇬🇧</span>
-                      <span className="text-sm font-medium">English</span>
+                      <img
+                        src={
+                          availableLanguages.find(l => l.code === language)
+                            ?.flag || 'https://flagcdn.com/w40/gb.png'
+                        }
+                        alt="flag"
+                        className="w-6 h-4 object-cover rounded"
+                      />
+                      <span className="text-sm font-medium">
+                        {availableLanguages.find(l => l.code === language)
+                          ?.name || 'English'}
+                      </span>
                     </div>
                     <ChevronDown
                       className={`h-4 w-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
@@ -414,7 +454,11 @@ export function Header() {
                   </button>
 
                   {isDropdownOpen && (
-                    <div className="mt-3 space-y-2">
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      className="mt-3 space-y-2 overflow-hidden"
+                    >
                       {availableLanguages.map(lang => (
                         <button
                           key={lang.code}
@@ -424,11 +468,15 @@ export function Header() {
                           }}
                           className="flex w-full items-center gap-3 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-[#003863] hover:bg-gray-200 transition"
                         >
-                          <span className="text-xl">{lang.flag}</span>
+                          <img
+                            src={lang.flag}
+                            alt={lang.name}
+                            className="w-6 h-4 object-cover rounded"
+                          />
                           <span>{lang.name}</span>
                         </button>
                       ))}
-                    </div>
+                    </motion.div>
                   )}
                 </div>
 
@@ -478,7 +526,7 @@ export function Header() {
                 </div>
               </div>
             </div>
-          )}
+          </motion.div>
 
           <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row 2xl:px-[24px] items-center gap-6 sm:gap-0 lg:gap-0 mt-6">
             {/* Left column - text (shows first on mobile) */}
@@ -489,7 +537,7 @@ export function Header() {
               <p className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] text-[#fff] font-semibold mt-3">
                 {t('header.heroSubtitle')}
               </p>
-              <div className='about-image2'>
+              <div className="about-image2">
                 <button className="flex items-center bg-[#fff] text-black font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#0E213A] hover:text-[#fff] transition">
                   {t('header.getStarted')}
                   <span className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[49px] lg:h-[49px] bg-[#0E213A] rounded-full border-[2px]">
@@ -514,7 +562,11 @@ export function Header() {
 
             {/* Right column - background image (shows second on mobile) */}
             <div className="order-first sm:order-first md:order-last">
-              <img src="/assets/images/image1.png" alt="" className="w-full px-[16px] max-w-[600px] sm:max-w-[600px] md:w-full md:max-w-full lg:w-full lg:max-w-full xl:w-full xl:max-w-[800px] 2xl:w-full " />
+              <img
+                src="/assets/images/image1.png"
+                alt=""
+                className="w-full px-[16px] max-w-[600px] sm:max-w-[600px] md:w-full md:max-w-full lg:w-full lg:max-w-full xl:w-full xl:max-w-[800px] 2xl:w-full "
+              />
             </div>
           </div>
         </div>

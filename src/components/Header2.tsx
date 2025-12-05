@@ -3,6 +3,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Phone, Search, User, LogOut, ChevronDown, Menu, X } from 'lucide-react'
 import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { useAuthStore } from '@/store/useAuthStore'
 import { useTranslation } from '@/contexts/I18nContext'
 import { UserDropdown } from './UserDropdown'
@@ -374,125 +375,184 @@ export function Header2() {
           </div>
         </div>
 
-        {/* Mobile menu (same for both auth states) */}
+        {/* Mobile Drawer */}
+        {/* Backdrop */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden">
-            <div
-              className="fixed inset-0 bg-[#003863] bg-opacity-80 z-40"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-            <div className="fixed inset-0 z-50 flex items-start justify-center pt-8 px-4">
-              <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-6 relative">
-                <button
-                  aria-label="Close menu"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="fixed inset-0 bg-black/50 z-40"
+          />
+        )}
+
+        {/* Drawer */}
+        <motion.div
+          initial={{ x: '-100%' }}
+          animate={{ x: isMobileMenuOpen ? 0 : '-100%' }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+          className="fixed top-0 left-0 h-full w-[280px] sm:w-[320px] bg-white shadow-2xl z-50 overflow-y-auto"
+        >
+          <div className="p-6">
+            {/* Close Button and Logo */}
+            <div className="flex items-center justify-between mb-6">
+              <img
+                src="/assets/images/logo.png"
+                alt="Happy Pet Logo"
+                className="h-10"
+              />
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              >
+                <X className="h-6 w-6 text-[#003863]" />
+              </button>
+            </div>
+
+            {/* Search bar */}
+            <div className="flex items-center gap-2 bg-[#D4E7F6] rounded-full px-4 py-2 mb-6">
+              <Input
+                placeholder="Find the best for your pet..."
+                className="flex-1 border-none bg-transparent focus-visible:outline-none focus:ring-0 focus:border-transparent h-9 text-[#003863] placeholder:text-[#003863] font-normal text-base"
+              />
+              <Button className="h-8 w-8 rounded-full p-0 bg-[#035FA6] hover:bg-[#024d85]">
+                <Search className="h-4 w-4 text-white" />
+              </Button>
+            </div>
+
+            {/* Menu Items */}
+            <div className="flex flex-col space-y-2">
+              {publicNavItems.map(item => (
+                <Link
+                  key={item.path}
+                  to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="absolute -top-5 right-3 bg-[#D4E7F6] w-10 h-10 rounded-full flex items-center justify-center shadow-md"
+                  className={`text-[#003863] font-medium py-3 px-4 rounded-lg transition-colors ${
+                    location.pathname === item.path
+                      ? 'bg-[#E1EEF4] text-[#035FA6]'
+                      : 'hover:bg-gray-100'
+                  }`}
                 >
-                  <X className="h-5 w-5 text-[#003863]" />
+                  {item.label}
+                </Link>
+              ))}
+
+              {isAuthenticated &&
+                protectedNavItems.map(item => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`text-[#003863] font-medium py-3 px-4 rounded-lg transition-colors ${
+                      location.pathname === item.path
+                        ? 'bg-[#E1EEF4] text-[#035FA6]'
+                        : 'hover:bg-gray-100'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+
+              {/* Language Selector */}
+              <div className="pt-4 border-t border-gray-200">
+                <button
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="flex items-center justify-between w-full gap-2 bg-[#003d66] hover:bg-[#002d4d] text-white rounded-full h-11 px-4 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <img
+                      src={
+                        availableLanguages.find((l: any) => l.code === language)
+                          ?.flag || 'https://flagcdn.com/w40/gb.png'
+                      }
+                      alt="flag"
+                      className="w-6 h-4 object-cover rounded"
+                    />
+                    <span className="text-sm font-medium">
+                      {availableLanguages.find((l: any) => l.code === language)
+                        ?.name || 'English'}
+                    </span>
+                  </div>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
+                  />
                 </button>
 
-                <div className="flex items-center gap-2 bg-[#D4E7F6] rounded-full px-4 py-2 mb-6">
-                  <Input
-                    placeholder="Find the best for your pet..."
-                    className="flex-1 border-none bg-transparent focus-visible:outline-none focus:ring-0 focus:border-transparent h-9 text-[#003863] placeholder:text-[#003863] font-normal text-base"
-                  />
-                  <Button className="h-8 w-8 rounded-full p-0 bg-[#035FA6] hover:bg-[#024d85]">
-                    <Search className="h-4 w-4 text-white" />
-                  </Button>
-                </div>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    className="mt-3 space-y-2 overflow-hidden"
+                  >
+                    {availableLanguages.map((lang: any) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => {
+                          handleSelectLanguage(lang.code)
+                          setIsMobileMenuOpen(false)
+                        }}
+                        className="flex w-full items-center gap-3 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-[#003863] hover:bg-gray-200 transition"
+                      >
+                        <img
+                          src={lang.flag}
+                          alt={lang.name}
+                          className="w-6 h-4 object-cover rounded"
+                        />
+                        <span>{lang.name}</span>
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
 
-                <div className="flex flex-col gap-3">
-                  {publicNavItems.map(item => (
-                    <Link
-                      key={item.path}
-                      to={item.path}
-                      className="text-[#003863] hover:text-[#035FA6] font-medium py-2 px-4 rounded-lg hover:bg-[#F3FBFF] transition-colors"
-                      onClick={() => setIsMobileMenuOpen(false)}
+              {/* Login/Logout Buttons */}
+              <div className="pt-4 border-t border-gray-200">
+                {isAuthenticated ? (
+                  <>
+                    <button
+                      onClick={() => {
+                        navigate('/profile')
+                        setIsMobileMenuOpen(false)
+                      }}
+                      className="w-full flex items-center justify-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full py-3 transition-colors mb-2"
                     >
-                      {item.label}
-                    </Link>
-                  ))}
-
-                  {isAuthenticated && (
-                    <>
-                      {protectedNavItems.map(item => (
-                        <Link
-                          key={item.path}
-                          to={item.path}
-                          className="text-[#003863] hover:text-[#035FA6] font-medium py-2 px-4 rounded-lg hover:bg-[#F3FBFF] transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </>
-                  )}
-
-                  <div className="pt-4 border-t border-gray-200">
-                    <div className="flex items-center justify-between py-2 px-4">
-                      <span className="text-[#003863] font-medium">
-                        {t('header.language')}
+                      <User className="h-5 w-5 text-white" />
+                      <span className="text-white font-medium">
+                        {t('header.profile')}
                       </span>
-                      <select
-                        value={selectedLanguage}
-                        onChange={handleLanguageChange}
-                        className="bg-[#D4E7F6] text-[#003863] rounded-lg px-3 py-1.5 font-medium focus:outline-none focus:ring-2 focus:ring-[#035FA6]"
-                      >
-                        {availableLanguages.map(lang => (
-                          <option key={lang.code} value={lang.name}>
-                            {lang.flag} {lang.name}
-                          </option>
-                        ))}
-                      </select>
+                    </button>
+                    <button
+                      onClick={() => {
+                        handleLogout()
+                        setIsMobileMenuOpen(false)
+                      }}
+                      className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 rounded-full py-3 transition-colors"
+                    >
+                      <LogOut className="h-5 w-5 text-white" />
+                      <span className="text-white font-medium">
+                        {t('header.logout')}
+                      </span>
+                    </button>
+                  </>
+                ) : !isAuthPage ? (
+                  <Link
+                    to="/login"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-between w-full gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full px-5 h-11 transition-colors"
+                  >
+                    <span className="text-white text-sm font-medium">
+                      {t('header.loginRegister')}
+                    </span>
+                    <div className="bg-[#D4E7F6] rounded-full h-9 w-9 flex items-center justify-center">
+                      <User className="h-4 w-4 text-black" />
                     </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-gray-200">
-                    {isAuthenticated ? (
-                      <>
-                        <button
-                          onClick={() => {
-                            navigate('/profile')
-                            setIsMobileMenuOpen(false)
-                          }}
-                          className="w-full flex items-center justify-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full py-3 transition-colors mb-2"
-                        >
-                          <User className="h-5 w-5 text-white" />
-                          <span className="text-white font-medium">
-                            {t('header.profile')}
-                          </span>
-                        </button>
-                        <button
-                          onClick={() => {
-                            handleLogout()
-                            setIsMobileMenuOpen(false)
-                          }}
-                          className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 rounded-full py-3 transition-colors"
-                        >
-                          <LogOut className="h-5 w-5 text-white" />
-                          <span className="text-white font-medium">
-                            {t('header.logout')}
-                          </span>
-                        </button>
-                      </>
-                    ) : !isAuthPage ? (
-                      <Link
-                        to="/login"
-                        className="w-full flex items-center justify-center gap-2 bg-[#003d66] hover:bg-[#002d4d] rounded-full py-3 transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        <span className="text-white font-medium">
-                          {t('header.loginRegister')}
-                        </span>
-                        <User className="h-5 w-5 text-white" />
-                      </Link>
-                    ) : null}
-                  </div>
-                </div>
+                  </Link>
+                ) : null}
               </div>
             </div>
           </div>
-        )}
+        </motion.div>
       </div>
 
       {/* Main navigation section with blue background */}
