@@ -32,7 +32,7 @@ export function HomePage() {
       transition={{ duration: 0.6 }}
     >
       <div className="">
-        <div className="container mx-auto px-4 pb-4 pt-4 sm:pb-6 sm:pt-6">
+        <div className="px-4 pb-4 pt-4 sm:pb-6 sm:pt-6">
           <div className="">
             <div className="w-full">
               <div className="relative flex flex-wrap justify-center items-center gap-2 sm:gap-4 sm:justify-center md:justify-center lg:justify-between">
@@ -117,7 +117,7 @@ export function HomePage() {
           </p>
         </div>
       </motion.section>
-      <div className="container mx-auto px-4 md:py-10">
+      <div className="px-4 md:py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-10 md:gap-[65px]">
           <div>
             <div className="relative rounded-3xl overflow-hidden shadow-lg">
@@ -290,7 +290,7 @@ export function HomePage() {
                 </span>
               </button>
             </div>
-            <div className='about-image'>
+            <div className="about-image">
               <img
                 src="/assets/images/our-story.png"
                 alt="Our Story Image"
@@ -315,7 +315,7 @@ export function HomePage() {
           </p>
         </div>
       </motion.section>
-      <div className="container mx-auto px-4">
+      <div className="px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto pb-8 sm:pb-10 md:pb-14">
           <div className="text-center md:text-end">
             <img
