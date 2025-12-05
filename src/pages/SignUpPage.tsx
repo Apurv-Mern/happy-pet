@@ -42,7 +42,7 @@ export function SignupPage() {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const { t } = useTranslation()
+  const { t, language } = useTranslation()
 
   const { isAuthenticated } = useAuthStore()
   const { toast } = useToast()
@@ -110,6 +110,18 @@ export function SignupPage() {
     }
   }, [isAuthenticated, navigate, location])
 
+  // Prevent back navigation after signup/login
+  useEffect(() => {
+    if (isAuthenticated) {
+      window.history.pushState(null, '', window.location.href)
+      const handlePopState = () => {
+        window.history.pushState(null, '', window.location.href)
+      }
+      window.addEventListener('popstate', handlePopState)
+      return () => window.removeEventListener('popstate', handlePopState)
+    }
+  }, [isAuthenticated])
+
   // Handle country dropdown positioning and outside clicks
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -149,7 +161,7 @@ export function SignupPage() {
         password: data.password,
         name: data.name,
         company: data.companyName,
-        preferredLanguage: data.preferredLanguage,
+        preferredLanguage: language, // Use current selected language from context
         phoneNumber: fullPhoneNumber,
         timezone: data.timezone,
         userType: data.userType,

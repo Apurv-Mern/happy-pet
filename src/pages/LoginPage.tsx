@@ -14,7 +14,7 @@ import { useToast } from '@/hooks/use-toast'
 import { useTranslation } from '@/contexts/I18nContext'
 
 export function LoginPage() {
-  const { t } = useTranslation()
+  const { t, setLanguage } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
   const { login, isAuthenticated } = useAuthStore()
@@ -58,6 +58,18 @@ export function LoginPage() {
     }
   }, [isAuthenticated, navigate, location])
 
+  // Prevent back navigation after login
+  useEffect(() => {
+    if (isAuthenticated) {
+      window.history.pushState(null, '', window.location.href)
+      const handlePopState = () => {
+        window.history.pushState(null, '', window.location.href)
+      }
+      window.addEventListener('popstate', handlePopState)
+      return () => window.removeEventListener('popstate', handlePopState)
+    }
+  }, [isAuthenticated])
+
   const onSubmit = async (data: LoginFormData) => {
     try {
       const response = await loginMutation.mutateAsync({
@@ -97,6 +109,12 @@ export function LoginPage() {
         response.data.tokens.accessToken,
         response.data.tokens.refreshToken
       )
+
+      // Set language based on user's preferred language
+      if (response.data.user.preferredLanguage) {
+        setLanguage(response.data.user.preferredLanguage)
+      }
+
       toast({
         variant: 'success',
         title: t('loginPage.loginSuccess'),

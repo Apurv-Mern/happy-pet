@@ -33,6 +33,7 @@ const ProfilePage = () => {
     handlePasswordSubmit,
     resetPersonalInfo,
     resetPasswordData,
+    isUpdatingProfile,
   } = useProfileForm(profileData || user)
 
   const handleLogout = async () => {
@@ -136,6 +137,7 @@ const ProfilePage = () => {
                     onInputChange={handleInputChange}
                     onSave={handleSaveChanges}
                     onDiscard={handleDiscardChanges}
+                    isLoading={isUpdatingProfile}
                   />
                 )}
 

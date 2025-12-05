@@ -104,18 +104,18 @@ const AboutUsPage = () => {
         </div>
       </div>
       <div className="bg-[url('/assets/images/aboutbg.png')] bg-cover bg-center py-20 md:py-20">
-        <div className='container mx-auto px-5 sm:px-5 md:px-0'>
+        <div className="container mx-auto px-5 sm:px-5 md:px-0">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-10">
             <div className="bg-white/80 rounded-2xl shadow-lg p-6 text-center hover:bg-[#F2EFF9CC] transition duration-300">
               <div className="mb-5">
-              <img 
-              src="/assets/images/icon01.png" 
-              alt="Nutritional Concept Logo"
-              className="w-full"
-              />
+                <img
+                  src="/assets/images/icon01.png"
+                  alt="Nutritional Concept Logo"
+                  className="w-full"
+                />
               </div>
               <h2 className="text-[#003863] font-bold text-[24px] mb-1">
-              Nutritional Concept
+                {t('aboutPage.nutritionalConcept')}
               </h2>
               <p className="text-[#003863] text-[16px] mb-6">
               We use nature as our guide for the
@@ -131,14 +131,14 @@ const AboutUsPage = () => {
             </div>
             <div className="bg-white/80 rounded-2xl shadow-lg p-6 text-center hover:bg-[#F2EFF9CC] transition duration-300">
               <div className="mb-5">
-              <img 
-              src="/assets/images/icon02.png" 
-              alt="Nutritional Concept Logo"
-              className="w-full"
-              />
+                <img
+                  src="/assets/images/icon02.png"
+                  alt="Nutritional Concept Logo"
+                  className="w-full"
+                />
               </div>
               <h2 className="text-[#003863] font-bold text-[24px] mb-1">
-              Manufacturing Process
+                {t('aboutPage.manufacturingProcess')}
               </h2>
               <p className="text-[#003863] text-[16px] mb-6">
               Our pet food is produced using the perfect recipe in the Thermos tufenmix®
@@ -153,14 +153,14 @@ const AboutUsPage = () => {
             </div>
             <div className="bg-white/80 rounded-2xl shadow-lg p-6 text-center hover:bg-[#F2EFF9CC] transition duration-300">
               <div className="mb-5">
-              <img 
-              src="/assets/images/icon03.png" 
-              alt="Nutritional Concept Logo"
-              className="w-full"
-              />
+                <img
+                  src="/assets/images/icon03.png"
+                  alt="Nutritional Concept Logo"
+                  className="w-full"
+                />
               </div>
               <h2 className="text-[#003863] font-bold text-[24px] mb-1">
-             Brand History
+                {t('aboutPage.brandHistory')}
               </h2>
               <p className="text-[#003863] text-[16px] mb-6">
               Our pet food is produced using the perfect recipe in the Thermostufenmix®
@@ -175,14 +175,14 @@ const AboutUsPage = () => {
             </div>
             <div className="bg-white/80 rounded-2xl shadow-lg p-6 text-center hover:bg-[#F2EFF9CC] transition duration-300">
               <div className="mb-5">
-              <img 
-              src="/assets/images/icon04.png" 
-              alt="Nutritional Concept Logo"
-              className="w-full"
-              />
+                <img
+                  src="/assets/images/icon04.png"
+                  alt="Nutritional Concept Logo"
+                  className="w-full"
+                />
               </div>
               <h2 className="text-[#003863] font-bold text-[24px] mb-1">
-             Social Commitment
+                {t('aboutPage.socialCommitment')}
               </h2>
               <p className="text-[#003863] text-[16px] mb-6">
               For us, social responsibility also means thinking of others and acting responsibly

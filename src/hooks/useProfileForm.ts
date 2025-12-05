@@ -4,8 +4,7 @@ import { useChangePasswordMutation, useUpdateProfileMutation } from '@/api/auth'
 import { useToast } from '@/hooks/use-toast'
 
 interface ProfileFormData {
-  firstName: string
-  lastName: string
+  fullName: string
   email: string
   address: string
   companyName: string
@@ -30,8 +29,7 @@ export const useProfileForm = (user: User | null) => {
   const [profileImage, setProfileImage] = useState<File | null>(null)
 
   const [formData, setFormData] = useState<ProfileFormData>({
-    firstName: user?.name?.split(' ')[0] || '',
-    lastName: user?.name?.split(' ').slice(1).join(' ') || '',
+    fullName: user?.name || '',
     email: user?.email || '',
     address: '',
     companyName: user?.company || '',
@@ -44,8 +42,7 @@ export const useProfileForm = (user: User | null) => {
   useEffect(() => {
     if (user) {
       setFormData({
-        firstName: user?.name?.split(' ')[0] || '',
-        lastName: user?.name?.split(' ').slice(1).join(' ') || '',
+        fullName: user?.name || '',
         email: user?.email || '',
         address: '',
         companyName: user?.company || '',
@@ -83,9 +80,8 @@ export const useProfileForm = (user: User | null) => {
 
     const formDataToSend = new FormData()
 
-    // Combine first and last name
-    const fullName = `${formData.firstName} ${formData.lastName}`.trim()
-    formDataToSend.append('name', fullName)
+    // Add full name
+    formDataToSend.append('name', formData.fullName.trim())
 
     // Add other fields
     formDataToSend.append('phoneNumber', formData.phoneNumber)
@@ -112,6 +108,7 @@ export const useProfileForm = (user: User | null) => {
       onSuccess: response => {
         console.log('Profile update success:', response)
         toast({
+          variant: 'success',
           title: 'Profile Updated',
           description:
             response.message || 'Your profile has been updated successfully.',
@@ -132,8 +129,7 @@ export const useProfileForm = (user: User | null) => {
 
   const resetPersonalInfo = () => {
     setFormData({
-      firstName: user?.name?.split(' ')[0] || '',
-      lastName: user?.name?.split(' ').slice(1).join(' ') || '',
+      fullName: user?.name || '',
       email: user?.email || '',
       address: '',
       companyName: user?.company || '',
@@ -169,6 +165,7 @@ export const useProfileForm = (user: User | null) => {
       {
         onSuccess: response => {
           toast({
+            variant: 'success',
             title: 'Password Changed',
             description:
               response.message ||
