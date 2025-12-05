@@ -14,7 +14,7 @@ export default function SubCategoryItem() {
     tierId: string
     subcategoryId?: string
   }>()
-  const { t } = useTranslation()
+  const { t, language } = useTranslation()
   const navigate = useNavigate()
 
   // Filter state
