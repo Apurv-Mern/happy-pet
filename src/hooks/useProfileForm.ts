@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { User } from '@/types'
 import { useChangePasswordMutation, useUpdateProfileMutation } from '@/api/auth'
 import { useToast } from '@/hooks/use-toast'
+import { userApi } from '@/api/user'
+import { useAuthStore } from '@/store/useAuthStore'
 
 interface ProfileFormData {
   fullName: string
@@ -26,6 +28,7 @@ export const useProfileForm = (user: User | null) => {
   const { toast } = useToast()
   const changePasswordMutation = useChangePasswordMutation()
   const updateProfileMutation = useUpdateProfileMutation()
+  const { updateUser } = useAuthStore()
   const [profileImage, setProfileImage] = useState<File | null>(null)
 
   const [formData, setFormData] = useState<ProfileFormData>({
@@ -105,7 +108,7 @@ export const useProfileForm = (user: User | null) => {
     }
 
     updateProfileMutation.mutate(formDataToSend, {
-      onSuccess: response => {
+      onSuccess: async response => {
         console.log('Profile update success:', response)
         toast({
           variant: 'success',
@@ -113,6 +116,23 @@ export const useProfileForm = (user: User | null) => {
           description:
             response.message || 'Your profile has been updated successfully.',
         })
+
+        // Fetch latest profile data and update localStorage
+        try {
+          const latestProfile = await userApi.getProfile()
+          updateUser(latestProfile)
+          console.log(
+            'Updated localStorage with latest profile:',
+            latestProfile
+          )
+        } catch (error) {
+          console.error('Failed to fetch updated profile:', error)
+        }
+
+        // Refresh the page after successful update
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000)
       },
       onError: (error: any) => {
         console.error('Profile update error:', error)

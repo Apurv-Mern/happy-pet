@@ -81,6 +81,7 @@ interface GetMessagesResponse {
       isStream: boolean
       recommend: FileRecommendation[]
       audioUrl?: string
+      reqAudioUrl?: string
       createdAt: string
       updatedAt: string
       __v: number

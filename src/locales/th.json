@@ -328,6 +328,8 @@
     "phoneMaxLength": "หมายเลขโทรศัพท์ต้องไม่เกิน 15 หลัก",
     "phoneInvalid": "หมายเลขโทรศัพท์ต้องมีเฉพาะตัวเลขเท่านั้น",
     "nameMinLength": "ชื่อต้องมีอย่างน้อย 4 ตัวอักษร",
+    "firstNameRequired": "ต้องระบุชื่อ",
+    "lastNameRequired": "ต้องระบุนามสกุล",
     "subjectRequired": "ต้องระบุหัวข้อ",
     "messageMinLength": "ข้อความต้องมีอย่างน้อย 10 ตัวอักษร"
   }
