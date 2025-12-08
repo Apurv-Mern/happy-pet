@@ -67,11 +67,24 @@ interface GetMessagesResponse {
   success: boolean
   message: string
   data: {
-    messages: ChatMessage[]
-    total: number
-    page: number
-    limit: number
-    totalPages: number
+    messages: Array<{
+      _id: string
+      sessionId: string
+      userId: string
+      user: string
+      assistant: string
+      timestamp: number
+      reqType: string
+      resType: string
+      reqLang: string
+      resLang: string
+      isStream: boolean
+      recommend: FileRecommendation[]
+      createdAt: string
+      updatedAt: string
+      __v: number
+    }>
+    count: number
   }
 }
 
@@ -125,7 +138,7 @@ export const chatApi = {
     params?: { page?: number; limit?: number }
   ): Promise<GetMessagesResponse['data']> => {
     const { data } = await apiClient.get<GetMessagesResponse>(
-      `/v1/chat/sessions/${sessionId}/messages`,
+      `/v1/assistant/sessions/${sessionId}/messages`,
       { params }
     )
     return data.data
@@ -148,6 +161,24 @@ export const chatApi = {
       finalPayload
     )
     return data.data
+  },
+
+  // New Assistant API for text messages
+  sendAssistantMessage: async (payload: {
+    query: string
+    reqType: 'text'
+    resType: 'text'
+    reqLang: string
+    resLang: string
+    isStream: boolean
+    sessionId: string
+  }): Promise<{
+    success: boolean
+    msg: string
+    recommend: FileRecommendation[]
+  }> => {
+    const { data } = await apiClient.post('/v1/assistant/text', payload)
+    return data
   },
 
   sendAudioMessage: async (

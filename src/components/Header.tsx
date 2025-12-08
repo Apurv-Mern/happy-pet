@@ -213,141 +213,212 @@ export function Header() {
         transition={{ duration: 0.5, delay: 0.08 }}
       >
         {/* Paw print pattern background */}
-
-        <div className="container mx-auto">
-          {/* Logo and Navigation */}
-          <div className="grid grid-cols-1 lg:grid-cols-[0.4fr_auto_0.3fr]  md:grid-cols-[0.4fr_auto_0.3fr] sm:grid-cols-[0.4fr_auto_0.3fr] items-center gap-4 pt-16">
-            <Link to="/">
-              {/* Logo placeholder - replace with your actual logo */}
-              <div>
-                <img src="/assets/images/logo.png" alt="Happy Pet Logo" />
-              </div>
-            </Link>
-            <nav
-              className={`  hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit  ${isAuthenticated ? '' : ''}`}
-            >
-              {publicNavItems.map(item => (
-                <NavLink
-                  key={item.path}
-                  path={item.path}
-                  label={item.label}
-                  isActive={location.pathname === item.path}
-                />
-              ))}
-
-              {isAuthenticated &&
-                protectedNavItems.map(item => (
-                  <NavLink
-                    key={item.path}
-                    path={item.path}
-                    label={item.label}
-                    isActive={location.pathname === item.path}
-                  />
-                ))}
-
-              {/* Language Selector Dropdown */}
-              <div className="relative">
-                <button
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-[16px] transition-colors ml-[6px]"
-                >
-                  {' '}
-                  <div className="flex items-center gap-2">
-                    <img
-                      src={
-                        availableLanguages.find(l => l.code === language)
-                          ?.flag || 'https://flagcdn.com/w40/gb.png'
-                      }
-                      alt="flag"
-                      className="w-6 h-4 object-cover rounded"
-                    />
-                    <span className="text-sm font-medium">
-                      {availableLanguages
-                        .find(l => l.code === language)
-                        ?.name.slice(0, 3) || 'Eng'}
-                    </span>
+        <div className="container mx-auto ">
+          {isAuthenticated ? (
+            /* Authenticated Layout - Logo and User at top, Menu below */
+            <>
+              {/* Top Row - Logo and User Dropdown */}
+              <div className="flex items-center justify-between pt-16 px-4">
+                <Link to="/">
+                  <div>
+                    <img src="/assets/images/logo.png" alt="Happy Pet Logo" />
                   </div>
-                  <ChevronDown className="h-4 w-4" />
-                  <div className="w-[0.64px] h-[25px] bg-[#fff]"></div>
-                  <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center border-[2px] border-[#003863]">
-                    <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
-                  </div>
-                </button>
-
-                {isDropdownOpen && (
-                  <div className="absolute right-0 mt-3 w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-50">
-                    <h3 className="text-2xl font-semibold italic text-center mb-5">
-                      Select Language
-                    </h3>
-                    <div className="space-y-3">
-                      {availableLanguages.map(lang => (
-                        <button
-                          key={lang.code}
-                          onClick={() => handleSelectLanguage(lang.code)}
-                          className="flex w-full items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#003863] hover:shadow-lg transition"
-                        >
-                          <img
-                            src={lang.flag}
-                            alt={lang.name}
-                            className="w-6 h-4 object-cover rounded"
-                          />
-                          <span>{lang.name}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </nav>
-
-            <div className="flex items-center gap-4 justify-end">
-              {/* Search bar - hidden on mobile */}
-              {/* <div className="hidden lg:flex items-center gap-2 pl-3 bg-white rounded-full">
-                <Input
-                  placeholder="Find the best for your pet..."
-                  className="search-bar w-64 border-none focus:ring-0 focus:border-transparent h-9 text-[#003863] placeholder:text-[#003863] font-normal text-lg"
-                />
-                <Button className="h-[44px] w-[44px] rounded-full  p-0 bg-[#0E213A] border-2 hover:bg-[#0E213A]">
-                  <Search className="h-[22px] w-[22px] text-white" />
-                </Button>
-              </div> */}
-
-              {/* Login/User button - hidden on small mobile */}
-              <div className="hidden sm:block">
-                {isAuthenticated ? (
+                </Link>
+                <div className="hidden sm:block">
                   <UserDropdown onLogout={handleLogout} />
-                ) : !isAuthPage ? (
-                  <Link to="/login">
-                    <div className="flex items-center bg-[#0E213A] rounded-full border-[1px] border-[#fff] pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] hover:bg-[#000] hover:text-[#fff] transition">
-                      <span className="text-white text-sm font-medium">
-                        {t('header.loginRegister')}
-                      </span>
-                      <div className="ml-2 sm:ml-3 flex items-center justify-center w-[45px] h-[45px] bg-[#fff] rounded-full">
-                        <svg
-                          width="30"
-                          height="30"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M24.0806 23.5912C24.6702 23.4683 25.0213 22.8521 24.7395 22.3199C24.0074 20.9373 22.8168 19.7225 21.2785 18.8044C19.365 17.6625 17.0205 17.0435 14.6086 17.0435C12.1967 17.0435 9.85217 17.6625 7.93867 18.8044C6.40039 19.7225 5.20977 20.9373 4.47766 22.3199C4.19581 22.8521 4.54692 23.4683 5.13653 23.5912L6.44772 23.8644C11.8305 24.9862 17.3867 24.9862 22.7694 23.8644L24.0806 23.5912Z"
-                            fill="#0E213A"
-                          />
-                          <circle
-                            cx="14.6089"
-                            cy="9.7393"
-                            r="6.08696"
-                            fill="#0E213A"
-                          />
-                        </svg>
+                </div>
+              </div>
+
+              {/* Bottom Row - Navigation Menu */}
+              <div className="flex justify-center mt-6">
+                <nav className="hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] max-w-fit ">
+                  {publicNavItems.map(item => (
+                    <NavLink
+                      key={item.path}
+                      path={item.path}
+                      label={item.label}
+                      isActive={location.pathname === item.path}
+                    />
+                  ))}
+
+                  {protectedNavItems.map(item => (
+                    <NavLink
+                      key={item.path}
+                      path={item.path}
+                      label={item.label}
+                      isActive={location.pathname === item.path}
+                    />
+                  ))}
+
+                  {/* Language Selector Dropdown */}
+                  <div className="relative">
+                    <button
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-[16px] transition-colors ml-[6px]"
+                    >
+                      {' '}
+                      <div className="flex items-center gap-2">
+                        <img
+                          src={
+                            availableLanguages.find(l => l.code === language)
+                              ?.flag || 'https://flagcdn.com/w40/gb.png'
+                          }
+                          alt="flag"
+                          className="w-6 h-4 object-cover rounded"
+                        />
+                        <span className="text-sm font-medium">
+                          {availableLanguages
+                            .find(l => l.code === language)
+                            ?.name.slice(0, 3) || 'Eng'}
+                        </span>
                       </div>
-                    </div>
-                  </Link>
-                ) : null}
+                      <ChevronDown className="h-4 w-4" />
+                      <div className="w-[0.64px] h-[25px] bg-[#fff]"></div>
+                      <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center border-[2px] border-[#003863]">
+                        <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
+                      </div>
+                    </button>
+
+                    {isDropdownOpen && (
+                      <div className="absolute right-0 mt-3 w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-50">
+                        <h3 className="text-2xl font-semibold italic text-center mb-5">
+                          Select Language
+                        </h3>
+                        <div className="space-y-3">
+                          {availableLanguages.map(lang => (
+                            <button
+                              key={lang.code}
+                              onClick={() => handleSelectLanguage(lang.code)}
+                              className="flex w-full items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#003863] hover:shadow-lg transition"
+                            >
+                              <img
+                                src={lang.flag}
+                                alt={lang.name}
+                                className="w-6 h-4 object-cover rounded"
+                              />
+                              <span>{lang.name}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </nav>
+              </div>
+            </>
+          ) : (
+            /* Non-authenticated Layout - Original 3-column grid */
+            <div className="grid grid-cols-1 lg:grid-cols-[0.4fr_auto_0.3fr]  md:grid-cols-[0.4fr_auto_0.3fr] sm:grid-cols-[0.4fr_auto_0.3fr] items-center gap-4 pt-16">
+              <Link to="/">
+                {/* Logo placeholder - replace with your actual logo */}
+                <div>
+                  <img src="/assets/images/logo.png" alt="Happy Pet Logo" />
+                </div>
+              </Link>
+              <div>
+                <nav
+                  className={`hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit`}
+                >
+                  {publicNavItems.map(item => (
+                    <NavLink
+                      key={item.path}
+                      path={item.path}
+                      label={item.label}
+                      isActive={location.pathname === item.path}
+                    />
+                  ))}
+
+                  {/* Language Selector Dropdown */}
+                  <div className="relative">
+                    <button
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className="flex items-center gap-2 bg-[#0E213A] hover:bg-[#002d4d] text-white rounded-full pl-[16px] transition-colors ml-[6px]"
+                    >
+                      {' '}
+                      <div className="flex items-center gap-2">
+                        <img
+                          src={
+                            availableLanguages.find(l => l.code === language)
+                              ?.flag || 'https://flagcdn.com/w40/gb.png'
+                          }
+                          alt="flag"
+                          className="w-6 h-4 object-cover rounded"
+                        />
+                        <span className="text-sm font-medium">
+                          {availableLanguages
+                            .find(l => l.code === language)
+                            ?.name.slice(0, 3) || 'Eng'}
+                        </span>
+                      </div>
+                      <ChevronDown className="h-4 w-4" />
+                      <div className="w-[0.64px] h-[25px] bg-[#fff]"></div>
+                      <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center border-[2px] border-[#003863]">
+                        <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
+                      </div>
+                    </button>
+
+                    {isDropdownOpen && (
+                      <div className="absolute right-0 mt-3 w-64 rounded-[26px] border border-[#0E213A] bg-[#003d66] p-5 text-white shadow-2xl z-50">
+                        <h3 className="text-2xl font-semibold italic text-center mb-5">
+                          Select Language
+                        </h3>
+                        <div className="space-y-3">
+                          {availableLanguages.map(lang => (
+                            <button
+                              key={lang.code}
+                              onClick={() => handleSelectLanguage(lang.code)}
+                              className="flex w-full items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#003863] hover:shadow-lg transition"
+                            >
+                              <img
+                                src={lang.flag}
+                                alt={lang.name}
+                                className="w-6 h-4 object-cover rounded"
+                              />
+                              <span>{lang.name}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </nav>
+              </div>
+              <div className="flex items-center gap-4 justify-end">
+                {/* Login/User button - hidden on small mobile */}
+                <div className="hidden sm:block">
+                  {!isAuthPage ? (
+                    <Link to="/login">
+                      <div className="flex items-center bg-[#0E213A] rounded-full border-[1px] border-[#fff] pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] hover:bg-[#000] hover:text-[#fff] transition">
+                        <span className="text-white text-sm font-medium">
+                          {t('header.loginRegister')}
+                        </span>
+                        <div className="ml-2 sm:ml-3 flex items-center justify-center w-[45px] h-[45px] bg-[#fff] rounded-full">
+                          <svg
+                            width="30"
+                            height="30"
+                            viewBox="0 0 30 30"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M24.0806 23.5912C24.6702 23.4683 25.0213 22.8521 24.7395 22.3199C24.0074 20.9373 22.8168 19.7225 21.2785 18.8044C19.365 17.6625 17.0205 17.0435 14.6086 17.0435C12.1967 17.0435 9.85217 17.6625 7.93867 18.8044C6.40039 19.7225 5.20977 20.9373 4.47766 22.3199C4.19581 22.8521 4.54692 23.4683 5.13653 23.5912L6.44772 23.8644C11.8305 24.9862 17.3867 24.9862 22.7694 23.8644L24.0806 23.5912Z"
+                              fill="#0E213A"
+                            />
+                            <circle
+                              cx="14.6089"
+                              cy="9.7393"
+                              r="6.08696"
+                              fill="#0E213A"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </Link>
+                  ) : null}
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* Mobile Navigation Drawer */}
           {/* Backdrop */}
