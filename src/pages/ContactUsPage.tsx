@@ -14,8 +14,8 @@ export function ContactUsPage() {
 
   // Validation schema using translations
   const contactSchema = z.object({
-    firstName: z.string().min(4, t('validation.nameMinLength')),
-    lastName: z.string().min(4, t('validation.nameMinLength')),
+    firstName: z.string().min(4, t('validation.firstNameRequired')),
+    lastName: z.string().min(4, t('validation.lastNameRequired')),
     email: z.string().email(t('validation.invalidEmail')),
     phone: z
       .string()

@@ -327,7 +327,10 @@
     "phoneMaxLength": "Phone number must not exceed 15 digits",
     "phoneInvalid": "Phone number must contain only digits",
     "nameMinLength": "Name must be at least 4 characters",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
     "subjectRequired": "Subject is required",
-    "messageMinLength": "Message must be at least 10 characters"
+    "messageMinLength": "Message must be at least 10 characters",
+    "happy": "Happy"
   }
 }

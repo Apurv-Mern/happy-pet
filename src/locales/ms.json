@@ -328,7 +328,10 @@
     "phoneMaxLength": "Nombor telefon tidak boleh melebihi 15 digit",
     "phoneInvalid": "Nombor telefon hanya boleh mengandungi digit",
     "nameMinLength": "Nama mestilah sekurang-kurangnya 4 aksara",
+    "firstNameRequired": "Nama pertama diperlukan",
+    "lastNameRequired": "Nama akhir diperlukan",
     "subjectRequired": "Subjek diperlukan",
-    "messageMinLength": "Mesej mestilah sekurang-kurangnya 10 aksara"
+    "messageMinLength": "Mesej mestilah sekurang-kurangnya 10 aksara",
+    "happy": "Gembira"
   }
 }

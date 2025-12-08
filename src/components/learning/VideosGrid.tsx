@@ -38,7 +38,9 @@ export const VideosGrid = memo(({ videos, navigate }: VideosGridProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.05 }}
             onClick={() => {
-              navigate(`/video/${video._id}`, { state: { video } })
+              navigate(`/knowledge-hub/video/${video._id}`, {
+                state: { video },
+              })
             }}
             className="cursor-pointer"
           >

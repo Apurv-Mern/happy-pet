@@ -416,9 +416,12 @@ export default function SubCategoryItem() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: index * 0.1 }}
                         onClick={() => {
-                          navigate(`/video/${video.id || video._id}`, {
-                            state: { video },
-                          })
+                          navigate(
+                            `/knowledge-hub/video/${video.id || video._id}`,
+                            {
+                              state: { video },
+                            }
+                          )
                         }}
                         className=" relative rounded-[20px] overflow-hidden cursor-pointer group"
                       >

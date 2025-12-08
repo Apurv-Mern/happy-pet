@@ -328,7 +328,10 @@
     "phoneMaxLength": "يجب ألا يتجاوز رقم الهاتف 15 رقمًا",
     "phoneInvalid": "يجب أن يحتوي رقم الهاتف على أرقام فقط",
     "nameMinLength": "يجب أن يتكون الاسم من 4 أحرف على الأقل",
+    "firstNameRequired": "الاسم الأول مطلوب",
+    "lastNameRequired": "اسم العائلة مطلوب",
     "subjectRequired": "الموضوع مطلوب",
-    "messageMinLength": "يجب أن تتكون الرسالة من 10 أحرف على الأقل"
+    "messageMinLength": "يجب أن تتكون الرسالة من 10 أحرف على الأقل",
+    "happy": "سعيد"
   }
 }

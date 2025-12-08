@@ -100,7 +100,10 @@ function App() {
               element={<LearningModuleSubCategoryPage />}
             />
             <Route path="/ai-agent" element={<AiAgentPage />} />
-            <Route path="/video/:videoId" element={<VideoDetailPage />} />
+            <Route
+              path="/knowledge-hub/video/:videoId"
+              element={<VideoDetailPage />}
+            />
           </Route>
         </Route>
 

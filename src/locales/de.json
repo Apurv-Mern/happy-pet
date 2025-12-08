@@ -328,7 +328,10 @@
     "phoneMaxLength": "Die Telefonnummer darf 15 Ziffern nicht überschreiten",
     "phoneInvalid": "Die Telefonnummer darf nur Ziffern enthalten",
     "nameMinLength": "Der Name muss mindestens 4 Zeichen lang sein",
+    "firstNameRequired": "Vorname ist erforderlich",
+    "lastNameRequired": "Nachname ist erforderlich",
     "subjectRequired": "Betreff ist erforderlich",
-    "messageMinLength": "Die Nachricht muss mindestens 10 Zeichen lang sein"
+    "messageMinLength": "Die Nachricht muss mindestens 10 Zeichen lang sein",
+    "happy": "Glücklich"
   }
 }

@@ -114,6 +114,7 @@ export const PersonalInformation = ({
             name="email"
             value={formData.email}
             onChange={onInputChange}
+            disabled
             className="w-full px-4 py-3 border border-gray-300 rounded-xl search-bar"
             placeholder={t('profilePage.emailPlaceholder')}
           />
