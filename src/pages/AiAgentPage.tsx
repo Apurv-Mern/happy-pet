@@ -12,6 +12,7 @@ import {
   FileText,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
+import ReactMarkdown from 'react-markdown'
 import {
   chatApi,
   type ChatMessage as ApiChatMessage,
@@ -160,15 +161,40 @@ export default function AIAgentPage() {
 
           // Load message history
           setIsLoadingMessages(true)
-          const messagesResponse = await chatApi.getMessages(
-            existingSession._id,
-            { page: 1, limit: 50 }
-          )
-          const convertedMessages = await Promise.all(
-            messagesResponse.messages.map(convertApiMessageToMessage)
-          )
-          setMessages(convertedMessages)
-          setIsLoadingMessages(false)
+          try {
+            const messagesResponse = await chatApi.getMessages(
+              existingSession._id,
+              { page: 1, limit: 50 }
+            )
+
+            console.log('Messages response:', messagesResponse)
+
+            // Convert API messages to UI messages
+            const convertedMessages: Message[] = []
+            for (const msg of messagesResponse.messages) {
+              // Add user message
+              convertedMessages.push({
+                id: `${msg._id}-user`,
+                type: 'user',
+                content: msg.user,
+                timestamp: new Date(msg.timestamp),
+              })
+              // Add assistant message
+              convertedMessages.push({
+                id: `${msg._id}-assistant`,
+                type: 'ai',
+                content: msg.assistant,
+                timestamp: new Date(msg.timestamp),
+              })
+            }
+
+            console.log('Converted messages:', convertedMessages)
+            setMessages(convertedMessages)
+          } catch (error) {
+            console.error('Failed to load messages:', error)
+          } finally {
+            setIsLoadingMessages(false)
+          }
         } else {
           // Create new session
           const newSession = await chatApi.createSession('AI Agent Chat')
@@ -281,45 +307,88 @@ export default function AIAgentPage() {
     emitTyping(false)
 
     try {
-      const requestedFormat =
-        selectedChatType === 'audio'
-          ? 'audio'
-          : selectedChatType === 'video'
-            ? 'video'
-            : 'text'
-      const responseFormat: 'text' | 'audio' | 'video' =
-        selectedChatType === 'video'
-          ? 'video'
-          : selectedChatType === 'audio'
+      // Use new assistant API for text messages only
+      if (selectedChatType === 'chat') {
+        const response = await chatApi.sendAssistantMessage({
+          query: userMessageText,
+          reqType: 'text',
+          resType: 'text',
+          reqLang: language,
+          resLang: language,
+          isStream: false,
+          sessionId: sessionId,
+        })
+
+        // Create user message with permanent ID
+        const userMessage: Message = {
+          id: `user-${Date.now()}`,
+          type: 'user',
+          content: userMessageText,
+          timestamp: new Date(),
+        }
+
+        // Create AI response message from new API
+        const aiMessage: Message = {
+          id: `ai-${Date.now()}`,
+          type: 'ai',
+          content: response.msg,
+          timestamp: new Date(),
+        }
+
+        // Replace temp message with permanent user message and add AI response
+        setMessages(prev => {
+          const filtered = prev.filter(msg => msg.id !== tempUserMessage.id)
+          return [...filtered, userMessage, aiMessage]
+        })
+
+        // Update recommendations if available
+        if (response.recommend && response.recommend.length > 0) {
+          setRecommendations(response.recommend)
+        }
+      } else {
+        // Keep old API for audio/video
+        const requestedFormat =
+          selectedChatType === 'audio'
             ? 'audio'
-            : 'text'
+            : selectedChatType === 'video'
+              ? 'video'
+              : 'text'
+        const responseFormat: 'text' | 'audio' | 'video' =
+          selectedChatType === 'video'
+            ? 'video'
+            : selectedChatType === 'audio'
+              ? 'audio'
+              : 'text'
 
-      const response = await chatApi.sendTextMessage(sessionId, {
-        text: userMessageText,
-        requestedFormat,
-        responseFormat,
-        language,
-      })
+        const response = await chatApi.sendTextMessage(sessionId, {
+          text: userMessageText,
+          requestedFormat,
+          responseFormat,
+          language,
+        })
 
-      // Remove temp message and add real messages
-      const newMessages: Message[] = []
-      if (response.userMessage) {
-        newMessages.push(await convertApiMessageToMessage(response.userMessage))
-      }
-      if (response.assistantMessage) {
-        newMessages.push(
-          await convertApiMessageToMessage(response.assistantMessage)
-        )
-      }
+        // Remove temp message and add real messages
+        const newMessages: Message[] = []
+        if (response.userMessage) {
+          newMessages.push(
+            await convertApiMessageToMessage(response.userMessage)
+          )
+        }
+        if (response.assistantMessage) {
+          newMessages.push(
+            await convertApiMessageToMessage(response.assistantMessage)
+          )
+        }
 
-      setMessages(prev => {
-        const filtered = prev.filter(msg => msg.id !== tempUserMessage.id)
-        return [...filtered, ...newMessages]
-      })
+        setMessages(prev => {
+          const filtered = prev.filter(msg => msg.id !== tempUserMessage.id)
+          return [...filtered, ...newMessages]
+        })
 
-      // Update recommendations if available
-      if (response.recommendations && response.recommendations.length > 0) {
-        setRecommendations(response.recommendations)
+        // Update recommendations if available
+        if (response.recommendations && response.recommendations.length > 0) {
+          setRecommendations(response.recommendations)
+        }
       }
     } catch (error) {
       console.error('Failed to send message:', error)
@@ -579,9 +648,15 @@ export default function AIAgentPage() {
                         <span className="text-xs">Processing...</span>
                       </div>
                     )}
-                    <p className="text-sm leading-relaxed whitespace-pre-line">
-                      {message.content}
-                    </p>
+                    {message.type === 'ai' ? (
+                      <div className="text-sm leading-relaxed prose prose-sm max-w-none prose-headings:text-[#003863] prose-p:text-gray-700 prose-strong:text-[#003863] prose-ul:text-gray-700 prose-ol:text-gray-700">
+                        <ReactMarkdown>{message.content}</ReactMarkdown>
+                      </div>
+                    ) : (
+                      <p className="text-sm leading-relaxed whitespace-pre-line">
+                        {message.content}
+                      </p>
+                    )}
 
                     {/* Video player for video messages */}
                     {message.videoUrl && (
