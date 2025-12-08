@@ -80,8 +80,13 @@
     text-align: center !important;
   }
 }
-@media screen and (min-width: 768px) {
-  .about-image2{
-  text-align: -webkit-left;
+@media screen and (max-width: 639px) {
+  .concept-part{
+    text-align: -webkit-center;
+  }
 }
+@media screen and (min-width: 768px) {
+    .about-image2{
+    text-align: -webkit-left;
+  }
 }

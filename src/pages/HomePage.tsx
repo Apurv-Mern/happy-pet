@@ -31,11 +31,11 @@ export function HomePage() {
       transition={{ duration: 0.6 }}
     >
       <div className="">
-        <div className="container mx-auto px-4 pb-4 pt-4 sm:pb-6 sm:pt-6">
+        <div className="container mx-auto pb-4 pt-4 sm:pb-6 sm:pt-6">
           <div className="">
             <div className="w-full">
               <div className="relative flex flex-wrap justify-center items-center gap-2 sm:gap-4 sm:justify-center md:justify-center lg:justify-between">
-                <div className="absolute top-[80px] sm:top-[120px] md:top-[160px] left-[20px] hidden sm:left-[40px] md:left-[53px] sm:hidden  md:hidden lg:block lg:max-w-[818px] xl:max-w-[1074px] 2xl:max-w-[1330px] max-w-[1330px] w-full h-[2px] sm:h-[3px] bg-[#003863]"></div>
+                <div className="absolute top-[80px] sm:top-[120px] md:top-[160px] left-[20px] hidden sm:left-[40px] md:left-[53px] sm:hidden  md:hidden lg:block lg:max-w-[818px] xl:max-w-[818px] 2xl:max-w-[1330px] max-w-[1330px] w-full h-[2px] sm:h-[3px] bg-[#003863]"></div>
                 <div className="flex flex-col items-center text-center">
                   <div className="items-center justify-center">
                     <img
@@ -116,7 +116,7 @@ export function HomePage() {
           </p>
         </div>
       </motion.section>
-      <div className="container mx-auto pb-8 sm:pb-10 md:pb-14 px-4">
+      <div className="container mx-auto pb-8 sm:pb-10 md:pb-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-10 md:gap-[65px]">
           <div>
             <div className="relative rounded-3xl overflow-hidden shadow-lg">

@@ -7,48 +7,48 @@ const NutritionalConcept = () => {
         </div>
         <div className="bg-[#E3E6ED] py-10">
           <div className="container mx-auto">
-            <h4 className="heading-line text-[#003863] text-[64px] text-center">
+            <h4 className="heading-line text-[#003863] text-[30px] sm:text-[38px] md:text-[64px] text-center">
               Of course only the best for your four-legged friend with the Happy
               Dog Natural Life Concept
             </h4>
-            <div className="grid grid-cols-1 xl:grid-cols-3 py-5 gap-[180px] items-baseline">
-              <div className="block">
+            <div className="grid grid-cols-1 gap-[40px] sm:grid-cols-2 md:grid-cols-2 lg:gap-[20px] lg:grid-cols-2 xl:grid-cols-2 py-5 xl:gap-[20px] 2xl:grid-cols-3 2xl:gap-[180px] items-baseline">
+              <div className="concept-part">
                 <img
                   src="/assets/images/block1.png"
                   className="w-full max-w-[450px]"
                   alt=""
                 />
-                <h5 className="text-[#003863] text-[25px] font-bold text-center">
+                <h5 className="text-[#003863] text-[18px] sm:text-[20px] md:text-[25px] font-bold text-center">
                   Natural Ingredients
                 </h5>
-                <p className="text-[#003863] text-[20px] text-center">
+                <p className="text-[#003863] text-[16px] sm:text-[18px] md:text-[20px] text-center">
                   of the highest quality are the basis of our
                   species-appropriate and balanced recipes
                 </p>
               </div>
-              <div className="block">
+              <div className="concept-part">
                 <img
                   src="/assets/images/block2.png"
                   className="w-full max-w-[450px]"
                   alt=""
                 />
-                <h5 className="text-[#003863] text-[25px] font-bold text-center">
+                <h5 className="text-[#003863] text-[18px] sm:text-[20px] md:text-[25px] font-bold text-center">
                   Natural Ingredients
                 </h5>
-                <p className="text-[#003863] text-[20px] text-center">
+                <p className="text-[#003863] text-[16px] sm:text-[18px] md:text-[20px] text-center">
                   optimally meet the needs and requirements of your dog
                 </p>
               </div>
-              <div className="block">
+              <div className="concept-part">
                 <img
                   src="/assets/images/block3.png"
                   className="w-full max-w-[450px] flex"
                   alt=""
                 />
-                <h5 className="text-[#003863] text-[25px] font-bold text-center">
+                <h5 className="text-[#003863] text-[18px] sm:text-[20px] md:text-[25px] font-bold text-center">
                   Natural Ingredients
                 </h5>
-                <p className="text-[#003863] text-[20px] text-center">
+                <p className="text-[#003863] text-[16px] sm:text-[18px] md:text-[20px] text-center">
                   without the addition of artificial preservatives and
                   independently controlled
                 </p>
@@ -57,7 +57,7 @@ const NutritionalConcept = () => {
           </div>
         </div>
         <div className="container mx-auto py-20">
-          <div className="grid grid-cols-1 xl:grid-cols-[60%_40%]">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_40%]">
             <div>
               <p className="text-[#003863] text-[20px] font-bold">
                 With this philosophy, we have been producing our Happy Dog
@@ -74,7 +74,7 @@ const NutritionalConcept = () => {
                 animal protein in the total protein is up to 90%
               </p>
             </div>
-            <div className="about-image">
+            <div className="flex justify-center md:justify-center xl:justify-end">
               <img
                 src="/assets/images/meat.png"
                 className="rounded-[30px] w-full max-w-[500px]"

@@ -151,7 +151,7 @@ export default function KnowledgeHubPage() {
       {/* Breadcrumb - Show only when viewing specific product line videos */}
       {breadcrumb && (
         <div className="bg-white border-b border-gray-200">
-          <div className="container mx-auto px-4 py-4">
+          <div className="container mx-auto py-4">
             <div className="flex items-center gap-2 text-lg">
               <button
                 onClick={() => navigate('/knowledge-hub')}

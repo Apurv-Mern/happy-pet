@@ -13,7 +13,9 @@ const AboutUsPage = () => {
       transition={{ duration: 0.5 }}
       className="bg-[url('/assets/images/background.png')] bg-contain bg-center"
     >
-      <div className="h-full min-h-[350px] xl:h-full xl:min-h-[900px] bg-[url('/assets/images/abutus.png')] bg-cover bg-center"></div>
+      <div>
+        <img src="/assets/images/abutus.png" className="w-full" alt="" />
+      </div>
       <div className="text-center max-w-[900px] mx-auto">
         {/* <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
           {t('aboutPage.title')}
@@ -22,8 +24,8 @@ const AboutUsPage = () => {
           <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
             {t('All you Feed is Love')}
           </h1>
-          <p className="text-[#003860] text-[20px] font-semibold">
-            <span className="text-[#003860] text-[30px] font-bold">
+          <p className="text-[#003860] text-[16px] md:text-[20px] font-semibold">
+            <span className="text-[#003860] text:[20px] sm:text-[20] md:text-[30px] font-bold">
               Because a healthy pet is a happy pet!
             </span>
             <br></br>
@@ -35,9 +37,9 @@ const AboutUsPage = () => {
         </div>
       </div>
       <div className="bg-[#E3E6ED] my-10 mb-0">
-        <div className="container mx-auto py-5 px-5 md:py-5 lg:py-14 lg:px-0 md:px-5 sm:px-5">
+        <div className="container mx-auto py-14">
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
-            <div className="">
+            <div className="flex justify-center md:justify-center xl:justify-start">
               <img
                 className="rounded-[30px] w-full max-w-[500px]"
                 src="/assets/images/about.png"
@@ -62,7 +64,7 @@ const AboutUsPage = () => {
         </div>
       </div>
       <div className="py-10 md:py-20">
-        <div className="container mx-auto px-5 sm:px-5 md:px-0">
+        <div className="container mx-auto py-14">
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
             <div>
               <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
@@ -79,7 +81,7 @@ const AboutUsPage = () => {
                 products - to be in harmony with mankind and nature.
               </p>
             </div>
-            <div className="about-image">
+            <div className="flex justify-center md:justify-center xl:justify-end">
               <img
                 className="rounded-[30px] w-full max-w-[500px]"
                 src="/assets/images/about2.png"
@@ -90,9 +92,9 @@ const AboutUsPage = () => {
         </div>
       </div>
       <div className="bg-[#E3E6ED]">
-        <div className="container mx-auto py-5 px-5 md:py-5 lg:py-14 lg:px-0 md:px-5 sm:px-5">
+        <div className="container mx-auto py-14">
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
-            <div className="">
+            <div className="flex justify-center md:justify-center xl:justify-start">
               <img
                 className="rounded-[30px] w-full max-w-[500px]"
                 src="/assets/images/about6.png"
@@ -118,7 +120,7 @@ const AboutUsPage = () => {
         </div>
       </div>
       <div className="py-10 md:py-20">
-        <div className="container mx-auto px-5 sm:px-5 md:px-0">
+        <div className="container mx-auto py-14">
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
             <div>
               <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px] md:mb-3">
@@ -134,7 +136,7 @@ const AboutUsPage = () => {
                 tolerance.
               </p>
             </div>
-            <div className="about-image">
+            <div className="flex justify-center md:justify-center xl:justify-end">
               <img
                 className="rounded-[30px] w-full max-w-[500px]"
                 src="/assets/images/about5.png"
@@ -145,8 +147,8 @@ const AboutUsPage = () => {
         </div>
       </div>
       <div className="bg-[url('/assets/images/aboutbg.png')] bg-cover bg-center py-20 md:py-20">
-        <div className="container mx-auto px-5 sm:px-5 md:px-0">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-10">
+        <div className="container mx-auto py-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10">
             <div className="bg-white/80 rounded-2xl shadow-lg p-6 text-center hover:bg-[#F2EFF9CC] transition duration-300">
               <div className="mb-5">
                 <img
@@ -155,10 +157,10 @@ const AboutUsPage = () => {
                   className="w-full"
                 />
               </div>
-              <h2 className="text-[#003863] font-bold text-[24px] mb-1">
+              <h2 className="text-[#003863] font-bold text-[18px] md:text-[20px] lg:text-[24px] mb-1">
                 {t('aboutPage.nutritionalConcept')}
               </h2>
-              <p className="text-[#003863] text-[16px] mb-6">
+              <p className="text-[#003863] text-[14px] md:text-[16px] mb-6">
                 We use nature as our guide for the production of our premium dog
                 food
               </p>
@@ -179,10 +181,10 @@ const AboutUsPage = () => {
                   className="w-full"
                 />
               </div>
-              <h2 className="text-[#003863] font-bold text-[24px] mb-1">
+              <h2 className="text-[#003863] font-bold text-[18px] md:text-[20px] lg:text-[24px] mb-1">
                 {t('aboutPage.manufacturingProcess')}
               </h2>
-              <p className="text-[#003863] text-[16px] mb-6">
+              <p className="text-[#003863] text-[14px] md:text-[16px] mb-6">
                 Our pet food is produced using the perfect recipe in the Thermos
                 tufenmix®
               </p>
@@ -203,10 +205,10 @@ const AboutUsPage = () => {
                   className="w-full"
                 />
               </div>
-              <h2 className="text-[#003863] font-bold text-[24px] mb-1">
+              <h2 className="text-[#003863] font-bold text-[18px] md:text-[20px] lg:text-[24px] mb-1">
                 {t('aboutPage.brandHistory')}
               </h2>
-              <p className="text-[#003863] text-[16px] mb-6">
+              <p className="text-[#003863] text-[14px] md:text-[16px] mb-6">
                 Our pet food is produced using the perfect recipe in the
                 Thermostufenmix®
               </p>
@@ -227,10 +229,10 @@ const AboutUsPage = () => {
                   className="w-full"
                 />
               </div>
-              <h2 className="text-[#003863] font-bold text-[24px] mb-1">
+              <h2 className="text-[#003863] font-bold text-[18px] md:text-[20px] lg:text-[24px] mb-1">
                 {t('aboutPage.socialCommitment')}
               </h2>
-              <p className="text-[#003863] text-[16px] mb-6">
+              <p className="text-[#003863] text-[14px] md:text-[16px] mb-6">
                 For us, social responsibility also means thinking of others and
                 acting responsibly
               </p>

@@ -109,9 +109,9 @@ export function ContactUsPage() {
   }
 
   return (
-    <div className="bg-[url('/assets/images/background.png')] bg-auto bg-repeat bg-center py-20">
+    <div className="bg-[url('/assets/images/background.png')] bg-auto bg-repeat bg-center">
       {/* Header */}
-      <div className="container mx-auto px-5 md:px-0">
+      <div className="container mx-auto py-20">
         <div className="text-center">
           <h2 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
             {t('contactPage.title')}
@@ -121,7 +121,7 @@ export function ContactUsPage() {
           </p>
         </div>
         <div className="border border-[#003863] rounded-[10px] p-[16px] bg-white">
-          <div className="grid grid-cols-1 lg:grid-cols-[30%_66%] xl:grid-cols-[29%_66%] 2xl:grid-cols-[30%_66%] md:gap-[40px] lg:gap-[40px] xl:gap-[60px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[30%_66%] xl:grid-cols-[30%_66%] 2xl:grid-cols-[30%_66%] md:gap-[40px] lg:gap-[40px] xl:gap-[40px]">
             {/* LEFT SIDE – Contact Info */}
             <div className="bg-[#003863] text-white p-8 relative overflow-hidden rounded-[10px] min-h-[500px] md:min-h-[500px]">
               <h2 className="text-[20px] md:text-[28px] font-semibold mb-2">

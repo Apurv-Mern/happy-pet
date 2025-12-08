@@ -528,7 +528,7 @@ export function Header() {
             </div>
           </motion.div>
 
-          <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row 2xl:px-[24px] items-center gap-6 sm:gap-0 lg:gap-0 mt-6">
+          <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row items-center gap-6 sm:gap-0 lg:gap-0 mt-6">
             {/* Left column - text (shows first on mobile) */}
             <div className="text-center sm:text-center md:text-left">
               <h3 className="text-[28px] sm:text-[38px] md:text-[45px] lg:text-[85px] text-[#fff] leading-tight heading-line">

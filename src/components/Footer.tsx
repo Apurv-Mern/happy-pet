@@ -166,7 +166,7 @@ export function Footer() {
 
   return (
     <footer className="bg-[#003863] bg-[url('/assets/images/footer-image.png')] bg-cover bg-center text-white">
-      <div className="container mx-auto px-6 py-12">
+      <div className="container mx-auto py-12">
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-10 divide-x-0  lg:divide-x">
           
           {/* Brand Section */}
