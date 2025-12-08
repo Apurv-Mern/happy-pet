@@ -215,6 +215,36 @@ export default function AIAgentPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // Scroll page to center and chat to bottom on mount
+  useEffect(() => {
+    // Only scroll when session is loaded and we're not currently loading messages
+    if (!isLoadingSession && !isLoadingMessages) {
+      // Scroll browser window to center the page
+      const scrollToPageCenter = () => {
+        const pageHeight = document.documentElement.scrollHeight
+        const windowHeight = window.innerHeight
+        const centerPosition = (pageHeight - windowHeight) / 2
+        window.scrollTo({
+          top: centerPosition,
+          behavior: 'smooth',
+        })
+      }
+
+      // Small delay to ensure layout is rendered
+      const timer = setTimeout(() => {
+        scrollToPageCenter()
+        // Scroll chat to bottom with instant behavior for initial load
+        if (scrollContainerRef.current) {
+          scrollContainerRef.current.scrollTop =
+            scrollContainerRef.current.scrollHeight
+        }
+      }, 300)
+
+      return () => clearTimeout(timer)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoadingSession, isLoadingMessages])
+
   // Scroll to bottom when messages change
   useEffect(() => {
     scrollToBottom()
@@ -668,12 +698,12 @@ export default function AIAgentPage() {
 
   return (
     <motion.div
-      className=""
+      className="h-screen flex flex-col"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="">
+      <div className="flex-1 flex flex-col overflow-hidden">
         {/* Chat Messages */}
         <ChatMessagesContainer
           messages={messages}
@@ -683,28 +713,29 @@ export default function AIAgentPage() {
           scrollContainerRef={scrollContainerRef}
           messagesEndRef={messagesEndRef}
         />
-        <div ref={messagesEndRef} />
       </div>
 
       {/* Input Area */}
-      <ChatInputArea
-        selectedChatType={selectedChatType}
-        inputMessage={inputMessage}
-        isRecording={isRecording}
-        isSendingMessage={isSendingMessage}
-        audioBlob={audioBlob}
-        isDropdownOpen={isDropdownOpen}
-        onInputChange={handleInputChange}
-        onKeyPress={handleKeyPress}
-        onSendMessage={handleSendMessage}
-        onToggleRecording={handleToggleRecording}
-        onDeleteAudio={deleteVoiceMessage}
-        onSendAudio={sendVoiceMessage}
-        onToggleDropdown={handleToggleDropdown}
-        onSelectChatType={handleSelectChatType}
-        sessionId={sessionId}
-        inputRef={inputRef}
-      />
+      <div className="flex-shrink-0">
+        <ChatInputArea
+          selectedChatType={selectedChatType}
+          inputMessage={inputMessage}
+          isRecording={isRecording}
+          isSendingMessage={isSendingMessage}
+          audioBlob={audioBlob}
+          isDropdownOpen={isDropdownOpen}
+          onInputChange={handleInputChange}
+          onKeyPress={handleKeyPress}
+          onSendMessage={handleSendMessage}
+          onToggleRecording={handleToggleRecording}
+          onDeleteAudio={deleteVoiceMessage}
+          onSendAudio={sendVoiceMessage}
+          onToggleDropdown={handleToggleDropdown}
+          onSelectChatType={handleSelectChatType}
+          sessionId={sessionId}
+          inputRef={inputRef}
+        />
+      </div>
 
       <audio ref={audioRef} onEnded={() => setIsPlayingAudio(null)} />
     </motion.div>

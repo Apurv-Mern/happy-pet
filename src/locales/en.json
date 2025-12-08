@@ -330,6 +330,7 @@
     "firstNameRequired": "First name is required",
     "lastNameRequired": "Last name is required",
     "subjectRequired": "Subject is required",
-    "messageMinLength": "Message must be at least 10 characters"
+    "messageMinLength": "Message must be at least 10 characters",
+    "happy": "Happy"
   }
 }

@@ -1,3 +1,4 @@
+import { useTranslation } from '@/contexts/I18nContext'
 import { memo, useCallback } from 'react'
 
 interface Category {
@@ -27,6 +28,8 @@ export const CategorySidebar = memo(
       [onCategoryClick]
     )
 
+    const { t, language } = useTranslation()
+
     return (
       <div className="bg-[#E3E6ED] rounded-bl-[15px] rounded-br-[15px]">
         <div className="bg-[#003863] rounded-tl-[15px] rounded-tr-[15px] text-white px-6 py-4">
@@ -44,7 +47,7 @@ export const CategorySidebar = memo(
               } ${selectedCategory === category.id ? 'bg-[#D0D2D9]' : ''}`}
             >
               <span className="text-[#003863] text-[18px] font-semibold">
-                Happy {category.name}
+                {t(`validation.happy`)} {category.name}
               </span>
             </button>
           ))}

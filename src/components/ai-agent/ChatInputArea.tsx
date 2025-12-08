@@ -43,6 +43,16 @@ export const ChatInputArea = ({
 }: ChatInputAreaProps) => {
   return (
     <div className="w-full bg-[#E3E6ED] border-[2px] border-[#003863] rounded-[20px] px-4 py-3 relative mt-10">
+      {/* Recording Indicator */}
+      {isRecording && !audioBlob && (
+        <div className="flex items-center gap-3 mb-3 pb-3 border-b border-[#003863]/20">
+          <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse flex-shrink-0"></div>
+          <span className="text-[#003863] font-medium text-sm">
+            Recording...
+          </span>
+        </div>
+      )}
+
       {/* Audio Recording Preview */}
       {audioBlob && (
         <AudioRecordingPreview

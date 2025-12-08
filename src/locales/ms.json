@@ -331,6 +331,7 @@
     "firstNameRequired": "Nama pertama diperlukan",
     "lastNameRequired": "Nama akhir diperlukan",
     "subjectRequired": "Subjek diperlukan",
-    "messageMinLength": "Mesej mestilah sekurang-kurangnya 10 aksara"
+    "messageMinLength": "Mesej mestilah sekurang-kurangnya 10 aksara",
+    "happy": "Gembira"
   }
 }

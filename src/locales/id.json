@@ -331,6 +331,7 @@
     "firstNameRequired": "Nama depan wajib diisi",
     "lastNameRequired": "Nama belakang wajib diisi",
     "subjectRequired": "Subjek wajib diisi",
-    "messageMinLength": "Pesan harus minimal 10 karakter"
+    "messageMinLength": "Pesan harus minimal 10 karakter",
+    "happy": "Bahagia"
   }
 }

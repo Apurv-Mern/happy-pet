@@ -34,7 +34,7 @@ export const ChatMessagesContainer = ({
   return (
     <motion.div
       ref={scrollContainerRef}
-      className=""
+      className="flex-1 overflow-y-auto"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}

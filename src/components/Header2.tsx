@@ -33,6 +33,16 @@ const NavLink = ({
   </Link>
 )
 
+// Helper function to check if a path is active
+const isPathActive = (currentPath: string, itemPath: string): boolean => {
+  // Exact match for home page
+  if (itemPath === '/') {
+    return currentPath === '/'
+  }
+  // For other paths, check if current path starts with the item path
+  return currentPath === itemPath || currentPath.startsWith(itemPath + '/')
+}
+
 // Desktop nav when NOT authenticated (screenshot-style pill)
 // Parent will center this with flex.
 const PublicScreenshotNav = ({
@@ -51,7 +61,7 @@ const PublicScreenshotNav = ({
         key={item.path}
         path={item.path}
         label={item.label}
-        isActive={location.pathname === item.path}
+        isActive={isPathActive(location.pathname, item.path)}
       />
     ))}
 
@@ -153,7 +163,7 @@ const AuthenticatedNav = ({
         key={item.path}
         path={item.path}
         label={item.label}
-        isActive={location.pathname === item.path}
+        isActive={isPathActive(location.pathname, item.path)}
       />
     ))}
 
@@ -162,7 +172,7 @@ const AuthenticatedNav = ({
         key={item.path}
         path={item.path}
         label={item.label}
-        isActive={location.pathname === item.path}
+        isActive={isPathActive(location.pathname, item.path)}
       />
     ))}
 
@@ -429,7 +439,7 @@ export function Header2() {
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`text-[#003863] font-medium py-3 px-4 rounded-lg transition-colors ${
-                    location.pathname === item.path
+                    isPathActive(location.pathname, item.path)
                       ? 'bg-[#E1EEF4] text-[#035FA6]'
                       : 'hover:bg-gray-100'
                   }`}
@@ -445,7 +455,7 @@ export function Header2() {
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`text-[#003863] font-medium py-3 px-4 rounded-lg transition-colors ${
-                      location.pathname === item.path
+                      isPathActive(location.pathname, item.path)
                         ? 'bg-[#E1EEF4] text-[#035FA6]'
                         : 'hover:bg-gray-100'
                     }`}

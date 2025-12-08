@@ -331,6 +331,7 @@
     "firstNameRequired": "Vorname ist erforderlich",
     "lastNameRequired": "Nachname ist erforderlich",
     "subjectRequired": "Betreff ist erforderlich",
-    "messageMinLength": "Die Nachricht muss mindestens 10 Zeichen lang sein"
+    "messageMinLength": "Die Nachricht muss mindestens 10 Zeichen lang sein",
+    "happy": "Glücklich"
   }
 }
