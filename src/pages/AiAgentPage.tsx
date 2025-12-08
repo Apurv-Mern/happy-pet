@@ -51,6 +51,7 @@ export default function AIAgentPage() {
   const [isRecording, setIsRecording] = useState(false)
   const [isPlayingAudio, setIsPlayingAudio] = useState<string | null>(null)
   const [audioBlob, setAudioBlob] = useState<Blob | null>(null)
+  const [showSkeleton, setShowSkeleton] = useState(false)
   const [recommendations, setRecommendations] = useState<FileRecommendation[]>(
     []
   )
@@ -178,6 +179,7 @@ export default function AIAgentPage() {
                 type: 'user',
                 content: msg.user,
                 timestamp: new Date(msg.timestamp),
+                isVoice: msg.reqType === 'audio',
               })
               // Add assistant message
               convertedMessages.push({
@@ -185,6 +187,8 @@ export default function AIAgentPage() {
                 type: 'ai',
                 content: msg.assistant,
                 timestamp: new Date(msg.timestamp),
+                isVoice: msg.resType === 'audio',
+                audioUrl: msg.resType === 'audio' ? msg.audioUrl : undefined,
               })
             }
 
@@ -301,7 +305,23 @@ export default function AIAgentPage() {
       content: userMessageText,
       timestamp: new Date(),
     }
-    setMessages(prev => [...prev, tempUserMessage])
+
+    // Add AI thinking message
+    const thinkingMessage: Message = {
+      id: `thinking-${Date.now()}`,
+      type: 'ai',
+      content: 'AI is thinking...',
+      timestamp: new Date(),
+      status: 'pending',
+    }
+
+    setMessages(prev => [...prev, tempUserMessage, thinkingMessage])
+    setShowSkeleton(false)
+
+    // Switch to skeleton after 2 seconds
+    const skeletonTimer = setTimeout(() => {
+      setShowSkeleton(true)
+    }, 2000)
 
     // Emit typing indicator
     emitTyping(false)
@@ -335,9 +355,16 @@ export default function AIAgentPage() {
           timestamp: new Date(),
         }
 
-        // Replace temp message with permanent user message and add AI response
+        // Clear skeleton timer and reset
+        clearTimeout(skeletonTimer)
+        setShowSkeleton(false)
+
+        // Replace temp and thinking messages with permanent messages
         setMessages(prev => {
-          const filtered = prev.filter(msg => msg.id !== tempUserMessage.id)
+          const filtered = prev.filter(
+            msg =>
+              msg.id !== tempUserMessage.id && msg.id !== thinkingMessage.id
+          )
           return [...filtered, userMessage, aiMessage]
         })
 
@@ -452,52 +479,121 @@ export default function AIAgentPage() {
       audioUrl,
       status: 'pending',
     }
-    setMessages(prev => [...prev, tempMessage])
+
+    // Add AI thinking message
+    const thinkingMessage: Message = {
+      id: `thinking-${Date.now()}`,
+      type: 'ai',
+      content: 'AI is thinking...',
+      timestamp: new Date(),
+      status: 'pending',
+    }
+
+    setMessages(prev => [...prev, tempMessage, thinkingMessage])
+    setShowSkeleton(false)
+
+    // Switch to skeleton after 2 seconds
+    const skeletonTimer = setTimeout(() => {
+      setShowSkeleton(true)
+    }, 2000)
 
     try {
-      const requestedFormat =
-        selectedChatType === 'audio'
-          ? 'audio'
-          : selectedChatType === 'video'
-            ? 'video'
-            : 'text'
-      const responseFormat: 'text' | 'audio' | 'video' =
-        selectedChatType === 'video'
-          ? 'video'
-          : selectedChatType === 'audio'
-            ? 'audio'
-            : 'text'
-
       // Convert Blob to File
       const audioFile = new File([audioBlob], 'recording.webm', {
         type: 'audio/webm',
       })
 
-      const response = await chatApi.sendAudioMessage(sessionId, audioFile, {
-        requestedFormat,
-        responseFormat,
-        language,
-      })
+      // Use new audio API for audio chat
+      if (selectedChatType === 'audio') {
+        const response = await chatApi.sendAssistantAudio({
+          audio: audioFile,
+          reqType: 'audio',
+          resType: 'audio',
+          reqLang: language,
+          resLang: language,
+          isStream: false,
+          sessionId: sessionId,
+        })
 
-      // Replace temp message with real messages
-      const newMessages: Message[] = []
-      if (response.userMessage) {
-        newMessages.push(await convertApiMessageToMessage(response.userMessage))
-      }
-      if (response.assistantMessage) {
-        newMessages.push(
-          await convertApiMessageToMessage(response.assistantMessage)
-        )
-      }
+        // Create user message
+        const userMessage: Message = {
+          id: `user-${Date.now()}`,
+          type: 'user',
+          content: 'Voice message',
+          timestamp: new Date(),
+          isVoice: true,
+          audioUrl,
+        }
 
-      setMessages(prev => {
-        const filtered = prev.filter(msg => msg.id !== tempId)
-        return [...filtered, ...newMessages]
-      })
+        // Create AI response message
+        const aiMessage: Message = {
+          id: `ai-${Date.now()}`,
+          type: 'ai',
+          content: response.msg,
+          timestamp: new Date(),
+          isVoice: true,
+          audioUrl: response.audioUrl,
+        }
 
-      // Update recommendations if available
-      if (response.recommendations && response.recommendations.length > 0) {
-        setRecommendations(response.recommendations)
+        // Clear skeleton timer and reset
+        clearTimeout(skeletonTimer)
+        setShowSkeleton(false)
+
+        // Replace temp and thinking messages with real messages
+        setMessages(prev => {
+          const filtered = prev.filter(
+            msg => msg.id !== tempId && msg.id !== thinkingMessage.id
+          )
+          return [...filtered, userMessage, aiMessage]
+        })
+
+        // Update recommendations if available
+        if (response.recommend && response.recommend.length > 0) {
+          setRecommendations(response.recommend)
+        }
+      } else {
+        // Use old API for video and text with audio input
+        const requestedFormat =
+          selectedChatType === 'audio'
+            ? 'audio'
+            : selectedChatType === 'video'
+              ? 'video'
+              : 'text'
+        const responseFormat: 'text' | 'audio' | 'video' =
+          selectedChatType === 'video'
+            ? 'video'
+            : selectedChatType === 'audio'
+              ? 'audio'
+              : 'text'
+
+        const response = await chatApi.sendAudioMessage(sessionId, audioFile, {
+          requestedFormat,
+          responseFormat,
+          language,
+        })
+
+        // Replace temp message with real messages
+        const newMessages: Message[] = []
+        if (response.userMessage) {
+          newMessages.push(
+            await convertApiMessageToMessage(response.userMessage)
+          )
+        }
+        if (response.assistantMessage) {
+          newMessages.push(
+            await convertApiMessageToMessage(response.assistantMessage)
+          )
+        }
+
+        setMessages(prev => {
+          const filtered = prev.filter(msg => msg.id !== tempId)
+          return [...filtered, ...newMessages]
+        })
+
+        // Update recommendations if available
+        if (response.recommendations && response.recommendations.length > 0) {
+          setRecommendations(response.recommendations)
+        }
       }
 
       setAudioBlob(null)
@@ -515,22 +611,53 @@ export default function AIAgentPage() {
   }
 
   const speakText = (text: string, messageId: string) => {
-    // Stop if another is playing
+    // Find the message to check if it has audioUrl
+    const message = messages.find(m => m.id === messageId)
+
+    // Stop if currently playing this message
     if (isPlayingAudio === messageId) {
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current.currentTime = 0
+      }
       window.speechSynthesis.cancel()
       setIsPlayingAudio(null)
       return
     }
 
-    const utter = new SpeechSynthesisUtterance(text)
-    utter.lang = language === 'en' ? 'en-US' : 'hi-IN'
+    // If message has audioUrl, play the audio file
+    if (message?.audioUrl) {
+      if (!audioRef.current) {
+        audioRef.current = new Audio()
+      }
 
-    utter.onend = () => {
-      setIsPlayingAudio(null)
+      audioRef.current.src = message.audioUrl
+      audioRef.current.onended = () => {
+        setIsPlayingAudio(null)
+      }
+      audioRef.current.onerror = () => {
+        console.error('Error playing audio')
+        setIsPlayingAudio(null)
+      }
+
+      audioRef.current.play().catch(err => {
+        console.error('Failed to play audio:', err)
+        setIsPlayingAudio(null)
+      })
+
+      setIsPlayingAudio(messageId)
+    } else {
+      // Fallback to text-to-speech if no audio URL
+      const utter = new SpeechSynthesisUtterance(text)
+      utter.lang = language === 'en' ? 'en-US' : 'hi-IN'
+
+      utter.onend = () => {
+        setIsPlayingAudio(null)
+      }
+
+      setIsPlayingAudio(messageId)
+      window.speechSynthesis.speak(utter)
     }
-
-    setIsPlayingAudio(messageId)
-    window.speechSynthesis.speak(utter)
   }
 
   // Handle typing indicator
@@ -626,29 +753,39 @@ export default function AIAgentPage() {
                     }`}
                   >
                     {message.isVoice && message.audioUrl && (
-                      <div className="flex items-center gap-2 mb-2">
-                        <button
-                          onClick={() => speakText(message.content, message.id)}
-                          className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
-                        >
-                          {isPlayingAudio === message.id ? (
-                            <Pause className="h-4 w-4" />
-                          ) : (
-                            <Play className="h-4 w-4" />
-                          )}
-                        </button>
-                        <div className="flex-grow h-1 bg-white/30 rounded-full">
-                          <div className="h-full w-0 bg-white rounded-full transition-all" />
-                        </div>
+                      <div className="mb-3">
+                        <audio
+                          controls
+                          className="w-full rounded-lg"
+                          src={message.audioUrl}
+                          style={{
+                            height: '40px',
+                            filter:
+                              message.type === 'user'
+                                ? 'invert(1) grayscale(1) contrast(0.8)'
+                                : 'none',
+                          }}
+                        />
                       </div>
                     )}
-                    {message.status === 'pending' && (
-                      <div className="flex items-center gap-2 mb-2">
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                        <span className="text-xs">Processing...</span>
+                    {message.status === 'pending' && message.type === 'ai' ? (
+                      <div>
+                        {!showSkeleton ? (
+                          <div className="flex items-center gap-2">
+                            <Loader2 className="h-4 w-auto animate-spin text-[#003863]" />
+                            <span className="text-sm text-[#003863] animate-pulse">
+                              AI is thinking...
+                            </span>
+                          </div>
+                        ) : (
+                          <div className="space-y-3 animate-pulse">
+                            <div className="h-6 bg-gray-300 rounded-lg w-full"></div>
+                            <div className="h-6 bg-gray-300 rounded-lg w-full"></div>
+                            <div className="h-6 bg-gray-300 rounded-lg w-4/5"></div>
+                          </div>
+                        )}
                       </div>
-                    )}
-                    {message.type === 'ai' ? (
+                    ) : message.type === 'ai' ? (
                       <div className="text-sm leading-relaxed prose prose-sm max-w-none prose-headings:text-[#003863] prose-p:text-gray-700 prose-strong:text-[#003863] prose-ul:text-gray-700 prose-ol:text-gray-700">
                         <ReactMarkdown>{message.content}</ReactMarkdown>
                       </div>

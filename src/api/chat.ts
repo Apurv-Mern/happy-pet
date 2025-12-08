@@ -80,6 +80,7 @@ interface GetMessagesResponse {
       resLang: string
       isStream: boolean
       recommend: FileRecommendation[]
+      audioUrl?: string
       createdAt: string
       updatedAt: string
       __v: number
@@ -178,6 +179,37 @@ export const chatApi = {
     recommend: FileRecommendation[]
   }> => {
     const { data } = await apiClient.post('/v1/assistant/text', payload)
+    return data
+  },
+
+  // New Assistant API for audio messages
+  sendAssistantAudio: async (payload: {
+    audio: File
+    reqType: 'audio'
+    resType: 'audio'
+    reqLang: string
+    resLang: string
+    isStream: boolean
+    sessionId: string
+  }): Promise<{
+    success: boolean
+    msg: string
+    recommend: FileRecommendation[]
+    audioUrl: string
+    resType: string
+  }> => {
+    const formData = new FormData()
+    formData.append('audio', payload.audio)
+    formData.append('reqType', payload.reqType)
+    formData.append('resType', payload.resType)
+    formData.append('reqLang', payload.reqLang)
+    formData.append('resLang', payload.resLang)
+    formData.append('isStream', String(payload.isStream))
+    formData.append('sessionId', payload.sessionId)
+
+    const { data } = await apiClient.post('/v1/assistant/audio', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
     return data
   },
 
