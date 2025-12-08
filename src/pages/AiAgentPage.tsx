@@ -10,6 +10,8 @@ import {
   Loader2,
   ExternalLink,
   FileText,
+  Mic,
+  MicOff,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
@@ -553,18 +555,9 @@ export default function AIAgentPage() {
         }
       } else {
         // Use old API for video and text with audio input
-        const requestedFormat =
-          selectedChatType === 'audio'
-            ? 'audio'
-            : selectedChatType === 'video'
-              ? 'video'
-              : 'text'
+        const requestedFormat = selectedChatType === 'video' ? 'video' : 'text'
         const responseFormat: 'text' | 'audio' | 'video' =
-          selectedChatType === 'video'
-            ? 'video'
-            : selectedChatType === 'audio'
-              ? 'audio'
-              : 'text'
+          selectedChatType === 'video' ? 'video' : 'text'
 
         const response = await chatApi.sendAudioMessage(sessionId, audioFile, {
           requestedFormat,
@@ -768,27 +761,38 @@ export default function AIAgentPage() {
                         />
                       </div>
                     )}
+                    {/* Hidden text to determine bubble width */}
+                    {message.type === 'ai' &&
+                      message.audioUrl &&
+                      message.content && (
+                        <div className="invisible h-0 overflow-hidden text-sm leading-relaxed prose prose-sm max-w-none">
+                          <ReactMarkdown>{message.content}</ReactMarkdown>
+                        </div>
+                      )}
                     {message.status === 'pending' && message.type === 'ai' ? (
                       <div>
                         {!showSkeleton ? (
                           <div className="flex items-center gap-2">
-                            <Loader2 className="h-4 w-auto animate-spin text-[#003863]" />
+                            <Loader2 className="h-4 w-full animate-spin text-[#003863]" />
                             <span className="text-sm text-[#003863] animate-pulse">
                               AI is thinking...
                             </span>
                           </div>
                         ) : (
-                          <div className="space-y-3 animate-pulse">
-                            <div className="h-6 bg-gray-300 rounded-lg w-full"></div>
-                            <div className="h-6 bg-gray-300 rounded-lg w-full"></div>
-                            <div className="h-6 bg-gray-300 rounded-lg w-4/5"></div>
+                          <div className="flex items-center gap-2">
+                            <Loader2 className="h-4 w-full animate-spin text-[#003863]" />
+                            <span className="text-sm text-[#003863] animate-pulse">
+                              AI is thinking...
+                            </span>
                           </div>
                         )}
                       </div>
                     ) : message.type === 'ai' ? (
-                      <div className="text-sm leading-relaxed prose prose-sm max-w-none prose-headings:text-[#003863] prose-p:text-gray-700 prose-strong:text-[#003863] prose-ul:text-gray-700 prose-ol:text-gray-700">
-                        <ReactMarkdown>{message.content}</ReactMarkdown>
-                      </div>
+                      !message.audioUrl && (
+                        <div className="text-sm leading-relaxed prose prose-sm max-w-none prose-headings:text-[#003863] prose-p:text-gray-700 prose-strong:text-[#003863] prose-ul:text-gray-700 prose-ol:text-gray-700">
+                          <ReactMarkdown>{message.content}</ReactMarkdown>
+                        </div>
+                      )
                     ) : (
                       <p className="text-sm leading-relaxed whitespace-pre-line">
                         {message.content}
@@ -1050,28 +1054,52 @@ export default function AIAgentPage() {
           className="flex-1 bg-transparent px-4 text-[#003863] text-lg focus:outline-none disabled:opacity-50"
         />
         <div className="h-8 w-[1px] bg-[#003863]"></div>
-        <button
-          onClick={handleSendMessage}
-          disabled={!inputMessage.trim() || isSendingMessage || !sessionId}
-          className="ml-4 w-10 h-10 flex items-center justify-center rounded-full text-white disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {isSendingMessage ? (
-            <Loader2 className="h-6 w-6 animate-spin text-[#003863]" />
-          ) : (
-            <svg
-              width="46"
-              height="48"
-              viewBox="0 0 46 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M22.9652 0C25.981 0 28.9673 0.620779 31.7536 1.82689C34.5398 3.033 37.0715 4.80083 39.204 7.02944C41.3365 9.25804 43.0281 11.9038 44.1822 14.8156C45.3363 17.7274 45.9303 20.8483 45.9303 24C45.9303 30.3652 43.5108 36.4697 39.204 40.9706C34.8972 45.4714 29.0559 48 22.9652 48C19.9493 48 16.963 47.3792 14.1768 46.1731C11.3905 44.967 8.85885 43.1992 6.72634 40.9706C2.41954 36.4697 0 30.3652 0 24C0 17.6348 2.41954 11.5303 6.72634 7.02944C11.0331 2.52856 16.8744 0 22.9652 0ZM13.7791 13.704V21.72L30.1762 24L13.7791 26.28V34.296L36.7443 24L13.7791 13.704Z"
-                fill="#003863"
-              />
-            </svg>
-          )}
-        </button>
+        {selectedChatType === 'audio' ? (
+          <button
+            onClick={() => {
+              if (isRecording) {
+                stopRecording()
+              } else {
+                startRecording()
+              }
+            }}
+            disabled={isSendingMessage}
+            className={`ml-4 w-10 h-10 flex items-center justify-center rounded-full transition-colors disabled:opacity-50 ${
+              isRecording
+                ? 'bg-red-500 hover:bg-red-600 animate-pulse'
+                : 'bg-[#003863] hover:bg-[#002d4d]'
+            }`}
+          >
+            {isRecording ? (
+              <MicOff className="h-6 w-6 text-white" />
+            ) : (
+              <Mic className="h-6 w-6 text-white" />
+            )}
+          </button>
+        ) : (
+          <button
+            onClick={handleSendMessage}
+            disabled={!inputMessage.trim() || isSendingMessage || !sessionId}
+            className="ml-4 w-10 h-10 flex items-center justify-center rounded-full text-white disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isSendingMessage ? (
+              <Loader2 className="h-6 w-6 animate-spin text-[#003863]" />
+            ) : (
+              <svg
+                width="46"
+                height="48"
+                viewBox="0 0 46 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22.9652 0C25.981 0 28.9673 0.620779 31.7536 1.82689C34.5398 3.033 37.0715 4.80083 39.204 7.02944C41.3365 9.25804 43.0281 11.9038 44.1822 14.8156C45.3363 17.7274 45.9303 20.8483 45.9303 24C45.9303 30.3652 43.5108 36.4697 39.204 40.9706C34.8972 45.4714 29.0559 48 22.9652 48C19.9493 48 16.963 47.3792 14.1768 46.1731C11.3905 44.967 8.85885 43.1992 6.72634 40.9706C2.41954 36.4697 0 30.3652 0 24C0 17.6348 2.41954 11.5303 6.72634 7.02944C11.0331 2.52856 16.8744 0 22.9652 0ZM13.7791 13.704V21.72L30.1762 24L13.7791 26.28V34.296L36.7443 24L13.7791 13.704Z"
+                  fill="#003863"
+                />
+              </svg>
+            )}
+          </button>
+        )}
       </div>
 
       <audio ref={audioRef} onEnded={() => setIsPlayingAudio(null)} />
