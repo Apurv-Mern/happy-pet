@@ -38,7 +38,7 @@ const AboutUsPage = () => {
       </div>
       <div className="bg-[#E3E6ED] my-10 mb-0">
         <div className="container mx-auto py-14">
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
             <div className="flex justify-center md:justify-center xl:justify-start">
               <img
                 className="rounded-[30px] w-full max-w-[500px]"
@@ -65,7 +65,7 @@ const AboutUsPage = () => {
       </div>
       <div className="py-10 md:py-20">
         <div className="container mx-auto py-14">
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
             <div>
               <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
                 For the Love of Nature
@@ -93,7 +93,7 @@ const AboutUsPage = () => {
       </div>
       <div className="bg-[#E3E6ED]">
         <div className="container mx-auto py-14">
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
             <div className="flex justify-center md:justify-center xl:justify-start">
               <img
                 className="rounded-[30px] w-full max-w-[500px]"
@@ -121,7 +121,7 @@ const AboutUsPage = () => {
       </div>
       <div className="py-10 md:py-20">
         <div className="container mx-auto py-14">
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
             <div>
               <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px] md:mb-3">
                 For the Love of Tradition

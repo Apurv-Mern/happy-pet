@@ -57,24 +57,24 @@ const NutritionalConcept = () => {
           </div>
         </div>
         <div className="container mx-auto py-20">
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_40%]">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_40%] items-center">
             <div>
-              <p className="text-[#003863] text-[20px] font-bold">
+              <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px] font-bold">
                 With this philosophy, we have been producing our Happy Dog
                 products in Wehringen, Bavaria, for over 50 years. But what
                 exactly is in our products?
               </p>
-              <h2 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px] md:my-3">
+              <h2 className="heading-line text-[#003863] text-[36px] sm:text-[38px] md:text-[64px] md:my-3">
                 The right portion of meat
               </h2>
-              <p className="text-[#003863] text-[20px]">
+              <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px]">
                 Meat and valuable animal proteins of the highest quality are the
                 most important components of our pet food because of their
                 essential amino acids.  In Happy Dog dry food, the proportion of
                 animal protein in the total protein is up to 90%
               </p>
             </div>
-            <div className="flex justify-center md:justify-center xl:justify-end">
+            <div className="flex justify-center md:justify-center xl:justify-end mt-5 sm:mt-5 md:mt-5 lg:mt-0 md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
                 src="/assets/images/meat.png"
                 className="rounded-[30px] w-full max-w-[500px]"
@@ -85,8 +85,8 @@ const NutritionalConcept = () => {
         </div>
         <div className="bg-[#E3E6ED] py-10">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] items-center">
-              <div>
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[40%_60%]  2xl:grid-cols-[40%_60%] items-center">
+              <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
                 <img
                   src="/assets/images/dogmeal.png"
                   className="rounded-[30px] w-full max-w-[500px]"
@@ -94,10 +94,10 @@ const NutritionalConcept = () => {
                 />
               </div>
               <div>
-                <h2 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px] md:my-3">
+                <h2 className="heading-line text-[#003863] text-[36px] sm:text-[38px] md:text-[64px] md:my-3">
                   We take nature as our model
                 </h2>
-                <p className="text-[#003863] text-[20px]">
+                <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px]">
                   The Happy Dog Natural Life Concept® offers your dog a
                   nutritionally sensible combination of all vital nutrients with
                   natural ingredients. This provides optimal and
@@ -106,7 +106,7 @@ const NutritionalConcept = () => {
                 </p>
               </div>
             </div>
-            <p className="text-[#003863] text-[20px] md:mt-3">
+            <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px] md:mt-3">
               In addition to the  main ingredient, meat  , and depending on the
               variety, different carbohydrate sources from regional cultivation,
               Happy Dog dry food contains natural components such as herbs,
@@ -125,128 +125,144 @@ const NutritionalConcept = () => {
           </div>
         </div>
         <div className="container mx-auto py-20">
-          <h4 className="heading-line text-[#003863] text-[64px] text-center">
+          <h4 className="heading-line text-[#003863] text-[36px] sm:text-[38px] md:text-[64px] text-center">
             The Happy Dog nutrition concept & its health-promoting properties:
           </h4>
-          <div className="grid grid-cols-1 xl:grid-cols-2 py-10 gap-6">
-            <div className="border-[2px] border-[#003863] rounded-full px-4 py-2 flex items-center gap-2">
-              <img
-                src="/assets/images/fresh.png"
-                className="w-full max-w-[70px] max-h-[70px] object-contain"
-                alt=""
-              />
-              <div>
-                <p className="text-[20px] text-[#003863] font-bold">
+          <div className="grid grid-cols-1 xl:grid-cols-1 2xl:grid-cols-2 py-10 gap-6">
+            <div className="sm:border-[2px] sm:border-[#003863] sm:rounded-full sm:px-4 sm:py-2 sm:flex sm:items-center sm:gap-2 rounded-[10px] border-[2px] border-[#003863] px-4 py-2">
+              <div className="flex justify-center sm:block">
+                <img
+                  src="/assets/images/fresh.png"
+                  className="w-full max-w-[70px] max-h-[70px] object-contain"
+                  alt=""
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <p className="text-[16px] sm:text-[16px] md:text-[20px] text-[#003863] font-bold">
                   Selected herbs
                 </p>
-                <span className="text-[16px] text-[#003863]">
+                <span className="text-[14px] sm:text-[14px] md:text-[16px] text-[#003863]">
                   Natural helpers for the organism - good for the stomach,
                   intestines, circulation and respiratory tract
                 </span>
               </div>
             </div>
-            <div className="border-[2px] border-[#003863] rounded-full px-4 py-2 flex items-center gap-2">
-              <img
-                src="/assets/images/fresh2.png"
-                className="w-full max-w-[70px] max-h-[70px] object-contain"
-                alt=""
-              />
-              <div>
-                <p className="text-[20px] text-[#003863] font-bold">Apple</p>
-                <span className="text-[16px] text-[#003863]">
+            <div className="sm:border-[2px] sm:border-[#003863] sm:rounded-full sm:px-4 sm:py-2 sm:flex sm:items-center sm:gap-2 rounded-[10px] border-[2px] border-[#003863] px-4 py-2">
+              <div className="flex justify-center sm:block">
+                <img
+                  src="/assets/images/fresh2.png"
+                  className="w-full max-w-[70px] max-h-[70px] object-contain"
+                  alt=""
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <p className="text-[16px] sm:text-[16px] md:text-[20px] text-[#003863] font-bold">Apple</p>
+                <span className="text-[14px] sm:text-[14px] md:text-[16px] text-[#003863]">
                   pectin-containing fiber ensures regulated digestion and a
                   stable intestinal flora
                 </span>
               </div>
             </div>
-            <div className="border-[2px] border-[#003863] rounded-full px-4 py-2 flex items-center gap-2">
-              <img
-                src="/assets/images/fresh3.png"
-                className="w-full max-w-[70px] max-h-[70px] object-contain"
-                alt=""
-              />
-              <div>
-                <p className="text-[20px] text-[#003863] font-bold">Ginger</p>
-                <span className="text-[16px] text-[#003863]">
+            <div className="sm:border-[2px] sm:border-[#003863] sm:rounded-full sm:px-4 sm:py-2 sm:flex sm:items-center sm:gap-2 rounded-[10px] border-[2px] border-[#003863] px-4 py-2">
+              <div className="flex justify-center sm:block">
+                <img
+                  src="/assets/images/fresh3.png"
+                  className="w-full max-w-[70px] max-h-[70px] object-contain"
+                  alt=""
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <p className="text-[16px] sm:text-[16px] md:text-[20px] text-[#003863] font-bold">Ginger</p>
+                <span className="text-[14px] sm:text-[14px] md:text-[16px] text-[#003863]">
                   to strengthen the immune system and the musculoskeletal system
                 </span>
               </div>
             </div>
-            <div className="border-[2px] border-[#003863] rounded-full px-4 py-2 flex items-center gap-2">
-              <img
-                src="/assets/images/fresh4.png"
-                className="w-full max-w-[70px] max-h-[70px] object-contain"
-                alt=""
-              />
-              <div>
-                <p className="text-[20px] text-[#003863] font-bold">Seaweed</p>
-                <span className="text-[16px] text-[#003863]">
+            <div className="sm:border-[2px] sm:border-[#003863] sm:rounded-full sm:px-4 sm:py-2 sm:flex sm:items-center sm:gap-2 rounded-[10px] border-[2px] border-[#003863] px-4 py-2">
+              <div className="flex justify-center sm:block">
+                <img
+                  src="/assets/images/fresh4.png"
+                  className="w-full max-w-[70px] max-h-[70px] object-contain"
+                  alt=""
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <p className="text-[16px] sm:text-[16px] md:text-[20px] text-[#003863] font-bold">Seaweed</p>
+                <span className="text-[14px] sm:text-[14px] md:text-[16px] text-[#003863]">
                   Natural supplier of a wide range of vital nutrients, e.g.
                   minerals and amino acids - for more well-being and a shiny
                   coat
                 </span>
               </div>
             </div>
-            <div className="border-[2px] border-[#003863] rounded-full px-4 py-2 flex items-center gap-2">
-              <img
-                src="/assets/images/fresh5.png"
-                className="w-full max-w-[70px] max-h-[70px] object-contain"
-                alt=""
-              />
-              <div>
-                <p className="text-[20px] text-[#003863] font-bold">
+            <div className="sm:border-[2px] sm:border-[#003863] sm:rounded-full sm:px-4 sm:py-2 sm:flex sm:items-center sm:gap-2 rounded-[10px] border-[2px] border-[#003863] px-4 py-2">
+              <div className="flex justify-center sm:block">
+                <img
+                  src="/assets/images/fresh5.png"
+                  className="w-full max-w-[70px] max-h-[70px] object-contain"
+                  alt=""
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <p className="text-[16px] sm:text-[16px] md:text-[20px] text-[#003863] font-bold">
                   Green-lipped New Zealand mussel
                 </p>
-                <span className="text-[16px] text-[#003863]">
+                <span className="text-[14px] sm:text-[14px] md:text-[16px] text-[#003863]">
                   rich in glycosaminoglycans to support the joints and synovial
                   fluid and therefore good for the musculoskeletal system
                 </span>
               </div>
             </div>
-            <div className="border-[2px] border-[#003863] rounded-full px-4 py-2 flex items-center gap-2">
-              <img
-                src="/assets/images/fresh6.png"
-                className="w-full max-w-[70px] max-h-[70px] object-contain"
-                alt=""
-              />
-              <div>
-                <p className="text-[20px] text-[#003863] font-bold">
+            <div className="sm:border-[2px] sm:border-[#003863] sm:rounded-full sm:px-4 sm:py-2 sm:flex sm:items-center sm:gap-2 rounded-[10px] border-[2px] border-[#003863] px-4 py-2">
+              <div className="flex justify-center sm:block">
+                <img
+                  src="/assets/images/fresh6.png"
+                  className="w-full max-w-[70px] max-h-[70px] object-contain"
+                  alt=""
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <p className="text-[16px] sm:text-[16px] md:text-[20px] text-[#003863] font-bold">
                   Linseed & sunflower oil
                 </p>
-                <span className="text-[16px] text-[#003863]">
+                <span className="text-[14px] sm:text-[14px] md:text-[16px] text-[#003863]">
                   rich in essential omega-3 and omega-6 fatty acids for
                   regulated digestion and a shiny coat
                 </span>
               </div>
             </div>
-            <div className="border-[2px] border-[#003863] rounded-full px-4 py-2 flex items-center gap-2">
-              <img
-                src="/assets/images/fresh7.png"
-                className="w-full max-w-[70px] max-h-[70px] object-contain"
-                alt=""
-              />
-              <div>
-                <p className="text-[20px] text-[#003863] font-bold">
+            <div className="sm:border-[2px] sm:border-[#003863] sm:rounded-full sm:px-4 sm:py-2 sm:flex sm:items-center sm:gap-2 rounded-[10px] border-[2px] border-[#003863] px-4 py-2">
+              <div className="flex justify-center sm:block">
+                <img
+                  src="/assets/images/fresh7.png"
+                  className="w-full max-w-[70px] max-h-[70px] object-contain"
+                  alt=""
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <p className="text-[16px] sm:text-[16px] md:text-[20px] text-[#003863] font-bold">
                   Yeast (extracted)
                 </p>
-                <span className="text-[16px] text-[#003863]">
+                <span className="text-[14px] sm:text-[14px] md:text-[16px] text-[#003863]">
                   Mannanoligosaccharides (MOS) and nucleotides from yeast cell
                   walls are good for a strong immune system (nucleotides help in
                   the regeneration of DNA)
                 </span>
               </div>
             </div>
-            <div className="border-[2px] border-[#003863] rounded-full px-4 py-2 flex items-center gap-2">
-              <img
-                src="/assets/images/fresh7.png"
-                className="w-full max-w-[70px] max-h-[70px] object-contain"
-                alt=""
-              />
-              <div>
-                <p className="text-[20px] text-[#003863] font-bold">
+            <div className="sm:border-[2px] sm:border-[#003863] sm:rounded-full sm:px-4 sm:py-2 sm:flex sm:items-center sm:gap-2 rounded-[10px] border-[2px] border-[#003863] px-4 py-2">
+              <div className="flex justify-center sm:block">
+                <img
+                  src="/assets/images/fresh7.png"
+                  className="w-full max-w-[70px] max-h-[70px] object-contain"
+                  alt=""
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <p className="text-[16px] sm:text-[16px] md:text-[20px] text-[#003863] font-bold">
                   Yeast (dried)
                 </p>
-                <span className="text-[16px] text-[#003863]">
+                <span className="text-[14px] sm:text-[14px] md:text-[16px] text-[#003863]">
                   to support a stable intestinal flora
                 </span>
               </div>
@@ -257,10 +273,10 @@ const NutritionalConcept = () => {
           <div className="container mx-auto">
             <div className="grid grid-cols-1 xl:grid-cols-[70%_30%]">
               <div>
-                <h2 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px] md:my-3">
+                <h2 className="heading-line text-[#003863] text-[36px] sm:text-[38px] md:text-[64px] md:my-3">
                   Well-cared for all round
                 </h2>
-                <p className="text-[#003863] text-[20px]">
+                <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px]">
                   Vitamins, minerals and trace elements as well as fat, protein,
                   crude fiber and carbohydrates are vital for our pets. Our
                   balanced and varied pet food ensures an adequate supply of
@@ -273,12 +289,12 @@ const NutritionalConcept = () => {
                   the respective food. Depending on which health aspect you want
                   to support, you can choose your food accordingly.
                 </p>
-                <p className="text-[#003863] text-[20px] font-bold my-4">
+                <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px] font-bold my-4">
                   Example from our whole food diet for illustration <br></br>The
                   Happy Dog dry food Medium Adult from the fit & vital line has
                   the following <br></br> composition:
                 </p>
-                <p className="text-[#003863] text-[20px]">
+                <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px]">
                   <span className="font-semibold">Composition</span>
                   <br></br>
                   Animal proteins* (14% poultry, 4% lamb), corn, corn flour,
@@ -292,7 +308,7 @@ const NutritionalConcept = () => {
                   liquorice root, thyme (total dried herbs: 0.16%), *) dried.
                 </p>
               </div>
-              <div className="about-image">
+              <div className="flex justify-center md:justify-center">
                 <img
                   src="/assets/images/dogfood.png"
                   className="w-full max-w-[400px] max-h-[600px]"
@@ -300,7 +316,7 @@ const NutritionalConcept = () => {
                 />
               </div>
             </div>
-            <p className="text-[#003863] text-[20px] md:mt-3">
+            <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px] md:mt-3">
               The linseed contained in it, for example, is rich in omega-3 and
               omega-6 fatty acids and has a high content of lecithin and vitamin
               E. This can have a positive effect on the skin and fur and has an
@@ -322,7 +338,7 @@ const NutritionalConcept = () => {
                 <h2 className="heading-line text-[#fff] text-[38px] sm:text-[38px] md:text-[64px] md:my-3">
                   Conclusion
                 </h2>
-                <p className="text-[20px] text-[#fff] font-bold">
+                <p className="text-[16px] sm:text-[16px] md:text-[20px] text-[#fff] font-bold">
                   Today, good dog food has to do much more than just fill you
                   up! That's why Happy Dog's balanced dog food contains natural
                   herbs in addition to the animal proteins and important fiber

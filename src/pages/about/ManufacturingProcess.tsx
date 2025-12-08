@@ -7,10 +7,10 @@ const ManufacturingProcess = () => {
         </div>
         <div className="bg-[#E3E6ED] py-10">
           <div className="container mx-auto">
-            <h4 className="heading-line text-[#003863] text-[64px] text-center">
+            <h4 className="heading-line text-[#003863] text-[36px] sm:text-[38px] md:text-[64px] text-center">
               Would you like to know how Happy Dog dry food is made?
             </h4>
-            <p className="text-[#003863] text-[20px] text-center font-semibold">
+            <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px] text-center font-semibold">
               Do you feed your pet Happy Dog dry food every day   and are you
               interested in how our high-quality dog ​​food is prepared? Here we
               explain step by step how our croquettes are made: from the natural
@@ -23,7 +23,7 @@ const ManufacturingProcess = () => {
                 alt=""
               />
             </div>
-            <p className="text-[#003863] text-[20px] text-center font-semibold">
+            <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px] text-center font-semibold">
               Take the  right portion of meat  and nutrient-rich offal and
               combine them with valuable plant-based nutrients and healthy
               carbohydrate sources, such as potatoes. We achieve a particularly
@@ -34,8 +34,8 @@ const ManufacturingProcess = () => {
           </div>
         </div>
         <div className="container mx-auto py-10">
-          <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] items-center">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[40%_60%] xl:grid-cols-[40%_60%] 2xl:grid-cols-[40%_60%] items-center">
+            <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
                 src="/assets/images/process01.png"
                 className="w-full max-w-[500px]"
@@ -43,13 +43,13 @@ const ManufacturingProcess = () => {
               />
             </div>
             <div>
-              <h2 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
+              <h2 className="heading-line text-[#003863] text-[36px] sm:text-[38px] md:text-[64px]">
                 Farm Yard
               </h2>
-              <p className="text-[#003863] text-[20px] font-bold">
+              <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px] font-bold">
                 Natural raw materials from farmers from our Bavarian homeland
               </p>
-              <p className="text-[#003863] text-[20px] mt-5">
+              <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px] mt-5">
                 We place the rearing of animals and the cultivation of
                 plant-based raw materials in the hands of our carefully selected
                 agricultural partners. Animal welfare-friendly rearing is
@@ -63,15 +63,15 @@ const ManufacturingProcess = () => {
         </div>
         <div className="bg-[#E3E6ED] py-10">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 xl:grid-cols-[60%_40%] items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[60%_40%] xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_40%] items-center">
               <div>
-                <h2 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
+                <h2 className="heading-line text-[#003863] text-[36px] sm:text-[38px] md:text-[64px]">
                   Delivery
                 </h2>
-                <p className="text-[#003863] text-[20px] font-bold">
+                <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px] font-bold">
                   Short delivery routes for more freshness
                 </p>
-                <p className="text-[#003863] text-[20px] mt-5">
+                <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px] mt-5">
                   The majority of our ingredients come from the region around
                   Augsburg. Because of the short travel distances, we always
                   receive fresh produce straight from the fields. This way we
@@ -79,7 +79,7 @@ const ManufacturingProcess = () => {
                   homeland.
                 </p>
               </div>
-              <div className="about-image">
+              <div className="flex justify-center md:justify-center xl:justify-end md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
                 <img
                   src="/assets/images/process02.png"
                   className="w-full max-w-[500px]"
@@ -90,8 +90,8 @@ const ManufacturingProcess = () => {
           </div>
         </div>
         <div className="container mx-auto py-10">
-          <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] items-center">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[40%_60%] xl:grid-cols-[40%_60%] 2xl:grid-cols-[40%_60%] items-center">
+            <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
                 src="/assets/images/process03.png"
                 className="w-full max-w-[500px]"
@@ -99,13 +99,13 @@ const ManufacturingProcess = () => {
               />
             </div>
             <div>
-              <h2 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
+              <h2 className="heading-line text-[#003863] text-[36px] sm:text-[38px] md:text-[64px]">
                 Mill & Mixer
               </h2>
-              <p className="text-[#003863] text-[20px] font-bold">
+              <p className="text-[#003863] sm:text-[16px] md:text-[20px] font-bold">
                 Grinding & mixing
               </p>
-              <p className="text-[#003863] text-[20px] mt-5">
+              <p className="text-[#003863] sm:text-[16px] md:text-[20px] mt-5">
                 All raw materials for our premium dog food are checked for
                 foreign bodies using several vibrating screens and magnets so
                 that your pet only gets perfect food. The ingredients are then
@@ -116,22 +116,22 @@ const ManufacturingProcess = () => {
         </div>
         <div className="bg-[#E3E6ED] py-10">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 xl:grid-cols-[60%_40%] items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[60%_40%] xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_40%] items-center">
               <div>
                 <h2 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
                   Thermostufenmix
                 </h2>
-                <p className="text-[#003863] text-[20px] font-bold">
+                <p className="text-[#003863] sm:text-[16px] md:text-[20px] font-bold">
                   Gentle preparation: this preserves vitamins and nutrients
                 </p>
-                <p className="text-[#003863] text-[20px] mt-5">
+                <p className="text-[#003863] sm:text-[16px] md:text-[20px] mt-5">
                   The feed mixture is first gently pre-treated with steam and
                   heated for about an hour. In the second stage, the mixture is
                   kneaded in the extruder tube at a minimum of 90 degrees
                   Celsius and then shaped into croquettes.
                 </p>
               </div>
-              <div className="about-image">
+              <div className="flex justify-center md:justify-center xl:justify-end md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
                 <img
                   src="/assets/images/process04.png"
                   className="w-full max-w-[500px]"
@@ -142,8 +142,8 @@ const ManufacturingProcess = () => {
           </div>
         </div>
         <div className="container mx-auto py-10">
-          <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] items-center">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[40%_60%] xl:grid-cols-[40%_60%] 2xl:grid-cols-[40%_60%] items-center">
+            <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
                 src="/assets/images/process05.png"
                 className="w-full max-w-[500px]"
@@ -154,10 +154,10 @@ const ManufacturingProcess = () => {
               <h2 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
                 Drying & refining
               </h2>
-              <p className="text-[#003863] text-[20px] font-bold">
+              <p className="text-[#003863] sm:text-[16px] md:text-[20px] font-bold">
                 Carefully dried & refined with oil
               </p>
-              <p className="text-[#003863] text-[20px] mt-5">
+              <p className="text-[#003863] sm:text-[16px] md:text-[20px] mt-5">
                 The croquettes are dried for 22 minutes at 125 degrees Celsius.
                 After that, they only have a maximum moisture content of 12%,
                 which ensures a longer shelf life. Finally, the dry food is
@@ -169,15 +169,15 @@ const ManufacturingProcess = () => {
         </div>
         <div className="bg-[#E3E6ED] py-10">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 xl:grid-cols-[60%_40%] items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[60%_40%] xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_40%] items-center">
               <div>
                 <h2 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
                   Check & Pack
                 </h2>
-                <p className="text-[#003863] text-[20px] font-bold">
+                <p className="text-[#003863] sm:text-[16px] md:text-[20px] font-bold">
                   Quality control: Because only the best ends up in the bag
                 </p>
-                <p className="text-[#003863] text-[20px] mt-5">
+                <p className="text-[#003863] sm:text-[16px] md:text-[20px] mt-5">
                   The croquettes are put through a metal detector again, because
                   the highest quality is our top priority. That is why the
                   finished croquettes are also carefully checked in the
@@ -187,7 +187,7 @@ const ManufacturingProcess = () => {
                   in bags of different sizes. This is quality made in Germany.
                 </p>
               </div>
-              <div className="about-image">
+              <div className="flex justify-center md:justify-center xl:justify-end md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
                 <img
                   src="/assets/images/process06.png"
                   className="w-full max-w-[500px]"
