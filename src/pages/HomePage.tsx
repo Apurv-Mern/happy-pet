@@ -107,11 +107,11 @@ export function HomePage() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="relative max-w-[610px] w-full bg-none lg:bg-[url('/assets/images/curve-border.png')] bg-no-repeat bg-contain bg-center text-center pt-0 py-8 px-4 sm:px-6">
-          <h2 className="heading-line text-[#003863] text-[28px] sm:text-[40px] md:text-[55px]">
+        <div className="relative max-w-[610px] w-full bg-none lg:bg-[url('/assets/images/curve-border.png')] bg-no-repeat bg-contain bg-center text-center sm:pt-0 sm:py-8 sm:px-4 sm:px-6">
+          <h2 className="heading-line text-[#003863] text-[30px] sm:text-[40px] md:text-[55px]">
             {t('homePage.title')}
           </h2>
-          <p className="text-[#003863]  heading-text font-bold text-[14px] sm:text-[16px] md:text-[20px]">
+          <p className="text-[#003863]  heading-text font-bold text-[16px] sm:text-[16px] md:text-[20px]">
             {t('homePage.subtitle')}
           </p>
         </div>
@@ -260,13 +260,13 @@ export function HomePage() {
                   alt=""
                 />
               </span>
-              <h2 className="text-[#003863] heading-line text-[55px] pt-2 pb-2">
+              <h2 className="text-[#003863] heading-line text-[30px] sm:text-[40px] md:text-[55px] sm:pt-2 sm:pb-2">
                 {t('homePage.ourStoryTitle')}
               </h2>
-              <h4 className="text-[#003863] text-[22px] font-semibold pb-3">
+              <h4 className="text-[#003863] text-[16px] sm:text-[20px] md:text-[22px] font-semibold sm:pb-3">
                 {t('homePage.ourStorySubtitle')}
               </h4>
-              <p className="text-[#003863] text-[20px] font-normal">
+              <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px] font-normal">
                 {t('homePage.ourStoryDescription')}
               </p>
               <button className="flex items-center bg-[#fff] text-black font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#0E213A] hover:text-[#fff] transition">
@@ -289,7 +289,7 @@ export function HomePage() {
                 </span>
               </button>
             </div>
-            <div>
+            <div className="flex justify-center md:justify-center xl:justify-end">
               <img
                 src="/assets/images/our-story.png"
                 alt="Our Story Image"
@@ -306,10 +306,10 @@ export function HomePage() {
         transition={{ duration: 0.55, delay: 0.12 }}
       >
         <div className="relative max-w-[740px] w-full lg:bg-[url('/assets/images/curve-border2.png')] bg-no-repeat bg-contain bg-center text-center pt-0 pb-[36px] px-6">
-          <h2 className="heading-line text-[#003863] text-[55px]">
+          <h2 className="heading-line text-[#003863] text-[30px] sm:text-[40px] md:text-[55px]">
             {t('homePage.smartLearningTitle')}
           </h2>
-          <p className="text-[#003863]  heading-text font-bold text-[20px]">
+          <p className="text-[#003863]  heading-text font-bold text-[16px] sm:text-[16px] md:text-[20px]">
             {t('homePage.smartLearningSubtitle')}
           </p>
         </div>
@@ -354,10 +354,10 @@ export function HomePage() {
                 alt=""
               />
             </span>
-            <h2 className="text-[#003863] heading-line text-[32px] sm:text-[42px] md:text-[55px] pt-2 pb-2">
+            <h2 className="text-[#003863] heading-line text-[30px] sm:text-[40px] md:text-[55px] pt-2 pb-2">
               {t('homePage.testimonialsTitle')}
             </h2>
-            <h4 className="text-[#003863] text-[16px] sm:text-[18px] md:text-[22px] font-semibold pb-3">
+            <h4 className="text-[#003863] text-[16px] sm:text-[16px] md:text-[22px] font-semibold pb-3">
               {t('homePage.testimonialsSubtitle')}
             </h4>
           </div>
@@ -380,7 +380,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -404,7 +404,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -428,7 +428,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -452,7 +452,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -476,7 +476,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -500,7 +500,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -524,7 +524,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -548,7 +548,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -572,7 +572,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -596,7 +596,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -620,7 +620,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -644,7 +644,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -668,7 +668,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -692,7 +692,7 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
@@ -716,7 +716,55 @@ export function HomePage() {
               <SwiperSlide>
                 <div className="shadow-bottom">
                   <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
-                    <p className="relative text-center text-[18px]">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it.
+                    </p>
+                    <span className="absolute text-[44px] top-0 text-[#003863] colon">
+                      “
+                    </span>
+                  </div>
+                  <div className="bg-[#E3E6ED] rounded-br-[30px] rounded-bl-[30px] pt-[14px] pb-[14px] text-center  flex items-center justify-center gap-4 border-[1px] border-[#003863]">
+                    <img src="/assets/images/test.png" alt="" />
+                    <h5 className="heading-line text-[32px] text-[#003863]">
+                      Lillian
+                    </h5>
+                    <p className="text-[20px] border-l-[1px] border-[#003863] text-[#003863] pl-[12px]">
+                      UK
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="shadow-bottom">
+                  <div className="bg-[#E3E6ED] rounded-tl-[30px] rounded-tr-[30px] shadow-md overflow-hidden hover:shadow-xl transition p-[31px] pb-[16px] border-[1px] border-[#003863] border-b-0">
+                    <p className="relative text-center text-[16px] sm:text-[16px] md:text-[18px]">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
