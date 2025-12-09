@@ -734,18 +734,17 @@ export default function LearningModuleSubCategoryPage() {
                             {truncateText(
                               document.content || document.description || ''
                             )}
+                            {/* Read More Button - Only show if text is longer than truncation */}
+                            {(document.content || document.description || '')
+                              .length > 150 && (
+                              <button
+                                onClick={() => handleReadMore(document)}
+                                className="text-[#003863] text-sm font-semibold hover:underline mb-3 pl-2"
+                              >
+                                Read more
+                              </button>
+                            )}
                           </p>
-
-                          {/* Read More Button - Only show if text is longer than truncation */}
-                          {(document.content || document.description || '')
-                            .length > 150 && (
-                            <button
-                              onClick={() => handleReadMore(document)}
-                              className="text-[#003863] text-sm font-semibold hover:underline mb-3"
-                            >
-                              Read more
-                            </button>
-                          )}
 
                           {/* Action Buttons */}
                           <div className="flex items-center gap-3 mt-2">

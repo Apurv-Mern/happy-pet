@@ -481,16 +481,16 @@ export default function SubCategoryItem() {
                           </h3>
                           <p className="text-gray-600 text-sm leading-relaxed mb-2 line-clamp-3">
                             {video.description || 'No description available'}
+                            <button
+                              onClick={e => {
+                                e.stopPropagation()
+                                handleReadMore(video)
+                              }}
+                              className="text-[#035FA6] hover:text-[#024d85] text-sm font-semibold text-left transition-colors hover:underline pl-2"
+                            >
+                              {t('knowledgeHub.readMore')}
+                            </button>
                           </p>
-                          <button
-                            onClick={e => {
-                              e.stopPropagation()
-                              handleReadMore(video)
-                            }}
-                            className="text-[#035FA6] hover:text-[#024d85] text-sm font-semibold text-left transition-colors hover:underline"
-                          >
-                            {t('knowledgeHub.readMore')}
-                          </button>
                         </div>
                       </motion.div>
                     </div>
