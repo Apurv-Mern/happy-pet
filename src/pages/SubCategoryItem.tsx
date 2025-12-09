@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { X } from 'lucide-react'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useCategoriesQuery, Filter } from '@/api/categories'
 import { useState } from 'react'
@@ -24,6 +25,10 @@ export default function SubCategoryItem() {
     ageGroup?: string
     typeOfFood?: string
   }>({})
+
+  // Modal state
+  const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false)
+  const [selectedVideo, setSelectedVideo] = useState<any>(null)
 
   // Fetch categories from API
   const { data: categoriesResponse, isLoading } = useCategoriesQuery()
@@ -165,6 +170,17 @@ export default function SubCategoryItem() {
   const handleSubCategoryClick = (productLineId: string) => {
     // Navigate to the videos list for this specific product line
     navigate(`/knowledge-hub/${categoryId}/${tierId}/${productLineId}`)
+  }
+
+  // Modal handlers
+  const handleReadMore = (video: any) => {
+    setSelectedVideo(video)
+    setIsDescriptionModalOpen(true)
+  }
+
+  const closeDescriptionModal = () => {
+    setIsDescriptionModalOpen(false)
+    setSelectedVideo(null)
   }
 
   // Skeleton loader for loading state
@@ -458,11 +474,23 @@ export default function SubCategoryItem() {
                           </div>
                         </div>
 
-                        {/* Video Title */}
-                        <div className="bg-white p-4">
-                          <h3 className="text-[#003863] text-[16px] font-semibold line-clamp-2">
+                        {/* Video Content */}
+                        <div className="bg-white p-4 flex flex-col">
+                          <h3 className="text-[#003863] text-[16px] font-semibold mb-2">
                             {video.title}
                           </h3>
+                          <p className="text-gray-600 text-sm leading-relaxed mb-2 line-clamp-3">
+                            {video.description || 'No description available'}
+                          </p>
+                          <button
+                            onClick={e => {
+                              e.stopPropagation()
+                              handleReadMore(video)
+                            }}
+                            className="text-[#035FA6] hover:text-[#024d85] text-sm font-semibold text-left transition-colors hover:underline"
+                          >
+                            {t('knowledgeHub.readMore')}
+                          </button>
                         </div>
                       </motion.div>
                     </div>
@@ -522,6 +550,47 @@ export default function SubCategoryItem() {
           </div>
         </div>
       </div>
+
+      {/* Description Modal */}
+      {isDescriptionModalOpen && selectedVideo && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full overflow-hidden"
+          >
+            {/* Modal Header */}
+            <div className="bg-[#003863] text-white p-6 flex items-center justify-between">
+              <h2 className="text-2xl font-bold pr-8">{selectedVideo.title}</h2>
+              <button
+                onClick={closeDescriptionModal}
+                className="flex-shrink-0 hover:bg-white/20 rounded-full p-2 transition-colors"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 overflow-y-auto max-h-[calc(80vh-120px)]">
+              <p className="text-gray-700 text-base leading-relaxed whitespace-pre-wrap">
+                {selectedVideo.description || 'No description available'}
+              </p>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="bg-gray-50 px-6 py-4 flex justify-end gap-3 border-t">
+              <button
+                onClick={closeDescriptionModal}
+                className="bg-[#003863] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#004c82] transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </motion.div>
   )
 }

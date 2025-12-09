@@ -103,10 +103,11 @@
     "searchPlaceholder": "ค้นหา",
     "categoriesTitle": "หมวดหมู่",
     "viewAllCategories": "ดูหมวดหมู่ทั้งหมด",
-    "noVideosAvailable": "ไม่มีวิดีโอที่พร้อมใช้งาน",
+    "noVideosAvailable": "ไม่มีวิดีโอ",
     "loadingVideos": "กำลังโหลดวิดีโอ...",
+    "readMore": "อ่านเพิ่มเติม",
     "premium": "พรีเมียม",
-    "superPremium": "ซูเปอร์พรีเมียม",
+    "superPremium": "ซุปเปอร์พรีเมียม",
     "clickHere": "คลิกที่นี่",
     "selectSubcategory": "เลือกหมวดหมู่ย่อยเพื่อสำรวจ",
     "categories": {

@@ -100,14 +100,15 @@
   },
   "knowledgeHub": {
     "title": "Wissenszentrum",
-    "searchPlaceholder": "Suchen",
+    "searchPlaceholder": "Suche",
     "categoriesTitle": "Kategorien",
     "viewAllCategories": "Alle Kategorien anzeigen",
     "noVideosAvailable": "Keine Videos verfügbar",
     "loadingVideos": "Videos werden geladen...",
+    "readMore": "Weiterlesen",
     "premium": "Premium",
     "superPremium": "Super Premium",
-    "clickHere": "Hier klicken",
+    "clickHere": "Klicken Sie hier",
     "selectSubcategory": "Wählen Sie eine Unterkategorie zum Erkunden",
     "categories": {
       "happyDog": "Glücklicher Hund",
