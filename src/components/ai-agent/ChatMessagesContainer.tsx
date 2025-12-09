@@ -33,13 +33,12 @@ export const ChatMessagesContainer = ({
 }: ChatMessagesContainerProps) => {
   return (
     <motion.div
-      ref={scrollContainerRef}
-      className="flex-1 overflow-y-auto"
+      className="flex-1 overflow-y-auto  "
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
     >
-      <div className="custom-scrollbar pr-10 py-10">
+      <div className="custom-scrollbar pr-10 py-10" ref={scrollContainerRef}>
         {isLoadingMessages ? (
           <div className="flex items-center justify-center py-10">
             <Loader2 className="h-6 w-6 animate-spin text-[#003863]" />

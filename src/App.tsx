@@ -29,6 +29,7 @@ import LearningModuleSubCategoryPage from './pages/LearningModuleSubCategoryPage
 import { Toaster } from './components/ui/toaster'
 import VideoDetailPage from './pages/VideoDetailsPage.tsx'
 import { Header2 } from './components/Header2.tsx'
+import { ScrollToTop } from './components/ScrollToTop.tsx'
 import SocialCommitment from './pages/about/SocialCommitment.tsx'
 import NutritionalConcept from './pages/about/NutritionalConcept.tsx'
 import ManufacturingProcess from './pages/about/ManufacturingProcess.tsx'
@@ -42,6 +43,7 @@ function HeaderWrapper() {
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <HeaderWrapper />
       <Routes>
         {/* Public routes */}

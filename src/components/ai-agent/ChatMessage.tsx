@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { ExternalLink, FileText, Loader2 } from 'lucide-react'
 import { FileRecommendation } from '@/api/chat'
 
@@ -84,8 +85,102 @@ export const ChatMessage = ({
           </div>
         ) : message.type === 'ai' ? (
           !message.audioUrl && (
-            <div className="text-sm leading-relaxed prose prose-sm max-w-none prose-headings:text-[#003863] prose-p:text-gray-700 prose-strong:text-[#003863] prose-ul:text-gray-700 prose-ol:text-gray-700">
-              <ReactMarkdown>{message.content}</ReactMarkdown>
+            <div className="text-sm leading-relaxed prose prose-sm max-w-none prose-headings:text-[#003863] prose-headings:font-bold prose-headings:mb-2 prose-p:text-gray-700 prose-p:mb-2 prose-strong:text-[#003863] prose-strong:font-bold prose-ul:text-gray-700 prose-ul:list-disc prose-ul:ml-4 prose-ul:mb-2 prose-ol:text-gray-700 prose-ol:list-decimal prose-ol:ml-4 prose-ol:mb-2 prose-li:mb-1">
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h1: ({ children }) => (
+                    <h1 className="text-lg font-bold text-[#003863] mb-2 mt-3">
+                      {children}
+                    </h1>
+                  ),
+                  h2: ({ children }) => (
+                    <h2 className="text-base font-bold text-[#003863] mb-2 mt-2">
+                      {children}
+                    </h2>
+                  ),
+                  h3: ({ children }) => (
+                    <h3 className="text-sm font-bold text-[#003863] mb-1 mt-2">
+                      {children}
+                    </h3>
+                  ),
+                  p: ({ children }) => (
+                    <p className="text-gray-700 mb-2 leading-relaxed">
+                      {children}
+                    </p>
+                  ),
+                  strong: ({ children }) => (
+                    <strong className="font-bold text-[#003863]">
+                      {children}
+                    </strong>
+                  ),
+                  ul: ({ children }) => (
+                    <ul className="list-disc ml-4 mb-2 text-gray-700">
+                      {children}
+                    </ul>
+                  ),
+                  ol: ({ children }) => (
+                    <ol className="list-decimal ml-4 mb-2 text-gray-700">
+                      {children}
+                    </ol>
+                  ),
+                  li: ({ children }) => (
+                    <li className="mb-1 leading-relaxed">{children}</li>
+                  ),
+                  code: ({ children, className }) => {
+                    const isInline = !className
+                    return isInline ? (
+                      <code className="bg-gray-100 text-[#003863] px-1 py-0.5 rounded text-xs font-mono">
+                        {children}
+                      </code>
+                    ) : (
+                      <code className="block bg-gray-100 text-[#003863] p-2 rounded text-xs font-mono overflow-x-auto">
+                        {children}
+                      </code>
+                    )
+                  },
+                  a: ({ href, children }) => (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#003863] underline hover:text-[#002d4d]"
+                    >
+                      {children}
+                    </a>
+                  ),
+                  table: ({ children }) => (
+                    <div className="overflow-x-auto my-4">
+                      <table className="min-w-full border-collapse border border-gray-300">
+                        {children}
+                      </table>
+                    </div>
+                  ),
+                  thead: ({ children }) => (
+                    <thead className="bg-[#003863] text-white">
+                      {children}
+                    </thead>
+                  ),
+                  tbody: ({ children }) => (
+                    <tbody className="bg-white">{children}</tbody>
+                  ),
+                  tr: ({ children }) => (
+                    <tr className="border-b border-gray-300">{children}</tr>
+                  ),
+                  th: ({ children }) => (
+                    <th className="px-4 py-2 text-left font-bold border border-gray-300">
+                      {children}
+                    </th>
+                  ),
+                  td: ({ children }) => (
+                    <td className="px-4 py-2 border border-gray-300 text-gray-700">
+                      {children}
+                    </td>
+                  ),
+                }}
+              >
+                {message.content}
+              </ReactMarkdown>
             </div>
           )
         ) : (

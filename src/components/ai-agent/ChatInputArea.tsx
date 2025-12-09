@@ -97,67 +97,73 @@ export const ChatInputArea = ({
           />
         </div>
 
-        <input
-          ref={inputRef}
-          type="text"
-          placeholder={
-            isRecording
-              ? 'Recording...'
-              : selectedChatType === 'audio'
-                ? 'Audio Chat - Voice input...'
-                : selectedChatType === 'video'
+        {/* Show input and send button only if NOT audio mode */}
+        {selectedChatType !== 'audio' && (
+          <>
+            <input
+              ref={inputRef}
+              type="text"
+              placeholder={
+                selectedChatType === 'video'
                   ? 'Video Chat - Type here...'
                   : 'Chat - Type here...'
-          }
-          value={inputMessage}
-          onChange={onInputChange}
-          onKeyPress={onKeyPress}
-          disabled={
-            selectedChatType === 'audio' || isRecording || isSendingMessage
-          }
-          className="flex-1 bg-transparent px-4 text-[#003863] text-lg focus:outline-none disabled:opacity-50"
-        />
-        <div className="h-8 w-[1px] bg-[#003863]"></div>
+              }
+              value={inputMessage}
+              onChange={onInputChange}
+              onKeyPress={onKeyPress}
+              disabled={isSendingMessage}
+              className="flex-1 bg-transparent px-4 text-[#003863] text-lg focus:outline-none disabled:opacity-50"
+            />
+            <div className="h-8 w-[1px] bg-[#003863]"></div>
 
-        {selectedChatType === 'audio' ? (
-          <button
-            onClick={onToggleRecording}
-            disabled={isSendingMessage}
-            className={`ml-4 w-10 h-10 flex items-center justify-center rounded-full transition-colors disabled:opacity-50 ${
-              isRecording
-                ? 'bg-red-500 hover:bg-red-600 animate-pulse'
-                : 'bg-[#003863] hover:bg-[#002d4d]'
-            }`}
-          >
-            {isRecording ? (
-              <MicOff className="h-6 w-6 text-white" />
-            ) : (
-              <Mic className="h-6 w-6 text-white" />
-            )}
-          </button>
-        ) : (
-          <button
-            onClick={onSendMessage}
-            disabled={!inputMessage.trim() || isSendingMessage || !sessionId}
-            className="ml-4 w-10 h-10 flex items-center justify-center rounded-full text-white disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isSendingMessage ? (
-              <Loader2 className="h-6 w-6 animate-spin text-[#003863]" />
-            ) : (
-              <svg
-                width="46"
-                height="48"
-                viewBox="0 0 46 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            <button
+              onClick={onSendMessage}
+              disabled={!inputMessage.trim() || isSendingMessage || !sessionId}
+              className="ml-4 w-10 h-10 flex items-center justify-center rounded-full text-white disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSendingMessage ? (
+                <Loader2 className="h-6 w-6 animate-spin text-[#003863]" />
+              ) : (
+                <svg
+                  width="46"
+                  height="48"
+                  viewBox="0 0 46 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M22.9652 0C25.981 0 28.9673 0.620779 31.7536 1.82689C34.5398 3.033 37.0715 4.80083 39.204 7.02944C41.3365 9.25804 43.0281 11.9038 44.1822 14.8156C45.3363 17.7274 45.9303 20.8483 45.9303 24C45.9303 30.3652 43.5108 36.4697 39.204 40.9706C34.8972 45.4714 29.0559 48 22.9652 48C19.9493 48 16.963 47.3792 14.1768 46.1731C11.3905 44.967 8.85885 43.1992 6.72634 40.9706C2.41954 36.4697 0 30.3652 0 24C0 17.6348 2.41954 11.5303 6.72634 7.02944C11.0331 2.52856 16.8744 0 22.9652 0ZM13.7791 13.704V21.72L30.1762 24L13.7791 26.28V34.296L36.7443 24L13.7791 13.704Z"
+                    fill="#003863"
+                  />
+                </svg>
+              )}
+            </button>
+          </>
+        )}
+
+        {/* Show Start/Stop Recording buttons for audio mode */}
+        {selectedChatType === 'audio' && (
+          <div className="flex-1 flex items-center justify-center gap-4">
+            {!isRecording ? (
+              <button
+                onClick={onToggleRecording}
+                disabled={isSendingMessage}
+                className="px-6 py-3 bg-[#003863] hover:bg-[#002d4d] text-white rounded-full font-semibold transition-colors disabled:opacity-50 flex items-center gap-2"
               >
-                <path
-                  d="M22.9652 0C25.981 0 28.9673 0.620779 31.7536 1.82689C34.5398 3.033 37.0715 4.80083 39.204 7.02944C41.3365 9.25804 43.0281 11.9038 44.1822 14.8156C45.3363 17.7274 45.9303 20.8483 45.9303 24C45.9303 30.3652 43.5108 36.4697 39.204 40.9706C34.8972 45.4714 29.0559 48 22.9652 48C19.9493 48 16.963 47.3792 14.1768 46.1731C11.3905 44.967 8.85885 43.1992 6.72634 40.9706C2.41954 36.4697 0 30.3652 0 24C0 17.6348 2.41954 11.5303 6.72634 7.02944C11.0331 2.52856 16.8744 0 22.9652 0ZM13.7791 13.704V21.72L30.1762 24L13.7791 26.28V34.296L36.7443 24L13.7791 13.704Z"
-                  fill="#003863"
-                />
-              </svg>
+                <Mic className="h-5 w-5" />
+                <span>Start Recording</span>
+              </button>
+            ) : (
+              <button
+                onClick={onToggleRecording}
+                disabled={isSendingMessage}
+                className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-full font-semibold transition-colors disabled:opacity-50 flex items-center gap-2 animate-pulse"
+              >
+                <MicOff className="h-5 w-5" />
+                <span>Stop Recording</span>
+              </button>
             )}
-          </button>
+          </div>
         )}
       </div>
     </div>

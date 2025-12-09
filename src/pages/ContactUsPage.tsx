@@ -156,7 +156,7 @@ export function ContactUsPage() {
                     href="tel:+916789456874587"
                     className="text-[16px] hover:underline"
                   >
-                    +91 6789456874587
+                    +49 7161 5073061
                   </a>
                 </div>
 
@@ -180,7 +180,7 @@ export function ContactUsPage() {
                     href="mailto:Youremaillid@gmail.com"
                     className="text-[16px] underline cursor-pointer"
                   >
-                    Youremaillid@gmail.com
+                    info@happypet.biz
                   </a>
                 </div>
 
@@ -206,8 +206,7 @@ export function ContactUsPage() {
                     rel="noopener noreferrer"
                     className="text-[16px] leading-[22px] hover:underline"
                   >
-                    132 Dartmouth Street Boston, Massachusetts 02156 United
-                    States
+                    Am Desenbach 5, 73098 Rechberghausen, Germany
                   </a>
                 </div>
               </div>

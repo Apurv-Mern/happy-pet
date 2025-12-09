@@ -285,6 +285,7 @@
   "faqPage": {
     "title": "Soalan Lazim",
     "subtitle": "Cari jawapan kepada soalan lazim tentang Haiwan Kesayangan Gembira",
+    "noFaqs": "Tiada Soalan Lazim tersedia",
     "questions": [
       {
         "question": "Bagaimana saya tahu jika haiwan kesayangan saya benar-benar gembira?",
