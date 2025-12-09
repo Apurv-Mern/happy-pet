@@ -35,13 +35,13 @@ export function HomePage() {
           <div className="">
             <div className="w-full">
               <div className="relative flex flex-wrap justify-center items-center gap-2 sm:gap-4 sm:justify-center md:justify-center lg:justify-between">
-                <div className="absolute top-[80px] sm:top-[120px] md:top-[160px] left-[20px] hidden sm:left-[40px] md:left-[53px] sm:hidden  md:hidden lg:block lg:max-w-[818px] xl:max-w-[818px] 2xl:max-w-[1330px] max-w-[1330px] w-full h-[2px] sm:h-[3px] bg-[#003863]"></div>
+                <div className="absolute top-[80px] sm:top-[120px] md:top-[160px] left-[20px] hidden sm:left-[40px] md:left-[53px] sm:hidden  md:hidden lg:block lg:max-w-[818px] xl:max-w-[1074px] 2xl:max-w-[1330px] max-w-[1330px] w-full h-[2px] sm:h-[3px] bg-[#003863]"></div>
                 <div className="flex flex-col items-center text-center">
                   <div className="items-center justify-center">
                     <img
                       src="/assets/images/health1.png"
                       alt="Cat"
-                      className="md:w-[110px] md:h-[110px]"
+                      className="w-[50px] h-[50px] md:w-[110px] md:h-[110px]"
                     />
                   </div>
                   <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863] hidden sm:hidden md:hidden lg:block"></div>
@@ -51,7 +51,7 @@ export function HomePage() {
                     <img
                       src="/assets/images/health2.png"
                       alt="Cat"
-                      className="md:w-[110px] md:h-[110px]"
+                      className="w-[50px] h-[50px] md:w-[110px] md:h-[110px]"
                     />
                   </div>
                   <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863] hidden sm:hidden md:hidden lg:block"></div>
@@ -61,7 +61,7 @@ export function HomePage() {
                     <img
                       src="/assets/images/health3.png"
                       alt="Cat"
-                      className="md:w-[110px] md:h-[110px]"
+                      className="w-[50px] h-[50px] md:w-[110px] md:h-[110px]"
                     />
                   </div>
                   <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863] hidden sm:hidden md:hidden lg:block"></div>
@@ -71,7 +71,7 @@ export function HomePage() {
                     <img
                       src="/assets/images/health4.png"
                       alt="Cat"
-                      className="md:w-[110px] md:h-[110px]"
+                      className="w-[50px] h-[50px] md:w-[110px] md:h-[110px]"
                     />
                   </div>
                   <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863] hidden sm:hidden md:hidden lg:block"></div>
@@ -81,7 +81,7 @@ export function HomePage() {
                     <img
                       src="/assets/images/health5.png"
                       alt="Cat"
-                      className="md:w-[110px] md:h-[110px]"
+                      className="w-[50px] h-[50px] md:w-[110px] md:h-[110px]"
                     />
                   </div>
                   <div className="w-[2px] sm:w-[3px] h-[30px] sm:h-[40px] md:h-[50px] bg-[#003863] hidden sm:hidden md:hidden lg:block"></div>
@@ -107,7 +107,7 @@ export function HomePage() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="relative max-w-[610px] w-full bg-none lg:bg-[url('/assets/images/curve-border.png')] bg-no-repeat bg-contain bg-center text-center sm:pt-0 sm:py-8 sm:px-4 sm:px-6">
+        <div className="text-center">
           <h2 className="heading-line text-[#003863] text-[30px] sm:text-[40px] md:text-[55px]">
             {t('homePage.title')}
           </h2>
@@ -116,7 +116,7 @@ export function HomePage() {
           </p>
         </div>
       </motion.section>
-      <div className="container mx-auto pb-8 sm:pb-10 md:pb-14">
+      <div className="container mx-auto pb-4 sm:pb-10 md:pb-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-10 md:gap-[65px]">
           <div>
             <div className="relative rounded-3xl overflow-hidden shadow-lg">
@@ -244,7 +244,7 @@ export function HomePage() {
         </div>
       </div>
       <motion.section
-        className="bg-[url('/assets/images/bg-image.png')] bg-cover py-14 sm:py-20 md:py-28 px-4"
+        className="bg-[url('/assets/images/bg-image.png')] bg-cover py-6 sm:py-20 md:py-28 px-4"
         initial={{ y: 8, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, delay: 0.08 }}
@@ -300,12 +300,12 @@ export function HomePage() {
         </div>
       </motion.section>
       <motion.section
-        className="flex justify-center items-center py-14 bg-white"
+        className="flex justify-center items-center py-4 sm:py-14 bg-white"
         initial={{ y: 8, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, delay: 0.12 }}
       >
-        <div className="relative max-w-[740px] w-full lg:bg-[url('/assets/images/curve-border2.png')] bg-no-repeat bg-contain bg-center text-center pt-0 pb-[36px] px-6">
+        <div className="text-center">
           <h2 className="heading-line text-[#003863] text-[30px] sm:text-[40px] md:text-[55px]">
             {t('homePage.smartLearningTitle')}
           </h2>
@@ -343,7 +343,7 @@ export function HomePage() {
           </div>
         </div>
       </div>
-      <div className="bg-[url('/assets/images/bg2.png')] bg-cover py-10 sm:py-12 md:py-16 px-4">
+      <div className="bg-[url('/assets/images/bg2.png')] bg-cover py-6 sm:py-12 md:py-16 px-4">
         <div className="container mx-auto">
           <div>
             <span className="text-[#003863] text-[16px] sm:text-[18px] md:text-[20px] font-semibold relative">

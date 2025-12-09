@@ -67,7 +67,7 @@ export default function VideoDetailPage() {
   const thumbnailSource = video.presignedThumbnailUrl || video.thumbnailUrl
 
   return (
-    <div className="min-h-screen">
+    <div className="">
       <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
           {/* Sidebar - Categories */}
@@ -126,10 +126,10 @@ export default function VideoDetailPage() {
 
             {/* Video Player */}
             <div className="mb-6">
-              <div className="">
+
                 <video
                   ref={videoRef}
-                  className="w-full h-full rounded-[20px]"
+                  className="w-full h-full max-h-[600px] rounded-[20px]"
                   controls
                   autoPlay
                   poster={thumbnailSource}
@@ -137,15 +137,14 @@ export default function VideoDetailPage() {
                   <source src={videoSource} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-              </div>
 
               {/* Video Description */}
               <div className="">
                 <div>
-                  <h3 className="text-[36px] text-[#003863] font-semibold py-5">
+                  <h3 className="text-[24px] sm:text-[30px] md:text-[36px] text-[#003863] font-semibold py-1 sm:py-2 md:py-2 lg:py-4">
                     {video.title}
                   </h3>
-                  <p className="text-[#000] text-[18px] whitespace-pre-line">
+                  <p className="text-[#000] text-[16px] sm:text-[16px] md:text-[18px] whitespace-pre-line">
                     {fullDescription}
                     {/* {isDescriptionExpanded ? fullDescription : shortDescription} */}
                     {/* {!isDescriptionExpanded && descriptionLines.length > 2 && '...'} */}

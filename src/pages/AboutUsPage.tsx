@@ -38,8 +38,8 @@ const AboutUsPage = () => {
       </div>
       <div className="bg-[#E3E6ED] my-10 mb-0">
         <div className="container mx-auto py-14">
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
-            <div className="flex justify-center md:justify-center xl:justify-start">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[40%_60%] 2xl:grid-cols-[40%_60%] items-center">
+            <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
                 className="rounded-[30px] w-full max-w-[500px]"
                 src="/assets/images/about.png"
@@ -65,7 +65,7 @@ const AboutUsPage = () => {
       </div>
       <div className="py-10 md:py-20">
         <div className="container mx-auto py-14">
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_37%] gap-10 items-center">
             <div>
               <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
                 For the Love of Nature
@@ -81,7 +81,7 @@ const AboutUsPage = () => {
                 products - to be in harmony with mankind and nature.
               </p>
             </div>
-            <div className="flex justify-center md:justify-center xl:justify-end">
+            <div className="flex justify-center md:justify-center xl:justify-end md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
                 className="rounded-[30px] w-full max-w-[500px]"
                 src="/assets/images/about2.png"
@@ -93,8 +93,8 @@ const AboutUsPage = () => {
       </div>
       <div className="bg-[#E3E6ED]">
         <div className="container mx-auto py-14">
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
-            <div className="flex justify-center md:justify-center xl:justify-start">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[40%_60%] 2xl:grid-cols-[37%_60%] gap-10 items-center">
+            <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
                 className="rounded-[30px] w-full max-w-[500px]"
                 src="/assets/images/about6.png"
@@ -121,7 +121,7 @@ const AboutUsPage = () => {
       </div>
       <div className="py-10 md:py-20">
         <div className="container mx-auto py-14">
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_37%] gap-10 items-center">
             <div>
               <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px] md:mb-3">
                 For the Love of Tradition
@@ -136,7 +136,7 @@ const AboutUsPage = () => {
                 tolerance.
               </p>
             </div>
-            <div className="flex justify-center md:justify-center xl:justify-end">
+            <div className="flex justify-center md:justify-center xl:justify-end md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
                 className="rounded-[30px] w-full max-w-[500px]"
                 src="/assets/images/about5.png"
@@ -232,7 +232,7 @@ const AboutUsPage = () => {
               <h2 className="text-[#003863] font-bold text-[18px] md:text-[20px] lg:text-[24px] mb-1">
                 {t('aboutPage.socialCommitment')}
               </h2>
-              <p className="text-[#003863] text-[14px] md:text-[16px] mb-6">
+              <p className="text-[#003863] text-[16px] mb-6">
                 For us, social responsibility also means thinking of others and
                 acting responsibly
               </p>

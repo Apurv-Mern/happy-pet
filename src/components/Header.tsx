@@ -207,7 +207,7 @@ export function Header() {
 
       {/* Main navigation section with blue background and paw prints */}
       <motion.div
-        className="bg-[url('/assets/images/mobilebg2.png')] lg:bg-[url('/assets/images/bg-header.png')] md:bg-[url('/assets/images/bg-header.png')] bg-bottom bg-cover bg-no-repeat h-full min-h-[720px] 2xl:min-h-[1000px] xl:min-h-[800px] lg:min-h-[800px] md:min-h-[650px] sm:bg-[url('/assets/images/mobilebg2.png')] sm:min-h-[850px]  md:drop-shadow-[0_35px_35px_rgba(0,0,0,0.45)]"
+        className="bg-[url('/assets/images/mobilebg2.png')] lg:bg-[url('/assets/images/bg-header.png')] md:bg-[url('/assets/images/bg-header.png')] bg-bottom bg-cover bg-no-repeat h-full min-h-[720px] 2xl:min-h-[1050px] xl:min-h-[950px] lg:min-h-[850px] md:min-h-[750px] sm:bg-[url('/assets/images/mobilebg2.png')] sm:min-h-[850px]  md:drop-shadow-[0_35px_35px_rgba(0,0,0,0.45)]"
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.08 }}
@@ -601,8 +601,8 @@ export function Header() {
 
           <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row items-center gap-6 sm:gap-0 lg:gap-0 mt-6">
             {/* Left column - text (shows first on mobile) */}
-            <div className="text-center sm:text-center md:text-left">
-              <h3 className="text-[28px] sm:text-[38px] md:text-[45px] lg:text-[85px] text-[#fff] leading-tight heading-line">
+            <div className="text-center sm:text-center md:text-left mb-10 sm:mb-0">
+              <h3 className="text-[28px] sm:text-[38px] md:text-[45px] lg:text-[55px] xl:text-[55px] 2xl:text-[85px] text-[#fff] leading-tight heading-line">
                 {t('header.heroTitle')}
               </h3>
               <p className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] text-[#fff] font-semibold mt-3">
