@@ -96,7 +96,7 @@ export const VideosGrid = memo(
                           })
                         }
                       }}
-                      className="text-[#035FA6] hover:text-[#024d85] text-sm font-semibold text-left transition-colors hover:underline"
+                      className="text-[#035FA6] hover:text-[#024d85] text-sm font-semibold text-left transition-colors hoverunderline"
                     >
                       {t('knowledgeHub.readMore')}
                     </button>

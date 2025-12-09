@@ -96,19 +96,18 @@ export const DocumentsGrid = memo(
                   <h3 className="text-lg font-bold text-[#003863] mb-2">
                     {module.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-3">
+                  <p className="text-gray-600 text-sm mb-2 line-clamp-3 ">
                     {truncateText(module.description)}
+                    {/* Read More Button - Only show if text is longer than truncation */}
+                    {module.description && module.description.length > 150 && (
+                      <button
+                        onClick={() => handleReadMore(module)}
+                        className="text-[#003863] text-sm font-semibold hover:underline mb-3 pl-2"
+                      >
+                        Read more
+                      </button>
+                    )}
                   </p>
-
-                  {/* Read More Button - Only show if text is longer than truncation */}
-                  {module.description && module.description.length > 150 && (
-                    <button
-                      onClick={() => handleReadMore(module)}
-                      className="text-[#003863] text-sm font-semibold hover:underline mb-3"
-                    >
-                      Read more
-                    </button>
-                  )}
 
                   {/* Action Buttons */}
                   <div className="flex items-center gap-3 mt-2">
