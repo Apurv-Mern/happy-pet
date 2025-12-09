@@ -105,10 +105,11 @@
     "viewAllCategories": "عرض جميع الفئات",
     "noVideosAvailable": "لا توجد مقاطع فيديو متاحة",
     "loadingVideos": "جارٍ تحميل مقاطع الفيديو...",
+    "readMore": "اقرأ المزيد",
     "premium": "بريميوم",
     "superPremium": "سوبر بريميوم",
     "clickHere": "انقر هنا",
-    "selectSubcategory": "اختر فئة فرعية للاستكشاف",
+    "selectSubcategory": "حدد فئة فرعية للاستكشاف",
     "categories": {
       "happyDog": "كلب سعيد",
       "happyCat": "قطة سعيدة",

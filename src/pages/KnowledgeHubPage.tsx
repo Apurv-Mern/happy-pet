@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { X } from 'lucide-react'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useCategoriesQuery } from '@/api/categories'
 import {
@@ -26,6 +27,8 @@ export default function KnowledgeHubPage() {
     useState<string>('all-categories')
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [searchTerm, setSearchTerm] = useState<string>('')
+  const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false)
+  const [selectedVideo, setSelectedVideo] = useState<any>(null)
   const navigate = useNavigate()
 
   // Fetch categories from API
@@ -90,6 +93,17 @@ export default function KnowledgeHubPage() {
     () => handleCategoryClick,
     [navigate]
   )
+
+  // Modal handlers
+  const handleReadMore = (video: any) => {
+    setSelectedVideo(video)
+    setIsDescriptionModalOpen(true)
+  }
+
+  const closeDescriptionModal = () => {
+    setIsDescriptionModalOpen(false)
+    setSelectedVideo(null)
+  }
 
   // Get breadcrumb information
   const getBreadcrumb = () => {
@@ -189,7 +203,12 @@ export default function KnowledgeHubPage() {
           title={t('header.knowledgeHub')}
           searchQuery={searchQuery}
           searchPlaceholder={t('knowledgeHub.searchPlaceholder')}
-          onSearchChange={setSearchQuery}
+          onSearchChange={value => {
+            setSearchQuery(value)
+            if (value === '') {
+              setSearchTerm('')
+            }
+          }}
           onSearchSubmit={() => setSearchTerm(searchQuery)}
         />
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8 mt-10">
@@ -208,11 +227,56 @@ export default function KnowledgeHubPage() {
             {isLoadingVideos || isLoadingPresignedUrls ? (
               <VideoGridSkeleton />
             ) : (
-              <VideosGrid videos={videos} navigate={navigate} />
+              <VideosGrid
+                videos={videos}
+                navigate={navigate}
+                onReadMore={handleReadMore}
+              />
             )}
           </div>
         </div>
       </div>
+
+      {/* Description Modal */}
+      {isDescriptionModalOpen && selectedVideo && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full overflow-hidden"
+          >
+            {/* Modal Header */}
+            <div className="bg-[#003863] text-white p-6 flex items-center justify-between">
+              <h2 className="text-2xl font-bold pr-8">{selectedVideo.title}</h2>
+              <button
+                onClick={closeDescriptionModal}
+                className="flex-shrink-0 hover:bg-white/20 rounded-full p-2 transition-colors"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 overflow-y-auto max-h-[calc(80vh-120px)]">
+              <p className="text-gray-700 text-base leading-relaxed whitespace-pre-wrap">
+                {selectedVideo.description || 'No description available'}
+              </p>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="bg-gray-50 px-6 py-4 flex justify-end gap-3 border-t">
+              <button
+                onClick={closeDescriptionModal}
+                className="bg-[#003863] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#004c82] transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </motion.div>
   )
 }
