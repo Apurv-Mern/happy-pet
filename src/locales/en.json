@@ -30,6 +30,7 @@
     "signup": "Sign Up",
     "loginRegister": "Login / Register",
     "language": "Language",
+    "selectLanguage": "Select Language",
     "changePassword": "Change Password",
     "phoneNumber": "+91 6799009980",
     "selectLanguage": "Select Language",
@@ -284,6 +285,7 @@
   "faqPage": {
     "title": "Frequently Asked Questions",
     "subtitle": "Find answers to common questions about Happy Pet",
+    "noFaqs": "No FAQs available",
     "questions": [
       {
         "question": "How do I know if my pet is truly happy?",

@@ -37,32 +37,38 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     return [
       {
         code: 'en',
-        name: currentTranslations.languages.en,
+        // name: currentTranslations.languages.en,
+        name: 'English',
         flag: 'https://flagcdn.com/w40/gb.png',
       },
       {
         code: 'de',
-        name: currentTranslations.languages.de,
+        // name: currentTranslations.languages.de,
+        name: 'German',
         flag: 'https://flagcdn.com/w40/de.png',
       },
       {
         code: 'ar',
-        name: currentTranslations.languages.ar,
+        // name: currentTranslations.languages.ar,
+        name: 'Arabic',
         flag: 'https://flagcdn.com/w40/ae.png',
       },
       {
         code: 'ms',
-        name: currentTranslations.languages.ms,
+        // name: currentTranslations.languages.ms,
+        name: 'Malay',
         flag: 'https://flagcdn.com/w40/my.png',
       },
       {
         code: 'th',
-        name: currentTranslations.languages.th,
+        // name: currentTranslations.languages.th,
+        name: 'Thai',
         flag: 'https://flagcdn.com/w40/th.png',
       },
       {
         code: 'id',
-        name: currentTranslations.languages.id,
+        // name: currentTranslations.languages.id,
+        name: 'Indonesian',
         flag: 'https://flagcdn.com/w40/id.png',
       },
     ]

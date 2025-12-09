@@ -284,7 +284,8 @@
   },
   "faqPage": {
     "title": "Pertanyaan yang Sering Diajukan",
-    "subtitle": "Temukan jawaban atas pertanyaan umum tentang Hewan Peliharaan Bahagia",
+    "subtitle": "Temukan jawaban untuk pertanyaan umum tentang Hewan Peliharaan Bahagia",
+    "noFaqs": "Tidak ada FAQ tersedia",
     "questions": [
       {
         "question": "Bagaimana saya tahu jika hewan peliharaan saya benar-benar bahagia?",

@@ -13,6 +13,7 @@ import {
 } from '@/components/profile'
 import { useProfileForm } from '@/hooks/useProfileForm'
 import { useProfileQuery } from '@/api/user'
+import { LogoutConfirmationModal } from '@/components/LogoutConfirmationModal'
 
 const ProfilePage = () => {
   const { t } = useTranslation()
@@ -20,6 +21,7 @@ const ProfilePage = () => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [activeSection, setActiveSection] = useState('personal')
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false)
   const { data: profileData, isLoading } = useProfileQuery()
 
   const {
@@ -37,6 +39,12 @@ const ProfilePage = () => {
   } = useProfileForm(profileData || user)
 
   const handleLogout = async () => {
+    setIsLogoutModalOpen(true)
+  }
+
+  const confirmLogout = async () => {
+    setIsLogoutModalOpen(false)
+
     // Delete AI Agent session if it exists
     const aiAgentSessionId = localStorage.getItem('ai_agent_session_id')
     if (aiAgentSessionId) {
@@ -68,25 +76,81 @@ const ProfilePage = () => {
   const menuItems = [
     {
       id: 'personal',
-      icon: User,
+      icon: (
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24.0806 23.5912C24.6702 23.4683 25.0213 22.8521 24.7395 22.3199C24.0074 20.9373 22.8168 19.7225 21.2785 18.8044C19.365 17.6625 17.0205 17.0435 14.6086 17.0435C12.1967 17.0435 9.85217 17.6625 7.93867 18.8044C6.40039 19.7225 5.20977 20.9373 4.47766 22.3199C4.19581 22.8521 4.54692 23.4683 5.13653 23.5912L6.44772 23.8644C11.8305 24.9862 17.3867 24.9862 22.7694 23.8644L24.0806 23.5912Z"
+            fill="#0E213A"
+          />
+          <circle cx="14.6089" cy="9.7393" r="6.08696" fill="#0E213A" />
+        </svg>
+      ),
       label: t('profilePage.personalInformation'),
       onClick: () => setActiveSection('personal'),
     },
     {
       id: 'password',
-      icon: Lock,
+      icon: (
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24.0806 23.5912C24.6702 23.4683 25.0213 22.8521 24.7395 22.3199C24.0074 20.9373 22.8168 19.7225 21.2785 18.8044C19.365 17.6625 17.0205 17.0435 14.6086 17.0435C12.1967 17.0435 9.85217 17.6625 7.93867 18.8044C6.40039 19.7225 5.20977 20.9373 4.47766 22.3199C4.19581 22.8521 4.54692 23.4683 5.13653 23.5912L6.44772 23.8644C11.8305 24.9862 17.3867 24.9862 22.7694 23.8644L24.0806 23.5912Z"
+            fill="#0E213A"
+          />
+          <circle cx="14.6089" cy="9.7393" r="6.08696" fill="#0E213A" />
+        </svg>
+      ),
       label: t('profilePage.passwordManagement'),
       onClick: () => setActiveSection('password'),
     },
     {
       id: 'help',
-      icon: HelpCircle,
+      icon: (
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24.0806 23.5912C24.6702 23.4683 25.0213 22.8521 24.7395 22.3199C24.0074 20.9373 22.8168 19.7225 21.2785 18.8044C19.365 17.6625 17.0205 17.0435 14.6086 17.0435C12.1967 17.0435 9.85217 17.6625 7.93867 18.8044C6.40039 19.7225 5.20977 20.9373 4.47766 22.3199C4.19581 22.8521 4.54692 23.4683 5.13653 23.5912L6.44772 23.8644C11.8305 24.9862 17.3867 24.9862 22.7694 23.8644L24.0806 23.5912Z"
+            fill="#0E213A"
+          />
+          <circle cx="14.6089" cy="9.7393" r="6.08696" fill="#0E213A" />
+        </svg>
+      ),
       label: t('profilePage.helpCenter'),
       onClick: () => setActiveSection('help'),
     },
     {
       id: 'terms',
-      icon: FileText,
+      icon: (
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24.0806 23.5912C24.6702 23.4683 25.0213 22.8521 24.7395 22.3199C24.0074 20.9373 22.8168 19.7225 21.2785 18.8044C19.365 17.6625 17.0205 17.0435 14.6086 17.0435C12.1967 17.0435 9.85217 17.6625 7.93867 18.8044C6.40039 19.7225 5.20977 20.9373 4.47766 22.3199C4.19581 22.8521 4.54692 23.4683 5.13653 23.5912L6.44772 23.8644C11.8305 24.9862 17.3867 24.9862 22.7694 23.8644L24.0806 23.5912Z"
+            fill="#0E213A"
+          />
+          <circle cx="14.6089" cy="9.7393" r="6.08696" fill="#0E213A" />
+        </svg>
+      ),
       label: t('profilePage.termsAndPolicies'),
       onClick: () => {
         // TODO: Navigate to terms page
@@ -156,6 +220,13 @@ const ProfilePage = () => {
           </div>
         </div>
       )}
+
+      {/* Logout Confirmation Modal */}
+      <LogoutConfirmationModal
+        isOpen={isLogoutModalOpen}
+        onConfirm={confirmLogout}
+        onCancel={() => setIsLogoutModalOpen(false)}
+      />
     </motion.div>
   )
 }

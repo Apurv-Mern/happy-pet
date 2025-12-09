@@ -233,11 +233,12 @@ export default function AIAgentPage() {
       // Small delay to ensure layout is rendered
       const timer = setTimeout(() => {
         scrollToPageCenter()
-        // Scroll chat to bottom with instant behavior for initial load
-        if (scrollContainerRef.current) {
-          scrollContainerRef.current.scrollTop =
-            scrollContainerRef.current.scrollHeight
-        }
+        // Scroll chat to bottom for initial load
+        scrollToBottom()
+        // Additional scroll with longer delay to ensure content is fully loaded
+        setTimeout(() => {
+          scrollToBottom()
+        }, 500)
       }, 300)
 
       return () => clearTimeout(timer)
@@ -249,6 +250,14 @@ export default function AIAgentPage() {
   useEffect(() => {
     scrollToBottom()
   }, [messages])
+
+  // Additional scroll trigger after a short delay to handle dynamic content
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      scrollToBottom()
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [messages.length])
 
   // Warn user before closing tab if there are messages
   useEffect(() => {
@@ -397,6 +406,9 @@ export default function AIAgentPage() {
           return [...filtered, userMessage, aiMessage]
         })
 
+        // Scroll to bottom after adding messages
+        setTimeout(() => scrollToBottom(), 100)
+
         // Update recommendations if available
         if (response.recommend && response.recommend.length > 0) {
           setRecommendations(response.recommend)
@@ -440,6 +452,9 @@ export default function AIAgentPage() {
           const filtered = prev.filter(msg => msg.id !== tempUserMessage.id)
           return [...filtered, ...newMessages]
         })
+
+        // Scroll to bottom after adding messages
+        setTimeout(() => scrollToBottom(), 100)
 
         // Update recommendations if available
         if (response.recommendations && response.recommendations.length > 0) {
@@ -576,6 +591,13 @@ export default function AIAgentPage() {
           return [...filtered, userMessage, aiMessage]
         })
 
+        // Scroll to bottom after adding messages
+        setTimeout(() => scrollToBottom(), 100)
+
+        // Update recommendations if available
+        if (response.recommend && response.recommend.length > 0) {
+          setRecommendations(response.recommend)
+        }
         // Update recommendations if available
         if (response.recommend && response.recommend.length > 0) {
           setRecommendations(response.recommend)

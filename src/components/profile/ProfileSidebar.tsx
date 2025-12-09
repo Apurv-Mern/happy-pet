@@ -4,10 +4,11 @@ import { ProfileAvatar } from './ProfileAvatar'
 import { User as UserType } from '@/types'
 import { LucideIcon } from 'lucide-react'
 import { useTranslation } from '@/contexts/I18nContext'
+import { ReactNode, ReactElement, isValidElement } from 'react'
 
 interface MenuItem {
   id: string
-  icon: LucideIcon
+  icon: LucideIcon | ReactNode
   label: string
   onClick: () => void
 }
@@ -46,28 +47,39 @@ export const ProfileSidebar = ({
 
       {/* Menu Items */}
       <nav className="space-y-2">
-        {menuItems.map(item => (
-          <button
-            key={item.id}
-            onClick={item.onClick}
-            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
-              activeSection === item.id
-                ? 'bg-[#003863] text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <item.icon className="w-5 h-5" />
-              <span className="font-medium">{item.label}</span>
-            </div>
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        ))}
+        {menuItems.map(item => {
+          const IconComponent = item.icon
+          const isReactElement = isValidElement(IconComponent)
+
+          return (
+            <button
+              key={item.id}
+              onClick={item.onClick}
+              className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
+                activeSection === item.id
+                  ? 'bg-[#003863] text-white'
+                  : 'text-gray-700 hover:bg-gray-100'
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <span className="w-5 h-5 flex items-center justify-center">
+                  {isReactElement ? (
+                    IconComponent
+                  ) : (
+                    <IconComponent className="w-5 h-5" />
+                  )}
+                </span>
+                <span className="font-medium">{item.label}</span>
+              </div>
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          )
+        })}
       </nav>
 
       {/* Logout Button */}
       <button
-        onClick={onLogout}  
+        onClick={onLogout}
         className="w-full mt-6 flex items-center justify-center gap-2 bg-[#003863] border-2 text-[#fff] px-6 py-3 rounded-xl font-semibold hover:bg-[#004c82] hover:text-white transition-all"
       >
         <LogOut className="w-5 h-5" />

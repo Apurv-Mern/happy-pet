@@ -285,6 +285,7 @@
   "faqPage": {
     "title": "Häufig gestellte Fragen",
     "subtitle": "Finden Sie Antworten auf häufige Fragen zu Glückliches Haustier",
+    "noFaqs": "Keine FAQs verfügbar",
     "questions": [
       {
         "question": "Wie erkenne ich, ob mein Haustier wirklich glücklich ist?",
