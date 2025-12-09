@@ -34,7 +34,7 @@ export function HomePage() {
         <div className="container mx-auto pb-4 pt-4 sm:pb-6 sm:pt-6">
           <div className="">
             <div className="w-full">
-              <div className="relative flex flex-wrap justify-center items-center gap-2 sm:gap-4 sm:justify-center md:justify-center lg:justify-between">
+              <div className="relative -z-10 flex flex-wrap justify-center items-center gap-2 sm:gap-4 sm:justify-center md:justify-center lg:justify-between">
                 <div className="absolute top-[80px] sm:top-[120px] md:top-[160px] left-[20px] hidden sm:left-[40px] md:left-[53px] sm:hidden  md:hidden lg:block lg:max-w-[818px] xl:max-w-[1074px] 2xl:max-w-[1330px] max-w-[1330px] w-full h-[2px] sm:h-[3px] bg-[#003863]"></div>
                 <div className="flex flex-col items-center text-center">
                   <div className="items-center justify-center">

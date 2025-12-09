@@ -84,7 +84,7 @@ export const PersonalInformation = ({
 
   return (
     <>
-      <h3 className="text-[30px] font-bold text-[#003863] mb-8">
+      <h3 className="text-[20px] sm:text-[24px] md:text-[30px] font-bold text-[#003863] mb-8">
         {t('profilePage.personalInformation')}
       </h3>
 
@@ -137,7 +137,7 @@ export const PersonalInformation = ({
 
         {/* Company Name & Phone Number */}
         <div className="lg:block xl:flex xl:justify-between">
-          <div className="w-full md:max-w-full lg:max-w-full xl:max-w-[450px]">
+          <div className="w-full md:max-w-full lg:max-w-full xl:max-w-[450px] mb-3">
             <label className="block text-sm text-[#003863] mb-2">
               {t('profilePage.companyName')}
             </label>
@@ -256,7 +256,7 @@ export const PersonalInformation = ({
                   } as React.ChangeEvent<HTMLInputElement>
                   onInputChange(syntheticEvent)
                 }}
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-xl search-bar w-full"
+                className="mt-3 lg:mt-0 flex-1 px-4 py-3 border border-gray-300 rounded-xl search-bar w-full"
                 placeholder={t('profilePage.phoneNumberPlaceholder')}
               />
             </div>
@@ -293,18 +293,18 @@ export const PersonalInformation = ({
         </div> */}
 
         {/* Action Buttons */}
-        <div className="md:block md:gap-4 lg:flex lg:gap-4 xl:flex xl:justify-between pt-6">
+        <div className="md:block md:gap-4 lg:flex lg:gap-4 xl:flex xl:justify-between md:pt-0 lg:pt-6">
           <button
             onClick={onDiscard}
             disabled={isLoading}
-            className="w-full max-w-[450px] px-8 py-3 border-2 border-[#003863] text-[#003863] rounded-xl font-semibold hover:bg-gray-50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full md:max-w-[450px] px-8 py-3 border-2 border-[#003863] text-[#003863] rounded-xl font-semibold hover:bg-gray-50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {t('profilePage.discardChanges')}
           </button>
           <button
             onClick={onSave}
             disabled={isLoading}
-            className="w-full max-w-[450px] px-8 py-3 bg-[#003863] text-white rounded-xl font-semibold hover:bg-[#004c82] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="mt-3 lg:mt-0 w-full md:max-w-[450px] px-8 py-3 bg-[#003863] text-white rounded-xl font-semibold hover:bg-[#004c82] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {isLoading ? (
               <>

@@ -111,7 +111,7 @@ export function ContactUsPage() {
   return (
     <div className="bg-[url('/assets/images/background.png')] bg-auto bg-repeat bg-center">
       {/* Header */}
-      <div className="container mx-auto py-20">
+      <div className="container mx-auto py-5 sm:py-5 md:py-5 lg:py-5 xl:py-20">
         <div className="text-center">
           <h2 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
             {t('contactPage.title')}

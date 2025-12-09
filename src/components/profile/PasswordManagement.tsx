@@ -123,7 +123,7 @@ export const PasswordManagement = ({
 
   return (
     <>
-      <h3 className="text-2xl font-bold text-[#003863] mb-8">
+      <h3 className="text-[20px] sm:text-[24px] md:text-[30px] font-bold text-[#003863] mb-8">
         {t('profilePage.passwordManagement')}
       </h3>
 
@@ -306,17 +306,17 @@ export const PasswordManagement = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex justify-between gap-4 pt-6">
+        <div className="md:flex md:justify-between gap-4 pt-6">
           <button
             onClick={onCancel}
-            className="w-full max-w-[450px] px-8 py-3 border-2 border-[#003863] text-[#003863] rounded-xl font-semibold hover:bg-gray-50 transition-all"
+            className="w-full md:max-w-[450px] px-8 py-3 border-2 border-[#003863] text-[#003863] rounded-xl font-semibold hover:bg-gray-50 transition-all"
           >
             {t('profilePage.cancel')}
-          </button>
+          </button> 
           <button
             onClick={onSubmit}
             disabled={!isFormValid}
-            className="w-full max-w-[450px] px-8 py-3 bg-[#003863] text-white rounded-xl font-semibold hover:bg-[#004c82] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#003863]"
+            className="mt-3 lg:mt-0 w-full md:max-w-[450px] px-8 py-3 bg-[#003863] text-white rounded-xl font-semibold hover:bg-[#004c82] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#003863]"
           >
             {t('profilePage.proceed')}
           </button>

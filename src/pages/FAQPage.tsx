@@ -46,7 +46,7 @@ export function FAQPage() {
         transition={{ duration: 0.5, delay: 1 * 0.1 }}
         className=""
       >
-        <div className="container mx-auto py-20">
+        <div className="container mx-auto py-5 sm:py-5 md:py-5 lg:py-5 xl:py-20">
           <div className="border-b-[1px] border-[#003860] mb-[26px]">
             <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
               {t('faqPage.title')}

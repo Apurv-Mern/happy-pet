@@ -77,19 +77,11 @@ export const ProfileAvatar = ({
           onClick={handleImageClick}
           type="button"
           className="absolute bottom-0 right-0 bg-[#003863] text-white rounded-full p-2 hover:bg-[#002d4d] transition"
-        >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-            />
+        >          
+          <svg width="20" height="20" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.44314 17.4674L1 22.8792L6.77255 21.5262L23.4927 5.85107C24.0338 5.34364 24.3378 4.65551 24.3378 3.93801C24.3378 3.22051 24.0338 2.53238 23.4927 2.02495L23.2445 1.79225C22.7033 1.28497 21.9693 1 21.2039 1C20.4386 1 19.7046 1.28497 19.1633 1.79225L2.44314 17.4674Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2.44314 17.4674L1 22.8792L6.77255 21.5262L21.2039 7.99681L16.8745 3.93799L2.44314 17.4674Z" fill="white"/>
+          <path d="M16.8746 3.93799L21.204 7.99681M13.9883 22.8792H25.5334" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
         <input
