@@ -325,7 +325,7 @@ export function Header() {
             </>
           ) : (
             /* Non-authenticated Layout - Original 3-column grid */
-            <div className="grid grid-cols-1 xl:grid-cols-[0.4fr_auto_0.3fr]  md:grid-cols-[0.4fr_auto_0.3fr] sm:grid-cols-[0.4fr_auto_0.3fr] items-center gap-4 pt-16">
+            <div className="grid grid-cols-2 xl:grid-cols-[0.4fr_auto_0.3fr] md:justify-between md:grid-cols-2 sm:grid-cols-2 items-center gap-4 pt-16">
               <Link to="/">
                 {/* Logo placeholder - replace with your actual logo */}
                 <div>
@@ -334,16 +334,18 @@ export function Header() {
               </Link>
 
               {/* hamburger  */}
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="xl:hidden flex items-center justify-center w-10 h-10 bg-[#D4E7F6] hover:bg-[#c4d7e6] rounded-full transition-colors"
-              >
-                {isMobileMenuOpen ? (
-                  <X className="h-5 w-5 text-[#003863]" />
-                ) : (
-                  <Menu className="h-5 w-5 text-[#003863]" />
-                )}
-              </button>
+              <div className="flex justify-end xl:hidden">
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="xl:hidden flex items-center justify-center w-10 h-10 bg-[#D4E7F6] hover:bg-[#c4d7e6] rounded-full transition-colors"
+                >
+                  {isMobileMenuOpen ? (
+                    <X className="h-5 w-5 text-[#003863]" />
+                  ) : (
+                    <Menu className="h-5 w-5 text-[#003863]" />
+                  )}
+                </button>
+              </div>
               <div>
                 <nav
                   className={`hidden xl:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit`}
