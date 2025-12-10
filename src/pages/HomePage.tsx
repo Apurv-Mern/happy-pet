@@ -147,7 +147,7 @@ export function HomePage() {
                   />
                 </span>
               </button> */}
-              <button className="group absolute w-full max-w-[300px] text-[30px] bottom-0 left-0 bg-[#0E213A] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#fff]  hover:bg-[#003863] hover:text-[#fff] transition">
+              <button className="group absolute w-full max-w-[300px] text-[20px] sm:text-[24px] md:text-[30px] bottom-0 left-0 bg-[#0E213A] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#fff]  hover:bg-[#003863] hover:text-[#fff] transition">
                 {t('homePage.knowledgeHub')}
                 <span className="absolute right-[24px] top-[10px] text-white text-sm">
                   <svg
@@ -183,7 +183,7 @@ export function HomePage() {
               </div>
 
               {/* <!-- Bottom label --> */}
-              <button className="absolute w-full max-w-[180px] sm:max-w-[250px] md:max-w-[300px] text-[30px] bottom-0 left-0 bg-[#0E213A] pt-[26px]  pb-[26px] rounded-tr-[20px] sm:rounded-tr-[25px] md:rounded-tr-[30px] text-[#fff]  hover:bg-[#003863] hover:text-[#fff] transition">
+              <button className="absolute w-full max-w-[180px] sm:max-w-[250px] md:max-w-[300px] text-[20px] sm:text-[24px] md:text-[30px] bottom-0 left-0 bg-[#0E213A] pt-[26px]  pb-[26px] rounded-tr-[20px] sm:rounded-tr-[25px] md:rounded-tr-[30px] text-[#fff]  hover:bg-[#003863] hover:text-[#fff] transition">
                 {t('homePage.aiAgent')}
                 <span className="absolute right-[12px] sm:right-[20px] md:right-[35px] top-[5px] sm:top-[8px] md:top-[10px] text-white text-sm">
                   <img
@@ -224,7 +224,7 @@ export function HomePage() {
                   />
                 </span>
               </button> */}
-              <button className="group absolute w-full max-w-[300px] text-[30px] bottom-0 left-0 bg-[#0E213A] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#fff] hover:bg-[#003863] hover:text-[#fff] transition">
+              <button className="group absolute w-full max-w-[300px] text-[20px] sm:text-[24px] md:text-[30px] bottom-0 left-0 bg-[#0E213A] pt-[26px] pb-[26px] rounded-tr-[30px] text-[#fff] hover:bg-[#003863] hover:text-[#fff] transition">
                 {t('homePage.learningModule')}
                 <span className="absolute right-[20px] top-[10px] text-white text-sm">
                   <svg

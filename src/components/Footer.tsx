@@ -170,9 +170,11 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-10 divide-x-0  lg:divide-x">
           
           {/* Brand Section */}
-          <div className="space-y-4 pr-0 md:pr-10">
-            <img src="/assets/images/logo2.png" alt="" />
-            <p className="text-sm opacity-90 mt-4">{t('footer.description')}</p>
+          <div className="space-y-4 pr-0 md:pr-10 inline-grid justify-center">
+            <div className="flex justify-center sm:block">
+              <img src="/assets/images/logo2.png" alt="" />
+            </div>
+            <p className=" text-center sm:text-left text-sm opacity-90 mt-4">{t('footer.description')}</p>
           </div>
 
           {/* Main Menu */}

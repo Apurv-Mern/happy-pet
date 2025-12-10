@@ -36,17 +36,17 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand01.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand01.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>        
 
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand02.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand02.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -60,7 +60,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -79,16 +79,16 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand03.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand03.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand04.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand04.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -102,7 +102,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -121,9 +121,9 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand05.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand05.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -131,8 +131,8 @@ const BrandHistory = () => {
           
           
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand06.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand06.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -146,7 +146,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -168,17 +168,17 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand07.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand07.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand08.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand08.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -192,7 +192,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -211,16 +211,16 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand09.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand09.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand10.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand10.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -234,7 +234,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -257,16 +257,16 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand11.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand11.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand12.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand12.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -280,7 +280,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -299,16 +299,16 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand13.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand13.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand14.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand14.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -322,7 +322,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -341,17 +341,17 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand15.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand15.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand16.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand16.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -365,7 +365,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -384,17 +384,17 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand17.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand17.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand18.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand18.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -408,7 +408,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -428,16 +428,16 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand19.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand19.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand20.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand20.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -451,7 +451,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -470,16 +470,16 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand21.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand21.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand22.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand22.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -493,7 +493,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -512,17 +512,17 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand23.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand23.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand24.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand24.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -536,7 +536,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -556,17 +556,17 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand25.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand25.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand26.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand26.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -580,7 +580,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -600,17 +600,17 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand27.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand27.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand28.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand28.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -624,7 +624,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -643,16 +643,16 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand29.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand29.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand30.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand30.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -666,7 +666,7 @@ const BrandHistory = () => {
             <svg className="mt-4" width="149" height="5" viewBox="0 0 149 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
-            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[250px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute hidden sm:hidden md:block lg:block 2xl:block md:w-[200px] md:h-[200px] md:right-[280px] md:-z-10 lg:w-[350px] lg:h-[350px] lg:right-[280px] lg:-z-10 xl:w-[350px] xl:h-[350px] xl:right-[450px] xl:-z-10 2xl:right-[536px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 417.73C362.493 416.845 308.809 405.419 258.537 383.453C208.264 361.487 164.314 331.8 126.687 294.394C89.0601 256.988 59.1434 213.248 36.9372 163.174C14.731 113.101 3.25202 59.5424 2.50024 2.49957" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
@@ -686,16 +686,16 @@ const BrandHistory = () => {
               <line x1="2.5" y1="2.5" x2="145.914" y2="2.5" stroke="#003860" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 10"/>
             </svg>
           </div>
-          <div className="flex justify-end relative">
-            <img src="/assets/images/brand31.png" className="w-full max-w-[550px]" alt="" />
-            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[300px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex justify-center sm:justify-end relative">
+            <img src="/assets/images/brand31.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
+            <svg className="absolute md:w-[200px] md-h-[200px] md:top-[320px] md:right-[240px] md:-z-10 lg:w-[350px] lg-h-[350px] lg:top-[410px] lg:right-[260px] lg:-z-10 xl:top-[400px] xl:w-[350px] xl:h-[350px] xl:right-[500px] xl:-z-10 2xl:right-[506px] 2xl:w-[500px] 2xl:h-[500px] 2xl:-z-10 2xl:top-[400px] hidden sm:hidden md:block lg:block xl:block 2xl:block" viewBox="0 0 423 421" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M419.589 2.5C362.493 3.38558 308.809 14.8115 258.537 36.7777C208.264 58.7439 164.314 88.4301 126.687 125.836C89.0601 163.242 59.1434 206.982 36.9372 257.056C14.731 307.13 3.25202 360.688 2.50024 417.731" stroke="#003863" stroke-width="5" stroke-linecap="round" stroke-dasharray="15 15"/>
             </svg>
           </div>
 
 
-          <div className="flex justify-start">
-            <img src="/assets/images/brand32.png" className="w-full max-w-[550px]" alt="" />
+          <div className="flex justify-center sm:justify-start">
+            <img src="/assets/images/brand32.png" className="w-full max-w-[350px] sm:max-w-[550px]" alt="" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -717,10 +717,10 @@ const BrandHistory = () => {
     </div>
       <div className="bg-[#E3E6ED] py-10">
           <div className="container mx-auto">
-            <h4 className="heading-line text-[#003863] text-[64px] pb-4 text-center">
+            <h4 className="heading-line text-[#003863] text-[36px] sm:text-[38px] md:text-[64px] pb-4 text-center">
               The development of Happy Dog packaging
             </h4>
-            <p className="text-[#003863] text-[20px]">
+            <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px]">
             In 1970, when the Müller family first produced dog food under the name Happy Dog, the bags were very simple. Over the years, the packaging has been continuously developed to protect the high quality of the product as best as possible and to ensure freshness. In addition, the information for dog owners on the multifunctional packaging with regard to the ingredients  and feeding recommendations has become increasingly important. 
             </p>
           </div>

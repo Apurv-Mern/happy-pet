@@ -234,12 +234,12 @@ export function SignupPage() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-[540px] m-auto py-14"
+        className="container mx-auto py-5 sm:py-5 md:py-5 lg:py-5 xl:py-20"
       >
         <Card className="">
           {/* Header Section */}
-          <CardContent className="bg-[#003863] rounded-[30px] py-6 px-6 overflow-visible">
-            <h1 className="text-[#fff] heading-line text-[60px] text-center">
+          <CardContent className="bg-[#003863] mx-auto max-w-[500px] rounded-[30px] py-6 px-6 overflow-visible">
+            <h1 className="text-[#fff] heading-line text-[38px] sm:text-[40px] md:text-[60px] text-center">
               {t('signupPage.register')}
             </h1>
             <form
@@ -294,7 +294,7 @@ export function SignupPage() {
                 >
                   {t('signupPage.phoneNumber')}
                 </label>
-                <div className="flex gap-2">
+                <div className="sm:flex gap-2">
                   {/* Country Code Dropdown */}
                   <div className="relative country-dropdown-container">
                     <button
@@ -304,7 +304,7 @@ export function SignupPage() {
                         e.stopPropagation()
                         setIsCountryDropdownOpen(!isCountryDropdownOpen)
                       }}
-                      className="flex items-center bg-white rounded-[15px] px-3 py-2 gap-2 min-w-[110px] h-[42px] hover:bg-gray-50 transition-colors"
+                      className="flex mb-4 sm:mb-0 items-center bg-white rounded-[15px] px-3 py-2 gap-2 w-full sm:max-w-[110px] h-[50px] hover:bg-gray-50 transition-colors"
                     >
                       <img
                         src={

@@ -54,19 +54,19 @@ export function ForgotPasswordPage() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-[540px] m-auto py-14"
+        className="container mx-auto py-5 sm:py-5 md:py-5 lg:py-5 xl:py-20"
       >
-        <Card className="border-[#0E213A] rounded-[30px] shadow-2xl bg-white overflow-hidden">
+        <Card className="border-[#0E213A] rounded-[30px] mx-auto max-w-[500px] shadow-2xl bg-white overflow-hidden">
           {/* Title */}
           <CardContent className="bg-[#003863] py-6 px-6">
-            <h1 className="text-[#fff] heading-line text-[60px] text-center">
+            <h1 className="text-[#fff] heading-line text-[38px] sm:text-[40px] md:text-[60px] text-center">
               {t('forgotPasswordPage.title')}
             </h1>
             <div className="text-center py-4">
-              <p className="text-white text-[20px] font-semibold">
+              <p className="text-white text-[16px] sm:text-[18px] md:text-[20px] font-semibold">
                 {t('forgotPasswordPage.dontWorry')}
               </p>
-              <p className="text-white text-[16px] font-normal mt-2">
+              <p className="text-white text-[14px] sm:text-[16px] md:text-[16px] font-normal mt-2">
                 {t('forgotPasswordPage.enterEmail')}
               </p>
             </div>

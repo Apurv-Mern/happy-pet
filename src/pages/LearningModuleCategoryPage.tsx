@@ -107,14 +107,14 @@ export default function LearningModuleCategoryPage() {
       <div className="container mx-auto">
         {/* Header Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b-[1px] border-[#003860] pb-5">
-          <div className="flex items-center gap-[25px] text-lg">
+          <div className="block text-center sm:flex md:flex lg:flex items-center gap-[25px] text-lg">
             <button
               onClick={() => navigate('/learning-module')}
               className="text-[#003863] text-[28px] heading-line"
             >
               {t('header.learningModule')}
             </button>
-            <span className="">
+            <span className="hidden sm:block">
               <svg
                 width="13"
                 height="13"
@@ -128,6 +128,11 @@ export default function LearningModuleCategoryPage() {
                   stroke-width="3"
                   stroke-linecap="round"
                 />
+              </svg>
+            </span>
+            <span className="flex justify-center my-3 sm:hidden">                
+              <svg width="15" height="7" viewBox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1.00024L7.4 5.00024L13.8 1.00024" stroke="#003863" stroke-width="2" stroke-linecap="round"/>
               </svg>
             </span>
             <h1 className="text-[#003863] text-[28px] heading-line">
@@ -218,7 +223,7 @@ export default function LearningModuleCategoryPage() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-white text-[32px] font-semibold text-center mb-3">
+                  <h3 className="text-white text-[20px] sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[32px] font-semibold text-center mb-3">
                     {tier.title}
                   </h3>
 
