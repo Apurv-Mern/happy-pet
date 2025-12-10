@@ -17,22 +17,16 @@ const AboutUsPage = () => {
         <img src="/assets/images/abutus.png" className="w-full" alt="" />
       </div>
       <div className="text-center max-w-[900px] mx-auto">
-        {/* <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
-          {t('aboutPage.title')}
-        </h1> */}
         <div>
           <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
-            {t('All you Feed is Love')}
+            {t('aboutPage.mainTitle')}
           </h1>
           <p className="text-[#003860] text-[16px] md:text-[20px] font-semibold">
             <span className="text-[#003860] text:[20px] sm:text-[20] md:text-[30px] font-bold">
-              Because a healthy pet is a happy pet!
+              {t('aboutPage.subtitle')}
             </span>
             <br></br>
-            Today, good pet food needs to do much more than just satisfy hunger.
-            For more than 50 years, our love of pets has been the greatest
-            motivator in our search for the perfect recipe for our natural and
-            healthy Premium Pet Food. We are committed to the following values
+            {t('aboutPage.introText')}
           </p>
         </div>
       </div>
@@ -48,16 +42,10 @@ const AboutUsPage = () => {
             </div>
             <div>
               <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
-                For the Love of Pets
+                {t('aboutPage.forLoveOfPets')}
               </h1>
               <p className="text-[#003863] text-[16px] md:text-[20px]">
-                We want to enable every pet to have a long, healthy and happy
-                life. The special requirements of our four-legged customers are
-                very important to us. For more than 50 years, we have been
-                passionately developing perfect recipes that are ideally adapted
-                to the living conditions of our four-legged friends. We produce
-                our premium Happy Cat Happy Dog Brand with a lot of love and
-                passion and adapt it to every phase of life and every need.
+                {t('aboutPage.forLoveOfPetsText')}
               </p>
             </div>
           </div>
@@ -68,17 +56,10 @@ const AboutUsPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_37%] gap-10 items-center">
             <div>
               <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
-                For the Love of Nature
+                {t('aboutPage.forLoveOfNature')}
               </h1>
               <p className="text-[#003863] text-[16px] md:text-[20px]">
-                We use only natural ingredients for our high-quality dog & cat
-                food. Up to 80% comes from the region around Augsburg. As a
-                matter of principle, we do not use any artificial colours,
-                flavours or preservatives. In addition, we make sure that our
-                GMO-free dog & cat food does not harm the environment or come at
-                the expense of animal welfare. An awareness of nature influences
-                our daily actions and sustainably shapes Happy Cat Happy Dog
-                products - to be in harmony with mankind and nature.
+                {t('aboutPage.forLoveOfNatureText')}
               </p>
             </div>
             <div className="flex justify-center md:justify-center xl:justify-end md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
@@ -103,17 +84,10 @@ const AboutUsPage = () => {
             </div>
             <div>
               <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
-                For the Love of Quality
+                {t('aboutPage.forLoveOfQuality')}
               </h1>
               <p className="text-[#003863] text-[16px] md:text-[20px]">
-                We use only natural ingredients for our high-quality dog & cat
-                food. Up to 80% comes from the region around Augsburg. As a
-                matter of principle, we do not use any artificial colours,
-                flavours or preservatives. In addition, we make sure that our
-                GMO-free dog & cat food does not harm the environment or come at
-                the expense of animal welfare. An awareness of nature influences
-                our daily actions and sustainably shapes Happy Cat Happy Dog
-                products - to be in harmony with mankind and nature.
+                {t('aboutPage.forLoveOfQualityText')}
               </p>
             </div>
           </div>
@@ -124,16 +98,10 @@ const AboutUsPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_37%] gap-10 items-center">
             <div>
               <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px] md:mb-3">
-                For the Love of Tradition
+                {t('aboutPage.forLoveOfTradition')}
               </h1>
               <p className="text-[#003863] text-[16px] md:text-[20px]">
-                Our family business has been producing food of the highest
-                quality since 1765. Our first-class dog & cat food made from
-                high-quality and natural ingredients has been produced in
-                Wehringen, Bavaria, for over 50 years. The Happy Cat Happy Dog
-                brand offers a species-appropriate and healthy diet for your pet
-                and is designed for good palatability, easy digestibility and
-                tolerance.
+                {t('aboutPage.forLoveOfTraditionText')}
               </p>
             </div>
             <div className="flex justify-center md:justify-center xl:justify-end md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
@@ -161,8 +129,7 @@ const AboutUsPage = () => {
                 {t('aboutPage.nutritionalConcept')}
               </h2>
               <p className="text-[#003863] text-[14px] md:text-[16px] mb-6">
-                We use nature as our guide for the production of our premium dog
-                food
+                {t('aboutPage.nutritionalConceptText')}
               </p>
               <button
                 onClick={() => {
@@ -170,7 +137,7 @@ const AboutUsPage = () => {
                 }}
                 className="bg-[#003863] text-white w-full py-3 rounded-full font-medium text-[16px]"
               >
-                Know More
+                {t('aboutPage.knowMore')}
               </button>
             </div>
             <div className="bg-white/80 rounded-2xl shadow-lg p-6 text-center hover:bg-[#F2EFF9CC] transition duration-300">
@@ -185,8 +152,7 @@ const AboutUsPage = () => {
                 {t('aboutPage.manufacturingProcess')}
               </h2>
               <p className="text-[#003863] text-[14px] md:text-[16px] mb-6">
-                Our pet food is produced using the perfect recipe in the Thermos
-                tufenmix®
+                {t('aboutPage.manufacturingProcessText')}
               </p>
               <button
                 onClick={() => {
@@ -194,7 +160,7 @@ const AboutUsPage = () => {
                 }}
                 className="bg-[#003863] text-white w-full py-3 rounded-full font-medium text-[16px]"
               >
-                Know More
+                {t('aboutPage.knowMore')}
               </button>
             </div>
             <div className="bg-white/80 rounded-2xl shadow-lg p-6 text-center hover:bg-[#F2EFF9CC] transition duration-300">
@@ -209,8 +175,7 @@ const AboutUsPage = () => {
                 {t('aboutPage.brandHistory')}
               </h2>
               <p className="text-[#003863] text-[14px] md:text-[16px] mb-6">
-                Our pet food is produced using the perfect recipe in the
-                Thermostufenmix®
+                {t('aboutPage.brandHistoryText')}
               </p>
               <button
                 onClick={() => {
@@ -218,7 +183,7 @@ const AboutUsPage = () => {
                 }}
                 className="bg-[#003863] text-white w-full py-3 rounded-full font-medium text-[16px]"
               >
-                Know More
+                {t('aboutPage.knowMore')}
               </button>
             </div>
             <div className="bg-white/80 rounded-2xl shadow-lg p-6 text-center hover:bg-[#F2EFF9CC] transition duration-300">
@@ -233,8 +198,7 @@ const AboutUsPage = () => {
                 {t('aboutPage.socialCommitment')}
               </h2>
               <p className="text-[#003863] text-[16px] mb-6">
-                For us, social responsibility also means thinking of others and
-                acting responsibly
+                {t('aboutPage.socialCommitmentText')}
               </p>
               <button
                 onClick={() => {
@@ -242,7 +206,7 @@ const AboutUsPage = () => {
                 }}
                 className="bg-[#003863] text-white w-full py-3 rounded-full font-medium text-[16px]"
               >
-                Know More
+                {t('aboutPage.knowMore')}
               </button>
             </div>
           </div>

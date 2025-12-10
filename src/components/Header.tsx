@@ -325,16 +325,28 @@ export function Header() {
             </>
           ) : (
             /* Non-authenticated Layout - Original 3-column grid */
-            <div className="grid grid-cols-1 lg:grid-cols-[0.4fr_auto_0.3fr]  md:grid-cols-[0.4fr_auto_0.3fr] sm:grid-cols-[0.4fr_auto_0.3fr] items-center gap-4 pt-16">
+            <div className="grid grid-cols-1 xl:grid-cols-[0.4fr_auto_0.3fr]  md:grid-cols-[0.4fr_auto_0.3fr] sm:grid-cols-[0.4fr_auto_0.3fr] items-center gap-4 pt-16">
               <Link to="/">
                 {/* Logo placeholder - replace with your actual logo */}
                 <div>
                   <img src="/assets/images/logo.png" alt="Happy Pet Logo" />
                 </div>
               </Link>
+
+              {/* hamburger  */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="xl:hidden flex items-center justify-center w-10 h-10 bg-[#D4E7F6] hover:bg-[#c4d7e6] rounded-full transition-colors"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-5 w-5 text-[#003863]" />
+                ) : (
+                  <Menu className="h-5 w-5 text-[#003863]" />
+                )}
+              </button>
               <div>
                 <nav
-                  className={`hidden lg:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit`}
+                  className={`hidden xl:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit`}
                 >
                   {publicNavItems.map(item => (
                     <NavLink
@@ -402,7 +414,7 @@ export function Header() {
               </div>
               <div className="flex items-center gap-4 justify-end">
                 {/* Login/User button - hidden on small mobile */}
-                <div className="hidden sm:block">
+                <div className="hidden xl:block">
                   {!isAuthPage ? (
                     <Link to="/login">
                       <div className="flex items-center bg-[#0E213A] rounded-full border-[1px] border-[#fff] pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] hover:bg-[#000] hover:text-[#fff] transition">
@@ -580,9 +592,18 @@ export function Header() {
                           {t('header.logout')}
                         </span>
                       </button>
-                      <div className="items-center gap-2 flex mt-4">                        
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.75775 2.74818L4.21312 0.2928C4.60365 -0.0977241 5.23681 -0.0977233 5.62734 0.292801L9.68681 4.35227C10.0773 4.74279 10.0773 5.37596 9.68681 5.76648L6.97352 8.47977C6.56452 8.88877 6.46313 9.51359 6.7218 10.0309C8.21715 13.0216 10.6422 15.4467 13.6329 16.942C14.1502 17.2007 14.775 17.0993 15.184 16.6903L17.8973 13.977C18.2879 13.5865 18.921 13.5865 19.3115 13.977L23.371 18.0365C23.7615 18.427 23.7615 19.0602 23.371 19.4507L20.9156 21.9061C18.8043 24.0174 15.4617 24.255 13.073 22.4634L8.91722 19.3466C7.17369 18.0389 5.62487 16.4901 4.31722 14.7466L1.20039 10.5908C-0.591153 8.2021 -0.353604 4.85953 1.75775 2.74818Z" fill="#003863"/>
+                      <div className="items-center gap-2 flex mt-4">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M1.75775 2.74818L4.21312 0.2928C4.60365 -0.0977241 5.23681 -0.0977233 5.62734 0.292801L9.68681 4.35227C10.0773 4.74279 10.0773 5.37596 9.68681 5.76648L6.97352 8.47977C6.56452 8.88877 6.46313 9.51359 6.7218 10.0309C8.21715 13.0216 10.6422 15.4467 13.6329 16.942C14.1502 17.2007 14.775 17.0993 15.184 16.6903L17.8973 13.977C18.2879 13.5865 18.921 13.5865 19.3115 13.977L23.371 18.0365C23.7615 18.427 23.7615 19.0602 23.371 19.4507L20.9156 21.9061C18.8043 24.0174 15.4617 24.255 13.073 22.4634L8.91722 19.3466C7.17369 18.0389 5.62487 16.4901 4.31722 14.7466L1.20039 10.5908C-0.591153 8.2021 -0.353604 4.85953 1.75775 2.74818Z"
+                            fill="#003863"
+                          />
                         </svg>
                         <span className="sm:inline text-[#003863] font-bold">
                           +49 7161 5073061
@@ -687,7 +708,6 @@ export function Header() {
                           </svg>
                         </a>
                       </div>
-
                     </>
                   ) : !isAuthPage ? (
                     <Link
