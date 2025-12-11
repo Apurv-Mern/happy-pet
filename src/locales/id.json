@@ -365,12 +365,29 @@
   "forgotPasswordPage": {
     "title": "Lupa Kata Sandi?",
     "dontWorry": "Jangan khawatir!",
-    "enterEmail": "Masukkan alamat email Anda untuk mengatur ulang kata sandi Anda",
+    "enterEmail": "Masukkan alamat email Anda untuk mengatur ulang kata sandi",
     "email": "Email",
     "emailPlaceholder": "Masukkan Email Anda",
     "sendResetLink": "Kirim Tautan Reset",
     "sending": "Mengirim...",
-    "backToLogin": "Kembali ke Login?"
+    "backToLogin": "Kembali ke Login?",
+    "otpSent": "OTP berhasil dikirim ke email Anda!",
+    "error": "Gagal mengirim OTP. Silakan coba lagi."
+  },
+  "resetPasswordPage": {
+    "title": "Atur Ulang Kata Sandi",
+    "enterDetails": "Masukkan OTP dan kata sandi baru Anda",
+    "sentTo": "OTP dikirim ke",
+    "otp": "OTP",
+    "otpPlaceholder": "Masukkan OTP 6 digit",
+    "newPassword": "Kata Sandi Baru",
+    "newPasswordPlaceholder": "Masukkan kata sandi baru",
+    "confirmPassword": "Konfirmasi Kata Sandi",
+    "confirmPasswordPlaceholder": "Konfirmasi kata sandi Anda",
+    "resetting": "Mengatur ulang...",
+    "resetButton": "Atur Ulang Kata Sandi",
+    "success": "Kata sandi berhasil diatur ulang!",
+    "error": "Gagal mengatur ulang kata sandi. Silakan coba lagi."
   },
   "verifyEmailPage": {
     "title": "Verifikasi Email",

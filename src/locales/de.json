@@ -366,7 +366,24 @@
     "emailPlaceholder": "Geben Sie Ihre E-Mail ein",
     "sendResetLink": "Zurücksetzungslink senden",
     "sending": "Senden...",
-    "backToLogin": "Zurück zur Anmeldung?"
+    "backToLogin": "Zurück zur Anmeldung?",
+    "otpSent": "OTP erfolgreich an Ihre E-Mail gesendet!",
+    "error": "OTP-Versand fehlgeschlagen. Bitte versuchen Sie es erneut."
+  },
+  "resetPasswordPage": {
+    "title": "Passwort zurücksetzen",
+    "enterDetails": "Geben Sie das OTP und Ihr neues Passwort ein",
+    "sentTo": "OTP gesendet an",
+    "otp": "OTP",
+    "otpPlaceholder": "Geben Sie 6-stelliges OTP ein",
+    "newPassword": "Neues Passwort",
+    "newPasswordPlaceholder": "Neues Passwort eingeben",
+    "confirmPassword": "Passwort bestätigen",
+    "confirmPasswordPlaceholder": "Bestätigen Sie Ihr Passwort",
+    "resetting": "Wird zurückgesetzt...",
+    "resetButton": "Passwort zurücksetzen",
+    "success": "Passwort erfolgreich zurückgesetzt!",
+    "error": "Passwort zurücksetzen fehlgeschlagen. Bitte versuchen Sie es erneut."
   },
   "verifyEmailPage": {
     "title": "E-Mail verifizieren",

@@ -9,9 +9,12 @@ import { useAuthStore } from '@/store/useAuthStore'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent } from '@/components/ui/card'
+import { useRequestPasswordResetMutation } from '@/api/auth'
+import { useToast } from '@/hooks/use-toast'
 
 export function ForgotPasswordPage() {
   const { t } = useTranslation()
+  const { toast } = useToast()
   const forgotPasswordSchema = z.object({
     email: z.string().email(t('validation.invalidEmail')),
   })
@@ -20,6 +23,7 @@ export function ForgotPasswordPage() {
 
   const navigate = useNavigate()
   const { isAuthenticated } = useAuthStore()
+  const requestPasswordResetMutation = useRequestPasswordResetMutation()
 
   const {
     register,
@@ -38,10 +42,27 @@ export function ForgotPasswordPage() {
     }
   }, [isAuthenticated, navigate])
 
-  const onSubmit = async (_data: ForgotPasswordFormData) => {
-    // TODO: integrate API call to send reset link
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    navigate('/login', { replace: true })
+  const onSubmit = async (formData: ForgotPasswordFormData) => {
+    try {
+      await requestPasswordResetMutation.mutateAsync({ email: formData.email })
+
+      toast({
+        title: t('common.success'),
+        description: t('forgotPasswordPage.otpSent'),
+        variant: 'default',
+      })
+
+      navigate(`/reset-password?email=${encodeURIComponent(formData.email)}`, {
+        replace: true,
+      })
+    } catch (error: any) {
+      toast({
+        title: t('common.error'),
+        description:
+          error.response?.data?.message || t('forgotPasswordPage.error'),
+        variant: 'destructive',
+      })
+    }
   }
 
   if (isAuthenticated) {

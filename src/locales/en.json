@@ -367,7 +367,24 @@
     "emailPlaceholder": "Enter Your E-mail",
     "sendResetLink": "Send Reset Link",
     "sending": "Sending...",
-    "backToLogin": "Back to Login?"
+    "backToLogin": "Back to Login?",
+    "otpSent": "OTP sent to your email successfully!",
+    "error": "Failed to send OTP. Please try again."
+  },
+  "resetPasswordPage": {
+    "title": "Reset Password",
+    "enterDetails": "Enter the OTP and your new password",
+    "sentTo": "OTP sent to",
+    "otp": "OTP",
+    "otpPlaceholder": "Enter 6-digit OTP",
+    "newPassword": "New Password",
+    "newPasswordPlaceholder": "Enter new password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "resetting": "Resetting...",
+    "resetButton": "Reset Password",
+    "success": "Password reset successfully!",
+    "error": "Failed to reset password. Please try again."
   },
   "verifyEmailPage": {
     "title": "Verify Email",

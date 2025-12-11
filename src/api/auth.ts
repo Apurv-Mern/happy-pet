@@ -59,6 +59,23 @@ export const authApi = {
     })
     return data
   },
+
+  requestPasswordReset: async (payload: { email: string }): Promise<any> => {
+    const { data } = await apiClient.post(
+      '/auth/password-reset/request',
+      payload
+    )
+    return data
+  },
+
+  resetPassword: async (payload: {
+    email: string
+    otp: string
+    newPassword: string
+  }): Promise<any> => {
+    const { data } = await apiClient.post('/auth/password-reset/reset', payload)
+    return data
+  },
 }
 
 // React Query hooks
@@ -115,5 +132,19 @@ export const useRefreshTokenMutation = () => {
   return useMutation({
     mutationFn: authApi.refreshToken,
     mutationKey: ['refreshToken'],
+  })
+}
+
+export const useRequestPasswordResetMutation = () => {
+  return useMutation({
+    mutationFn: authApi.requestPasswordReset,
+    mutationKey: ['requestPasswordReset'],
+  })
+}
+
+export const useResetPasswordMutation = () => {
+  return useMutation({
+    mutationFn: authApi.resetPassword,
+    mutationKey: ['resetPassword'],
   })
 }

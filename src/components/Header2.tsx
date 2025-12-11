@@ -259,6 +259,8 @@ export function Header2() {
   const navigate = useNavigate()
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
+  const [isMobileLanguageOpen, setIsMobileLanguageOpen] =
+    useState<boolean>(false)
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState<boolean>(false)
   const dropdownButtonRef = React.useRef<HTMLButtonElement>(null)
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, right: 0 })
@@ -446,7 +448,10 @@ export function Header2() {
               {/* Language Selector */}
               <div className="pt-4 border-t border-gray-200">
                 <button
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  onClick={e => {
+                    e.stopPropagation()
+                    setIsMobileLanguageOpen(!isMobileLanguageOpen)
+                  }}
                   className="flex items-center justify-between w-full gap-2 bg-[#003d66] hover:bg-[#002d4d] text-white rounded-full h-11 px-4 transition-colors"
                 >
                   <div className="flex items-center gap-2">
@@ -464,11 +469,11 @@ export function Header2() {
                     </span>
                   </div>
                   <ChevronDown
-                    className={`h-4 w-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
+                    className={`h-4 w-4 transition-transform ${isMobileLanguageOpen ? 'rotate-180' : ''}`}
                   />
                 </button>
 
-                {isDropdownOpen && (
+                {isMobileLanguageOpen && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
@@ -477,9 +482,10 @@ export function Header2() {
                     {availableLanguages.map((lang: any) => (
                       <button
                         key={lang.code}
-                        onClick={() => {
+                        onClick={e => {
+                          e.stopPropagation()
                           handleSelectLanguage(lang.code)
-                          setIsMobileMenuOpen(false)
+                          setIsMobileLanguageOpen(false)
                         }}
                         className="flex w-full items-center gap-3 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-[#003863] hover:bg-gray-200 transition"
                       >
@@ -524,10 +530,21 @@ export function Header2() {
                       </span>
                     </button>
                     <div className="items-center gap-2 flex mt-4">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.75775 2.74818L4.21312 0.2928C4.60365 -0.0977241 5.23681 -0.0977233 5.62734 0.292801L9.68681 4.35227C10.0773 4.74279 10.0773 5.37596 9.68681 5.76648L6.97352 8.47977C6.56452 8.88877 6.46313 9.51359 6.7218 10.0309C8.21715 13.0216 10.6422 15.4467 13.6329 16.942C14.1502 17.2007 14.775 17.0993 15.184 16.6903L17.8973 13.977C18.2879 13.5865 18.921 13.5865 19.3115 13.977L23.371 18.0365C23.7615 18.427 23.7615 19.0602 23.371 19.4507L20.9156 21.9061C18.8043 24.0174 15.4617 24.255 13.073 22.4634L8.91722 19.3466C7.17369 18.0389 5.62487 16.4901 4.31722 14.7466L1.20039 10.5908C-0.591153 8.2021 -0.353604 4.85953 1.75775 2.74818Z" fill="#003863"/>
-                        </svg>
-                      <span className="sm:inline text-[#003863] font-bold">+49 7161 5073061</span>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.75775 2.74818L4.21312 0.2928C4.60365 -0.0977241 5.23681 -0.0977233 5.62734 0.292801L9.68681 4.35227C10.0773 4.74279 10.0773 5.37596 9.68681 5.76648L6.97352 8.47977C6.56452 8.88877 6.46313 9.51359 6.7218 10.0309C8.21715 13.0216 10.6422 15.4467 13.6329 16.942C14.1502 17.2007 14.775 17.0993 15.184 16.6903L17.8973 13.977C18.2879 13.5865 18.921 13.5865 19.3115 13.977L23.371 18.0365C23.7615 18.427 23.7615 19.0602 23.371 19.4507L20.9156 21.9061C18.8043 24.0174 15.4617 24.255 13.073 22.4634L8.91722 19.3466C7.17369 18.0389 5.62487 16.4901 4.31722 14.7466L1.20039 10.5908C-0.591153 8.2021 -0.353604 4.85953 1.75775 2.74818Z"
+                          fill="#003863"
+                        />
+                      </svg>
+                      <span className="sm:inline text-[#003863] font-bold">
+                        +49 7161 5073061
+                      </span>
                     </div>
                     <div className="flex gap-2 items-center mt-4">
                       <a
