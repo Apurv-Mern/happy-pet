@@ -74,7 +74,7 @@ export function ResetPasswordPage() {
       toast({
         title: t('common.success'),
         description: t('resetPasswordPage.success'),
-        variant: 'default',
+        variant: 'success',
       })
 
       navigate('/login', { replace: true })

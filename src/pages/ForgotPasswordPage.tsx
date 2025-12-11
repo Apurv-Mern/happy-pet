@@ -49,7 +49,7 @@ export function ForgotPasswordPage() {
       toast({
         title: t('common.success'),
         description: t('forgotPasswordPage.otpSent'),
-        variant: 'default',
+        variant: 'success',
       })
 
       navigate(`/reset-password?email=${encodeURIComponent(formData.email)}`, {

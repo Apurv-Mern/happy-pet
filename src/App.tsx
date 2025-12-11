@@ -1,11 +1,5 @@
 import { Suspense } from 'react'
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useLocation,
-  useRoutes,
-} from 'react-router-dom'
+import { BrowserRouter, useLocation, useRoutes } from 'react-router-dom'
 import { Header } from './components/Header.tsx'
 import { Header2 } from './components/Header2.tsx'
 import { Footer } from './components/Footer.tsx'
