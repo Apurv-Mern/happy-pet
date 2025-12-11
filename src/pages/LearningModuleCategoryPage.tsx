@@ -41,7 +41,9 @@ export default function LearningModuleCategoryPage() {
     if (!category) return []
 
     return category.sub_categories.map(subCategory => ({
-      id: subCategory.id.includes('PREMIUM') ? 'premium' : 'super-premium',
+      id: subCategory.id.includes('SUPER_PREMIUM')
+        ? 'super-premium'
+        : 'premium',
       title: subCategory.name,
       stars: subCategory.id.includes('SUPER_PREMIUM') ? 5 : 4,
       image: '/assets/images/premium-tier.png',
@@ -130,9 +132,20 @@ export default function LearningModuleCategoryPage() {
                 />
               </svg>
             </span>
-            <span className="flex justify-center my-3 sm:hidden">                
-              <svg width="15" height="7" viewBox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1.00024L7.4 5.00024L13.8 1.00024" stroke="#003863" stroke-width="2" stroke-linecap="round"/>
+            <span className="flex justify-center my-3 sm:hidden">
+              <svg
+                width="15"
+                height="7"
+                viewBox="0 0 15 7"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1.00024L7.4 5.00024L13.8 1.00024"
+                  stroke="#003863"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
               </svg>
             </span>
             <h1 className="text-[#003863] text-[28px] heading-line">
