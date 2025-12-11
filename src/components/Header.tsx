@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Phone, User, ChevronDown, LogOut, Menu, X } from 'lucide-react'
 import { MdLanguage } from 'react-icons/md'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useAuthStore } from '@/store/useAuthStore'
 import { useTranslation } from '@/contexts/I18nContext'
@@ -90,6 +90,17 @@ export function Header() {
     queryClient.clear()
     logout()
   }
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
 
   return (
     <header className="w-full">
