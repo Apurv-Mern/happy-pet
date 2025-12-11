@@ -1,44 +1,36 @@
+import { Suspense } from 'react'
 import {
   BrowserRouter,
   Routes,
   Route,
-  Navigate,
-  Outlet,
   useLocation,
+  useRoutes,
 } from 'react-router-dom'
-import { HomePage } from './pages/HomePage.tsx'
-import { LoginPage } from './pages/LoginPage'
-import { Layout } from './components/Layout'
-import { ProtectedRoute } from './components/ProtectedRoute'
-import { SignupPage } from './pages/SignUpPage.tsx'
-import { VerifyEmailPage } from './pages/VerifyEmailPage.tsx'
-import { ForgotPasswordPage } from './pages/ForgotPasswordPage.tsx'
 import { Header } from './components/Header.tsx'
-import { Footer } from './components/Footer.tsx'
-import { FAQPage } from './pages/FAQPage.tsx'
-import { ContactUsPage } from './pages/ContactUsPage.tsx'
-import AboutUsPage from './pages/AboutUsPage.tsx'
-import ProfilePage from './pages/ProfilePage.tsx'
-import KnowledgeHubPage from './pages/KnowledgeHubPage.tsx'
-import CategorySubPage from './pages/CategorySubPage.tsx'
-import SubCategoryItem from './pages/SubCategoryItem.tsx'
-import AiAgentPage from './pages/AiAgentPage.tsx'
-import LearningModePage from './pages/LearningModePage.tsx'
-import LearningModuleCategoryPage from './pages/LearningModuleCategoryPage.tsx'
-import LearningModuleSubCategoryPage from './pages/LearningModuleSubCategoryPage.tsx'
-import { Toaster } from './components/ui/toaster'
-import VideoDetailPage from './pages/VideoDetailsPage.tsx'
 import { Header2 } from './components/Header2.tsx'
+import { Footer } from './components/Footer.tsx'
 import { ScrollToTop } from './components/ScrollToTop.tsx'
-import SocialCommitment from './pages/about/SocialCommitment.tsx'
-import NutritionalConcept from './pages/about/NutritionalConcept.tsx'
-import ManufacturingProcess from './pages/about/ManufacturingProcess.tsx'
-import BrandHistory from './pages/about/BrandHistory.tsx'
-import { ResetPasswordPage } from './pages/ResetPasswordPage.tsx'
+import { Toaster } from './components/ui/toaster'
+import { routes } from './routes'
+
+// Loading fallback component
+const PageLoader = () => (
+  <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    <div className="flex flex-col items-center gap-4">
+      <div className="w-16 h-16 border-4 border-[#003863] border-t-transparent rounded-full animate-spin"></div>
+      <p className="text-[#003863] font-semibold text-lg">Loading...</p>
+    </div>
+  </div>
+)
 
 function HeaderWrapper() {
   const location = useLocation()
   return location.pathname === '/' ? <Header /> : <Header2 />
+}
+
+function AppRoutes() {
+  const element = useRoutes(routes)
+  return <Suspense fallback={<PageLoader />}>{element}</Suspense>
 }
 
 function App() {
@@ -46,73 +38,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <HeaderWrapper />
-      <Routes>
-        {/* Public routes */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/verify-email" element={<VerifyEmailPage />} />
-        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-        <Route path="/reset-password" element={<ResetPasswordPage />} />
-        <Route path="/faqs" element={<FAQPage />} />
-        <Route path="/contact" element={<ContactUsPage />} />
-        <Route path="/about" element={<AboutUsPage />} />
-        <Route path="/about/social-commitment" element={<SocialCommitment />} />
-        <Route
-          path="/about/nutritional-concept"
-          element={<NutritionalConcept />}
-        />
-        <Route
-          path="/about/manufacturing-process"
-          element={<ManufacturingProcess />}
-        />
-        <Route path="/about/brand-history" element={<BrandHistory />} />
-
-        <Route element={<ProtectedRoute />}>
-          <Route
-            element={
-              <Layout>
-                <Outlet />
-              </Layout>
-            }
-          >
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/knowledge-hub" element={<KnowledgeHubPage />} />
-            <Route
-              path="/knowledge-hub/:categoryId"
-              element={<CategorySubPage />}
-            />
-            <Route
-              path="/knowledge-hub/:categoryId/:tierId"
-              element={<SubCategoryItem />}
-            />
-            <Route
-              path="/knowledge-hub/:categoryId/:tierId/:subcategoryId"
-              element={<SubCategoryItem />}
-            />
-            <Route path="/learning-module" element={<LearningModePage />} />
-            <Route
-              path="/learning-module/:categoryId"
-              element={<LearningModuleCategoryPage />}
-            />
-            <Route
-              path="/learning-module/:categoryId/:tierId"
-              element={<LearningModuleSubCategoryPage />}
-            />
-            <Route
-              path="/learning-module/:categoryId/:tierId/:subcategoryId"
-              element={<LearningModuleSubCategoryPage />}
-            />
-            <Route path="/ai-agent" element={<AiAgentPage />} />
-            <Route
-              path="/knowledge-hub/video/:videoId"
-              element={<VideoDetailPage />}
-            />
-          </Route>
-        </Route>
-
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <AppRoutes />
       <Footer />
       <Toaster />
     </BrowserRouter>
