@@ -125,6 +125,8 @@ export function ResetPasswordPage() {
                 <Input
                   id="otp"
                   type="text"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   placeholder={t('resetPasswordPage.otpPlaceholder')}
                   {...register('otp')}
                   className="w-full bg-white text-gray-900 placeholder:text-gray-400 h-12 rounded-[15px]"

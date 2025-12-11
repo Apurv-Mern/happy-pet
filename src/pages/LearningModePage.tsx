@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { X } from 'lucide-react'
 import { useTranslation } from '@/contexts/I18nContext'
@@ -19,11 +19,25 @@ import { useCategories } from '@/hooks/useCategories'
 
 export default function LearningModePage() {
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
   const { t, language } = useTranslation()
   const [selectedCategory, setSelectedCategory] =
     useState<string>('all-categories')
-  const [searchQuery, setSearchQuery] = useState<string>('')
-  const [searchTerm, setSearchTerm] = useState<string>('')
+  const [searchQuery, setSearchQuery] = useState<string>(
+    searchParams.get('search') || ''
+  )
+  const [searchTerm, setSearchTerm] = useState<string>(
+    searchParams.get('search') || ''
+  )
+
+  // Update search when URL params change
+  useEffect(() => {
+    const urlSearch = searchParams.get('search') || ''
+    if (urlSearch !== searchQuery) {
+      setSearchQuery(urlSearch)
+      setSearchTerm(urlSearch)
+    }
+  }, [searchParams])
   const [isViewModalOpen, setIsViewModalOpen] = useState(false)
   const [viewingModule, setViewingModule] = useState<any>(null)
   const [documentUrl, setDocumentUrl] = useState<string>('')

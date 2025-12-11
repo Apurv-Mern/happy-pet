@@ -2,6 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useCategoriesQuery } from '@/api/categories'
+import { useState } from 'react'
 
 interface PremiumTier {
   id: string
@@ -15,6 +16,7 @@ export default function LearningModuleCategoryPage() {
   const { categoryId } = useParams<{ categoryId: string }>()
   const { t, language } = useTranslation()
   const navigate = useNavigate()
+  const [searchQuery, setSearchQuery] = useState<string>('')
 
   // Fetch categories from API with contentType=document
   const { data: categoriesResponse, isLoading } = useCategoriesQuery(
@@ -60,6 +62,14 @@ export default function LearningModuleCategoryPage() {
 
   const handleTierClick = (tierId: string) => {
     navigate(`/learning-module/${categoryId}/${tierId}`)
+  }
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      // Navigate to main learning module page with search query
+      navigate(`/learning-module?search=${encodeURIComponent(searchQuery)}`)
+    }
   }
 
   // Skeleton loader for loading state
@@ -153,13 +163,18 @@ export default function LearningModuleCategoryPage() {
             </h1>
           </div>
           <div className="about-image">
-            <div className="w-full max-w-[380px] bg-[#003863] rounded-full px-4 py-3 flex items-center">
+            <form
+              onSubmit={handleSearchSubmit}
+              className="w-full max-w-[380px] bg-[#003863] rounded-full px-4 py-3 flex items-center"
+            >
               <input
                 type="text"
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
                 placeholder={t('knowledgeHub.searchPlaceholder')}
                 className="pl-3 bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
               />
-              <button className="ml-3">
+              <button type="submit" className="ml-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-8 h-8 text-white"
@@ -175,7 +190,7 @@ export default function LearningModuleCategoryPage() {
                   />
                 </svg>
               </button>
-            </div>
+            </form>
           </div>
         </div>
 
