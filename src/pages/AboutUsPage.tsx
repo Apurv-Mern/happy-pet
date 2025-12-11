@@ -30,8 +30,8 @@ const AboutUsPage = () => {
           </p>
         </div>
       </div>
-      <div className="bg-[#E3E6ED] my-10 mb-0">
-        <div className="container mx-auto py-14">
+      <div className="bg-[#E3E6ED] my-3 sm:my-10 mb-0">
+        <div className="container mx-auto py-4 sm:py-14">
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[40%_60%] 2xl:grid-cols-[40%_60%] items-center">
             <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
@@ -51,8 +51,8 @@ const AboutUsPage = () => {
           </div>
         </div>
       </div>
-      <div className="py-10 md:py-20">
-        <div className="container mx-auto py-14">
+      <div className="sm:py-10 md:py-20">
+        <div className="container mx-auto py-4 sm:py-14">
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_37%] gap-10 items-center">
             <div>
               <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px]">
@@ -73,7 +73,7 @@ const AboutUsPage = () => {
         </div>
       </div>
       <div className="bg-[#E3E6ED]">
-        <div className="container mx-auto py-14">
+        <div className="container mx-auto py-4 sm:py-14">
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[40%_60%] 2xl:grid-cols-[37%_60%] gap-10 items-center">
             <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
@@ -93,8 +93,8 @@ const AboutUsPage = () => {
           </div>
         </div>
       </div>
-      <div className="py-10 md:py-20">
-        <div className="container mx-auto py-14">
+      <div className="sm:py-10 md:py-20">
+        <div className="container mx-auto py-4 sm:py-14">
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_37%] gap-10 items-center">
             <div>
               <h1 className="heading-line text-[#003863] text-[38px] sm:text-[38px] md:text-[64px] md:mb-3">

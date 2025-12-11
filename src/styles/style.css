@@ -90,3 +90,11 @@
     text-align: -webkit-left;
   }
 }
+@media screen and (max-width: 400px) {
+  .aiagent{
+    max-width: 120px !important;
+  }
+  .aipart{
+    justify-content: space-between !important;
+  }
+}

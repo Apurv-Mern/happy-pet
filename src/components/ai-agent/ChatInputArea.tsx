@@ -62,7 +62,7 @@ export const ChatInputArea = ({
         />
       )}
 
-      <div className="flex items-center">
+      <div className="flex items-center aipart">
         {/* Plus Icon Button with Dropdown */}
         <div className="relative">
           <button
@@ -112,7 +112,7 @@ export const ChatInputArea = ({
               onChange={onInputChange}
               onKeyPress={onKeyPress}
               disabled={isSendingMessage}
-              className="flex-1 bg-transparent px-4 text-[#003863] text-lg focus:outline-none disabled:opacity-50"
+              className="flex-1 bg-transparent px-4 text-[#003863] text-lg focus:outline-none disabled:opacity-50 aiagent"
             />
             <div className="h-8 w-[1px] bg-[#003863]"></div>
 

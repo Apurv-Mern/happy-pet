@@ -10,7 +10,7 @@ const SocialCommitment = () => {
         <div>
           <img src="/assets/images/social.png" className="w-full" alt="" />
         </div>
-        <div className="bg-[#E3E6ED] py-10">
+        <div className="bg-[#E3E6ED] py-4 sm:py-10">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 gap-[30px] md:gap-[40px] lg:gap-[0px] md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-[60%_40%]">
               <div>
@@ -40,7 +40,7 @@ const SocialCommitment = () => {
             </div>
           </div>
         </div>
-        <div className="container mx-auto py-20">
+        <div className="container mx-auto py-4 sm:py-20">
           <div className="grid grid-cols-1 gap-[30px] md:gap-[40px] lg:gap-[0px] md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-[40%_60%]">
             <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
@@ -68,7 +68,7 @@ const SocialCommitment = () => {
             </div>
           </div>
         </div>
-        <div className="bg-[#E3E6ED] py-10">
+        <div className="bg-[#E3E6ED] py-4 sm:py-10">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 gap-[30px] md:gap-[40px] lg:gap-[0px] md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-[60%_40%]">
               <div>
@@ -105,7 +105,7 @@ const SocialCommitment = () => {
             </div>
           </div>
         </div>
-        <div className="container mx-auto py-20">
+        <div className="container mx-auto py-4 sm:py-20">
           <div className="grid grid-cols-1 gap-[30px] md:gap-[40px] lg:gap-[0px] md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-[40%_60%]">
             <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
@@ -134,7 +134,7 @@ const SocialCommitment = () => {
           </div>
         </div>
 
-        <div className="bg-[#E3E6ED] py-10">
+        <div className="bg-[#E3E6ED] py-4 sm:py-10">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 gap-[30px] md:gap-[40px] lg:gap-[0px] md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-[60%_40%]">
               <div>
@@ -170,7 +170,7 @@ const SocialCommitment = () => {
           </div>
         </div>
 
-        <div className="container mx-auto py-20">
+        <div className="container mx-auto py-4 sm:py-20">
           <div className="grid grid-cols-1 gap-[30px] md:gap-[40px] lg:gap-[0px] md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-[40%_60%]">
             <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
@@ -190,7 +190,7 @@ const SocialCommitment = () => {
           </div>
         </div>
 
-        <div className="bg-[#E3E6ED] py-10">
+        <div className="bg-[#E3E6ED] py-4 sm:py-10">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 gap-[30px] md:gap-[40px] lg:gap-[0px] md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-[60%_40%]">
               <div>

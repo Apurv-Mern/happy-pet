@@ -9,7 +9,7 @@ const ManufacturingProcess = () => {
         <div>
           <img src="/assets/images/process.png" className="w-full" alt="" />
         </div>
-        <div className="bg-[#E3E6ED] py-10">
+        <div className="bg-[#E3E6ED] py-4 sm:py-10">
           <div className="container mx-auto">
             <h4 className="heading-line text-[#003863] text-[36px] sm:text-[38px] md:text-[64px] text-center">
               {t('aboutPage.manufacturingTitle')}
@@ -29,7 +29,7 @@ const ManufacturingProcess = () => {
             </p>
           </div>
         </div>
-        <div className="container mx-auto py-10">
+        <div className="container mx-auto py-4 sm:py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[40%_60%] xl:grid-cols-[40%_60%] 2xl:grid-cols-[40%_60%] items-center">
             <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
@@ -51,7 +51,7 @@ const ManufacturingProcess = () => {
             </div>
           </div>
         </div>
-        <div className="bg-[#E3E6ED] py-10">
+        <div className="bg-[#E3E6ED] py-4 sm:py-10">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[60%_40%] xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_40%] items-center">
               <div>
@@ -75,7 +75,7 @@ const ManufacturingProcess = () => {
             </div>
           </div>
         </div>
-        <div className="container mx-auto py-10">
+        <div className="container mx-auto py-4 sm:py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[40%_60%] xl:grid-cols-[40%_60%] 2xl:grid-cols-[40%_60%] items-center">
             <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
@@ -97,7 +97,7 @@ const ManufacturingProcess = () => {
             </div>
           </div>
         </div>
-        <div className="bg-[#E3E6ED] py-10">
+        <div className="bg-[#E3E6ED] py-4 sm:py-10">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[60%_40%] xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_40%] items-center">
               <div>
@@ -121,7 +121,7 @@ const ManufacturingProcess = () => {
             </div>
           </div>
         </div>
-        <div className="container mx-auto py-10">
+        <div className="container mx-auto py-4 sm:py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[40%_60%] xl:grid-cols-[40%_60%] 2xl:grid-cols-[40%_60%] items-center">
             <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
               <img
@@ -143,7 +143,7 @@ const ManufacturingProcess = () => {
             </div>
           </div>
         </div>
-        <div className="bg-[#E3E6ED] py-10">
+        <div className="bg-[#E3E6ED] py-4 sm:py-10">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[60%_40%] xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_40%] items-center">
               <div>

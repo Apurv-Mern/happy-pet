@@ -9,7 +9,7 @@ const NutritionalConcept = () => {
         <div>
           <img src="/assets/images/concept.png" className="w-full" alt="" />
         </div>
-        <div className="bg-[#E3E6ED] py-10">
+        <div className="bg-[#E3E6ED] py-4 sm:py-10">
           <div className="container mx-auto">
             <h4 className="heading-line text-[#003863] text-[30px] sm:text-[38px] md:text-[64px] text-center">
               {t('aboutPage.nutritionalTitle')}
@@ -61,7 +61,7 @@ const NutritionalConcept = () => {
             </div>
           </div>
         </div>
-        <div className="container mx-auto py-20">
+        <div className="container mx-auto py-4 sm:py-20">
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[60%_40%] 2xl:grid-cols-[60%_40%] items-center">
             <div>
               <p className="text-[#003863] text-[16px] sm:text-[16px] md:text-[20px] font-bold">
@@ -83,7 +83,7 @@ const NutritionalConcept = () => {
             </div>
           </div>
         </div>
-        <div className="bg-[#E3E6ED] py-10">
+        <div className="bg-[#E3E6ED] py-4 sm:py-10">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-[40%_60%]  2xl:grid-cols-[40%_60%] items-center">
               <div className="flex justify-center md:justify-center xl:justify-start md:px-[20px] lg:px-[20px] xl:px-[20px] 2xl:px-0">
@@ -107,7 +107,7 @@ const NutritionalConcept = () => {
             </p>
           </div>
         </div>
-        <div className="container mx-auto py-20">
+        <div className="container mx-auto py-4 sm:py-20">
           <h4 className="heading-line text-[#003863] text-[36px] sm:text-[38px] md:text-[64px] text-center">
             {t('aboutPage.nutritionPropertiesTitle')}
           </h4>
@@ -250,7 +250,7 @@ const NutritionalConcept = () => {
             </div>
           </div>
         </div>
-        <div className="bg-[#E3E6ED] py-10">
+        <div className="bg-[#E3E6ED] py-4 sm:py-10">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 xl:grid-cols-[70%_30%]">
               <div>
