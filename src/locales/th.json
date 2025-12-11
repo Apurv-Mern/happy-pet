@@ -361,12 +361,29 @@
   "forgotPasswordPage": {
     "title": "ลืมรหัสผ่าน?",
     "dontWorry": "ไม่ต้องกังวล!",
-    "enterEmail": "ป้อนที่อยู่อีเมลของคุณเพื่อรีเซ็ตรหัสผ่านของคุณ",
+    "enterEmail": "ป้อนอีเมลของคุณเพื่อรีเซ็ตรหัสผ่าน",
     "email": "อีเมล",
-    "emailPlaceholder": "กรอกอีเมลของคุณ",
+    "emailPlaceholder": "ป้อนอีเมลของคุณ",
     "sendResetLink": "ส่งลิงก์รีเซ็ต",
     "sending": "กำลังส่ง...",
-    "backToLogin": "กลับไปยังหน้าเข้าสู่ระบบ?"
+    "backToLogin": "กลับไปเข้าสู่ระบบ?",
+    "otpSent": "ส่ง OTP ไปยังอีเมลของคุณเรียบร้อยแล้ว!",
+    "error": "ส่ง OTP ไม่สำเร็จ โปรดลองอีกครั้ง"
+  },
+  "resetPasswordPage": {
+    "title": "รีเซ็ตรหัสผ่าน",
+    "enterDetails": "ป้อน OTP และรหัสผ่านใหม่ของคุณ",
+    "sentTo": "ส่ง OTP ไปที่",
+    "otp": "OTP",
+    "otpPlaceholder": "ป้อน OTP 6 หลัก",
+    "newPassword": "รหัสผ่านใหม่",
+    "newPasswordPlaceholder": "ป้อนรหัสผ่านใหม่",
+    "confirmPassword": "ยืนยันรหัสผ่าน",
+    "confirmPasswordPlaceholder": "ยืนยันรหัสผ่านของคุณ",
+    "resetting": "กำลังรีเซ็ต...",
+    "resetButton": "รีเซ็ตรหัสผ่าน",
+    "success": "รีเซ็ตรหัสผ่านสำเร็จ!",
+    "error": "รีเซ็ตรหัสผ่านไม่สำเร็จ โปรดลองอีกครั้ง"
   },
   "verifyEmailPage": {
     "title": "ยืนยันอีเมล",

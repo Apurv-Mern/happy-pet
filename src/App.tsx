@@ -34,6 +34,7 @@ import SocialCommitment from './pages/about/SocialCommitment.tsx'
 import NutritionalConcept from './pages/about/NutritionalConcept.tsx'
 import ManufacturingProcess from './pages/about/ManufacturingProcess.tsx'
 import BrandHistory from './pages/about/BrandHistory.tsx'
+import { ResetPasswordPage } from './pages/ResetPasswordPage.tsx'
 
 function HeaderWrapper() {
   const location = useLocation()
@@ -52,6 +53,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/verify-email" element={<VerifyEmailPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route path="/faqs" element={<FAQPage />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/about" element={<AboutUsPage />} />

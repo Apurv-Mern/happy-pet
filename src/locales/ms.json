@@ -361,12 +361,29 @@
   "forgotPasswordPage": {
     "title": "Lupa Kata Laluan?",
     "dontWorry": "Jangan risau!",
-    "enterEmail": "Masukkan alamat e-mel anda untuk menetapkan semula kata laluan anda",
-    "email": "E-mel",
+    "enterEmail": "Masukkan alamat e-mel anda untuk menetapkan semula kata laluan",
+    "email": "E-Mel",
     "emailPlaceholder": "Masukkan E-mel Anda",
-    "sendResetLink": "Hantar Pautan Tetapan Semula",
+    "sendResetLink": "Hantar Pautan Tetap Semula",
     "sending": "Menghantar...",
-    "backToLogin": "Kembali ke Log Masuk?"
+    "backToLogin": "Kembali ke Log Masuk?",
+    "otpSent": "OTP berjaya dihantar ke e-mel anda!",
+    "error": "Gagal menghantar OTP. Sila cuba lagi."
+  },
+  "resetPasswordPage": {
+    "title": "Tetapkan Semula Kata Laluan",
+    "enterDetails": "Masukkan OTP dan kata laluan baharu anda",
+    "sentTo": "OTP dihantar ke",
+    "otp": "OTP",
+    "otpPlaceholder": "Masukkan OTP 6 digit",
+    "newPassword": "Kata Laluan Baharu",
+    "newPasswordPlaceholder": "Masukkan kata laluan baharu",
+    "confirmPassword": "Sahkan Kata Laluan",
+    "confirmPasswordPlaceholder": "Sahkan kata laluan anda",
+    "resetting": "Menetapkan semula...",
+    "resetButton": "Tetapkan Semula Kata Laluan",
+    "success": "Kata laluan berjaya ditetapkan semula!",
+    "error": "Gagal menetapkan semula kata laluan. Sila cuba lagi."
   },
   "verifyEmailPage": {
     "title": "Sahkan E-mel",
