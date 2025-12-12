@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { X } from 'lucide-react'
 import { useTranslation } from '@/contexts/I18nContext'
@@ -18,6 +18,7 @@ import { useCategories } from '@/hooks/useCategories'
 
 export default function KnowledgeHubPage() {
   const { t, language } = useTranslation()
+  const [searchParams] = useSearchParams()
   const { categoryId, tierId, subcategoryId } = useParams<{
     categoryId?: string
     tierId?: string
@@ -25,8 +26,12 @@ export default function KnowledgeHubPage() {
   }>()
   const [selectedCategory, setSelectedCategory] =
     useState<string>('all-categories')
-  const [searchQuery, setSearchQuery] = useState<string>('')
-  const [searchTerm, setSearchTerm] = useState<string>('')
+  const [searchQuery, setSearchQuery] = useState<string>(
+    searchParams.get('search') || ''
+  )
+  const [searchTerm, setSearchTerm] = useState<string>(
+    searchParams.get('search') || ''
+  )
   const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState<any>(null)
   const navigate = useNavigate()
@@ -46,6 +51,15 @@ export default function KnowledgeHubPage() {
       setSelectedCategory('all-categories')
     }
   }, [categoryId, tierId, subcategoryId])
+
+  // Update search when URL params change
+  useEffect(() => {
+    const urlSearch = searchParams.get('search') || ''
+    if (urlSearch !== searchQuery) {
+      setSearchQuery(urlSearch)
+      setSearchTerm(urlSearch)
+    }
+  }, [searchParams])
 
   // Map route category IDs to API category IDs
   const categoryMap: { [key: string]: string } = {

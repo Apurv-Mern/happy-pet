@@ -2,6 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useCategoriesQuery } from '@/api/categories'
+import { useState } from 'react'
 
 interface PremiumTier {
   id: string
@@ -15,11 +16,12 @@ export default function CategorySubPage() {
   const { categoryId } = useParams<{ categoryId: string }>()
   const { t, language } = useTranslation()
   const navigate = useNavigate()
+  const [searchQuery, setSearchQuery] = useState<string>('')
 
   // Fetch categories from API
   const { data: categoriesResponse, isLoading } = useCategoriesQuery(
     'other',
-    'document',
+    'video',
     language
   )
 
@@ -61,6 +63,14 @@ export default function CategorySubPage() {
   const handlePremiumClick = (tierId: string) => {
     // Navigate to the videos page for this premium tier
     navigate(`/knowledge-hub/${categoryId}/${tierId}`)
+  }
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      // Navigate to main knowledge hub page with search query
+      navigate(`/knowledge-hub?search=${encodeURIComponent(searchQuery)}`)
+    }
   }
 
   // Skeleton loader for loading state
@@ -133,9 +143,20 @@ export default function CategorySubPage() {
                 />
               </svg>
             </span>
-             <span className="flex justify-center my-3 sm:hidden">                
-              <svg width="15" height="7" viewBox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1.00024L7.4 5.00024L13.8 1.00024" stroke="#003863" stroke-width="2" stroke-linecap="round"/>
+            <span className="flex justify-center my-3 sm:hidden">
+              <svg
+                width="15"
+                height="7"
+                viewBox="0 0 15 7"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1.00024L7.4 5.00024L13.8 1.00024"
+                  stroke="#003863"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
               </svg>
             </span>
             <span className="text-[#003863] text-[28px] heading-line">
@@ -143,13 +164,18 @@ export default function CategorySubPage() {
             </span>
           </div>
           <div className="about-image">
-            <div className="w-full max-w-[380px] bg-[#003863] rounded-full px-4 py-3 flex items-center">
+            <form
+              onSubmit={handleSearchSubmit}
+              className="w-full max-w-[380px] bg-[#003863] rounded-full px-4 py-3 flex items-center"
+            >
               <input
                 type="text"
                 placeholder={t('knowledgeHub.searchPlaceholder')}
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
                 className="pl-3 bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
               />
-              <button className="ml-3">
+              <button type="submit" className="ml-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-8 h-8 text-white"
@@ -165,7 +191,7 @@ export default function CategorySubPage() {
                   />
                 </svg>
               </button>
-            </div>
+            </form>
           </div>
         </div>
         <div className="">

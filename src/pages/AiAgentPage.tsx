@@ -9,6 +9,7 @@ import {
 import { useChatRealtime } from '@/hooks/useChatRealtime'
 import { useTranslation } from '@/contexts/I18nContext'
 import { ChatMessagesContainer, ChatInputArea } from '@/components/ai-agent'
+import { useToast } from '@/hooks/use-toast'
 
 interface Message {
   id: string
@@ -25,6 +26,7 @@ type ChatType = 'audio' | 'video' | 'chat'
 
 export default function AIAgentPage() {
   const { language } = useTranslation()
+  const { toast } = useToast()
 
   // Session and message state
   const [sessionId, setSessionId] = useState<string | null>(null)
@@ -51,6 +53,38 @@ export default function AIAgentPage() {
   const inputRef = useRef<HTMLInputElement>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+
+  // Handle API errors
+  const handleApiError = (error: any, context: string) => {
+    console.error(`${context}:`, error)
+
+    // Check for 500 or internal server errors
+    const status = error?.response?.status || error?.status
+    const isServerError =
+      status >= 500 ||
+      error?.message?.toLowerCase().includes('internal server error') ||
+      error?.response?.data?.message
+        ?.toLowerCase()
+        .includes('internal server error')
+
+    if (isServerError) {
+      toast({
+        title: 'Server Error',
+        description: 'Please try again after some time.',
+        variant: 'destructive',
+      })
+    } else {
+      toast({
+        title: 'Error',
+        description:
+          error?.response?.data?.message ||
+          error?.message ||
+          'An error occurred. Please try again.',
+        variant: 'destructive',
+      })
+    }
+  }
+
   // Convert API message to UI message format
   const convertApiMessageToMessage = async (
     apiMessage: ApiChatMessage
@@ -194,7 +228,7 @@ export default function AIAgentPage() {
             console.log('Converted messages:', convertedMessages)
             setMessages(convertedMessages)
           } catch (error) {
-            console.error('Failed to load messages:', error)
+            handleApiError(error, 'Failed to load messages')
           } finally {
             setIsLoadingMessages(false)
           }
@@ -205,7 +239,7 @@ export default function AIAgentPage() {
           localStorage.setItem('ai_agent_session_id', newSession._id)
         }
       } catch (error) {
-        console.error('Failed to initialize session:', error)
+        handleApiError(error, 'Failed to initialize session')
       } finally {
         setIsLoadingSession(false)
       }
@@ -462,9 +496,15 @@ export default function AIAgentPage() {
         }
       }
     } catch (error) {
-      console.error('Failed to send message:', error)
-      // Remove temp message on error
-      setMessages(prev => prev.filter(msg => msg.id !== tempUserMessage.id))
+      handleApiError(error, 'Failed to send message')
+      // Remove temp and thinking messages on error
+      clearTimeout(skeletonTimer)
+      setShowSkeleton(false)
+      setMessages(prev =>
+        prev.filter(
+          msg => msg.id !== tempUserMessage.id && msg.id !== thinkingMessage.id
+        )
+      )
     } finally {
       setIsSendingMessage(false)
     }
@@ -640,8 +680,13 @@ export default function AIAgentPage() {
 
       setAudioBlob(null)
     } catch (error) {
-      console.error('Failed to send voice message:', error)
-      setMessages(prev => prev.filter(msg => msg.id !== tempId))
+      handleApiError(error, 'Failed to send voice message')
+      // Remove temp and thinking messages on error
+      clearTimeout(skeletonTimer)
+      setShowSkeleton(false)
+      setMessages(prev =>
+        prev.filter(msg => msg.id !== tempId && msg.id !== thinkingMessage.id)
+      )
     } finally {
       setIsSendingMessage(false)
     }
@@ -694,7 +739,7 @@ export default function AIAgentPage() {
         localStorage.removeItem('ai_agent_session_id')
         console.log('Session deleted successfully')
       } catch (error) {
-        console.error('Failed to delete session:', error)
+        handleApiError(error, 'Failed to delete session')
       }
     }
   }

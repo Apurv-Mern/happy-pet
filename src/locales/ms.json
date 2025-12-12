@@ -376,6 +376,7 @@
     "sentTo": "OTP dihantar ke",
     "otp": "OTP",
     "otpPlaceholder": "Masukkan OTP 6 digit",
+    "otpMinLength": "OTP mestilah 6 digit",
     "newPassword": "Kata Laluan Baharu",
     "newPasswordPlaceholder": "Masukkan kata laluan baharu",
     "confirmPassword": "Sahkan Kata Laluan",

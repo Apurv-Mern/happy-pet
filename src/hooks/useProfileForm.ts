@@ -30,6 +30,7 @@ export const useProfileForm = (user: User | null) => {
   const updateProfileMutation = useUpdateProfileMutation()
   const { updateUser } = useAuthStore()
   const [profileImage, setProfileImage] = useState<File | null>(null)
+  const [phoneError, setPhoneError] = useState<string>('')
 
   const [formData, setFormData] = useState<ProfileFormData>({
     fullName: user?.name || '',
@@ -67,8 +68,55 @@ export const useProfileForm = (user: User | null) => {
     confirmPassword: '',
   })
 
+  const validatePhoneNumber = (phoneNumber: string): boolean => {
+    if (!phoneNumber) {
+      setPhoneError('Phone number is required')
+      return false
+    }
+
+    // Remove country code to validate just the number part
+    const countryCodes = ['+971', '+966', '+1', '+49', '+60', '+66', '+62']
+    let numberPart = phoneNumber
+    for (const code of countryCodes) {
+      if (phoneNumber.startsWith(code)) {
+        numberPart = phoneNumber.slice(code.length)
+        break
+      }
+    }
+
+    // Remove spaces and dashes
+    numberPart = numberPart.replace(/[\s-]/g, '')
+
+    // Check if number part is empty (only country code was provided)
+    if (!numberPart || numberPart.length === 0) {
+      setPhoneError('Phone number is required')
+      return false
+    }
+
+    // Check if it contains only digits
+    if (!/^\d+$/.test(numberPart)) {
+      setPhoneError('Phone number must contain only digits')
+      return false
+    }
+
+    // Check length (most phone numbers are between 7-15 digits)
+    if (numberPart.length < 7 || numberPart.length > 15) {
+      setPhoneError('Phone number must be between 7 and 15 digits')
+      return false
+    }
+
+    setPhoneError('')
+    return true
+  }
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
+
+    // Validate phone number on change
+    if (name === 'phoneNumber') {
+      validatePhoneNumber(value)
+    }
+
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
@@ -80,6 +128,16 @@ export const useProfileForm = (user: User | null) => {
   const handleSaveChanges = () => {
     console.log('handleSaveChanges called')
     console.log('formData:', formData)
+
+    // Validate phone number before saving
+    if (!validatePhoneNumber(formData.phoneNumber)) {
+      toast({
+        variant: 'destructive',
+        title: 'Validation Error',
+        description: phoneError || 'Please enter a valid phone number',
+      })
+      return
+    }
 
     const formDataToSend = new FormData()
 
@@ -218,5 +276,6 @@ export const useProfileForm = (user: User | null) => {
     resetPersonalInfo,
     resetPasswordData,
     isUpdatingProfile: updateProfileMutation.isPending,
+    phoneError,
   }
 }
