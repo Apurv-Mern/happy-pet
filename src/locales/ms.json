@@ -502,5 +502,11 @@
     "subjectRequired": "Subjek diperlukan",
     "messageMinLength": "Mesej mestilah sekurang-kurangnya 10 aksara",
     "happy": "Gembira"
+  },
+  "logoutConfirmationModal": {
+    "title": "Sahkan Log Keluar",
+    "message": "Adakah anda pasti mahu log keluar? Sejarah sembang anda akan dipadamkan.",
+    "cancel": "Batal",
+    "logout": "Log Keluar"
   }
 }

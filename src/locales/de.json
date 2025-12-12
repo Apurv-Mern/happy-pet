@@ -502,5 +502,11 @@
     "subjectRequired": "Betreff ist erforderlich",
     "messageMinLength": "Die Nachricht muss mindestens 10 Zeichen lang sein",
     "happy": "Glücklich"
+  },
+  "logoutConfirmationModal": {
+    "title": "Abmeldung bestätigen",
+    "message": "Sind Sie sicher, dass Sie sich abmelden möchten? Ihr Chatverlauf wird gelöscht.",
+    "cancel": "Abbrechen",
+    "logout": "Abmelden"
   }
 }

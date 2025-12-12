@@ -503,5 +503,11 @@
     "subjectRequired": "الموضوع مطلوب",
     "messageMinLength": "يجب أن تتكون الرسالة من 10 أحرف على الأقل",
     "happy": "سعيد"
+  },
+  "logoutConfirmationModal": {
+    "title": "تأكيد تسجيل الخروج",
+    "message": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    "cancel": "إلغاء",
+    "logout": "تسجيل الخروج"
   }
 }

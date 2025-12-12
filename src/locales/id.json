@@ -506,5 +506,11 @@
     "subjectRequired": "Subjek wajib diisi",
     "messageMinLength": "Pesan harus minimal 10 karakter",
     "happy": "Bahagia"
+  },
+  "logoutConfirmationModal": {
+    "title": "Konfirmasi Keluar",
+    "message": "Apakah Anda yakin ingin keluar? Riwayat obrolan Anda akan dihapus.",
+    "cancel": "Batal",
+    "logout": "Keluar"
   }
 }

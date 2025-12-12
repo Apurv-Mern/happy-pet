@@ -502,5 +502,11 @@
     "subjectRequired": "Subject is required",
     "messageMinLength": "Message must be at least 10 characters",
     "happy": "Happy"
+  },
+  "logoutConfirmationModal": {
+    "title": "Confirm Logout",
+    "message": "Are you sure you want to logout? Your chat history will be cleared.",
+    "cancel": "Cancel",
+    "logout": "Logout"
   }
 }
