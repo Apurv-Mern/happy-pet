@@ -36,39 +36,39 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     const currentTranslations = translations[language] || translations['en']
     return [
       {
+        code: 'de',
+        // name: currentTranslations.languages.de,
+        name: 'Deutsch',
+        flag: 'https://flagcdn.com/w40/de.png',
+      },
+      {
         code: 'en',
         // name: currentTranslations.languages.en,
         name: 'English',
         flag: 'https://flagcdn.com/w40/gb.png',
       },
       {
-        code: 'de',
-        // name: currentTranslations.languages.de,
-        name: 'German',
-        flag: 'https://flagcdn.com/w40/de.png',
-      },
-      {
         code: 'ar',
         // name: currentTranslations.languages.ar,
-        name: 'Arabic',
+        name: 'عربي',
         flag: 'https://flagcdn.com/w40/ae.png',
       },
       {
         code: 'ms',
         // name: currentTranslations.languages.ms,
-        name: 'Malay',
+        name: 'Melayu',
         flag: 'https://flagcdn.com/w40/my.png',
       },
       {
         code: 'th',
         // name: currentTranslations.languages.th,
-        name: 'Thai',
+        name: 'แบบไทย',
         flag: 'https://flagcdn.com/w40/th.png',
       },
       {
         code: 'id',
         // name: currentTranslations.languages.id,
-        name: 'Indonesian',
+        name: 'Indonesia',
         flag: 'https://flagcdn.com/w40/id.png',
       },
     ]
