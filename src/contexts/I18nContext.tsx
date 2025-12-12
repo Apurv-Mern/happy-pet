@@ -62,13 +62,13 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
       {
         code: 'th',
         // name: currentTranslations.languages.th,
-        name: 'แบบไทย',
+        name: 'ไทย',
         flag: 'https://flagcdn.com/w40/th.png',
       },
       {
         code: 'id',
         // name: currentTranslations.languages.id,
-        name: 'Indonesia',
+        name: 'Bahasa Indonesia',
         flag: 'https://flagcdn.com/w40/id.png',
       },
     ]
