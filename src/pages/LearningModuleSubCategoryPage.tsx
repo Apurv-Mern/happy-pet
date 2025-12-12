@@ -20,6 +20,7 @@ export default function LearningModuleSubCategoryPage() {
   const { t, language } = useTranslation()
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState<string>('')
+  const [searchTerm, setSearchTerm] = useState<string>('')
 
   // Filter state
   const [selectedAgeGroup, setSelectedAgeGroup] = useState<string>('all')
@@ -87,6 +88,7 @@ export default function LearningModuleSubCategoryPage() {
         ...(appliedFilters.typeOfFood && appliedFilters.typeOfFood !== 'all'
           ? { typeOfFood: appliedFilters.typeOfFood }
           : {}),
+        ...(searchTerm && { search: searchTerm }),
         language,
       }
     : {}
@@ -283,10 +285,8 @@ export default function LearningModuleSubCategoryPage() {
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (searchQuery.trim()) {
-      // Navigate to main learning module page with search query
-      navigate(`/learning-module?search=${encodeURIComponent(searchQuery)}`)
-    }
+    // Apply search filter on the current page
+    setSearchTerm(searchQuery)
   }
 
   const handleDownload = async (doc: any) => {

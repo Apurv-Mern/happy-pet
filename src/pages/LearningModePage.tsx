@@ -33,10 +33,8 @@ export default function LearningModePage() {
   // Update search when URL params change
   useEffect(() => {
     const urlSearch = searchParams.get('search') || ''
-    if (urlSearch !== searchQuery) {
-      setSearchQuery(urlSearch)
-      setSearchTerm(urlSearch)
-    }
+    setSearchQuery(urlSearch)
+    setSearchTerm(urlSearch)
   }, [searchParams])
   const [isViewModalOpen, setIsViewModalOpen] = useState(false)
   const [viewingModule, setViewingModule] = useState<any>(null)

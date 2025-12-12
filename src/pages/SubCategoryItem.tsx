@@ -17,6 +17,8 @@ export default function SubCategoryItem() {
   }>()
   const { t, language } = useTranslation()
   const navigate = useNavigate()
+  const [searchQuery, setSearchQuery] = useState<string>('')
+  const [searchTerm, setSearchTerm] = useState<string>('')
 
   // Filter state
   const [selectedAgeGroup, setSelectedAgeGroup] = useState<string>('all')
@@ -69,6 +71,7 @@ export default function SubCategoryItem() {
         ...(appliedFilters.typeOfFood && appliedFilters.typeOfFood !== 'all'
           ? { typeOfFood: appliedFilters.typeOfFood }
           : {}),
+        ...(searchTerm && { search: searchTerm }),
         language,
       }
     : {}
@@ -155,6 +158,12 @@ export default function SubCategoryItem() {
     setSelectedAgeGroup('all')
     setSelectedFoodType('all')
     setAppliedFilters({})
+  }
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Apply search filter on the current page
+    setSearchTerm(searchQuery)
   }
 
   const categoryName =
@@ -259,9 +268,20 @@ export default function SubCategoryItem() {
                 />
               </svg>
             </span>
-            <span className="flex justify-center my-3 sm:hidden">                
-              <svg width="15" height="7" viewBox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1.00024L7.4 5.00024L13.8 1.00024" stroke="#003863" stroke-width="2" stroke-linecap="round"/>
+            <span className="flex justify-center my-3 sm:hidden">
+              <svg
+                width="15"
+                height="7"
+                viewBox="0 0 15 7"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1.00024L7.4 5.00024L13.8 1.00024"
+                  stroke="#003863"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
               </svg>
             </span>
             <button
@@ -288,9 +308,20 @@ export default function SubCategoryItem() {
                     />
                   </svg>
                 </span>
-                <span className="flex justify-center my-3 sm:hidden">                
-                  <svg width="15" height="7" viewBox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1.00024L7.4 5.00024L13.8 1.00024" stroke="#003863" stroke-width="2" stroke-linecap="round"/>
+                <span className="flex justify-center my-3 sm:hidden">
+                  <svg
+                    width="15"
+                    height="7"
+                    viewBox="0 0 15 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 1.00024L7.4 5.00024L13.8 1.00024"
+                      stroke="#003863"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
                   </svg>
                 </span>
                 <span className="text-[#003863] text-[28px] heading-line">
@@ -301,13 +332,18 @@ export default function SubCategoryItem() {
             )}
           </div>
           <div className="about-image">
-            <div className="w-full max-w-[380px] bg-[#003863] rounded-full px-4 py-3 flex items-center">
+            <form
+              onSubmit={handleSearchSubmit}
+              className="w-full max-w-[380px] bg-[#003863] rounded-full px-4 py-3 flex items-center"
+            >
               <input
                 type="text"
                 placeholder={t('knowledgeHub.searchPlaceholder')}
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
                 className="pl-3 bg-transparent text-white text-lg w-full focus:outline-none placeholder-white"
               />
-              <button className="ml-3">
+              <button type="submit" className="ml-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-8 h-8 text-white"
@@ -323,7 +359,7 @@ export default function SubCategoryItem() {
                   />
                 </svg>
               </button>
-            </div>
+            </form>
           </div>
         </div>
         {/* Filters Section - Only show when viewing product line videos */}

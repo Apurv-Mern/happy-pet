@@ -17,6 +17,7 @@ export default function LearningModuleCategoryPage() {
   const { t, language } = useTranslation()
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState<string>('')
+  const [searchTerm, setSearchTerm] = useState<string>('')
 
   // Fetch categories from API with contentType=document
   const { data: categoriesResponse, isLoading } = useCategoriesQuery(
@@ -68,6 +69,7 @@ export default function LearningModuleCategoryPage() {
     e.preventDefault()
     if (searchQuery.trim()) {
       // Navigate to main learning module page with search query
+      // This page only shows category selection, actual documents are on main page
       navigate(`/learning-module?search=${encodeURIComponent(searchQuery)}`)
     }
   }
