@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { ExternalLink, FileText, Loader2 } from 'lucide-react'
 import { FileRecommendation } from '@/api/chat'
+import { AudioWaveform } from './AudioWaveform'
 
 interface Message {
   id: string
@@ -42,26 +43,18 @@ export const ChatMessage = ({
       transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
     >
       <div
-        className={`max-w-[70%] px-4 py-3 ${
+        className={`${
           message.type === 'user'
-            ? 'bg-[#003863] text-white rounded-tr-[25px] rounded-bl-[25px] rounded-br-[25px]'
-            : 'border-[1px] bg-[#fff] border-[#003863] rounded-tl-[25px] rounded-tr-[25px] rounded-bl-[25px]'
+            ? 'max-w-[70%] px-4 py-3 bg-[#003863] text-white rounded-tr-[25px] rounded-bl-[25px] rounded-br-[25px]'
+            : 'max-w-full sm:max-w-full md:max-w-[75%] lg:max-w-[55%]  xl:max-w-[45%] 2xl:max-w-[35%] px-4 py-3 border-[1px] bg-[#fff] border-[#003863] rounded-tl-[25px] rounded-tr-[25px] rounded-bl-[25px]'
         }`}
       >
-        {/* Audio Player */}
+        {/* Audio Waveform */}
         {message.isVoice && message.audioUrl && (
-          <div className="mb-3">
-            <audio
-              controls
-              className="w-full rounded-lg"
-              src={message.audioUrl}
-              style={{
-                height: '40px',
-                filter:
-                  message.type === 'user'
-                    ? 'invert(1) grayscale(1) contrast(0.8)'
-                    : 'none',
-              }}
+          <div className="">
+            <AudioWaveform
+              audioUrl={message.audioUrl}
+              isUser={message.type === 'user'}
             />
           </div>
         )}
