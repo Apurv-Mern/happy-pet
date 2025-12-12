@@ -59,13 +59,6 @@ export const ChatMessage = ({
           </div>
         )}
 
-        {/* Hidden text to determine bubble width */}
-        {message.type === 'ai' && message.audioUrl && message.content && (
-          <div className="invisible h-0 overflow-hidden text-sm leading-relaxed prose prose-sm max-w-none">
-            <ReactMarkdown>{message.content}</ReactMarkdown>
-          </div>
-        )}
-
         {/* Message Content */}
         {message.status === 'pending' && message.type === 'ai' ? (
           <div>
@@ -178,7 +171,7 @@ export const ChatMessage = ({
           )
         ) : (
           <p className="text-sm leading-relaxed whitespace-pre-line">
-            {message.content}
+            {/* {message.content} */}
           </p>
         )}
 

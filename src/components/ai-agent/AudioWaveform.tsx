@@ -75,8 +75,8 @@ export const AudioWaveform = ({
 
   // Generate 40 bars with fixed pattern heights (like in screenshot)
   const barHeights = [
-    31, 35, 40, 45, 35, 30, 31, 35, 40, 45, 35, 30, 31, 35, 40, 45, 35, 30, 31,
-    35, 40, 45, 35, 30, 31, 35, 40, 45, 35, 30,
+    31, 35, 40, 55, 35, 30, 31, 35, 40, 55, 35, 30, 31, 35, 40, 55, 35, 30, 31,
+    35, 40, 55, 35, 30, 31, 35, 40, 55, 35, 30,
   ]
   const bars = barHeights.map((height, i) => ({
     id: i,
