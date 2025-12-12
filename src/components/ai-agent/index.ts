@@ -1,5 +1,6 @@
 export { ChatMessage } from './ChatMessage'
 export { ChatMessagesContainer } from './ChatMessagesContainer'
 export { AudioRecordingPreview } from './AudioRecordingPreview'
+export { AudioWaveform } from './AudioWaveform'
 export { ChatTypeDropdown } from './ChatTypeDropdown'
 export { ChatInputArea } from './ChatInputArea'

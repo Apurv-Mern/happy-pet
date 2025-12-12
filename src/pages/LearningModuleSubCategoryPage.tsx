@@ -93,6 +93,9 @@ export default function LearningModuleSubCategoryPage() {
       }
     : {}
 
+  console.log('Applied Filters (Learning Module):', appliedFilters)
+  console.log('API Filters (Learning Module):', apiFilters)
+
   // Fetch learning knowledge data when viewing product line with filters
   const { data: learningData, isLoading: isLoadingData } =
     useLearningKnowledgeQuery(isViewingProductLine ? apiFilters : {})
@@ -648,7 +651,7 @@ export default function LearningModuleSubCategoryPage() {
                       <option value="all">All</option>
                       {ageGroupFilter.options.map(option => (
                         <option key={option.id} value={option.id}>
-                          {option.name} ({option.count})
+                          {option.name}
                         </option>
                       ))}
                     </select>
@@ -683,7 +686,7 @@ export default function LearningModuleSubCategoryPage() {
                       <option value="all">All</option>
                       {foodTypeFilter.options.map(option => (
                         <option key={option.id} value={option.id}>
-                          {option.name} ({option.count})
+                          {option.name}
                         </option>
                       ))}
                     </select>
