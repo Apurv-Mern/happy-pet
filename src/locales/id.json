@@ -380,6 +380,7 @@
     "sentTo": "OTP dikirim ke",
     "otp": "OTP",
     "otpPlaceholder": "Masukkan OTP 6 digit",
+    "otpMinLength": "OTP harus 6 digit",
     "newPassword": "Kata Sandi Baru",
     "newPasswordPlaceholder": "Masukkan kata sandi baru",
     "confirmPassword": "Konfirmasi Kata Sandi",

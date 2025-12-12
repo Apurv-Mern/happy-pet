@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
@@ -18,22 +18,31 @@ export function ResetPasswordPage() {
   const email = searchParams.get('email') || ''
   const { toast } = useToast()
 
-  const resetPasswordSchema = z
-    .object({
-      otp: z.string().min(6, t('validation.otpRequired')),
-      newPassword: z
-        .string()
-        .min(8, t('validation.passwordMin'))
-        .regex(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/,
-          t('validation.passwordFormat')
-        ),
-      confirmPassword: z.string(),
-    })
-    .refine(data => data.newPassword === data.confirmPassword, {
-      message: t('validation.passwordsMustMatch'),
-      path: ['confirmPassword'],
-    })
+  // Create schema with useMemo to update when language changes
+  const resetPasswordSchema = useMemo(
+    () =>
+      z
+        .object({
+          otp: z
+            .string()
+            .min(1, t('validation.required'))
+            .min(6, t('resetPasswordPage.otpMinLength')),
+          newPassword: z
+            .string()
+            .min(1, t('validation.passwordRequired'))
+            .min(8, t('validation.passwordMinLength'))
+            .regex(
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/,
+              t('validation.passwordComplexity')
+            ),
+          confirmPassword: z.string().min(1, t('validation.required')),
+        })
+        .refine(data => data.newPassword === data.confirmPassword, {
+          message: t('validation.passwordMismatch'),
+          path: ['confirmPassword'],
+        }),
+    [t]
+  )
 
   type ResetPasswordFormData = z.infer<typeof resetPasswordSchema>
 

@@ -377,6 +377,7 @@
     "sentTo": "OTP sent to",
     "otp": "OTP",
     "otpPlaceholder": "Enter 6-digit OTP",
+    "otpMinLength": "OTP must be 6 digits",
     "newPassword": "New Password",
     "newPasswordPlaceholder": "Enter new password",
     "confirmPassword": "Confirm Password",

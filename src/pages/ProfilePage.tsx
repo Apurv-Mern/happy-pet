@@ -37,6 +37,7 @@ const ProfilePage = () => {
     resetPersonalInfo,
     resetPasswordData,
     isUpdatingProfile,
+    phoneError,
   } = useProfileForm(profileData || user)
 
   // Auto-save when profile image changes
@@ -216,6 +217,7 @@ const ProfilePage = () => {
                     onSave={handleSaveChanges}
                     onDiscard={handleDiscardChanges}
                     isLoading={isUpdatingProfile}
+                    phoneError={phoneError}
                   />
                 )}
 

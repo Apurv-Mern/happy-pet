@@ -373,9 +373,10 @@
   "resetPasswordPage": {
     "title": "รีเซ็ตรหัสผ่าน",
     "enterDetails": "ป้อน OTP และรหัสผ่านใหม่ของคุณ",
-    "sentTo": "ส่ง OTP ไปที่",
+    "sentTo": "OTP ส่งไปที่",
     "otp": "OTP",
     "otpPlaceholder": "ป้อน OTP 6 หลัก",
+    "otpMinLength": "OTP ต้องเป็น 6 หลัก",
     "newPassword": "รหัสผ่านใหม่",
     "newPasswordPlaceholder": "ป้อนรหัสผ่านใหม่",
     "confirmPassword": "ยืนยันรหัสผ่าน",

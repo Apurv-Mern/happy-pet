@@ -30,6 +30,7 @@ interface PersonalInformationProps {
   onSave: () => void
   onDiscard: () => void
   isLoading?: boolean
+  phoneError?: string
 }
 
 export const PersonalInformation = ({
@@ -38,6 +39,7 @@ export const PersonalInformation = ({
   onSave,
   onDiscard,
   isLoading = false,
+  phoneError = '',
 }: PersonalInformationProps) => {
   const { t } = useTranslation()
 
@@ -260,6 +262,9 @@ export const PersonalInformation = ({
                 placeholder={t('profilePage.phoneNumberPlaceholder')}
               />
             </div>
+            {phoneError && (
+              <p className="text-red-500 text-sm mt-2">{phoneError}</p>
+            )}
           </div>
         </div>
 
