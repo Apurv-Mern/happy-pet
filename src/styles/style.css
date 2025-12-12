@@ -17,7 +17,7 @@
 .about-image {
   text-align: -webkit-right !important;
 }
-.about-image2{
+.about-image2 {
   text-align: -webkit-center;
 }
 
@@ -57,6 +57,31 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #002947;
 }
+.my-scrollbar {
+  height: 100%;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.my-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.my-scrollbar::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #003863;
+}
+
+.my-scrollbar::-webkit-scrollbar-thumb {
+  background: #003863;
+  border-radius: 10px;
+}
+
+.my-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #002949;
+}
 /* @media (min-width: 1536px) {
     .container {
         max-width: 1440px !important;
@@ -81,20 +106,20 @@
   }
 }
 @media screen and (max-width: 639px) {
-  .concept-part{
+  .concept-part {
     text-align: -webkit-center;
   }
 }
 @media screen and (min-width: 768px) {
-    .about-image2{
+  .about-image2 {
     text-align: -webkit-left;
   }
 }
 @media screen and (max-width: 400px) {
-  .aiagent{
+  .aiagent {
     max-width: 120px !important;
   }
-  .aipart{
+  .aipart {
     justify-content: space-between !important;
   }
 }
