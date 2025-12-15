@@ -1,4 +1,5 @@
 import { Loader2, Mic, MicOff } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 import { AudioRecordingPreview } from './AudioRecordingPreview'
 import { ChatTypeDropdown } from './ChatTypeDropdown'
 
@@ -41,6 +42,26 @@ export const ChatInputArea = ({
   sessionId,
   inputRef,
 }: ChatInputAreaProps) => {
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isDropdownOpen &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        onToggleDropdown()
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isDropdownOpen, onToggleDropdown])
+
   return (
     <div className="w-full bg-[#E3E6ED] border-[2px] border-[#003863] rounded-[20px] px-4 py-3 relative mt-10">
       {/* Recording Indicator */}
@@ -64,7 +85,7 @@ export const ChatInputArea = ({
 
       <div className="flex items-center aipart">
         {/* Plus Icon Button with Dropdown */}
-        <div className="relative">
+        <div className="relative" ref={dropdownRef}>
           <button
             onClick={onToggleDropdown}
             className="w-10 h-10 flex items-center justify-center rounded-full text-[#003863] hover:bg-white/50 transition-colors"
@@ -154,14 +175,23 @@ export const ChatInputArea = ({
                 <span>Start Recording</span>
               </button>
             ) : (
-              <button
-                onClick={onToggleRecording}
-                disabled={isSendingMessage}
-                className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-full font-semibold transition-colors disabled:opacity-50 flex items-center gap-2 animate-pulse"
-              >
-                <MicOff className="h-5 w-5" />
-                <span>Stop Recording</span>
-              </button>
+              <>
+                <button
+                  onClick={onToggleRecording}
+                  disabled={isSendingMessage}
+                  className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-full font-semibold transition-colors disabled:opacity-50 flex items-center gap-2 animate-pulse"
+                >
+                  <MicOff className="h-5 w-5" />
+                  <span>Stop Recording</span>
+                </button>
+                <button
+                  onClick={onDeleteAudio}
+                  disabled={isSendingMessage}
+                  className="px-6 py-3 bg-gray-500 hover:bg-gray-600 text-white rounded-full font-semibold transition-colors disabled:opacity-50"
+                >
+                  Cancel
+                </button>
+              </>
             )}
           </div>
         )}

@@ -170,9 +170,11 @@ export const ChatMessage = ({
             </div>
           )
         ) : (
-          <p className="text-sm leading-relaxed whitespace-pre-line">
-            {/* {message.content} */}
-          </p>
+          !message.audioUrl && (
+            <p className="text-sm leading-relaxed whitespace-pre-line">
+              {message.content}
+            </p>
+          )
         )}
 
         {/* Video Player */}

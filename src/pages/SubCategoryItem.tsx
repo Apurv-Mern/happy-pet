@@ -373,7 +373,7 @@ export default function SubCategoryItem() {
               {ageGroupFilter && (
                 <div className="w-full">
                   <label className="text-[#003863] font-semibold block mb-1">
-                    {t('buttons.ageGroup')}
+                    {t('buttons.agegroup')}
                   </label>
                   <div className="relative h-[50px]">
                     <select
@@ -455,7 +455,7 @@ export default function SubCategoryItem() {
                   onClick={handleResetFilters}
                   className="bg-[#E3E6ED] text-[#003863] w-full h-full border-2 border-[#003863] rounded-[10px] font-semibold hover:bg-[#004c82] hover:text-[#fff] transition"
                 >
-                  {t('buttons.reset')}
+                  {t('common.reset')}
                 </button>
               </div>
             </div>

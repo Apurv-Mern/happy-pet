@@ -293,24 +293,16 @@ export default function AIAgentPage() {
     return () => clearTimeout(timer)
   }, [messages.length])
 
-  // Warn user before closing tab if there are messages
+  // Delete session when page unloads (without warning)
   useEffect(() => {
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      if (messages.length > 0) {
-        e.preventDefault()
-        e.returnValue =
-          'Your chat history will be cleared if you leave this page. Are you sure?'
-
-        // Delete session when page reloads
-        if (sessionId) {
-          // Use sendBeacon for reliable cleanup during page unload
-          navigator.sendBeacon(
-            `${import.meta.env.VITE_API_BASE_URL || 'https://happypet-backend.24livehost.com/api'}/v1/chat/sessions/${sessionId}`,
-            JSON.stringify({ _method: 'DELETE' })
-          )
-        }
-
-        return e.returnValue
+    const handleBeforeUnload = () => {
+      // Delete session when page reloads
+      if (sessionId && messages.length > 0) {
+        // Use sendBeacon for reliable cleanup during page unload
+        navigator.sendBeacon(
+          `${import.meta.env.VITE_API_BASE_URL || 'https://happypet-backend.24livehost.com/api'}/v1/chat/sessions/${sessionId}`,
+          JSON.stringify({ _method: 'DELETE' })
+        )
       }
     }
 
@@ -320,19 +312,6 @@ export default function AIAgentPage() {
       window.removeEventListener('beforeunload', handleBeforeUnload)
     }
   }, [messages, sessionId])
-
-  // Auto-start recording when Audio Chat is selected
-  useEffect(() => {
-    if (
-      selectedChatType === 'audio' &&
-      !isRecording &&
-      !audioBlob &&
-      !isSendingMessage
-    ) {
-      startRecording()
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedChatType])
 
   // Auto-play audio responses
   useEffect(() => {
@@ -693,7 +672,22 @@ export default function AIAgentPage() {
   }
 
   const deleteVoiceMessage = () => {
+    // Clear audio blob first
     setAudioBlob(null)
+
+    // Stop recording if it's active
+    if (isRecording && mediaRecorderRef.current) {
+      // Remove onstop handler to prevent blob creation
+      mediaRecorderRef.current.onstop = null
+      mediaRecorderRef.current.stop()
+      // Stop all media tracks
+      if (mediaRecorderRef.current.stream) {
+        mediaRecorderRef.current.stream
+          .getTracks()
+          .forEach(track => track.stop())
+      }
+      setIsRecording(false)
+    }
     emitTyping(false)
   }
 
