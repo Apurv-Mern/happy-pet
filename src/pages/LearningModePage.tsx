@@ -346,7 +346,7 @@ export default function LearningModePage() {
             ) : modules.length === 0 ? (
               <div className="text-center py-12">
                 <p className="text-gray-600 text-lg">
-                  No documents found in this category.
+                  {t('validation.noDocumentsFound')}
                 </p>
               </div>
             ) : (

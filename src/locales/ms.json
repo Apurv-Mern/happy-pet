@@ -14,7 +14,10 @@
     "next": "Seterusnya",
     "previous": "Sebelumnya",
     "close": "Tutup",
-    "confirm": "Sahkan"
+    "confirm": "Sahkan",
+    "unableToLoadDocument": "Tidak dapat memuat dokumen. Sila cuba memuat turunnya sebagai gantinya.",
+    "noVideosAvailable": "Tiada video tersedia",
+    "reset": "Tetapkan Semula"
   },
   "header": {
     "home": "LAMAN UTAMA",
@@ -501,12 +504,28 @@
     "lastNameRequired": "Nama akhir diperlukan",
     "subjectRequired": "Subjek diperlukan",
     "messageMinLength": "Mesej mestilah sekurang-kurangnya 10 aksara",
-    "happy": "Gembira"
+    "happy": "Gembira",
+    "noDocumentsFound": "Tiada dokumen dijumpai"
   },
   "logoutConfirmationModal": {
     "title": "Sahkan Log Keluar",
     "message": "Adakah anda pasti mahu log keluar? Sejarah sembang anda akan dipadamkan.",
     "cancel": "Batal",
     "logout": "Log Keluar"
+  },
+  "buttons": {
+    "close": "Tutup",
+    "submit": "Hantar",
+    "cancel": "Batal",
+    "confirm": "Sahkan",
+    "next": "Seterusnya",
+    "previous": "Sebelumnya",
+    "loadMore": "Muat Lagi",
+    "apply": "Terapkan",
+    "agegroup": "Kumpulan Umur",
+    "typeoffood": "Jenis Makanan",
+    "all": "Semua",
+    "view": "Lihat",
+    "download": "Muat Turun"
   }
 }

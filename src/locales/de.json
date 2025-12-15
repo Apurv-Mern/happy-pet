@@ -14,7 +14,10 @@
     "next": "Weiter",
     "previous": "Vorherige",
     "close": "Schließen",
-    "confirm": "Bestätigen"
+    "confirm": "Bestätigen",
+    "unableToLoadDocument": "Dokument konnte nicht geladen werden. Bitte versuchen Sie stattdessen, es herunterzuladen.",
+    "noVideosAvailable": "Keine Videos verfügbar",
+    "reset": "Zurücksetzen"
   },
   "header": {
     "home": "STARTSEITE",
@@ -501,12 +504,28 @@
     "lastNameRequired": "Nachname ist erforderlich",
     "subjectRequired": "Betreff ist erforderlich",
     "messageMinLength": "Die Nachricht muss mindestens 10 Zeichen lang sein",
-    "happy": "Glücklich"
+    "happy": "Glücklich",
+    "noDocumentsFound": "Keine Dokumente gefunden"
   },
   "logoutConfirmationModal": {
     "title": "Abmeldung bestätigen",
     "message": "Sind Sie sicher, dass Sie sich abmelden möchten? Ihr Chatverlauf wird gelöscht.",
     "cancel": "Abbrechen",
     "logout": "Abmelden"
+  },
+  "buttons": {
+    "close": "Schließen",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "next": "Weiter",
+    "previous": "Zurück    ",
+    "loadMore": "Mehr laden",
+    "apply": "Anwenden",
+    "agegroup": "Altersgruppe",
+    "typeoffood": "Art des Futters",
+    "all": "Alle",
+    "view": "Ansehen",
+    "download": "Herunterladen"
   }
 }

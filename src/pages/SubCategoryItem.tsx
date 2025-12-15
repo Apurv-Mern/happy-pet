@@ -373,7 +373,7 @@ export default function SubCategoryItem() {
               {ageGroupFilter && (
                 <div className="w-full">
                   <label className="text-[#003863] font-semibold block mb-1">
-                    Age Group
+                    {t('buttons.ageGroup')}
                   </label>
                   <div className="relative h-[50px]">
                     <select
@@ -381,7 +381,7 @@ export default function SubCategoryItem() {
                       onChange={e => setSelectedAgeGroup(e.target.value)}
                       className="appearance-none w-full h-full bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 pr-10 focus:outline-none cursor-pointer"
                     >
-                      <option value="all">All</option>
+                      <option value="all">{t('buttons.all')}</option>
                       {ageGroupFilter.options.map(option => (
                         <option key={option.id} value={option.id}>
                           {option.name}
@@ -408,7 +408,7 @@ export default function SubCategoryItem() {
               {foodTypeFilter && (
                 <div className="w-full">
                   <label className="text-[#003863] font-semibold block mb-1">
-                    Type of Food
+                    {t('buttons.typeoffood')}
                   </label>
                   <div className="relative h-[50px]">
                     <select
@@ -416,7 +416,7 @@ export default function SubCategoryItem() {
                       onChange={e => setSelectedFoodType(e.target.value)}
                       className="appearance-none w-full h-full bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 pr-10 focus:outline-none cursor-pointer"
                     >
-                      <option value="all">All</option>
+                      <option value="all">{t('buttons.all')}</option>
                       {foodTypeFilter.options.map(option => (
                         <option key={option.id} value={option.id}>
                           {option.name}
@@ -445,7 +445,7 @@ export default function SubCategoryItem() {
                   onClick={handleApplyFilters}
                   className="bg-[#003863] text-white w-full h-full rounded-[10px] font-semibold hover:bg-[#004c82] transition"
                 >
-                  Apply
+                  {t('buttons.apply')}
                 </button>
               </div>
 
@@ -455,7 +455,7 @@ export default function SubCategoryItem() {
                   onClick={handleResetFilters}
                   className="bg-[#E3E6ED] text-[#003863] w-full h-full border-2 border-[#003863] rounded-[10px] font-semibold hover:bg-[#004c82] hover:text-[#fff] transition"
                 >
-                  Reset
+                  {t('buttons.reset')}
                 </button>
               </div>
             </div>
@@ -470,7 +470,9 @@ export default function SubCategoryItem() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10">
                 {videos.length === 0 ? (
                   <div className="col-span-3 text-center py-12">
-                    <p className="text-gray-600">No videos available</p>
+                    <p className="text-gray-600">
+                      {t('common.noVideosAvailable')}
+                    </p>
                   </div>
                 ) : (
                   videos.map((video: any, index: number) => (
@@ -634,7 +636,7 @@ export default function SubCategoryItem() {
                 onClick={closeDescriptionModal}
                 className="bg-[#003863] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#004c82] transition-colors"
               >
-                Close
+                {t('buttons.close')}
               </button>
             </div>
           </motion.div>

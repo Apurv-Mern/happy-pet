@@ -14,7 +14,10 @@
     "next": "Selanjutnya",
     "previous": "Sebelumnya",
     "close": "Tutup",
-    "confirm": "Konfirmasi"
+    "confirm": "Konfirmasi",
+    "unableToLoadDocument": "Tidak dapat memuat dokumen. Silakan coba mengunduhnya sebagai gantinya.",
+    "noVideosAvailable": "Tidak ada video yang tersedia",
+    "reset": "Atur Ulang"
   },
   "header": {
     "home": "BERANDA",
@@ -505,12 +508,28 @@
     "lastNameRequired": "Nama belakang wajib diisi",
     "subjectRequired": "Subjek wajib diisi",
     "messageMinLength": "Pesan harus minimal 10 karakter",
-    "happy": "Bahagia"
+    "happy": "Bahagia",
+    "noDocumentsFound": "Tidak ada dokumen yang ditemukan"
   },
   "logoutConfirmationModal": {
     "title": "Konfirmasi Keluar",
     "message": "Apakah Anda yakin ingin keluar? Riwayat obrolan Anda akan dihapus.",
     "cancel": "Batal",
     "logout": "Keluar"
+  },
+  "buttons": {
+    "close": "Tutup",
+    "submit": "Kirim",
+    "cancel": "Batal",
+    "confirm": "Konfirmasi",
+    "next": "Berikutnya",
+    "previous": "Sebelumnya   ",
+    "loadMore": "Muat Lebih Banyak",
+    "apply": "Terapkan",
+    "agegroup": "Kelompok Umur",
+    "typeoffood": "Jenis Makanan",
+    "all": "Semua",
+    "view": "Lihat",
+    "download": "Unduh"
   }
 }

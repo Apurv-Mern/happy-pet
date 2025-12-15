@@ -14,7 +14,10 @@
     "next": "التالي",
     "previous": "السابق",
     "close": "إغلاق",
-    "confirm": "تأكيد"
+    "confirm": "تأكيد",
+    "unableToLoadDocument": "غير قادر على تحميل المستند. يرجى محاولة تنزيله بدلاً من ذلك.",
+    "noVideosAvailable": "لا توجد مقاطع فيديو متاحة",
+    "reset": "إعادة تعيين"
   },
   "header": {
     "home": "الرئيسية",
@@ -502,12 +505,28 @@
     "lastNameRequired": "اسم العائلة مطلوب",
     "subjectRequired": "الموضوع مطلوب",
     "messageMinLength": "يجب أن تتكون الرسالة من 10 أحرف على الأقل",
-    "happy": "سعيد"
+    "happy": "سعيد",
+    "noDocumentsFound": "لم يتم العثور على مستندات"
   },
   "logoutConfirmationModal": {
     "title": "تأكيد تسجيل الخروج",
     "message": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
     "cancel": "إلغاء",
     "logout": "تسجيل الخروج"
+  },
+  "buttons": {
+    "close": "إغلاق",
+    "submit": "إرسال",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "next": "التالي",
+    "previous": "السابق",
+    "loadMore": "تحميل المزيد",
+    "apply": "تطبيق",
+    "agegroup": "فئة العمر",
+    "typeoffood": "نوع الطعام",
+    "all": "الكل",
+    "view": "عرض",
+    "download": "تنزيل"
   }
 }

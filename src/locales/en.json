@@ -14,7 +14,10 @@
     "next": "Next",
     "previous": "Previous",
     "close": "Close",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "unableToLoadDocument": "Unable to load document. Please try downloading it instead.",
+    "noVideosAvailable": "No videos available",
+    "reset": "Reset"
   },
   "header": {
     "home": "Home",
@@ -30,7 +33,6 @@
     "signup": "Sign Up",
     "loginRegister": "Login / Register",
     "language": "Language",
-    "selectLanguage": "Select Language",
     "changePassword": "Change Password",
     "phoneNumber": "+91 6799009980",
     "selectLanguage": "Select Language",
@@ -501,12 +503,28 @@
     "lastNameRequired": "Last name is required",
     "subjectRequired": "Subject is required",
     "messageMinLength": "Message must be at least 10 characters",
-    "happy": "Happy"
+    "happy": "Happy",
+    "noDocumentsFound": " No documents found in this category."
   },
   "logoutConfirmationModal": {
     "title": "Confirm Logout",
     "message": "Are you sure you want to logout? Your chat history will be cleared.",
     "cancel": "Cancel",
     "logout": "Logout"
+  },
+  "buttons": {
+    "close": "Close",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "next": "Next",
+    "previous": "Previous",
+    "loadMore": "Load More",
+    "apply": "Apply",
+    "agegroup": "Age Group",
+    "typeoffood": "Type of Food",
+    "all": "All",
+    "view": "View",
+    "download": "Download"
   }
 }

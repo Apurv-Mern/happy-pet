@@ -14,7 +14,10 @@
     "next": "ถัดไป",
     "previous": "ก่อนหน้า",
     "close": "ปิด",
-    "confirm": "ยืนยัน"
+    "confirm": "ยืนยัน",
+    "unableToLoadDocument": "ไม่สามารถโหลดเอกสารได้ โปรดลองดาวน์โหลดแทน",
+    "noVideosAvailable": "ไม่มีวิดีโอที่ใช้ได้",
+    "reset": "รีเซ็ต"
   },
   "header": {
     "home": "หน้าแรก",
@@ -501,12 +504,28 @@
     "lastNameRequired": "ต้องระบุนามสกุล",
     "subjectRequired": "ต้องระบุหัวข้อ",
     "messageMinLength": "ข้อความต้องมีอย่างน้อย 10 ตัวอักษร",
-    "happy": "มีความสุข"
+    "happy": "มีความสุข",
+    "noDocumentsFound": "ไม่พบเอกสาร"
   },
   "logoutConfirmationModal": {
     "title": "ยืนยันการออกจากระบบ",
     "message": "คุณแน่ใจหรือว่าต้องการออกจากระบบ? ประวัติการแชทของคุณจะถูกล้าง",
     "cancel": "ยกเลิก",
     "logout": "ออกจากระบบ"
+  },
+  "buttons": {
+    "close": "ปิด",
+    "submit": "ส่ง",
+    "cancel": "ยกเลิก",
+    "confirm": "ยืนยัน",
+    "next": "ถัดไป",
+    "previous": "ก่อนหน้า",
+    "loadMore": "โหลดเพิ่มเติม",
+    "apply": "ใช้",
+    "agegroup": "กลุ่มอายุ",
+    "typeoffood": "ประเภทของอาหาร",
+    "all": "ทั้งหมด",
+    "view": "ดู",
+    "download": "ดาวน์โหลด"
   }
 }

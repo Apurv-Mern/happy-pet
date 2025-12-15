@@ -640,7 +640,7 @@ export default function LearningModuleSubCategoryPage() {
               {ageGroupFilter && (
                 <div className="w-full">
                   <label className="text-[#003863] font-semibold block mb-1">
-                    Age Group
+                    {t('buttons.agegroup')}
                   </label>
                   <div className="relative h-[50px]">
                     <select
@@ -648,7 +648,7 @@ export default function LearningModuleSubCategoryPage() {
                       onChange={e => setSelectedAgeGroup(e.target.value)}
                       className="appearance-none w-full h-full bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 pr-10 focus:outline-none cursor-pointer"
                     >
-                      <option value="all">All</option>
+                      <option value="all">{t('buttons.all')}</option>
                       {ageGroupFilter.options.map(option => (
                         <option key={option.id} value={option.id}>
                           {option.name}
@@ -675,7 +675,7 @@ export default function LearningModuleSubCategoryPage() {
               {foodTypeFilter && (
                 <div className="w-full">
                   <label className="text-[#003863] font-semibold block mb-1">
-                    Type of Food
+                    {t('buttons.typeoffood')}
                   </label>
                   <div className="relative h-[50px]">
                     <select
@@ -683,7 +683,7 @@ export default function LearningModuleSubCategoryPage() {
                       onChange={e => setSelectedFoodType(e.target.value)}
                       className="appearance-none w-full h-full bg-white border-2 border-[#003863] text-[#003863] rounded-[10px] px-4 pr-10 focus:outline-none cursor-pointer"
                     >
-                      <option value="all">All</option>
+                      <option value="all">{t('buttons.all')}</option>
                       {foodTypeFilter.options.map(option => (
                         <option key={option.id} value={option.id}>
                           {option.name}
@@ -712,7 +712,7 @@ export default function LearningModuleSubCategoryPage() {
                   onClick={handleApplyFilters}
                   className="bg-[#003863] text-white w-full h-full rounded-[10px] font-semibold hover:bg-[#004c82] transition"
                 >
-                  Apply
+                  {t('buttons.apply')}
                 </button>
               </div>
 
@@ -722,7 +722,7 @@ export default function LearningModuleSubCategoryPage() {
                   onClick={handleResetFilters}
                   className="bg-[#E3E6ED] text-[#003863] w-full h-full border-2 border-[#003863] rounded-[10px] font-semibold hover:bg-[#004c82] hover:text-[#fff] transition"
                 >
-                  Reset
+                  {t('common.reset')}
                 </button>
               </div>
             </div>
@@ -737,7 +737,9 @@ export default function LearningModuleSubCategoryPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-10">
                 {documents.length === 0 ? (
                   <div className="col-span-2 text-center py-12">
-                    <p className="text-gray-600">No documents available</p>
+                    <p className="text-gray-600">
+                      {t('validation.noDocumentsFound')}
+                    </p>
                   </div>
                 ) : (
                   documents.map((document: any, index: number) => (
@@ -806,7 +808,7 @@ export default function LearningModuleSubCategoryPage() {
                                 onClick={() => handleReadMore(document)}
                                 className="text-[#003863] text-sm font-semibold hover:underline mb-3 pl-2"
                               >
-                                Read more
+                                {t('knowledgeHub.readMore')}
                               </button>
                             )}
                           </p>
@@ -835,7 +837,7 @@ export default function LearningModuleSubCategoryPage() {
                                   stroke-width="2"
                                 />
                               </svg>
-                              View
+                              {t('buttons.view')}
                             </button>
                             <button
                               onClick={() => handleDownload(document)}
@@ -858,7 +860,7 @@ export default function LearningModuleSubCategoryPage() {
                                   stroke-width="2"
                                 />
                               </svg>
-                              Download
+                              {t('buttons.download')}
                             </button>
                           </div>
                         </div>
@@ -959,7 +961,7 @@ export default function LearningModuleSubCategoryPage() {
                 onClick={closeDescriptionModal}
                 className="bg-[#003863] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#004c82] transition-colors"
               >
-                Close
+                {t('buttons.close')}
               </button>
             </div>
           </motion.div>
@@ -998,14 +1000,14 @@ export default function LearningModuleSubCategoryPage() {
               {isLoadingContent ? (
                 <div className="flex flex-col items-center justify-center py-12">
                   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003863] mb-4"></div>
-                  <p className="text-gray-600">Loading document...</p>
+                  <p className="text-gray-600">{t('common.loading')} ...</p>
                 </div>
               ) : documentUrl ? (
                 <>
                   {iframeLoading && (
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10">
                       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003863] mb-4"></div>
-                      <p className="text-gray-600">Loading content...</p>
+                      <p className="text-gray-600">{t('common.loading')} ...</p>
                     </div>
                   )}
                   <iframe
@@ -1027,7 +1029,7 @@ export default function LearningModuleSubCategoryPage() {
               ) : (
                 <div className="flex items-center justify-center py-12 px-6">
                   <p className="text-gray-600">
-                    Unable to load document. Please try downloading it instead.
+                    {t('common.unableToLoadDocument')}
                   </p>
                 </div>
               )}
@@ -1039,13 +1041,13 @@ export default function LearningModuleSubCategoryPage() {
                 onClick={() => handleDownload(viewingDocument)}
                 className="bg-white text-[#003863] border border-[#003863] px-6 py-2 rounded-full font-semibold hover:bg-gray-50 transition-colors"
               >
-                Download
+                {t('buttons.download')}
               </button>
               <button
                 onClick={closeViewModal}
                 className="bg-[#003863] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#004c82] transition-colors"
               >
-                Close
+                {t('buttons.close')}
               </button>
             </div>
           </motion.div>
