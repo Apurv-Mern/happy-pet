@@ -239,7 +239,7 @@ export function Footer() {
                   href={`mailto:${footerContact.email}`}
                   className="hover:underline"
                 >
-                  {t('footer.email')}
+                  info@happypet.biz
                 </a>
               </li>
               <li className="justify-center sm:justify-start lg:justify-start flex items-center gap-2 opacity-90">
@@ -259,7 +259,7 @@ export function Footer() {
                   href={`tel:${footerContact.phone}`}
                   className="hover:underline"
                 >
-                  {t('footer.phone')}
+                  +49 7161 5073061
                 </a>
               </li>
             </ul>
