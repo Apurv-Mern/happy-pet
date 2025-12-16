@@ -303,7 +303,7 @@ export function Header() {
                       <ChevronDown className="h-4 w-4" />
                       <div className="w-[0.64px] h-[25px] bg-[#fff]"></div>
                       <div className="rounded-full bg-[#fff] h-[48px] w-[48px] flex items-center justify-center border-[2px] border-[#003863]">
-                        <MdLanguage className="text-[#003863] h-[34px] w-[34px]" />
+                        <MdLanguage className="text-[#003863] h-[25px] w-[25px]" />
                       </div>
                     </button>
 
@@ -434,7 +434,7 @@ export function Header() {
                         <span className="text-white text-sm font-medium">
                           {t('header.loginRegister')}
                         </span>
-                        <div className="ml-2 sm:ml-3 flex items-center justify-center w-[45px] h-[45px] bg-[#fff] rounded-full">
+                        <div className=" ml-2 sm:ml-3 flex items-center justify-center w-[45px] h-[45px] bg-[#fff] rounded-full">
                           <svg
                             width="30"
                             height="30"

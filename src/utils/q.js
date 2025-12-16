@@ -106,3 +106,26 @@ function flatten(arr) {
 }
 
 console.log(flatten(arr))
+
+
+const n = [1, 1, 2, 2, 2, 3]
+
+const grouping = (arr) => {
+    const map = new Map()
+    const map2 = new Map()
+
+    for (let i of arr) {
+        map.set(i, (map.get(i) || 0) + 1)
+    }
+
+    for (let [key, val] of map) {
+        if (!map2.get(val)) {
+            map2.set(val, [])
+        }
+
+        map2.get(val).push(key)
+    }
+    return map2
+}
+
+console.log(grouping(n))
