@@ -20,6 +20,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        gotcha: ['Gotcha Standup', 'sans-serif'], // Adding Gotcha Standup
+        myriad: ['Myriad Pro', 'sans-serif'],     // Adding Myriad Pro
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

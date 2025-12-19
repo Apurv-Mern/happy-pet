@@ -110,7 +110,7 @@ export function HomePage() {
         transition={{ duration: 0.5 }}
       >
         <div className="text-center">
-          <h2 className="heading-line text-[#003863] text-[30px] sm:text-[40px] md:text-[55px]">
+          <h2 className="heading-line text-[#003863] text-[30px] font-gotcha sm:text-[40px] md:text-[55px]">
             {t('homePage.title')}
           </h2>
           <p className="text-[#003863]  heading-text font-bold text-[16px] sm:text-[16px] md:text-[20px]">
