@@ -74,10 +74,10 @@ export interface LearningModule {
 }
 
 export interface PaginationData {
-  totalItems: number
-  totalPages: number
-  currentPage: number
-  itemsPerPage: number
+  total: number
+  pages: number
+  page: number
+  limit: number
 }
 
 export interface LearningModulesResponse {

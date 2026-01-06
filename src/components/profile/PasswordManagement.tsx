@@ -92,23 +92,23 @@ export const PasswordManagement = ({
         !/[a-z]/.test(passwordData.newPassword) ||
         !/[0-9]/.test(passwordData.newPassword)
       ) {
-        errors.newPassword =
-          'Password must contain uppercase, lowercase, and number'
+        errors.newPassword = t('validation.passwordComplexity')
       } else if (
         passwordData.currentPassword &&
         passwordData.newPassword === passwordData.currentPassword
       ) {
-        errors.newPassword =
-          'New password must be different from current password'
+        errors.newPassword = errors.newPassword = t(
+          'validation.passwordComplexity'
+        )
       }
     }
 
     // Confirm password validation
     if (touched.confirmPassword) {
       if (!passwordData.confirmPassword.trim()) {
-        errors.confirmPassword = 'Please confirm your password'
+        errors.confirmPassword = t('validation.passwordRequired')
       } else if (passwordData.confirmPassword !== passwordData.newPassword) {
-        errors.confirmPassword = "Passwords don't match"
+        errors.confirmPassword = t('validation.passwordMismatch')
       }
     }
 
@@ -312,7 +312,7 @@ export const PasswordManagement = ({
             className="w-full md:max-w-[450px] px-8 py-3 border-2 border-[#003863] text-[#003863] rounded-xl font-semibold hover:bg-gray-50 transition-all"
           >
             {t('profilePage.cancel')}
-          </button> 
+          </button>
           <button
             onClick={onSubmit}
             disabled={!isFormValid}

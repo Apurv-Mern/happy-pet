@@ -10,6 +10,7 @@ import {
   usePresignedUrlForViewingMutation,
   usePresignedUrls,
 } from '@/api/learningModule'
+import { useAnalytics } from '@/hooks/useAnalytics'
 
 export default function LearningModuleSubCategoryPage() {
   const { categoryId, tierId, subcategoryId } = useParams<{
@@ -21,6 +22,7 @@ export default function LearningModuleSubCategoryPage() {
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [searchTerm, setSearchTerm] = useState<string>('')
+  const { trackView } = useAnalytics()
 
   // Filter state
   const [selectedAgeGroup, setSelectedAgeGroup] = useState<string>('all')
@@ -40,6 +42,8 @@ export default function LearningModuleSubCategoryPage() {
   const [documentUrl, setDocumentUrl] = useState<string>('')
   const [isLoadingContent, setIsLoadingContent] = useState(false)
   const [iframeLoading, setIframeLoading] = useState(true)
+  const [documentViewStartTime, setDocumentViewStartTime] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
 
   // Fetch categories from API with contentType=document
   const { data: categoriesResponse, isLoading } = useCategoriesQuery(
@@ -76,8 +80,8 @@ export default function LearningModuleSubCategoryPage() {
   // Build filters for API call
   const apiFilters = isViewingProductLine
     ? {
-        page: 1,
-        limit: 12,
+        page: currentPage,
+        limit: 6,
         type: 'document' as const,
         categoryId: mappedCategoryId,
         subCategoryId: subCategoryId,
@@ -208,11 +212,23 @@ export default function LearningModuleSubCategoryPage() {
     console.log('Document:', doc)
     console.log('presignedFileUrl:', doc.presignedFileUrl)
 
+    // Track document view
+    trackView({
+      contentType: 'document',
+      learningKnowledgeId: doc._id || doc.id,
+      metadata: {
+        title: doc.title,
+        category: doc.category?.name || doc.category,
+        fileType: getFileExtension(doc.presignedFileUrl || doc.fileUrl || ''),
+      },
+    })
+
     setViewingDocument(doc)
     setIsViewModalOpen(true)
     setIsLoadingContent(true)
     setIframeLoading(true)
     setDocumentUrl('') // Reset URL
+    setDocumentViewStartTime(Date.now())
 
     // If presignedFileUrl is already available, use it directly
     if (doc.presignedFileUrl) {
@@ -279,11 +295,33 @@ export default function LearningModuleSubCategoryPage() {
   }
 
   const closeViewModal = () => {
+    // Track document reading duration
+    if (viewingDocument && documentViewStartTime > 0) {
+      const readingDuration = Math.floor(
+        (Date.now() - documentViewStartTime) / 1000
+      )
+
+      trackView({
+        contentType: 'document',
+        learningKnowledgeId: viewingDocument._id || viewingDocument.id,
+        metadata: {
+          title: viewingDocument.title,
+          category: viewingDocument.category?.name || viewingDocument.category,
+          fileType: getFileExtension(
+            viewingDocument.presignedFileUrl || viewingDocument.fileUrl || ''
+          ),
+          readingDuration,
+          closedDocument: true,
+        },
+      })
+    }
+
     setIsViewModalOpen(false)
     setViewingDocument(null)
     setDocumentUrl('')
     setIsLoadingContent(false)
     setIframeLoading(true)
+    setDocumentViewStartTime(0)
   }
 
   const handleSearchSubmit = (e: React.FormEvent) => {
@@ -867,6 +905,42 @@ export default function LearningModuleSubCategoryPage() {
                       </div>
                     </motion.div>
                   ))
+                )}
+
+                {/* Pagination Controls */}
+                {learningData?.data?.pagination?.pages > 1 && (
+                  <div className="flex justify-center items-center gap-2 mt-8 col-span-3">
+                    <button
+                      onClick={() =>
+                        setCurrentPage(prev => Math.max(1, prev - 1))
+                      }
+                      disabled={currentPage === 1}
+                      className="px-4 py-2 rounded-lg bg-[#003863] text-white disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-[#004c82] transition-colors"
+                    >
+                      Previous
+                    </button>
+                    <span className="px-4 py-2 text-[#003863] font-semibold">
+                      Page {currentPage} of{' '}
+                      {learningData?.data?.pagination?.pages || 1}
+                    </span>
+                    <button
+                      onClick={() =>
+                        setCurrentPage(prev =>
+                          Math.min(
+                            learningData?.data?.pagination?.pages || 1,
+                            prev + 1
+                          )
+                        )
+                      }
+                      disabled={
+                        currentPage >=
+                        (learningData?.data?.pagination?.pages || 1)
+                      }
+                      className="px-4 py-2 rounded-lg bg-[#003863] text-white disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-[#004c82] transition-colors"
+                    >
+                      Next
+                    </button>
+                  </div>
                 )}
               </div>
             ) : (

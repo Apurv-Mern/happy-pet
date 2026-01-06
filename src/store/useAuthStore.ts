@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 import { User, AuthState } from '@/types'
 import { STORAGE_KEYS } from '@/utils/constants'
+import { trackEvent } from '@/api/analytics'
 
 interface AuthStore extends AuthState {
   login: (user: User, token: string, refreshToken: string) => void
@@ -30,6 +31,16 @@ export const useAuthStore = create<AuthStore>()(
       },
 
       logout: () => {
+        // Track logout event before clearing data
+        const language = localStorage.getItem('language') || 'en'
+        trackEvent({
+          action: 'logout',
+          language,
+          metadata: {
+            platform: 'web',
+          },
+        })
+
         localStorage.removeItem(STORAGE_KEYS.AUTH_TOKEN)
         localStorage.removeItem(STORAGE_KEYS.REFRESH_TOKEN)
         localStorage.removeItem(STORAGE_KEYS.USER)

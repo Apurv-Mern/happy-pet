@@ -16,11 +16,13 @@ import {
   DocumentGridSkeleton,
 } from '@/components/learning'
 import { useCategories } from '@/hooks/useCategories'
+import { useAnalytics } from '@/hooks/useAnalytics'
 
 export default function LearningModePage() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const { t, language } = useTranslation()
+  const { trackSearch, trackView } = useAnalytics()
   const [selectedCategory, setSelectedCategory] =
     useState<string>('all-categories')
   const [searchQuery, setSearchQuery] = useState<string>(
@@ -41,6 +43,8 @@ export default function LearningModePage() {
   const [documentUrl, setDocumentUrl] = useState<string>('')
   const [isLoadingContent, setIsLoadingContent] = useState(false)
   const [iframeLoading, setIframeLoading] = useState(true)
+  const [documentViewStartTime, setDocumentViewStartTime] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
 
   // Fetch categories from API with contentType=document for learning modules
   const { data: categoriesResponse, isLoading: categoriesLoading } =
@@ -56,8 +60,8 @@ export default function LearningModePage() {
 
   // Build API filters based on selected category
   const apiFilters = {
-    page: 1,
-    limit: 50,
+    page: currentPage,
+    limit: 6,
     type: 'document' as const,
     categoryId:
       selectedCategory === 'all-categories'
@@ -122,6 +126,20 @@ export default function LearningModePage() {
     setIsLoadingContent(true)
     setIframeLoading(true)
     setDocumentUrl('') // Reset URL
+    setDocumentViewStartTime(Date.now())
+
+    // Track document view
+    trackView({
+      contentType: 'document',
+      learningKnowledgeId: module._id,
+      metadata: {
+        title: module.title,
+        category: module.category?.name,
+        fileType: getFileExtension(
+          module.presignedFileUrl || module.fileUrl || ''
+        ),
+      },
+    })
 
     // If presignedFileUrl is already available, use it directly
     if (module.presignedFileUrl) {
@@ -183,11 +201,33 @@ export default function LearningModePage() {
   }
 
   const closeViewModal = () => {
+    // Track document reading duration
+    if (viewingModule && documentViewStartTime > 0) {
+      const readingDuration = Math.floor(
+        (Date.now() - documentViewStartTime) / 1000
+      )
+
+      trackView({
+        contentType: 'document',
+        learningKnowledgeId: viewingModule._id,
+        metadata: {
+          title: viewingModule.title,
+          category: viewingModule.category?.name,
+          fileType: getFileExtension(
+            viewingModule.presignedFileUrl || viewingModule.fileUrl || ''
+          ),
+          readingDuration,
+          closedDocument: true,
+        },
+      })
+    }
+
     setIsViewModalOpen(false)
     setViewingModule(null)
     setDocumentUrl('')
     setIsLoadingContent(false)
     setIframeLoading(true)
+    setDocumentViewStartTime(0)
   }
 
   const handleDownload = async (module: any) => {
@@ -325,7 +365,27 @@ export default function LearningModePage() {
           searchQuery={searchQuery}
           searchPlaceholder={t('knowledgeHub.searchPlaceholder')}
           onSearchChange={setSearchQuery}
-          onSearchSubmit={() => setSearchTerm(searchQuery)}
+          onSearchSubmit={() => {
+            setSearchTerm(searchQuery)
+            // Track search event
+            if (searchQuery.trim()) {
+              trackSearch({
+                searchQuery: searchQuery.trim(),
+                resultsCount: modules?.length || 0,
+                searchType: 'content',
+                filters: {
+                  type: 'document',
+                  categoryId:
+                    selectedCategory !== 'all-categories'
+                      ? selectedCategory
+                      : undefined,
+                },
+                metadata: {
+                  page: 'learning-module',
+                },
+              })
+            }
+          }}
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8 mt-10">
@@ -350,11 +410,49 @@ export default function LearningModePage() {
                 </p>
               </div>
             ) : (
-              <DocumentsGrid
-                modules={modules}
-                handleView={handleView}
-                handleDownload={handleDownload}
-              />
+              <>
+                <DocumentsGrid
+                  modules={modules}
+                  handleView={handleView}
+                  handleDownload={handleDownload}
+                />
+
+                {/* Pagination Controls */}
+                {learningData?.data?.pagination?.pages > 1 && (
+                  <div className="flex justify-center items-center gap-2 mt-8">
+                    <button
+                      onClick={() =>
+                        setCurrentPage(prev => Math.max(1, prev - 1))
+                      }
+                      disabled={currentPage === 1}
+                      className="px-4 py-2 rounded-lg bg-[#003863] text-white disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-[#004c82] transition-colors"
+                    >
+                      Previous
+                    </button>
+                    <span className="px-4 py-2 text-[#003863] font-semibold">
+                      Page {currentPage} of{' '}
+                      {learningData?.data?.pagination?.pages || 1}
+                    </span>
+                    <button
+                      onClick={() =>
+                        setCurrentPage(prev =>
+                          Math.min(
+                            learningData?.data?.pagination?.pages || 1,
+                            prev + 1
+                          )
+                        )
+                      }
+                      disabled={
+                        currentPage >=
+                        (learningData?.data?.pagination?.pages || 1)
+                      }
+                      className="px-4 py-2 rounded-lg bg-[#003863] text-white disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-[#004c82] transition-colors"
+                    >
+                      Next
+                    </button>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>

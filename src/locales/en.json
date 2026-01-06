@@ -486,6 +486,412 @@
     "th": "Thai",
     "id": "Indonesian"
   },
+  "helpCenterPage": {
+    "title": "Help Centre",
+    "sections": [
+      {
+        "title": "1. What is the Happy Dog & Happy Cat Product Knowledge Hub?",
+        "paragraphs": [
+          "The Happy Dog & Happy Cat Product Knowledge Hub is an online platform operated by Happy Pet Investment Holding GmbH, Rechberghausen, Germany.",
+          "It is designed for professional partners who work with our brands, including:",
+          "With the Product Knowledge Hub, you can:",
+          "Note: The Product Knowledge Hub is neither an online shop nor a consumer advice portal. It is a professional information and training platform for partners who work with our brands.",
+          "If you are unsure whether this platform is suitable for you, please get in touch with us at info@happypet.biz."
+        ],
+        "lists": [
+          [
+            "Distributors and importers",
+            "Pet shops and retail partners",
+            "Veterinary clinics and veterinary staff",
+            "Breeders"
+          ],
+          [
+            "Watch video courses about our brands, ranges and nutrition concepts",
+            "Access product fact sheets and key sales arguments / USPs",
+            "Download PDF materials to support your daily work with Happy Dog & Happy Cat"
+          ]
+        ]
+      },
+      {
+        "title": "2. Accounts & access",
+        "paragraphs": [
+          "2.1. Who can sign up?",
+          "Anyone interested in learning more about Happy Dog and Happy Cat, or working in the pet sector (e.g., as a distributor, retailer, veterinarian, or breeder), can create an account.",
+          "2.2. Creating your account",
+          "If you do not receive a confirmation email:"
+        ],
+        "lists": [
+          [
+            "Go to the sign-up page of the Happy Dog & Happy Cat Product Knowledge Hub.",
+            "Enter your name, email address, company and country.",
+            "Confirm your registration.",
+            "You will receive a confirmation email with further instructions."
+          ],
+          [
+            "Check your spam or junk folder.",
+            "If you still cannot find it, please get in touch with info@happypet.biz with your name and the email address you used for registration."
+          ]
+        ]
+      },
+      {
+        "title": "3. Navigating the Product Knowledge Hub",
+        "paragraphs": [
+          "You can access the Product Knowledge Hub via:",
+          "We recommend using a modern browser such as Chrome, Microsoft Edge or Safari.",
+          "3.1. Home / Dashboard",
+          "3.2. Video courses and learning content",
+          "If you are unsure where to start, we recommend beginning with the introductory courses for our main ranges.",
+          "3.3. Product fact sheets & USPs"
+        ],
+        "lists": [
+          [
+            "The website in your browser",
+            "The app, available on the Apple and Google Play Store"
+          ],
+          [
+            "See featured or new video courses",
+            "Quickly return to the content you recently watched",
+            "Discover product information and materials relevant to your region"
+          ],
+          [
+            "Video-based training on Happy Dog & Happy Cat",
+            "Explanations of our ranges, concepts and key benefits",
+            "Guidance on how to position products with different customer types (e.g. pet shops, breeders, vets)"
+          ]
+        ]
+      },
+      {
+        "title": "4. Viewing activity & usage information",
+        "paragraphs": [
+          "The system can show which content has been watched and how the platform is used. This helps us:",
+          "This usage information is linked to your account and is primarily used for content improvement and reporting purposes.",
+          "If you have questions about how your viewing data is used, please contact info@happypet.biz."
+        ],
+        "lists": [
+          [
+            "Understand which topics are most relevant",
+            "Improve and update our content",
+            "Plan future videos and materials"
+          ]
+        ]
+      },
+      {
+        "title": "5. How your data is used (short explanation)",
+        "paragraphs": [
+          "To operate the Happy Dog & Happy Cat Product Knowledge Hub, we store and process only the data needed to provide the service, specifically:",
+          "We use this data to:",
+          "For complete legal information, including your rights and contact details for data protection queries, please refer to the Terms & Policies / Privacy Policy section linked in the footer of the Hub."
+        ],
+        "lists": [
+          [
+            "Your name",
+            "Your email address",
+            "Your company",
+            "Your country",
+            "Basic information about which content is accessed"
+          ],
+          [
+            "Create and manage your account",
+            "Provide you with access to content and downloads",
+            "Understand which topics are most interesting for our partners",
+            "Improve the relevance and quality of the Product Knowledge Hub"
+          ]
+        ]
+      },
+      {
+        "title": "6. Technical requirements & troubleshooting",
+        "paragraphs": [
+          "6.1. Devices and browsers",
+          "For the best experience:",
+          "6.2. Common issues & solutions"
+        ],
+        "lists": [
+          [
+            "Desktop or laptop using a modern browser (Chrome, Edge, Safari)",
+            "The app is available on supported mobile devices, where available"
+          ],
+          [
+            "Keep your browser updated to the latest version",
+            "Enable JavaScript and allow cookies for the Hub",
+            "Use headphones or speakers for video audio"
+          ],
+          [
+            "I can’t log in",
+            "Videos are not playing or keep stopping",
+            "Downloads do not open"
+          ]
+        ]
+      },
+      {
+        "title": "7. Content responsibility & veterinary disclaimer",
+        "paragraphs": [
+          "All content in the Happy Dog & Happy Cat Product Knowledge Hub is created with great care by the Happy Pet team. Still:",
+          "The content in the Hub is intended for professional use only, providing training and informational resources. It does not replace individual veterinary advice. For any questions about the health of a particular animal, always consult a veterinarian."
+        ]
+      },
+      {
+        "title": "8. Using downloads and brand materials",
+        "paragraphs": [
+          "The Product Knowledge Hub provides downloads (for example, PDF fact sheets) to support you in presenting and selling Happy Dog and Happy Cat.",
+          "You may typically use these materials for:"
+        ],
+        "lists": [
+          [
+            "Internal training in your organisation",
+            "Presentations and sales talks about Happy Dog and Happy Cat",
+            "Marketing activities that promote Happy Dog and Happy Cat products"
+          ],
+          [
+            "Please do not: Use our materials for other brands or products",
+            "Modify logos, pack shots or key visuals in ways that change or damage the brand image",
+            "Share internal or non-public documents with competitors or unauthorised third parties"
+          ]
+        ]
+      },
+      {
+        "title": "9. Need more help?",
+        "paragraphs": [
+          "If your question is not answered in this Help Centre or if you experience any problems with the Happy Dog & Happy Cat Product Knowledge Hub, we are happy to assist you.",
+          "Please include, where relevant:",
+          "We will review your request and respond as soon as possible."
+        ],
+        "lists": [
+          [
+            "General support & feedback: info@happypet.biz"
+          ],
+          [
+            "Your name",
+            "The email address you used to register",
+            "Which page, video or file are you asking about",
+            "Screenshots if you are reporting a technical issue"
+          ]
+        ]
+      }
+    ]
+  },
+  "termsAndPoliciesPage": {
+    "title": "Terms & Policies",
+    "sections": [
+      {
+        "title": "1. Introduction & Scope",
+        "paragraphs": [
+          "These terms and conditions govern your use of the Happy Dog & Happy Cat Product Knowledge Hub (\"the Hub\"), operated by Happy Pet Investment Holding GmbH, Germany.",
+          "By creating an account and using the Hub, you agree to comply with these terms. If you do not agree, please do not use the Hub."
+        ]
+      },
+      {
+        "title": "2. Account Registration & Eligibility",
+        "paragraphs": [
+          "To access the Hub, you must register an account by providing:",
+          "You are responsible for:",
+          "We reserve the right to verify accounts and may suspend or delete accounts that provide false information or violate these terms."
+        ],
+        "lists": [
+          [
+            "Your name",
+            "Your email address",
+            "Your company name",
+            "Your country"
+          ],
+          [
+            "Keeping your account credentials confidential",
+            "All activity that occurs under your account",
+            "Notifying us immediately if you suspect unauthorized access"
+          ]
+        ]
+      },
+      {
+        "title": "3. Permitted Use",
+        "paragraphs": [
+          "The Hub is intended for professional partners who work with Happy Dog and Happy Cat brands, including:",
+          "You may use the Hub to:",
+          "You may not:"
+        ],
+        "lists": [
+          [
+            "Distributors and importers",
+            "Pet shops and retail partners",
+            "Veterinary clinics and veterinary staff",
+            "Breeders"
+          ],
+          [
+            "Access training videos and educational content",
+            "Download product fact sheets and marketing materials",
+            "Learn about our nutrition concepts and product ranges"
+          ],
+          [
+            "Share your account credentials with unauthorized third parties",
+            "Use the Hub for commercial purposes unrelated to Happy Dog and Happy Cat",
+            "Copy, redistribute, or modify our content without permission",
+            "Use automated tools (bots, scrapers) to access the Hub",
+            "Attempt to circumvent security measures or access restricted areas"
+          ]
+        ]
+      },
+      {
+        "title": "4. Intellectual Property Rights",
+        "paragraphs": [
+          "All content on the Hub, including:",
+          "is owned by Happy Pet Investment Holding GmbH or its licensors and is protected by copyright and trademark laws.",
+          "You are granted a limited, non-exclusive, non-transferable license to access and use the content solely for professional purposes related to Happy Dog and Happy Cat brands.",
+          "Any unauthorized use, reproduction, or distribution may result in legal action."
+        ],
+        "lists": [
+          [
+            "Videos and images",
+            "Product information and fact sheets",
+            "Brand logos and pack shots",
+            "Text, graphics, and software"
+          ]
+        ]
+      },
+      {
+        "title": "5. Privacy & Data Protection",
+        "paragraphs": [
+          "We are committed to protecting your personal data in accordance with applicable data protection laws, including GDPR.",
+          "We collect and process:",
+          "For complete information about how we collect, use, and protect your data, please see our Privacy Policy section below."
+        ],
+        "lists": [
+          [
+            "Personal information (name, email, company, country)",
+            "Usage data (videos watched, materials downloaded)",
+            "Technical data (IP address, browser type, device information)"
+          ]
+        ]
+      },
+      {
+        "title": "6. Disclaimer of Warranties",
+        "paragraphs": [
+          "The Hub and all content are provided \"as is\" without warranties of any kind, either express or implied.",
+          "We do not guarantee:",
+          "The information provided is for educational purposes only and does not constitute veterinary advice. Always consult a qualified veterinarian for specific animal health concerns."
+        ],
+        "lists": [
+          [
+            "Continuous, uninterrupted access to the Hub",
+            "That the content is error-free or complete",
+            "That the Hub will meet your specific requirements",
+            "That defects will be corrected"
+          ]
+        ]
+      },
+      {
+        "title": "7. Limitation of Liability",
+        "paragraphs": [
+          "To the maximum extent permitted by law, Happy Pet Investment Holding GmbH shall not be liable for:",
+          "Our total liability to you for all claims arising from your use of the Hub shall not exceed the amount you paid to access the Hub (if any)."
+        ],
+        "lists": [
+          [
+            "Any indirect, incidental, or consequential damages",
+            "Loss of profits, data, or business opportunities",
+            "Damages arising from unauthorized access to your account",
+            "Issues caused by third-party services or internet connectivity"
+          ]
+        ]
+      },
+      {
+        "title": "8. Changes to Terms",
+        "paragraphs": [
+          "We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting to the Hub.",
+          "Your continued use of the Hub after changes are posted constitutes your acceptance of the modified terms.",
+          "We recommend reviewing these terms periodically."
+        ]
+      },
+      {
+        "title": "9. Termination",
+        "paragraphs": [
+          "We may suspend or terminate your access to the Hub at any time if:",
+          "You may delete your account at any time by contacting us at info@happypet.biz.",
+          "Upon termination, you must cease all use of the Hub and delete any downloaded materials."
+        ],
+        "lists": [
+          [
+            "You violate these terms",
+            "You provide false or misleading information",
+            "We discontinue the Hub or your region",
+            "We believe your account poses a security risk"
+          ]
+        ]
+      },
+      {
+        "title": "10. Privacy Policy",
+        "paragraphs": [
+          "This Privacy Policy explains how Happy Pet Investment Holding GmbH collects, uses, and protects your personal data when you use the Happy Dog & Happy Cat Product Knowledge Hub.",
+          "10.1. Data Controller",
+          "Happy Pet Investment Holding GmbH, Rechberghausen, Germany is the data controller responsible for your personal data.",
+          "10.2. Data We Collect:",
+          "10.3. How We Use Your Data:",
+          "10.4. Legal Basis for Processing:",
+          "10.5. Data Retention:",
+          "10.6. Your Rights (GDPR):",
+          "10.7. Data Security:",
+          "10.8. Third-Party Services:",
+          "10.9. International Data Transfers:",
+          "10.10. Changes to This Privacy Policy:",
+          "We may update this Privacy Policy from time to time. Changes will be posted on the Hub with the updated date."
+        ],
+        "lists": [
+          [
+            "Personal Information: Name, email address, company, country",
+            "Usage Data: Videos watched, materials downloaded, time spent on pages",
+            "Technical Data: IP address, browser type, device information, cookies"
+          ],
+          [
+            "To create and manage your account",
+            "To provide access to content and downloads",
+            "To improve and personalize your experience",
+            "To analyze usage patterns and improve content",
+            "To communicate with you about updates or support"
+          ],
+          [
+            "Contract Performance: To provide the Hub services",
+            "Legitimate Interests: To improve our services and understand user needs",
+            "Legal Obligation: To comply with applicable laws",
+            "Consent: Where required for specific processing activities"
+          ],
+          [
+            "We retain your data as long as your account is active",
+            "After account deletion, we may retain certain data for legal or business purposes",
+            "You can request deletion of your data at any time"
+          ],
+          [
+            "Access: Request a copy of your personal data",
+            "Rectification: Correct inaccurate data",
+            "Erasure: Request deletion of your data",
+            "Restriction: Limit how we use your data",
+            "Portability: Receive your data in a structured format",
+            "Object: Object to processing based on legitimate interests",
+            "Withdraw Consent: Withdraw consent for data processing"
+          ],
+          [
+            "We implement technical and organizational measures to protect your data",
+            "We use encryption, secure servers, and access controls",
+            "No system is completely secure; we cannot guarantee absolute security"
+          ],
+          [
+            "We may use third-party services for hosting, analytics, and email",
+            "These providers are contractually bound to protect your data",
+            "We do not sell your personal data to third parties"
+          ],
+          [
+            "Your data may be transferred to and stored in countries outside the EEA",
+            "We ensure adequate protection through standard contractual clauses or other mechanisms"
+          ]
+        ]
+      },
+      {
+        "title": "11. Contact Information",
+        "paragraphs": [
+          "For questions about these Terms & Policies or Privacy Policy, please contact:",
+          "Email: info@happypet.biz",
+          "Address: Happy Pet Investment Holding GmbH, Rechberghausen, Germany",
+          "For data protection inquiries, you may also contact our Data Protection Officer at the above address."
+        ]
+      }
+    ]
+  },
   "validation": {
     "required": "This field is required",
     "emailRequired": "Email is required",

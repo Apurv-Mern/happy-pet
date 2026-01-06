@@ -1,29 +1,20 @@
-import { useState } from 'react'
 import { useTranslation } from '@/contexts/I18nContext'
-import { motion } from 'framer-motion'
-import { Search, ChevronDown } from 'lucide-react'
 
-interface FAQ {
-  id: number
-  question: string
-  answer: string
-}
-
-type HelpSection = {
+type TermsSection = {
   title: string
   paragraphs?: string[]
   lists?: string[][]
 }
 
-export const HelpCenter = () => {
+export const TermsAndPolicies = () => {
   const { t } = useTranslation()
-  const sections: HelpSection[] =
-    (t('helpCenterPage.sections') as HelpSection[]) || []
+  const sections: TermsSection[] =
+    (t('termsAndPoliciesPage.sections') as TermsSection[]) || []
 
   return (
     <div className="overflow-auto h-[500px] pr-2">
       <h3 className="text-[18px] sm:text-[20px] md:text-[28px] text-[#003863] font-bold text-left">
-        {t('helpCenterPage.title')}
+        {t('termsAndPoliciesPage.title')}
       </h3>
 
       {sections.map((section, sidx) => (
@@ -57,4 +48,4 @@ export const HelpCenter = () => {
   )
 }
 
-export default HelpCenter
+export default TermsAndPolicies

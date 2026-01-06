@@ -15,10 +15,12 @@ import {
   VideoGridSkeleton,
 } from '@/components/learning'
 import { useCategories } from '@/hooks/useCategories'
+import { useAnalytics } from '@/hooks/useAnalytics'
 
 export default function KnowledgeHubPage() {
   const { t, language } = useTranslation()
   const [searchParams] = useSearchParams()
+  const { trackSearch, trackView } = useAnalytics()
   const { categoryId, tierId, subcategoryId } = useParams<{
     categoryId?: string
     tierId?: string
@@ -34,6 +36,7 @@ export default function KnowledgeHubPage() {
   )
   const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState<any>(null)
+  const [currentPage, setCurrentPage] = useState(1)
   const navigate = useNavigate()
 
   // Fetch categories from API
@@ -69,8 +72,8 @@ export default function KnowledgeHubPage() {
 
   // Build API filters based on selected category
   const apiFilters = {
-    page: 1,
-    limit: 50,
+    page: currentPage,
+    limit: 6,
     type: 'video' as const,
     categoryId:
       selectedCategory === 'all-categories'
@@ -117,6 +120,27 @@ export default function KnowledgeHubPage() {
   const closeDescriptionModal = () => {
     setIsDescriptionModalOpen(false)
     setSelectedVideo(null)
+  }
+
+  // Handle video click with analytics tracking
+  const handleVideoClick = (video: any) => {
+    // Track video view
+    trackView({
+      contentType: 'video',
+      learningKnowledgeId: video._id,
+      metadata: {
+        title: video.title,
+        category: video.category?.name || video.category,
+        playbackPosition: 0,
+        playbackPercentage: 0,
+        videoDuration: video.duration || 0,
+      },
+    })
+
+    // Navigate to video details
+    navigate(`/knowledge-hub/video/${video._id}`, {
+      state: { video },
+    })
   }
 
   // Get breadcrumb information
@@ -223,7 +247,27 @@ export default function KnowledgeHubPage() {
               setSearchTerm('')
             }
           }}
-          onSearchSubmit={() => setSearchTerm(searchQuery)}
+          onSearchSubmit={() => {
+            setSearchTerm(searchQuery)
+            // Track search event
+            if (searchQuery.trim()) {
+              trackSearch({
+                searchQuery: searchQuery.trim(),
+                resultsCount: videos?.length || 0,
+                searchType: 'content',
+                filters: {
+                  type: 'video',
+                  categoryId:
+                    selectedCategory !== 'all-categories'
+                      ? selectedCategory
+                      : undefined,
+                },
+                metadata: {
+                  page: 'knowledge-hub',
+                },
+              })
+            }
+          }}
         />
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8 mt-10">
           {/* Sidebar - Categories */}
@@ -241,11 +285,48 @@ export default function KnowledgeHubPage() {
             {isLoadingVideos || isLoadingPresignedUrls ? (
               <VideoGridSkeleton />
             ) : (
-              <VideosGrid
-                videos={videos}
-                navigate={navigate}
-                onReadMore={handleReadMore}
-              />
+              <>
+                <VideosGrid
+                  videos={videos}
+                  navigate={navigate}
+                  onReadMore={handleReadMore}
+                  onVideoClick={handleVideoClick}
+                />
+
+                {/* Pagination Controls */}
+                <div className="flex justify-center items-center gap-2 mt-8">
+                  <button
+                    onClick={() =>
+                      setCurrentPage(prev => Math.max(1, prev - 1))
+                    }
+                    disabled={currentPage === 1}
+                    className="px-4 py-2 rounded-lg bg-[#003863] text-white disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-[#004c82] transition-colors"
+                  >
+                    Previous
+                  </button>
+                  <span className="px-4 py-2 text-[#003863] font-semibold">
+                    Page {currentPage} of{' '}
+                    {learningData?.data?.pagination?.pages || 1}
+                  </span>
+                  <button
+                    onClick={() =>
+                      setCurrentPage(prev =>
+                        Math.min(
+                          learningData?.data?.pagination?.pages || 1,
+                          prev + 1
+                        )
+                      )
+                    }
+                    disabled={
+                      currentPage >=
+                      (learningData?.data?.pagination?.pages || 1)
+                    }
+                    className="px-4 py-2 rounded-lg bg-[#003863] text-white disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-[#004c82] transition-colors"
+                  >
+                    Next
+                  </button>
+                </div>
+              </>
             )}
           </div>
         </div>

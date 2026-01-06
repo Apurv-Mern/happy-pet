@@ -10,6 +10,7 @@ import {
   PersonalInformation,
   PasswordManagement,
   HelpCenter,
+  TermsAndPolicies,
 } from '@/components/profile'
 import { useProfileForm } from '@/hooks/useProfileForm'
 import { useProfileQuery } from '@/api/user'
@@ -150,28 +151,25 @@ const ProfilePage = () => {
       label: t('profilePage.helpCenter'),
       onClick: () => setActiveSection('help'),
     },
-    {
-      id: 'terms',
-      icon: (
-        <svg
-          width="19"
-          height="22"
-          viewBox="0 0 19 22"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M11.25 2.5L10 0H0V21.25H2.5V12.5H8.75L10 15H18.75V2.5H11.25ZM16.25 12.5H11.25L10 10H2.5V2.5H8.75L10 5H16.25V12.5Z"
-            fill={activeSection === 'terms' ? '#fff' : '#003863'}
-          />
-        </svg>
-      ),
-      label: t('profilePage.termsAndPolicies'),
-      onClick: () => {
-        // TODO: Navigate to terms page
-        console.log('Terms & Policies')
-      },
-    },
+    // {
+    //   id: 'terms',
+    //   icon: (
+    //     <svg
+    //       width="19"
+    //       height="22"
+    //       viewBox="0 0 19 22"
+    //       fill="none"
+    //       xmlns="http://www.w3.org/2000/svg"
+    //     >
+    //       <path
+    //         d="M11.25 2.5L10 0H0V21.25H2.5V12.5H8.75L10 15H18.75V2.5H11.25ZM16.25 12.5H11.25L10 10H2.5V2.5H8.75L10 5H16.25V12.5Z"
+    //         fill={activeSection === 'terms' ? '#fff' : '#003863'}
+    //       />
+    //     </svg>
+    //   ),
+    //   label: t('profilePage.termsAndPolicies'),
+    //   onClick: () => setActiveSection('terms'),
+    // },
   ]
 
   return (
@@ -231,6 +229,8 @@ const ProfilePage = () => {
                 )}
 
                 {activeSection === 'help' && <HelpCenter />}
+
+                {activeSection === 'terms' && <TermsAndPolicies />}
               </motion.div>
             </div>
           </div>

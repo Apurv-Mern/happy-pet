@@ -20,10 +20,11 @@ interface VideosGridProps {
   videos: Video[]
   navigate: any
   onReadMore?: (video: Video) => void
+  onVideoClick?: (video: Video) => void
 }
 
 export const VideosGrid = memo(
-  ({ videos, navigate, onReadMore }: VideosGridProps) => {
+  ({ videos, navigate, onReadMore, onVideoClick }: VideosGridProps) => {
     const { t } = useTranslation()
 
     return (
@@ -42,9 +43,13 @@ export const VideosGrid = memo(
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
               onClick={() => {
-                navigate(`/knowledge-hub/video/${video._id}`, {
-                  state: { video },
-                })
+                if (onVideoClick) {
+                  onVideoClick(video)
+                } else {
+                  navigate(`/knowledge-hub/video/${video._id}`, {
+                    state: { video },
+                  })
+                }
               }}
               className="cursor-pointer"
             >
@@ -90,6 +95,8 @@ export const VideosGrid = memo(
                         e.stopPropagation()
                         if (onReadMore) {
                           onReadMore(video)
+                        } else if (onVideoClick) {
+                          onVideoClick(video)
                         } else {
                           navigate(`/knowledge-hub/video/${video._id}`, {
                             state: { video },

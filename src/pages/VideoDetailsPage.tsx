@@ -1,7 +1,8 @@
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { ChevronLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useAnalytics } from '@/hooks/useAnalytics'
 
 interface Video {
   id: string
@@ -44,6 +45,9 @@ export default function VideoDetailPage() {
   const navigate = useNavigate()
   const location = useLocation()
   const videoRef = useRef<HTMLVideoElement>(null)
+  const { trackView, trackVideoComplete } = useAnalytics()
+  const [hasTrackedView, setHasTrackedView] = useState(false)
+  const [videoStartTime, setVideoStartTime] = useState(0)
 
   // Get video from location state or fallback to local videos array
   const stateVideo = location.state?.video
@@ -57,6 +61,84 @@ export default function VideoDetailPage() {
       })
     }
   }, [video])
+
+  // Track video view when component mounts
+  useEffect(() => {
+    if (video && !hasTrackedView) {
+      const learningKnowledgeId = video.id
+
+      trackView({
+        contentType: 'video',
+        learningKnowledgeId,
+        metadata: {
+          title: video.title,
+          category: video.category,
+          duration: video.duration,
+          playbackPosition: 0,
+          playbackPercentage: 0,
+          videoDuration: video.duration || 0,
+        },
+      })
+
+      setHasTrackedView(true)
+      setVideoStartTime(Date.now())
+    }
+  }, [video, hasTrackedView, trackView])
+
+  // Track video completion
+  useEffect(() => {
+    const videoElement = videoRef.current
+    if (!videoElement || !video) return
+
+    const handleVideoEnd = () => {
+      const watchDuration = Math.floor((Date.now() - videoStartTime) / 1000)
+      const videoDuration = Math.floor(videoElement.duration)
+
+      trackVideoComplete({
+        learningKnowledgeId: video.id,
+        duration: watchDuration,
+        metadata: {
+          playbackPosition: videoDuration,
+          playbackPercentage: 100,
+          videoDuration,
+          title: video.title,
+          category: video.category,
+        },
+      })
+    }
+
+    videoElement.addEventListener('ended', handleVideoEnd)
+
+    // Track when user leaves the page
+    return () => {
+      videoElement.removeEventListener('ended', handleVideoEnd)
+
+      // Track video view with current position when leaving the page
+      if (!videoElement.paused || videoElement.currentTime > 0) {
+        const currentPosition = Math.floor(videoElement.currentTime)
+        const videoDuration = Math.floor(videoElement.duration) || 0
+        const watchDuration = Math.floor((Date.now() - videoStartTime) / 1000)
+        const percentage =
+          videoDuration > 0
+            ? Math.floor((currentPosition / videoDuration) * 100)
+            : 0
+
+        trackView({
+          contentType: 'video',
+          learningKnowledgeId: video.id,
+          metadata: {
+            title: video.title,
+            category: video.category,
+            playbackPosition: currentPosition,
+            playbackPercentage: percentage,
+            videoDuration,
+            watchDuration,
+            leftPage: true,
+          },
+        })
+      }
+    }
+  }, [video, videoStartTime, trackVideoComplete, trackView])
 
   if (!video) {
     return <div>Video not found</div>
@@ -126,17 +208,16 @@ export default function VideoDetailPage() {
 
             {/* Video Player */}
             <div className="mb-6">
-
-                <video
-                  ref={videoRef}
-                  className="w-full h-full max-h-[600px] rounded-[20px]"
-                  controls
-                  autoPlay
-                  poster={thumbnailSource}
-                >
-                  <source src={videoSource} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+              <video
+                ref={videoRef}
+                className="w-full h-full max-h-[600px] rounded-[20px]"
+                controls
+                autoPlay
+                poster={thumbnailSource}
+              >
+                <source src={videoSource} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
 
               {/* Video Description */}
               <div className="">

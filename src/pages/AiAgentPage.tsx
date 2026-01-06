@@ -67,22 +67,22 @@ export default function AIAgentPage() {
         ?.toLowerCase()
         .includes('internal server error')
 
-    if (isServerError) {
-      toast({
-        title: 'Server Error',
-        description: 'Please try again after some time.',
-        variant: 'destructive',
-      })
-    } else {
-      toast({
-        title: 'Error',
-        description:
-          error?.response?.data?.message ||
-          error?.message ||
-          'An error occurred. Please try again.',
-        variant: 'destructive',
-      })
-    }
+    // if (isServerError) {
+    //   toast({
+    //     title: 'Server Error',
+    //     description: 'Please try again after some time.',
+    //     variant: 'destructive',
+    //   })
+    // } else {
+    //   toast({
+    //     title: 'Error',
+    //     description:
+    //       error?.response?.data?.message ||
+    //       error?.message ||
+    //       'An error occurred. Please try again.',
+    //     variant: 'destructive',
+    //   })
+    // }
   }
 
   // Convert API message to UI message format

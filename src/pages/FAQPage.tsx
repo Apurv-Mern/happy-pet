@@ -3,6 +3,7 @@ import { ChevronDown } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useTranslation } from '@/contexts/I18nContext'
 import { faqApi, FAQ } from '@/api/faq'
+import { useAnalytics } from '@/hooks/useAnalytics'
 
 interface FAQItem {
   id: string
@@ -15,6 +16,7 @@ export function FAQPage() {
   const [faqs, setFaqs] = useState<FAQ[]>([])
   const [loading, setLoading] = useState(true)
   const { t, language } = useTranslation()
+  const { trackFAQView } = useAnalytics()
 
   useEffect(() => {
     const fetchFAQs = async () => {
@@ -35,7 +37,22 @@ export function FAQPage() {
   }, [language])
 
   const toggleAccordion = (id: string) => {
+    const isExpanding = expandedId !== id
     setExpandedId(expandedId === id ? null : id)
+
+    // Track FAQ view when expanded
+    if (isExpanding) {
+      const faq = faqs.find(f => f._id === id)
+      if (faq) {
+        trackFAQView({
+          knowledgeEntryId: id,
+          metadata: {
+            question: faq.question,
+            language: language,
+          },
+        })
+      }
+    }
   }
 
   return (

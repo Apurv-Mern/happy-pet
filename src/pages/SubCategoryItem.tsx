@@ -8,6 +8,7 @@ import {
   useLearningKnowledgeQuery,
   usePresignedUrls,
 } from '@/api/learningModule'
+import { useAnalytics } from '@/hooks/useAnalytics'
 
 export default function SubCategoryItem() {
   const { categoryId, tierId, subcategoryId } = useParams<{
@@ -19,6 +20,7 @@ export default function SubCategoryItem() {
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [searchTerm, setSearchTerm] = useState<string>('')
+  const { trackView } = useAnalytics()
 
   // Filter state
   const [selectedAgeGroup, setSelectedAgeGroup] = useState<string>('all')
@@ -31,6 +33,7 @@ export default function SubCategoryItem() {
   // Modal state
   const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState<any>(null)
+  const [currentPage, setCurrentPage] = useState(1)
 
   // Fetch categories from API
   const { data: categoriesResponse, isLoading } = useCategoriesQuery()
@@ -59,8 +62,8 @@ export default function SubCategoryItem() {
   // Build filters for API call
   const apiFilters = isViewingProductLine
     ? {
-        page: 1,
-        limit: 12,
+        page: currentPage,
+        limit: 6,
         type: 'video' as const,
         categoryId: mappedCategoryId,
         subCategoryId: subCategoryId,
@@ -483,6 +486,19 @@ export default function SubCategoryItem() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: index * 0.1 }}
                         onClick={() => {
+                          // Track video view
+                          trackView({
+                            contentType: 'video',
+                            learningKnowledgeId: video._id || video.id,
+                            metadata: {
+                              title: video.title,
+                              category: video.category?.name || video.category,
+                              playbackPosition: 0,
+                              playbackPercentage: 0,
+                              videoDuration: video.duration || 0,
+                            },
+                          })
+
                           navigate(
                             `/knowledge-hub/video/${video.id || video._id}`,
                             {
@@ -546,6 +562,42 @@ export default function SubCategoryItem() {
                       </motion.div>
                     </div>
                   ))
+                )}
+
+                {/* Pagination Controls */}
+                {learningData?.data?.pagination?.pages > 1 && (
+                  <div className="flex justify-center items-center gap-2 mt-8 col-span-3">
+                    <button
+                      onClick={() =>
+                        setCurrentPage(prev => Math.max(1, prev - 1))
+                      }
+                      disabled={currentPage === 1}
+                      className="px-4 py-2 rounded-lg bg-[#003863] text-white disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-[#004c82] transition-colors"
+                    >
+                      Previous
+                    </button>
+                    <span className="px-4 py-2 text-[#003863] font-semibold">
+                      Page {currentPage} of{' '}
+                      {learningData?.data?.pagination?.pages || 1}
+                    </span>
+                    <button
+                      onClick={() =>
+                        setCurrentPage(prev =>
+                          Math.min(
+                            learningData?.data?.pagination?.pages || 1,
+                            prev + 1
+                          )
+                        )
+                      }
+                      disabled={
+                        currentPage >=
+                        (learningData?.data?.pagination?.pages || 1)
+                      }
+                      className="px-4 py-2 rounded-lg bg-[#003863] text-white disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-[#004c82] transition-colors"
+                    >
+                      Next
+                    </button>
+                  </div>
                 )}
               </div>
             ) : (

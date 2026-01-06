@@ -45,6 +45,7 @@ apiClient.interceptors.request.use(
     // Add language parameter to requests
     if (config.headers) {
       config.headers['Accept-Language'] = language
+      config.headers['x-platform'] = 'web'
     }
 
     return config
