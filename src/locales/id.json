@@ -897,6 +897,13 @@
       }
     ]
   },
+  "cookieConsent": {
+    "title": "Kami Menghargai Privasi Anda",
+    "description": "Kami menggunakan cookie untuk meningkatkan pengalaman Anda, menganalisis penggunaan situs, dan menyediakan konten yang dipersonalisasi. Dengan mengklik 'Terima', Anda menyetujui penggunaan cookie kami.",
+    "accept": "Terima Semua Cookie",
+    "decline": "Tolak",
+    "learnMore": "Pelajari lebih lanjut tentang kebijakan privasi kami"
+  },
   "validation": {
     "required": "Bidang ini wajib diisi",
     "emailRequired": "Email wajib diisi",

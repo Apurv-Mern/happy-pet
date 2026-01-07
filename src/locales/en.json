@@ -892,6 +892,13 @@
       }
     ]
   },
+  "cookieConsent": {
+    "title": "We Value Your Privacy",
+    "description": "We use cookies to enhance your experience, analyze site usage, and provide personalized content. By clicking 'Accept', you consent to our use of cookies.",
+    "accept": "Accept All Cookies",
+    "decline": "Decline",
+    "learnMore": "Learn more about our privacy policy"
+  },
   "validation": {
     "required": "This field is required",
     "emailRequired": "Email is required",

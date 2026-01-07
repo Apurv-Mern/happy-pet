@@ -11,9 +11,9 @@ export default defineConfig({
     },
   },
   server: {
-    // Optional: Add basic auth middleware for dev server
+    port: 3000, // dev server on http://localhost:3000
     proxy: {
-      // This won't add password protection but can be extended with middleware
+      // your proxies
     },
   },
   // For production preview (npm run preview)

@@ -893,6 +893,13 @@
       }
     ]
   },
+  "cookieConsent": {
+    "title": "Wir schätzen Ihre Privatsphäre",
+    "description": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern, die Nutzung der Website zu analysieren und personalisierte Inhalte bereitzustellen. Indem Sie auf 'Akzeptieren' klicken, stimmen Sie unserer Verwendung von Cookies zu.",
+    "accept": "Alle Cookies akzeptieren",
+    "decline": "Ablehnen",
+    "learnMore": "Erfahren Sie mehr über unsere Datenschutzrichtlinie"
+  },
   "validation": {
     "required": "Dieses Feld ist erforderlich",
     "emailRequired": "E-Mail ist erforderlich",

@@ -26,10 +26,12 @@ import AiAgentPage from './pages/AiAgentPage.tsx'
 import LearningModePage from './pages/LearningModePage.tsx'
 import LearningModuleCategoryPage from './pages/LearningModuleCategoryPage.tsx'
 import LearningModuleSubCategoryPage from './pages/LearningModuleSubCategoryPage.tsx'
+import TermsAndPoliciesPage from './pages/TermsAndPoliciesPage.tsx'
 import { Toaster } from './components/ui/toaster'
 import VideoDetailPage from './pages/VideoDetailsPage.tsx'
 import { Header2 } from './components/Header2.tsx'
 import { ScrollToTop } from './components/ScrollToTop.tsx'
+import { CookieConsent } from './components/CookieConsent.tsx'
 import SocialCommitment from './pages/about/SocialCommitment.tsx'
 import NutritionalConcept from './pages/about/NutritionalConcept.tsx'
 import ManufacturingProcess from './pages/about/ManufacturingProcess.tsx'
@@ -67,6 +69,7 @@ function App() {
           element={<ManufacturingProcess />}
         />
         <Route path="/about/brand-history" element={<BrandHistory />} />
+        <Route path="/terms-and-policies" element={<TermsAndPoliciesPage />} />
 
         <Route element={<ProtectedRoute />}>
           <Route
@@ -114,6 +117,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
+      <CookieConsent />
       <Toaster />
     </BrowserRouter>
   )

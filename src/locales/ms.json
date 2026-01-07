@@ -893,6 +893,13 @@
       }
     ]
   },
+  "cookieConsent": {
+    "title": "Kami Menghargai Privasi Anda",
+    "description": "Kami menggunakan kuki untuk meningkatkan pengalaman anda, menganalisis penggunaan laman web, dan menyediakan kandungan yang diperibadikan. Dengan mengklik 'Terima', anda bersetuju dengan penggunaan kuki kami.",
+    "accept": "Terima Semua Kuki",
+    "decline": "Tolak",
+    "learnMore": "Ketahui lebih lanjut tentang dasar privasi kami"
+  },
   "validation": {
     "required": "Medan ini diperlukan",
     "emailRequired": "E-mel diperlukan",

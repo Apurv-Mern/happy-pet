@@ -57,6 +57,7 @@ export function Footer() {
     { label: t('header.knowledgeHub'), path: '/knowledge-hub' },
     { label: t('header.learningModule'), path: '/learning-module' },
     { label: t('header.aiAgent'), path: '/ai-agent' },
+    { label: t('profilePage.termsAndPolicies'), path: '/terms-and-policies' },
   ]
 
   // ⭐ SOCIAL ICONS AS SVG ⭐
