@@ -1,0 +1,227 @@
+Terms and Conditions
+Last Updated: [Insert Date]
+Welcome to Happy Pet (“Company”, “we”, “us”, or “our”). These Terms and Conditions (“Terms”) govern your access to and use of the website https://happypet.24livehost.com/ (“Website” or “Platform”), including all content, features, and services made available through the Platform.
+By accessing or using this Platform, you agree to be bound by these Terms. If you do not agree, you must discontinue use of the Platform immediately.
+1. Purpose of the Platform
+Happy Pet is an informational and educational platform designed to:
+Provide knowledge content in the form of videos, PDFs, and other materials related to Happy Pet products.
+Offer content in multiple languages.
+Enable users to interact with an AI-powered chatbot via text and voice for general queries, guidance, and product-related suggestions.
+The Platform does not provide personalized recommendations tailored to individual pets or circumstances.
+The Platform does not sell products, process payments, or provide shipping or delivery services.
+2. Eligibility
+You must be at least 18 years old or have parental/guardian consent to use this Platform. By using the Platform, you represent that you meet this requirement.
+The platform does not actively verify parental consent and rely on representations made by users.
+3. Use of Content
+All content available on the Platform, including but not limited to:
+Videos
+PDFs
+Text
+Audio
+Graphics
+Translations
+is provided for informational and educational purposes only.
+You agree that:
+Content may not be copied, reproduced, distributed, modified, or reused for commercial purposes without prior written permission.
+Content accuracy may vary by language, and translated versions are provided for convenience only.
+Unauthorized use may result in legal action.
+4. AI Chatbot Usage
+The Platform includes an AI-powered chatbot that allows users to interact via text and voice chat.
+By using the chatbot, you acknowledge and agree that:
+Responses are automated and AI-generated.
+Information provided is general in nature and intended for guidance only.
+The chatbot does not provide professional, medical, veterinary, legal, or financial advice.
+Any product suggestions are informational and do not constitute endorsements or guarantees.
+We do not guarantee that chatbot responses are accurate, complete, current, or error-free.
+By using voice-based chat features, you expressly consent to the collection, processing, and temporary storage of your voice input solely for the purpose of generating AI responses.
+You should always consult a qualified professional before making decisions based on chatbot responses.
+5. No Purchase or Transaction Services
+The Platform:
+Does not facilitate product listings, purchases, payments, subscriptions, or refunds.
+Does not manage shipping, delivery, or order fulfillment.
+Any references to products are strictly for informational and educational purposes.
+6. User Responsibilities
+You agree not to:
+Misuse the Platform or interfere with its normal operation.
+Upload, transmit, or attempt to introduce malicious software.
+Use the chatbot or content for unlawful, misleading, or harmful purposes.
+Attempt to reverse engineer or manipulate AI functionality.
+Attempt to scrape, harvest, or collect data from the Platform without authorization.
+We reserve the right to restrict or terminate access for violations of these Terms.
+7. Intellectual Property Rights
+All intellectual property rights in the Platform and its content, including trademarks, logos, AI models, and proprietary materials, belong to Happy Pet or its licensors.
+No rights are granted to users except the limited right to access and view content for personal, non-commercial use.
+Any feedback or suggestions provided by users may be used by Happy Pet without obligation or compensation.
+8. Third-Party Technologies
+The Platform may rely on third-party tools, AI services, or hosting providers. We are not responsible for:
+Service interruptions caused by third parties
+Accuracy or availability of third-party technologies
+9. Disclaimer of Warranties
+The Platform and all content are provided on an “as is” and “as available” basis.
+We make no warranties or guarantees regarding:
+Accuracy, completeness, or reliability of content
+Availability or uninterrupted access
+Suitability of information for specific purposes
+10. Limitation of Liability
+To the maximum extent permitted by law, Happy Pet shall not be liable for:
+Any direct, indirect, incidental, or consequential damages
+Decisions made based on content or chatbot responses
+Loss of data, business, or reputation arising from use of the Platform
+Use of the Platform is entirely at your own risk.
+11. Privacy and Data Usage
+Your use of the Platform is subject to our Privacy Policy, which explains how we collect, store, and process personal data, including voice and text interactions with the chatbot.
+12. Modifications to the Platform or Terms
+We reserve the right to:
+Modify, suspend, or discontinue any part of the Platform
+Update these Terms at any time
+Continued use of the Platform after updates constitutes acceptance of the revised Terms.
+13. Governing Law and Jurisdiction
+These Terms shall be governed by and construed in accordance with the laws of [Insert Country/State]. Any disputes shall be subject to the exclusive jurisdiction of the courts located in [Insert City/State].
+14. Contact Information
+For questions or concerns regarding these Terms, please contact us at:
+Email: [Insert official email address]
+Business Name: Happy Pet
+Website: https://happypet.24livehost.com/
+
+
+Privacy Policy
+Last Updated: [Insert Date]
+1. Introduction
+We are pleased that you are using our services and visiting our website. Protecting your personal data and privacy is a priority for our company. You can use our website in most cases without providing personal information. However, where certain services require personal data, that data will be processed only in accordance with applicable data protection laws, including the General Data Protection Regulation (GDPR) and other relevant national data protection regulations.  
+This informational page outlines the types of personal information we collect, how it is used, the legal bases for processing, how we protect your information, and your rights with respect to that data.  
+2. Identity of the Data Controller
+For the purposes of data protection laws (including the GDPR), the data controller responsible for processing your personal data on this website is:
+[Insert Your Company Name]
+[Full Address]
+[City, State/Region, Country]
+[Support Email]
+[Phone Number]
+(This section corresponds to how the controller identity is presented in the Happy Pet policy.)  
+3. Definitions of Key Terms
+To help you understand this privacy information clearly, we use the following definitions (as in the original policy):
+Personal Data – Any information relating to an identified or identifiable natural person.  
+Data Subject – An identifiable natural person whose data is processed.  
+Processing – Any operation performed on personal data, such as collection, storage, usage, or disclosure.  
+Consent – A freely given, specific, informed and unambiguous indication of a data subject’s wishes by which they agree to data processing.  
+(Additional definitions such as recipient, third party, profiling, etc., may be included or condensed as appropriate.)  
+4. What Personal Data We May Collect
+We may collect the following general categories of personal information:
+Contact details (e.g., name, email address, phone number) when voluntarily provided through forms or registrations.  
+Technical data (e.g., IP address, browser type, device information, pages visited) collected automatically through server log files.  
+User-generated content, such as blog comments, where applicable.  
+5. Cookies, Local Storage, and Similar Technologies
+We use cookies, local storage and similar technologies to make our website more efficient and user-friendly:
+Cookies are small text files stored on your device to recognize your browser and enable features like session management and preference storage.  
+You may disable cookies via your browser settings, but some site functionality may be affected.  
+6. How Personal Data Is Used
+We use personal information:
+To provide, customize, and administer our services.  
+To respond to your inquiries, requests or service submissions.  
+To prevent abuse of our services and protect systems.  
+To comply with legal or regulatory obligations.  
+7. Legal Bases for Processing
+Under GDPR, we process personal data only when:
+You have given consent.  
+Processing is necessary for performance of a contract.  
+There is a legal obligation.  
+It is necessary for our legitimate interests (e.g., system security), provided your rights do not override those interests.  
+8. Data Retention
+Personal data is retained only as long as necessary to fulfill the purposes for which it was collected, or as required by law.  
+9. Sharing Your Personal Data
+We do not sell your personal data. We may share data with:
+Service providers (e.g., hosting partners, payment processors) who process data on our behalf under contract.  
+Law enforcement or authorities where required by law.  
+10. International Transfers
+If your information is transferred outside your country or region (e.g., to countries without an “adequacy” decision), we implement appropriate safeguards as required under applicable law.
+11. Your Rights as a Data Subject
+You have the following rights in relation to your personal data:
+Confirm whether data concerning you is processed.  
+Access your personal data.  
+Rectify inaccurate data.  
+Request deletion of data (“right to be forgotten”).  
+Restrict processing under certain conditions.  
+Object to processing (including profiling).  
+Request data portability.  
+Withdraw consent at any time.  
+To exercise any of these rights, you may contact the data controller using the contact details provided above.  
+12. Contact and Complaints
+If you have questions about our privacy practices or wish to exercise your data protection rights, please contact us at:
+[Contact Email]
+[Contact Phone]
+If you believe your rights under applicable data protection laws have been violated, you may lodge a complaint with the relevant supervisory authority.
+13. Changes to This Privacy Information
+We may update this privacy content from time to time. Any changes will be published here with an updated “Effective Date.”
+
+
+
+AI Usage & Disclaimer Policy
+Last Updated: [Insert Date]
+This AI Usage & Disclaimer Policy (“Policy”) explains how artificial intelligence (“AI”) features are used on the Happy Pet platform and outlines important limitations regarding AI-generated responses.
+By accessing or using the AI features on https://happypet.24livehost.com/ (“Platform”), you acknowledge and agree to the terms of this Policy.
+Users acknowledge that speech recognition may misinterpret words, names, or context, particularly in multilingual or accented speech, which may result in inaccurate or unintended responses.
+1. Overview of AI Features
+Happy Pet provides an AI-powered chatbot that allows users to:
+Interact via text and voice
+Ask questions related to Happy Pet products
+Receive general information, guidance, and product suggestions
+Access multilingual support and explanations
+The AI chatbot is designed to enhance user experience and knowledge access. It does not replace human expertise or professional advice.
+2. Nature of AI-Generated Responses
+You acknowledge and understand that:
+AI responses are automatically generated using machine-learning systems.
+Responses are based on available data patterns and may not always be accurate, complete, current, or applicable to your specific situation.
+AI-generated outputs may vary across languages and interactions.
+All responses should be considered informational only.
+3. No Professional Advice
+The AI chatbot does not provide:
+Veterinary or medical advice
+Diagnostic services
+Legal, financial, or regulatory guidance
+Guarantees regarding product suitability, outcomes, or performance
+You must not rely on AI responses as a substitute for consultation with qualified professionals.
+4. Product Guidance Disclaimer
+Any product-related suggestions or explanations provided by the AI:
+Are general recommendations based on user queries
+Do not constitute endorsements, warranties, or guarantees
+Should not be interpreted as personalized or professional advice
+Final decisions regarding product usage remain entirely the user’s responsibility.
+5. Voice Interaction Disclaimer
+When using voice-based AI features:
+Voice input may be processed and converted into text for response generation
+Speech recognition accuracy may vary based on language, accent, background noise, and device quality
+Misinterpretation of voice input may result in inaccurate responses
+Voice recordings are not permanently stored unless required for quality improvement, security, or legal compliance.
+Where retained, voice data is stored for a limited duration and subject to strict access controls.
+Voice data is not used for biometric identification, authentication, or profiling purposes.
+We do not use voice data to identify individuals or to create voice profiles, and such data is not used for biometric purposes.
+Users are advised to verify critical information independently.
+6. Limitations and Availability
+Happy Pet does not guarantee that:
+AI features will be available at all times
+Responses will be free from errors or interruptions
+The AI will understand all queries accurately
+AI functionality may be modified, suspended, or discontinued at any time without notice.
+7. Responsible Use
+You agree not to:
+Use AI features for unlawful, abusive, misleading, or harmful purposes
+Attempt to manipulate, probe, or reverse-engineer AI systems
+Submit sensitive personal, medical, financial, or confidential information through AI interactions
+Misuse of AI features may result in restricted or terminated access.
+8. Third-Party AI Technology
+The AI chatbot is powered by third-party AI technology providers. While Happy Pet takes reasonable steps to ensure responsible use:
+We do not control the underlying AI models
+We are not responsible for inherent limitations or inaccuracies of AI-generated content
+9. Limitation of Liability
+To the maximum extent permitted by law, Happy Pet shall not be liable for:
+Any reliance placed on AI-generated responses
+Errors, omissions, or inaccuracies in AI outputs
+Decisions, actions, or outcomes resulting from AI interactions
+Any direct, indirect, incidental, or consequential damages arising from AI usage
+Use of AI features is entirely at your own risk.
+10. Policy Updates
+This Policy may be updated periodically to reflect changes in AI functionality, legal requirements, or operational practices. Updates will be posted on the Platform with a revised “Last Updated” date.
+11. Contact Information
+For questions or concerns regarding AI usage, please contact:
+Business Name: Happy Pet
+Website: https://happypet.24livehost.com/
+Email: [Insert official support email]

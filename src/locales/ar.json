@@ -580,224 +580,441 @@
     "id": "الإندونيسية"
   },
   "termsAndPoliciesPage": {
-    "title": "Terms & Policies",
+    "title": "الشروط والسياسات",
+    "lastUpdated": "يناير 2026",
     "sections": [
       {
-        "title": "1. Introduction & Scope",
+        "title": "الشروط والأحكام",
         "paragraphs": [
-          "These terms and conditions govern your use of the Happy Dog & Happy Cat Product Knowledge Hub (\"the Hub\"), operated by Happy Pet Investment Holding GmbH, Germany.",
-          "By creating an account and using the Hub, you agree to comply with these terms. If you do not agree, please do not use the Hub."
+          "مرحباً بك في Happy Pet (\"الشركة\"، \"نحن\"، \"لنا\"، أو \"خاصتنا\"). تحكم هذه الشروط والأحكام (\"الشروط\") وصولك إلى واستخدام موقع الويب https://happypet.24livehost.com/ (\"الموقع\" أو \"المنصة\")، بما في ذلك جميع المحتويات والميزات والخدمات المتاحة عبر المنصة.",
+          "من خلال الوصول إلى هذه المنصة أو استخدامها، فإنك توافق على الالتزام بهذه الشروط. إذا كنت لا توافق، يجب عليك التوقف عن استخدام المنصة فوراً."
         ]
       },
       {
-        "title": "2. Account Registration & Eligibility",
+        "title": "1. الغرض من المنصة",
         "paragraphs": [
-          "To access the Hub, you must register an account by providing:",
-          "You are responsible for:",
-          "We reserve the right to verify accounts and may suspend or delete accounts that provide false information or violate these terms."
+          "Happy Pet هي منصة معلوماتية وتعليمية مصممة من أجل:"
         ],
         "lists": [
           [
-            "Your name",
-            "Your email address",
-            "Your company name",
-            "Your country"
+            "توفير محتوى معرفي في شكل مقاطع فيديو وملفات PDF ومواد أخرى متعلقة بمنتجات Happy Pet",
+            "تقديم المحتوى بلغات متعددة",
+            "تمكين المستخدمين من التفاعل مع روبوت دردشة مدعوم بالذكاء الاصطناعي عبر النص والصوت للاستفسارات العامة والإرشادات والاقتراحات المتعلقة بالمنتجات"
           ],
           [
-            "Keeping your account credentials confidential",
-            "All activity that occurs under your account",
-            "Notifying us immediately if you suspect unauthorized access"
+            "لا توفر المنصة توصيات شخصية مخصصة للحيوانات الأليفة الفردية أو الظروف الخاصة",
+            "لا تبيع المنصة المنتجات ولا تعالج المدفوعات ولا تقدم خدمات الشحن أو التوصيل"
           ]
         ]
       },
       {
-        "title": "3. Permitted Use",
+        "title": "2. الأهلية",
         "paragraphs": [
-          "The Hub is intended for professional partners who work with Happy Dog and Happy Cat brands, including:",
-          "You may use the Hub to:",
-          "You may not:"
+          "يجب أن يكون عمرك 18 عاماً على الأقل أو أن تحصل على موافقة الوالدين/الوصي لاستخدام هذه المنصة. باستخدام المنصة، فإنك تقر بأنك تستوفي هذا الشرط.",
+          "لا تتحقق المنصة بشكل فعال من موافقة الوالدين وتعتمد على الإقرارات المقدمة من المستخدمين."
+        ]
+      },
+      {
+        "title": "3. استخدام المحتوى",
+        "paragraphs": [
+          "جميع المحتويات المتاحة على المنصة، بما في ذلك على سبيل المثال لا الحصر مقاطع الفيديو وملفات PDF والنصوص والصوت والرسومات والترجمات، يتم توفيرها لأغراض إعلامية وتعليمية فقط.",
+          "أنت توافق على أن:"
         ],
         "lists": [
           [
-            "Distributors and importers",
-            "Pet shops and retail partners",
-            "Veterinary clinics and veterinary staff",
-            "Breeders"
-          ],
-          [
-            "Access training videos and educational content",
-            "Download product fact sheets and marketing materials",
-            "Learn about our nutrition concepts and product ranges"
-          ],
-          [
-            "Share your account credentials with unauthorized third parties",
-            "Use the Hub for commercial purposes unrelated to Happy Dog and Happy Cat",
-            "Copy, redistribute, or modify our content without permission",
-            "Use automated tools (bots, scrapers) to access the Hub",
-            "Attempt to circumvent security measures or access restricted areas"
+            "لا يجوز نسخ المحتوى أو إعادة إنتاجه أو توزيعه أو تعديله أو إعادة استخدامه لأغراض تجارية دون إذن كتابي مسبق",
+            "قد تختلف دقة المحتوى حسب اللغة، ويتم توفير النسخ المترجمة للراحة فقط",
+            "قد يؤدي الاستخدام غير المصرح به إلى اتخاذ إجراءات قانونية"
           ]
         ]
       },
       {
-        "title": "4. Intellectual Property Rights",
+        "title": "4. استخدام روبوت الدردشة بالذكاء الاصطناعي",
         "paragraphs": [
-          "All content on the Hub, including:",
-          "is owned by Happy Pet Investment Holding GmbH or its licensors and is protected by copyright and trademark laws.",
-          "You are granted a limited, non-exclusive, non-transferable license to access and use the content solely for professional purposes related to Happy Dog and Happy Cat brands.",
-          "Any unauthorized use, reproduction, or distribution may result in legal action."
+          "تتضمن المنصة روبوت دردشة مدعوماً بالذكاء الاصطناعي يسمح للمستخدمين بالتفاعل عبر الدردشة النصية والصوتية.",
+          "باستخدام روبوت الدردشة، فإنك تقر وتوافق على أن:"
         ],
         "lists": [
           [
-            "Videos and images",
-            "Product information and fact sheets",
-            "Brand logos and pack shots",
-            "Text, graphics, and software"
+            "الردود آلية ومولدة بالذكاء الاصطناعي",
+            "المعلومات المقدمة ذات طابع عام ومخصصة للإرشاد فقط",
+            "لا يقدم روبوت الدردشة مشورة مهنية أو طبية أو بيطرية أو قانونية أو مالية",
+            "أي اقتراحات للمنتجات هي معلوماتية ولا تشكل تأييداً أو ضمانات",
+            "نحن لا نضمن أن ردود روبوت الدردشة دقيقة أو كاملة أو حالية أو خالية من الأخطاء",
+            "باستخدام ميزات الدردشة الصوتية، فإنك توافق صراحةً على جمع ومعالجة وتخزين مدخلاتك الصوتية مؤقتاً لغرض توليد ردود الذكاء الاصطناعي فقط",
+            "يجب عليك دائماً استشارة مختص مؤهل قبل اتخاذ قرارات بناءً على ردود روبوت الدردشة"
           ]
         ]
       },
       {
-        "title": "5. Privacy & Data Protection",
+        "title": "5. عدم وجود خدمات شراء أو معاملات",
         "paragraphs": [
-          "We are committed to protecting your personal data in accordance with applicable data protection laws, including GDPR.",
-          "We collect and process:",
-          "For complete information about how we collect, use, and protect your data, please see our Privacy Policy section below."
+          "لا تسهل المنصة قوائم المنتجات أو المشتريات أو المدفوعات أو الاشتراكات أو المبالغ المستردة. كما أنها لا تدير الشحن أو التوصيل أو تنفيذ الطلبات. أي إشارات إلى المنتجات هي لأغراض إعلامية وتعليمية بحتة."
+        ]
+      },
+      {
+        "title": "6. مسؤوليات المستخدم",
+        "paragraphs": [
+          "أنت توافق على عدم:"
         ],
         "lists": [
           [
-            "Personal information (name, email, company, country)",
-            "Usage data (videos watched, materials downloaded)",
-            "Technical data (IP address, browser type, device information)"
+            "إساءة استخدام المنصة أو التدخل في تشغيلها الطبيعي",
+            "تحميل أو نقل أو محاولة إدخال برامج ضارة",
+            "استخدام روبوت الدردشة أو المحتوى لأغراض غير قانونية أو مضللة أو ضارة",
+            "محاولة الهندسة العكسية أو التلاعب بوظائف الذكاء الاصطناعي",
+            "محاولة استخراج أو حصد أو جمع البيانات من المنصة دون تصريح"
+          ]
+        ],
+        "paragraphs": [
+          "نحتفظ بالحق في تقييد أو إنهاء الوصول في حالة انتهاك هذه الشروط."
+        ]
+      },
+      {
+        "title": "7. حقوق الملكية الفكرية",
+        "paragraphs": [
+          "جميع حقوق الملكية الفكرية في المنصة ومحتواها، بما في ذلك العلامات التجارية والشعارات ونماذج الذكاء الاصطناعي والمواد الملكية، تعود إلى Happy Pet أو مرخصيها.",
+          "لا تُمنح أي حقوق للمستخدمين باستثناء الحق المحدود في الوصول إلى المحتوى وعرضه للاستخدام الشخصي غير التجاري.",
+          "يجوز استخدام أي ملاحظات أو اقتراحات يقدمها المستخدمون من قبل Happy Pet دون التزام أو تعويض."
+        ]
+      },
+      {
+        "title": "8. تقنيات الطرف الثالث",
+        "paragraphs": [
+          "قد تعتمد المنصة على أدوات طرف ثالث أو خدمات الذكاء الاصطناعي أو مزودي الاستضافة. نحن لسنا مسؤولين عن انقطاعات الخدمة الناجمة عن أطراف ثالثة أو دقة أو توفر تقنيات الطرف الثالث."
+        ]
+      },
+      {
+        "title": "9. إخلاء مسؤولية الضمانات",
+        "paragraphs": [
+          "يتم توفير المنصة وجميع المحتويات \"كما هي\" و \"كما هي متاحة\".",
+          "نحن لا نقدم أي ضمانات أو كفالات فيما يتعلق بـ:"
+        ],
+        "lists": [
+          [
+            "دقة أو اكتمال أو موثوقية المحتوى",
+            "التوافر أو الوصول دون انقطاع",
+            "ملاءمة المعلومات لأغراض محددة"
           ]
         ]
       },
       {
-        "title": "6. Disclaimer of Warranties",
+        "title": "10. تحديد المسؤولية",
         "paragraphs": [
-          "The Hub and all content are provided \"as is\" without warranties of any kind, either express or implied.",
-          "We do not guarantee:",
-          "The information provided is for educational purposes only and does not constitute veterinary advice. Always consult a qualified veterinarian for specific animal health concerns."
+          "إلى أقصى حد يسمح به القانون، لن تكون Happy Pet مسؤولة عن:"
         ],
         "lists": [
           [
-            "Continuous, uninterrupted access to the Hub",
-            "That the content is error-free or complete",
-            "That the Hub will meet your specific requirements",
-            "That defects will be corrected"
+            "أي أضرار مباشرة أو غير مباشرة أو عرضية أو تبعية",
+            "القرارات المتخذة بناءً على المحتوى أو ردود روبوت الدردشة",
+            "فقدان البيانات أو الأعمال أو السمعة الناشئ عن استخدام المنصة"
           ]
-        ]
-      },
-      {
-        "title": "7. Limitation of Liability",
-        "paragraphs": [
-          "To the maximum extent permitted by law, Happy Pet Investment Holding GmbH shall not be liable for:",
-          "Our total liability to you for all claims arising from your use of the Hub shall not exceed the amount you paid to access the Hub (if any)."
         ],
-        "lists": [
-          [
-            "Any indirect, incidental, or consequential damages",
-            "Loss of profits, data, or business opportunities",
-            "Damages arising from unauthorized access to your account",
-            "Issues caused by third-party services or internet connectivity"
-          ]
+        "paragraphs": [
+          "يكون استخدام المنصة على مسؤوليتك الخاصة بالكامل."
         ]
       },
       {
-        "title": "8. Changes to Terms",
+        "title": "11. الخصوصية واستخدام البيانات",
         "paragraphs": [
-          "We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting to the Hub.",
-          "Your continued use of the Hub after changes are posted constitutes your acceptance of the modified terms.",
-          "We recommend reviewing these terms periodically."
+          "يخضع استخدامك للمنصة لسياسة الخصوصية الخاصة بنا، والتي توضح كيفية جمع وتخزين ومعالجة البيانات الشخصية، بما في ذلك تفاعلات الصوت والنص مع روبوت الدردشة."
         ]
       },
       {
-        "title": "9. Termination",
+        "title": "12. التعديلات على المنصة أو الشروط",
         "paragraphs": [
-          "We may suspend or terminate your access to the Hub at any time if:",
-          "You may delete your account at any time by contacting us at info@happypet.biz.",
-          "Upon termination, you must cease all use of the Hub and delete any downloaded materials."
-        ],
-        "lists": [
-          [
-            "You violate these terms",
-            "You provide false or misleading information",
-            "We discontinue the Hub or your region",
-            "We believe your account poses a security risk"
-          ]
+          "نحتفظ بالحق في تعديل أو تعليق أو إيقاف أي جزء من المنصة وتحديث هذه الشروط في أي وقت. يشكل الاستمرار في استخدام المنصة بعد التحديثات قبولاً للشروط المعدلة."
         ]
       },
       {
-        "title": "10. Privacy Policy",
+        "title": "سياسة الخصوصية",
         "paragraphs": [
-          "This Privacy Policy explains how Happy Pet Investment Holding GmbH collects, uses, and protects your personal data when you use the Happy Dog & Happy Cat Product Knowledge Hub.",
-          "10.1. Data Controller",
-          "Happy Pet Investment Holding GmbH, Rechberghausen, Germany is the data controller responsible for your personal data.",
-          "10.2. Data We Collect:",
-          "10.3. How We Use Your Data:",
-          "10.4. Legal Basis for Processing:",
-          "10.5. Data Retention:",
-          "10.6. Your Rights (GDPR):",
-          "10.7. Data Security:",
-          "10.8. Third-Party Services:",
-          "10.9. International Data Transfers:",
-          "10.10. Changes to This Privacy Policy:",
-          "We may update this Privacy Policy from time to time. Changes will be posted on the Hub with the updated date."
-        ],
-        "lists": [
-          [
-            "Personal Information: Name, email address, company, country",
-            "Usage Data: Videos watched, materials downloaded, time spent on pages",
-            "Technical Data: IP address, browser type, device information, cookies"
-          ],
-          [
-            "To create and manage your account",
-            "To provide access to content and downloads",
-            "To improve and personalize your experience",
-            "To analyze usage patterns and improve content",
-            "To communicate with you about updates or support"
-          ],
-          [
-            "Contract Performance: To provide the Hub services",
-            "Legitimate Interests: To improve our services and understand user needs",
-            "Legal Obligation: To comply with applicable laws",
-            "Consent: Where required for specific processing activities"
-          ],
-          [
-            "We retain your data as long as your account is active",
-            "After account deletion, we may retain certain data for legal or business purposes",
-            "You can request deletion of your data at any time"
-          ],
-          [
-            "Access: Request a copy of your personal data",
-            "Rectification: Correct inaccurate data",
-            "Erasure: Request deletion of your data",
-            "Restriction: Limit how we use your data",
-            "Portability: Receive your data in a structured format",
-            "Object: Object to processing based on legitimate interests",
-            "Withdraw Consent: Withdraw consent for data processing"
-          ],
-          [
-            "We implement technical and organizational measures to protect your data",
-            "We use encryption, secure servers, and access controls",
-            "No system is completely secure; we cannot guarantee absolute security"
-          ],
-          [
-            "We may use third-party services for hosting, analytics, and email",
-            "These providers are contractually bound to protect your data",
-            "We do not sell your personal data to third parties"
-          ],
-          [
-            "Your data may be transferred to and stored in countries outside the EEA",
-            "We ensure adequate protection through standard contractual clauses or other mechanisms"
-          ]
+          "يسعدنا أنك تستخدم خدماتنا وتزور موقعنا الإلكتروني. حماية بياناتك الشخصية وخصوصيتك هي أولوية لشركتنا. يمكنك استخدام موقعنا في معظم الحالات دون تقديم معلومات شخصية. ومع ذلك، حيثما تتطلب خدمات معينة بيانات شخصية، سيتم معالجة تلك البيانات فقط وفقاً لقوانين حماية البيانات المعمول بها، بما في ذلك اللائحة العامة لحماية البيانات (GDPR) واللوائح الوطنية الأخرى ذات الصلة بحماية البيانات."
         ]
       },
       {
-        "title": "11. Contact Information",
+        "title": "هوية مراقب البيانات",
         "paragraphs": [
-          "For questions about these Terms & Policies or Privacy Policy, please contact:",
+          "لأغراض قوانين حماية البيانات (بما في ذلك GDPR)، مراقب البيانات المسؤول عن معالجة بياناتك الشخصية على هذا الموقع هو:",
+          "Happy Pet",
           "Email: info@happypet.biz",
-          "Address: Happy Pet Investment Holding GmbH, Rechberghausen, Germany",
-          "For data protection inquiries, you may also contact our Data Protection Officer at the above address."
+          "Website: https://happypet.24livehost.com/"
+        ]
+      },
+      {
+        "title": "تعريفات المصطلحات الرئيسية",
+        "paragraphs": [
+          "لمساعدتك على فهم معلومات الخصوصية هذه بوضوح، نستخدم التعريفات التالية:"
+        ],
+        "lists": [
+          [
+            "البيانات الشخصية – أي معلومات تتعلق بشخص طبيعي محدد الهوية أو قابل للتحديد",
+            "موضوع البيانات – شخص طبيعي قابل للتحديد تتم معالجة بياناته",
+            "المعالجة – أي عملية يتم إجراؤها على البيانات الشخصية، مثل الجمع أو التخزين أو الاستخدام أو الإفصاح",
+            "الموافقة – إشارة محددة وواضحة ومطلعة وطوعية لرغبات موضوع البيانات يوافق بموجبها على معالجة البيانات"
+          ]
+        ]
+      },
+      {
+        "title": "البيانات الشخصية التي قد نجمعها",
+        "paragraphs": [
+          "قد نجمع الفئات العامة التالية من المعلومات الشخصية:"
+        ],
+        "lists": [
+          [
+            "تفاصيل الاتصال (مثل الاسم وعنوان البريد الإلكتروني ورقم الهاتف) عند تقديمها طوعاً من خلال النماذج أو التسجيلات",
+            "البيانات التقنية (مثل عنوان IP ونوع المتصفح ومعلومات الجهاز والصفحات التي تمت زيارتها) التي يتم جمعها تلقائياً من خلال ملفات سجل الخادم",
+            "المحتوى الذي ينشئه المستخدم، مثل تعليقات المدونة، حيثما ينطبق ذلك"
+          ]
+        ]
+      },
+      {
+        "title": "ملفات تعريف الارتباط والتخزين المحلي والتقنيات المماثلة",
+        "paragraphs": [
+          "نستخدم ملفات تعريف الارتباط والتخزين المحلي والتقنيات المماثلة لجعل موقعنا أكثر كفاءة وسهولة في الاستخدام. ملفات تعريف الارتباط هي ملفات نصية صغيرة يتم تخزينها على جهازك للتعرف على متصفحك وتمكين ميزات مثل إدارة الجلسات وتخزين التفضيلات.",
+          "يمكنك تعطيل ملفات تعريف الارتباط عبر إعدادات المتصفح، ولكن قد تتأثر بعض وظائف الموقع."
+        ]
+      },
+      {
+        "title": "كيفية استخدام البيانات الشخصية",
+        "paragraphs": [
+          "نستخدم المعلومات الشخصية من أجل:"
+        ],
+        "lists": [
+          [
+            "توفير خدماتنا وتخصيصها وإدارتها",
+            "الرد على استفساراتك أو طلباتك أو طلبات الخدمة",
+            "منع إساءة استخدام خدماتنا وحماية الأنظمة",
+            "الامتثال للالتزامات القانونية أو التنظيمية"
+          ]
+        ]
+      },
+      {
+        "title": "الأسس القانونية للمعالجة",
+        "paragraphs": [
+          "بموجب GDPR، نقوم بمعالجة البيانات الشخصية فقط عندما:"
+        ],
+        "lists": [
+          [
+            "منحت موافقتك",
+            "تكون المعالجة ضرورية لأداء عقد",
+            "يوجد التزام قانوني",
+            "تكون ضرورية لمصالحنا المشروعة (مثل أمن النظام)، بشرط ألا تتجاوز حقوقك تلك المصالح"
+          ]
+        ]
+      },
+      {
+        "title": "الاحتفاظ بالبيانات",
+        "paragraphs": [
+          "يتم الاحتفاظ بالبيانات الشخصية فقط طالما كان ذلك ضرورياً لتحقيق الأغراض التي تم جمعها من أجلها، أو حسبما يقتضيه القانون."
+        ]
+      },
+      {
+        "title": "مشاركة بياناتك الشخصية",
+        "paragraphs": [
+          "نحن لا نبيع بياناتك الشخصية. قد نشارك البيانات مع:"
+        ],
+        "lists": [
+          [
+            "مقدمي الخدمات (مثل شركاء الاستضافة ومعالجي الدفع) الذين يعالجون البيانات نيابة عنا بموجب عقد",
+            "سلطات إنفاذ القانون أو الجهات الحكومية عند الطلب بموجب القانون"
+          ]
+        ]
+      },
+      {
+        "title": "النقل الدولي",
+        "paragraphs": [
+          "إذا تم نقل معلوماتك خارج بلدك أو منطقتك (على سبيل المثال، إلى بلدان دون قرار \"الملاءمة\")، فإننا ننفذ الضمانات المناسبة حسبما يقتضيه القانون المعمول به."
+        ]
+      },
+      {
+        "title": "حقوقك كموضوع للبيانات",
+        "paragraphs": [
+          "لديك الحقوق التالية فيما يتعلق ببياناتك الشخصية:"
+        ],
+        "lists": [
+          [
+            "تأكيد ما إذا كانت البيانات المتعلقة بك تتم معالجتها",
+            "الوصول إلى بياناتك الشخصية",
+            "تصحيح البيانات غير الدقيقة",
+            "طلب حذف البيانات (\"الحق في النسيان\")",
+            "تقييد المعالجة في ظل ظروف معينة",
+            "الاعتراض على المعالجة (بما في ذلك التنميط)",
+            "طلب قابلية نقل البيانات",
+            "سحب الموافقة في أي وقت"
+          ]
+        ],
+        "paragraphs": [
+          "لممارسة أي من هذه الحقوق، يمكنك الاتصال بمراقب البيانات باستخدام تفاصيل الاتصال المقدمة أعلاه."
+        ]
+      },
+      {
+        "title": "الاتصال والشكاوى",
+        "paragraphs": [
+          "إذا كانت لديك أسئلة حول ممارسات الخصوصية الخاصة بنا أو ترغب في ممارسة حقوق حماية البيانات الخاصة بك، يرجى الاتصال بنا على info@happypet.biz.",
+          "إذا كنت تعتقد أن حقوقك بموجب قوانين حماية البيانات المعمول بها قد انتُهكت، يمكنك تقديم شكوى إلى السلطة الإشرافية المختصة."
+        ]
+      },
+      {
+        "title": "التغييرات على معلومات الخصوصية هذه",
+        "paragraphs": [
+          "قد نقوم بتحديث محتوى الخصوصية هذا من وقت لآخر. سيتم نشر أي تغييرات هنا مع \"تاريخ السريان\" المحدث."
+        ]
+      },
+      {
+        "title": "سياسة استخدام الذكاء الاصطناعي وإخلاء المسؤولية",
+        "paragraphs": [
+          "توضح سياسة استخدام الذكاء الاصطناعي وإخلاء المسؤولية هذه (\"السياسة\") كيفية استخدام ميزات الذكاء الاصطناعي (\"AI\") على منصة Happy Pet وتوضح القيود المهمة المتعلقة بالردود المولدة بالذكاء الاصطناعي.",
+          "من خلال الوصول إلى أو استخدام ميزات الذكاء الاصطناعي على https://happypet.24livehost.com/ (\"المنصة\")، فإنك تقر وتوافق على شروط هذه السياسة.",
+          "يقر المستخدمون بأن التعرف على الكلام قد يسيء تفسير الكلمات أو الأسماء أو السياق، خاصة في الكلام متعدد اللغات أو المنطوق بلهجات، مما قد يؤدي إلى ردود غير دقيقة أو غير مقصودة."
+        ]
+      },
+      {
+        "title": "نظرة عامة على ميزات الذكاء الاصطناعي",
+        "paragraphs": [
+          "توفر Happy Pet روبوت دردشة مدعوماً بالذكاء الاصطناعي يسمح للمستخدمين بـ:"
+        ],
+        "lists": [
+          [
+            "التفاعل عبر النص والصوت",
+            "طرح أسئلة متعلقة بمنتجات Happy Pet",
+            "تلقي معلومات عامة وإرشادات واقتراحات المنتجات",
+            "الوصول إلى الدعم والتوضيحات متعددة اللغات"
+          ]
+        ],
+        "paragraphs": [
+          "تم تصميم روبوت الدردشة بالذكاء الاصطناعي لتعزيز تجربة المستخدم والوصول إلى المعرفة. إنه لا يحل محل الخبرة البشرية أو المشورة المهنية."
+        ]
+      },
+      {
+        "title": "طبيعة الردود المولدة بالذكاء الاصطناعي",
+        "paragraphs": [
+          "أنت تقر وتفهم أن:"
+        ],
+        "lists": [
+          [
+            "ردود الذكاء الاصطناعي يتم توليدها تلقائياً باستخدام أنظمة التعلم الآلي",
+            "تستند الردود إلى أنماط البيانات المتاحة وقد لا تكون دائماً دقيقة أو كاملة أو حالية أو قابلة للتطبيق على وضعك المحدد",
+            "قد تختلف المخرجات المولدة بالذكاء الاصطناعي عبر اللغات والتفاعلات",
+            "يجب اعتبار جميع الردود معلوماتية فقط"
+          ]
+        ]
+      },
+      {
+        "title": "عدم وجود مشورة مهنية",
+        "paragraphs": [
+          "لا يقدم روبوت الدردشة بالذكاء الاصطناعي:"
+        ],
+        "lists": [
+          [
+            "مشورة بيطرية أو طبية",
+            "خدمات تشخيصية",
+            "إرشادات قانونية أو مالية أو تنظيمية",
+            "ضمانات فيما يتعلق بملاءمة المنتج أو النتائج أو الأداء"
+          ]
+        ],
+        "paragraphs": [
+          "يجب عدم الاعتماد على ردود الذكاء الاصطناعي كبديل عن الاستشارة مع مختصين مؤهلين."
+        ]
+      },
+      {
+        "title": "إخلاء مسؤولية إرشادات المنتج",
+        "paragraphs": [
+          "أي اقتراحات أو توضيحات متعلقة بالمنتجات يقدمها الذكاء الاصطناعي:"
+        ],
+        "lists": [
+          [
+            "هي توصيات عامة بناءً على استفسارات المستخدمين",
+            "لا تشكل تأييدات أو ضمانات أو كفالات",
+            "لا ينبغي تفسيرها على أنها مشورة شخصية أو مهنية"
+          ]
+        ],
+        "paragraphs": [
+          "تبقى القرارات النهائية المتعلقة باستخدام المنتج مسؤولية المستخدم بالكامل."
+        ]
+      },
+      {
+        "title": "إخلاء مسؤولية التفاعل الصوتي",
+        "paragraphs": [
+          "عند استخدام ميزات الذكاء الاصطناعي الصوتية:"
+        ],
+        "lists": [
+          [
+            "قد يتم معالجة المدخلات الصوتية وتحويلها إلى نص لتوليد الاستجابات",
+            "قد تختلف دقة التعرف على الكلام بناءً على اللغة واللهجة والضوضاء الخلفية وجودة الجهاز",
+            "قد يؤدي سوء تفسير المدخلات الصوتية إلى ردود غير دقيقة",
+            "لا يتم تخزين التسجيلات الصوتية بشكل دائم ما لم تكن مطلوبة لتحسين الجودة أو الأمن أو الامتثال القانوني",
+            "عند الاحتفاظ بها، يتم تخزين البيانات الصوتية لفترة محدودة وتخضع لضوابط وصول صارمة",
+            "لا تُستخدم البيانات الصوتية للتعرف البيومتري أو المصادقة أو أغراض التنميط",
+            "نحن لا نستخدم البيانات الصوتية لتحديد هوية الأفراد أو لإنشاء ملفات صوتية"
+          ]
+        ],
+        "paragraphs": [
+          "يُنصح المستخدمون بالتحقق من المعلومات المهمة بشكل مستقل."
+        ]
+      },
+      {
+        "title": "القيود والتوافر",
+        "paragraphs": [
+          "لا تضمن Happy Pet أن:"
+        ],
+        "lists": [
+          [
+            "ستكون ميزات الذكاء الاصطناعي متاحة في جميع الأوقات",
+            "ستكون الردود خالية من الأخطاء أو الانقطاعات",
+            "سيفهم الذكاء الاصطناعي جميع الاستفسارات بدقة"
+          ]
+        ],
+        "paragraphs": [
+          "قد يتم تعديل أو تعليق أو إيقاف وظائف الذكاء الاصطناعي في أي وقت دون إشعار."
+        ]
+      },
+      {
+        "title": "الاستخدام المسؤول",
+        "paragraphs": [
+          "أنت توافق على عدم:"
+        ],
+        "lists": [
+          [
+            "استخدام ميزات الذكاء الاصطناعي لأغراض غير قانونية أو مسيئة أو مضللة أو ضارة",
+            "محاولة التلاعب أو فحص أو إجراء الهندسة العكسية لأنظمة الذكاء الاصطناعي",
+            "تقديم معلومات شخصية أو طبية أو مالية أو سرية حساسة من خلال تفاعلات الذكاء الاصطناعي"
+          ]
+        ],
+        "paragraphs": [
+          "قد يؤدي إساءة استخدام ميزات الذكاء الاصطناعي إلى تقييد أو إنهاء الوصول."
+        ]
+      },
+      {
+        "title": "تقنية الذكاء الاصطناعي من طرف ثالث",
+        "paragraphs": [
+          "يعمل روبوت الدردشة بالذكاء الاصطناعي بتقنية مقدمة من موفري تقنية الذكاء الاصطناعي من طرف ثالث. بينما تتخذ Happy Pet خطوات معقولة لضمان الاستخدام المسؤول، فإننا لا نتحكم في نماذج الذكاء الاصطناعي الأساسية ولسنا مسؤولين عن القيود الكامنة أو عدم الدقة في المحتوى المولد بالذكاء الاصطناعي."
+        ]
+      },
+      {
+        "title": "تحديد مسؤولية الذكاء الاصطناعي",
+        "paragraphs": [
+          "إلى أقصى حد يسمح به القانون، لن تكون Happy Pet مسؤولة عن:"
+        ],
+        "lists": [
+          [
+            "أي اعتماد على الردود المولدة بالذكاء الاصطناعي",
+            "الأخطاء أو الإغفالات أو عدم الدقة في مخرجات الذكاء الاصطناعي",
+            "القرارات أو الإجراءات أو النتائج الناتجة عن تفاعلات الذكاء الاصطناعي",
+            "أي أضرار مباشرة أو غير مباشرة أو عرضية أو تبعية ناشئة عن استخدام الذكاء الاصطناعي"
+          ]
+        ],
+        "paragraphs": [
+          "يكون استخدام ميزات الذكاء الاصطناعي على مسؤوليتك الخاصة بالكامل."
+        ]
+      },
+      {
+        "title": "معلومات الاتصال",
+        "paragraphs": [
+          "للأسئلة أو المخاوف المتعلقة بهذه الشروط أو سياسة الخصوصية أو استخدام الذكاء الاصطناعي، يرجى الاتصال بـ:",
+          "Business Name: Happy Pet",
+          "Website: https://happypet.24livehost.com/",
+          "Email: info@happypet.biz"
         ]
       }
     ]

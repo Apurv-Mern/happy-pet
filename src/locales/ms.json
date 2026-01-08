@@ -671,224 +671,441 @@
     "id": "Indonesia"
   },
   "termsAndPoliciesPage": {
-    "title": "Terms & Policies",
+    "title": "Terma & Polisi",
+    "lastUpdated": "Januari 2026",
     "sections": [
       {
-        "title": "1. Introduction & Scope",
+        "title": "Terma dan Syarat",
         "paragraphs": [
-          "These terms and conditions govern your use of the Happy Dog & Happy Cat Product Knowledge Hub (\"the Hub\"), operated by Happy Pet Investment Holding GmbH, Germany.",
-          "By creating an account and using the Hub, you agree to comply with these terms. If you do not agree, please do not use the Hub."
+          "Selamat datang ke Happy Pet (\"Syarikat\", \"kami\", \"kita\" atau \"milik kami\"). Terma dan Syarat ini (\"Terma\") mengawal akses dan penggunaan anda terhadap laman web https://happypet.24livehost.com/ (\"Laman Web\" atau \"Platform\"), termasuk semua kandungan, ciri dan perkhidmatan yang disediakan melalui Platform.",
+          "Dengan mengakses atau menggunakan Platform ini, anda bersetuju untuk terikat dengan Terma ini. Jika anda tidak bersetuju, anda mesti menghentikan penggunaan Platform dengan serta-merta."
         ]
       },
       {
-        "title": "2. Account Registration & Eligibility",
+        "title": "1. Tujuan Platform",
         "paragraphs": [
-          "To access the Hub, you must register an account by providing:",
-          "You are responsible for:",
-          "We reserve the right to verify accounts and may suspend or delete accounts that provide false information or violate these terms."
+          "Happy Pet adalah platform maklumat dan pendidikan yang direka untuk:"
         ],
         "lists": [
           [
-            "Your name",
-            "Your email address",
-            "Your company name",
-            "Your country"
+            "Menyediakan kandungan pengetahuan dalam bentuk video, PDF dan bahan lain berkaitan produk Happy Pet",
+            "Menawarkan kandungan dalam pelbagai bahasa",
+            "Membolehkan pengguna berinteraksi dengan chatbot berkuasa AI melalui teks dan suara untuk pertanyaan umum, panduan dan cadangan berkaitan produk"
           ],
           [
-            "Keeping your account credentials confidential",
-            "All activity that occurs under your account",
-            "Notifying us immediately if you suspect unauthorized access"
+            "Platform tidak menyediakan cadangan peribadi yang disesuaikan untuk haiwan peliharaan atau keadaan individu",
+            "Platform tidak menjual produk, memproses pembayaran atau menyediakan perkhidmatan penghantaran"
           ]
         ]
       },
       {
-        "title": "3. Permitted Use",
+        "title": "2. Kelayakan",
         "paragraphs": [
-          "The Hub is intended for professional partners who work with Happy Dog and Happy Cat brands, including:",
-          "You may use the Hub to:",
-          "You may not:"
+          "Anda mestilah berumur sekurang-kurangnya 18 tahun atau mempunyai persetujuan ibu bapa/penjaga untuk menggunakan Platform ini. Dengan menggunakan Platform, anda menyatakan bahawa anda memenuhi keperluan ini.",
+          "Platform tidak mengesahkan persetujuan ibu bapa secara aktif dan bergantung kepada representasi yang dibuat oleh pengguna."
+        ]
+      },
+      {
+        "title": "3. Penggunaan Kandungan",
+        "paragraphs": [
+          "Semua kandungan yang tersedia di Platform, termasuk tetapi tidak terhad kepada video, PDF, teks, audio, grafik dan terjemahan, disediakan untuk tujuan maklumat dan pendidikan sahaja.",
+          "Anda bersetuju bahawa:"
         ],
         "lists": [
           [
-            "Distributors and importers",
-            "Pet shops and retail partners",
-            "Veterinary clinics and veterinary staff",
-            "Breeders"
-          ],
-          [
-            "Access training videos and educational content",
-            "Download product fact sheets and marketing materials",
-            "Learn about our nutrition concepts and product ranges"
-          ],
-          [
-            "Share your account credentials with unauthorized third parties",
-            "Use the Hub for commercial purposes unrelated to Happy Dog and Happy Cat",
-            "Copy, redistribute, or modify our content without permission",
-            "Use automated tools (bots, scrapers) to access the Hub",
-            "Attempt to circumvent security measures or access restricted areas"
+            "Kandungan tidak boleh disalin, dihasilkan semula, diedarkan, diubah suai atau digunakan semula untuk tujuan komersial tanpa kebenaran bertulis terlebih dahulu",
+            "Ketepatan kandungan mungkin berbeza mengikut bahasa, dan versi terjemahan disediakan untuk kemudahan sahaja",
+            "Penggunaan tanpa kebenaran boleh mengakibatkan tindakan undang-undang"
           ]
         ]
       },
       {
-        "title": "4. Intellectual Property Rights",
+        "title": "4. Penggunaan Chatbot AI",
         "paragraphs": [
-          "All content on the Hub, including:",
-          "is owned by Happy Pet Investment Holding GmbH or its licensors and is protected by copyright and trademark laws.",
-          "You are granted a limited, non-exclusive, non-transferable license to access and use the content solely for professional purposes related to Happy Dog and Happy Cat brands.",
-          "Any unauthorized use, reproduction, or distribution may result in legal action."
+          "Platform termasuk chatbot berkuasa AI yang membolehkan pengguna berinteraksi melalui sembang teks dan suara.",
+          "Dengan menggunakan chatbot, anda mengakui dan bersetuju bahawa:"
         ],
         "lists": [
           [
-            "Videos and images",
-            "Product information and fact sheets",
-            "Brand logos and pack shots",
-            "Text, graphics, and software"
+            "Respons adalah automatik dan dijana oleh AI",
+            "Maklumat yang diberikan adalah bersifat umum dan bertujuan untuk panduan sahaja",
+            "Chatbot tidak memberikan nasihat profesional, perubatan, veterinar, undang-undang atau kewangan",
+            "Sebarang cadangan produk adalah bersifat maklumat dan tidak membentuk pengesahan atau jaminan",
+            "Kami tidak menjamin bahawa respons chatbot adalah tepat, lengkap, terkini atau bebas daripada ralat",
+            "Dengan menggunakan ciri sembang berasaskan suara, anda secara nyata bersetuju dengan pengumpulan, pemprosesan dan penyimpanan sementara input suara anda semata-mata untuk tujuan menjana respons AI",
+            "Anda harus sentiasa berunding dengan profesional yang berkelayakan sebelum membuat keputusan berdasarkan respons chatbot"
           ]
         ]
       },
       {
-        "title": "5. Privacy & Data Protection",
+        "title": "5. Tiada Perkhidmatan Pembelian atau Transaksi",
         "paragraphs": [
-          "We are committed to protecting your personal data in accordance with applicable data protection laws, including GDPR.",
-          "We collect and process:",
-          "For complete information about how we collect, use, and protect your data, please see our Privacy Policy section below."
+          "Platform tidak memudahkan penyenaraian produk, pembelian, pembayaran, langganan atau bayaran balik. Ia tidak menguruskan penghantaran, penyampaian atau pemenuhan pesanan. Sebarang rujukan kepada produk adalah semata-mata untuk tujuan maklumat dan pendidikan."
+        ]
+      },
+      {
+        "title": "6. Tanggungjawab Pengguna",
+        "paragraphs": [
+          "Anda bersetuju untuk tidak:"
         ],
         "lists": [
           [
-            "Personal information (name, email, company, country)",
-            "Usage data (videos watched, materials downloaded)",
-            "Technical data (IP address, browser type, device information)"
+            "Menyalahgunakan Platform atau mengganggu operasi normalnya",
+            "Memuat naik, menghantar atau cuba memperkenalkan perisian berniat jahat",
+            "Menggunakan chatbot atau kandungan untuk tujuan yang menyalahi undang-undang, mengelirukan atau berbahaya",
+            "Cuba untuk kejuruteraan terbalik atau memanipulasi fungsi AI",
+            "Cuba untuk mengikis, menuai atau mengumpul data dari Platform tanpa kebenaran"
+          ]
+        ],
+        "paragraphs": [
+          "Kami berhak untuk menyekat atau menamatkan akses untuk pelanggaran Terma ini."
+        ]
+      },
+      {
+        "title": "7. Hak Harta Intelek",
+        "paragraphs": [
+          "Semua hak harta intelek dalam Platform dan kandungannya, termasuk tanda dagangan, logo, model AI dan bahan proprietari, adalah milik Happy Pet atau pemberi lesennya.",
+          "Tiada hak diberikan kepada pengguna kecuali hak terhad untuk mengakses dan melihat kandungan untuk kegunaan peribadi dan bukan komersial.",
+          "Sebarang maklum balas atau cadangan yang diberikan oleh pengguna boleh digunakan oleh Happy Pet tanpa obligasi atau pampasan."
+        ]
+      },
+      {
+        "title": "8. Teknologi Pihak Ketiga",
+        "paragraphs": [
+          "Platform mungkin bergantung pada alat pihak ketiga, perkhidmatan AI atau penyedia hosting. Kami tidak bertanggungjawab terhadap gangguan perkhidmatan yang disebabkan oleh pihak ketiga atau ketepatan atau ketersediaan teknologi pihak ketiga."
+        ]
+      },
+      {
+        "title": "9. Penafian Waranti",
+        "paragraphs": [
+          "Platform dan semua kandungan disediakan atas dasar \"seadanya\" dan \"seperti yang tersedia\".",
+          "Kami tidak membuat sebarang waranti atau jaminan berkenaan:"
+        ],
+        "lists": [
+          [
+            "Ketepatan, kelengkapan atau kebolehpercayaan kandungan",
+            "Ketersediaan atau akses tanpa gangguan",
+            "Kesesuaian maklumat untuk tujuan tertentu"
           ]
         ]
       },
       {
-        "title": "6. Disclaimer of Warranties",
+        "title": "10. Had Liabiliti",
         "paragraphs": [
-          "The Hub and all content are provided \"as is\" without warranties of any kind, either express or implied.",
-          "We do not guarantee:",
-          "The information provided is for educational purposes only and does not constitute veterinary advice. Always consult a qualified veterinarian for specific animal health concerns."
+          "Setakat maksimum yang dibenarkan oleh undang-undang, Happy Pet tidak akan bertanggungjawab untuk:"
         ],
         "lists": [
           [
-            "Continuous, uninterrupted access to the Hub",
-            "That the content is error-free or complete",
-            "That the Hub will meet your specific requirements",
-            "That defects will be corrected"
+            "Sebarang kerosakan langsung, tidak langsung, sampingan atau berbangkit",
+            "Keputusan yang dibuat berdasarkan kandungan atau respons chatbot",
+            "Kehilangan data, perniagaan atau reputasi yang timbul daripada penggunaan Platform"
           ]
-        ]
-      },
-      {
-        "title": "7. Limitation of Liability",
-        "paragraphs": [
-          "To the maximum extent permitted by law, Happy Pet Investment Holding GmbH shall not be liable for:",
-          "Our total liability to you for all claims arising from your use of the Hub shall not exceed the amount you paid to access the Hub (if any)."
         ],
-        "lists": [
-          [
-            "Any indirect, incidental, or consequential damages",
-            "Loss of profits, data, or business opportunities",
-            "Damages arising from unauthorized access to your account",
-            "Issues caused by third-party services or internet connectivity"
-          ]
+        "paragraphs": [
+          "Penggunaan Platform adalah sepenuhnya atas risiko anda sendiri."
         ]
       },
       {
-        "title": "8. Changes to Terms",
+        "title": "11. Privasi dan Penggunaan Data",
         "paragraphs": [
-          "We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting to the Hub.",
-          "Your continued use of the Hub after changes are posted constitutes your acceptance of the modified terms.",
-          "We recommend reviewing these terms periodically."
+          "Penggunaan anda terhadap Platform adalah tertakluk kepada Dasar Privasi kami, yang menerangkan bagaimana kami mengumpul, menyimpan dan memproses data peribadi, termasuk interaksi suara dan teks dengan chatbot."
         ]
       },
       {
-        "title": "9. Termination",
+        "title": "12. Pengubahsuaian Platform atau Terma",
         "paragraphs": [
-          "We may suspend or terminate your access to the Hub at any time if:",
-          "You may delete your account at any time by contacting us at info@happypet.biz.",
-          "Upon termination, you must cease all use of the Hub and delete any downloaded materials."
-        ],
-        "lists": [
-          [
-            "You violate these terms",
-            "You provide false or misleading information",
-            "We discontinue the Hub or your region",
-            "We believe your account poses a security risk"
-          ]
+          "Kami berhak untuk mengubah suai, menggantung atau menghentikan mana-mana bahagian Platform dan mengemaskini Terma ini pada bila-bila masa. Penggunaan berterusan Platform selepas kemas kini membentuk penerimaan Terma yang disemak."
         ]
       },
       {
-        "title": "10. Privacy Policy",
+        "title": "Dasar Privasi",
         "paragraphs": [
-          "This Privacy Policy explains how Happy Pet Investment Holding GmbH collects, uses, and protects your personal data when you use the Happy Dog & Happy Cat Product Knowledge Hub.",
-          "10.1. Data Controller",
-          "Happy Pet Investment Holding GmbH, Rechberghausen, Germany is the data controller responsible for your personal data.",
-          "10.2. Data We Collect:",
-          "10.3. How We Use Your Data:",
-          "10.4. Legal Basis for Processing:",
-          "10.5. Data Retention:",
-          "10.6. Your Rights (GDPR):",
-          "10.7. Data Security:",
-          "10.8. Third-Party Services:",
-          "10.9. International Data Transfers:",
-          "10.10. Changes to This Privacy Policy:",
-          "We may update this Privacy Policy from time to time. Changes will be posted on the Hub with the updated date."
-        ],
-        "lists": [
-          [
-            "Personal Information: Name, email address, company, country",
-            "Usage Data: Videos watched, materials downloaded, time spent on pages",
-            "Technical Data: IP address, browser type, device information, cookies"
-          ],
-          [
-            "To create and manage your account",
-            "To provide access to content and downloads",
-            "To improve and personalize your experience",
-            "To analyze usage patterns and improve content",
-            "To communicate with you about updates or support"
-          ],
-          [
-            "Contract Performance: To provide the Hub services",
-            "Legitimate Interests: To improve our services and understand user needs",
-            "Legal Obligation: To comply with applicable laws",
-            "Consent: Where required for specific processing activities"
-          ],
-          [
-            "We retain your data as long as your account is active",
-            "After account deletion, we may retain certain data for legal or business purposes",
-            "You can request deletion of your data at any time"
-          ],
-          [
-            "Access: Request a copy of your personal data",
-            "Rectification: Correct inaccurate data",
-            "Erasure: Request deletion of your data",
-            "Restriction: Limit how we use your data",
-            "Portability: Receive your data in a structured format",
-            "Object: Object to processing based on legitimate interests",
-            "Withdraw Consent: Withdraw consent for data processing"
-          ],
-          [
-            "We implement technical and organizational measures to protect your data",
-            "We use encryption, secure servers, and access controls",
-            "No system is completely secure; we cannot guarantee absolute security"
-          ],
-          [
-            "We may use third-party services for hosting, analytics, and email",
-            "These providers are contractually bound to protect your data",
-            "We do not sell your personal data to third parties"
-          ],
-          [
-            "Your data may be transferred to and stored in countries outside the EEA",
-            "We ensure adequate protection through standard contractual clauses or other mechanisms"
-          ]
+          "Kami berbesar hati bahawa anda menggunakan perkhidmatan kami dan melawat laman web kami. Melindungi data peribadi dan privasi anda adalah keutamaan bagi syarikat kami. Anda boleh menggunakan laman web kami dalam kebanyakan kes tanpa memberikan maklumat peribadi. Walau bagaimanapun, di mana perkhidmatan tertentu memerlukan data peribadi, data tersebut akan diproses hanya mengikut undang-undang perlindungan data yang terpakai, termasuk Peraturan Perlindungan Data Am (GDPR) dan peraturan perlindungan data nasional yang berkaitan."
         ]
       },
       {
-        "title": "11. Contact Information",
+        "title": "Identiti Pengawal Data",
         "paragraphs": [
-          "For questions about these Terms & Policies or Privacy Policy, please contact:",
+          "Untuk tujuan undang-undang perlindungan data (termasuk GDPR), pengawal data yang bertanggungjawab untuk memproses data peribadi anda di laman web ini ialah:",
+          "Happy Pet",
           "Email: info@happypet.biz",
-          "Address: Happy Pet Investment Holding GmbH, Rechberghausen, Germany",
-          "For data protection inquiries, you may also contact our Data Protection Officer at the above address."
+          "Laman Web: https://happypet.24livehost.com/"
+        ]
+      },
+      {
+        "title": "Definisi Istilah Utama",
+        "paragraphs": [
+          "Untuk membantu anda memahami maklumat privasi ini dengan jelas, kami menggunakan definisi berikut:"
+        ],
+        "lists": [
+          [
+            "Data Peribadi – Sebarang maklumat yang berkaitan dengan orang semula jadi yang dikenal pasti atau boleh dikenal pasti",
+            "Subjek Data – Orang semula jadi yang boleh dikenal pasti yang datanya diproses",
+            "Pemprosesan – Sebarang operasi yang dilakukan ke atas data peribadi, seperti pengumpulan, penyimpanan, penggunaan atau pendedahan",
+            "Persetujuan – Petunjuk kehendak subjek data yang diberikan dengan bebas, khusus, termaklum dan tidak berbelah bahagi di mana mereka bersetuju kepada pemprosesan data"
+          ]
+        ]
+      },
+      {
+        "title": "Data Peribadi Yang Mungkin Kami Kumpulkan",
+        "paragraphs": [
+          "Kami mungkin mengumpul kategori umum maklumat peribadi berikut:"
+        ],
+        "lists": [
+          [
+            "Butiran hubungan (contohnya, nama, alamat e-mel, nombor telefon) apabila diberikan secara sukarela melalui borang atau pendaftaran",
+            "Data teknikal (contohnya, alamat IP, jenis pelayar, maklumat peranti, halaman yang dilawati) dikumpul secara automatik melalui fail log pelayan",
+            "Kandungan yang dijana pengguna, seperti komen blog, jika berkenaan"
+          ]
+        ]
+      },
+      {
+        "title": "Kuki, Penyimpanan Tempatan dan Teknologi Seumpamanya",
+        "paragraphs": [
+          "Kami menggunakan kuki, penyimpanan tempatan dan teknologi seumpamanya untuk menjadikan laman web kami lebih cekap dan mesra pengguna. Kuki adalah fail teks kecil yang disimpan di peranti anda untuk mengenali pelayar anda dan membolehkan ciri seperti pengurusan sesi dan penyimpanan keutamaan.",
+          "Anda boleh melumpuhkan kuki melalui tetapan pelayar anda, tetapi beberapa fungsi laman web mungkin terjejas."
+        ]
+      },
+      {
+        "title": "Bagaimana Data Peribadi Digunakan",
+        "paragraphs": [
+          "Kami menggunakan maklumat peribadi:"
+        ],
+        "lists": [
+          [
+            "Untuk menyediakan, menyesuaikan dan mentadbir perkhidmatan kami",
+            "Untuk menjawab pertanyaan, permintaan atau penyerahan perkhidmatan anda",
+            "Untuk mencegah penyalahgunaan perkhidmatan kami dan melindungi sistem",
+            "Untuk mematuhi kewajipan undang-undang atau peraturan"
+          ]
+        ]
+      },
+      {
+        "title": "Asas Undang-undang untuk Pemprosesan",
+        "paragraphs": [
+          "Di bawah GDPR, kami memproses data peribadi hanya apabila:"
+        ],
+        "lists": [
+          [
+            "Anda telah memberikan persetujuan",
+            "Pemprosesan adalah perlu untuk pelaksanaan kontrak",
+            "Terdapat kewajipan undang-undang",
+            "Ia adalah perlu untuk kepentingan sah kami (contohnya, keselamatan sistem), dengan syarat hak anda tidak mengatasi kepentingan tersebut"
+          ]
+        ]
+      },
+      {
+        "title": "Pengekalan Data",
+        "paragraphs": [
+          "Data peribadi hanya disimpan selama yang perlu untuk memenuhi tujuan ia dikumpulkan, atau seperti yang dikehendaki oleh undang-undang."
+        ]
+      },
+      {
+        "title": "Perkongsian Data Peribadi Anda",
+        "paragraphs": [
+          "Kami tidak menjual data peribadi anda. Kami mungkin berkongsi data dengan:"
+        ],
+        "lists": [
+          [
+            "Penyedia perkhidmatan (contohnya, rakan kongsi hosting, pemproses pembayaran) yang memproses data bagi pihak kami di bawah kontrak",
+            "Penguatkuasaan undang-undang atau pihak berkuasa di mana dikehendaki oleh undang-undang"
+          ]
+        ]
+      },
+      {
+        "title": "Pemindahan Antarabangsa",
+        "paragraphs": [
+          "Jika maklumat anda dipindahkan ke luar negara atau rantau anda (contohnya, ke negara tanpa keputusan \"kecukupan\"), kami melaksanakan perlindungan yang sesuai seperti yang dikehendaki di bawah undang-undang yang terpakai."
+        ]
+      },
+      {
+        "title": "Hak Anda sebagai Subjek Data",
+        "paragraphs": [
+          "Anda mempunyai hak berikut berkaitan dengan data peribadi anda:"
+        ],
+        "lists": [
+          [
+            "Mengesahkan sama ada data mengenai anda diproses",
+            "Mengakses data peribadi anda",
+            "Membetulkan data yang tidak tepat",
+            "Meminta pemadaman data (\"hak untuk dilupakan\")",
+            "Menyekat pemprosesan di bawah syarat tertentu",
+            "Membantah pemprosesan (termasuk profil)",
+            "Meminta kemudahalihan data",
+            "Menarik balik persetujuan pada bila-bila masa"
+          ]
+        ],
+        "paragraphs": [
+          "Untuk melaksanakan mana-mana hak ini, anda boleh menghubungi pengawal data menggunakan butiran hubungan yang diberikan di atas."
+        ]
+      },
+      {
+        "title": "Hubungan dan Aduan",
+        "paragraphs": [
+          "Jika anda mempunyai pertanyaan tentang amalan privasi kami atau ingin melaksanakan hak perlindungan data anda, sila hubungi kami di info@happypet.biz.",
+          "Jika anda percaya hak anda di bawah undang-undang perlindungan data yang terpakai telah dilanggar, anda boleh memfailkan aduan dengan pihak berkuasa penyeliaan yang berkaitan."
+        ]
+      },
+      {
+        "title": "Perubahan kepada Maklumat Privasi Ini",
+        "paragraphs": [
+          "Kami mungkin mengemaskini kandungan privasi ini dari semasa ke semasa. Sebarang perubahan akan diterbitkan di sini dengan \"Tarikh Berkuat Kuasa\" yang dikemas kini."
+        ]
+      },
+      {
+        "title": "Dasar Penggunaan & Penafian AI",
+        "paragraphs": [
+          "Dasar Penggunaan & Penafian AI ini (\"Dasar\") menerangkan bagaimana ciri kecerdasan buatan (\"AI\") digunakan di platform Happy Pet dan menggariskan batasan penting mengenai respons yang dijana oleh AI.",
+          "Dengan mengakses atau menggunakan ciri AI di https://happypet.24livehost.com/ (\"Platform\"), anda mengakui dan bersetuju dengan syarat Dasar ini.",
+          "Pengguna mengakui bahawa pengiktirafan pertuturan mungkin salah mentafsir perkataan, nama atau konteks, terutamanya dalam pertuturan berbilang bahasa atau beraksen, yang mungkin menghasilkan respons yang tidak tepat atau tidak disengajakan."
+        ]
+      },
+      {
+        "title": "Gambaran Keseluruhan Ciri AI",
+        "paragraphs": [
+          "Happy Pet menyediakan chatbot berkuasa AI yang membolehkan pengguna:"
+        ],
+        "lists": [
+          [
+            "Berinteraksi melalui teks dan suara",
+            "Bertanya soalan berkaitan produk Happy Pet",
+            "Menerima maklumat umum, panduan dan cadangan produk",
+            "Mengakses sokongan dan penjelasan berbilang bahasa"
+          ]
+        ],
+        "paragraphs": [
+          "Chatbot AI direka untuk meningkatkan pengalaman pengguna dan akses pengetahuan. Ia tidak menggantikan kepakaran manusia atau nasihat profesional."
+        ]
+      },
+      {
+        "title": "Sifat Respons yang Dijana AI",
+        "paragraphs": [
+          "Anda mengakui dan memahami bahawa:"
+        ],
+        "lists": [
+          [
+            "Respons AI dijana secara automatik menggunakan sistem pembelajaran mesin",
+            "Respons adalah berdasarkan corak data yang tersedia dan mungkin tidak selalu tepat, lengkap, terkini atau terpakai untuk situasi khusus anda",
+            "Output yang dijana AI mungkin berbeza mengikut bahasa dan interaksi",
+            "Semua respons harus dianggap sebagai maklumat sahaja"
+          ]
+        ]
+      },
+      {
+        "title": "Tiada Nasihat Profesional",
+        "paragraphs": [
+          "Chatbot AI tidak memberikan:"
+        ],
+        "lists": [
+          [
+            "Nasihat veterinar atau perubatan",
+            "Perkhidmatan diagnostik",
+            "Panduan undang-undang, kewangan atau peraturan",
+            "Jaminan mengenai kesesuaian produk, hasil atau prestasi"
+          ]
+        ],
+        "paragraphs": [
+          "Anda tidak boleh bergantung pada respons AI sebagai pengganti perundingan dengan profesional yang berkelayakan."
+        ]
+      },
+      {
+        "title": "Penafian Panduan Produk",
+        "paragraphs": [
+          "Sebarang cadangan atau penjelasan berkaitan produk yang diberikan oleh AI:"
+        ],
+        "lists": [
+          [
+            "Adalah cadangan umum berdasarkan pertanyaan pengguna",
+            "Tidak membentuk pengesahan, waranti atau jaminan",
+            "Tidak seharusnya ditafsirkan sebagai nasihat peribadi atau profesional"
+          ]
+        ],
+        "paragraphs": [
+          "Keputusan akhir mengenai penggunaan produk kekal sepenuhnya tanggungjawab pengguna."
+        ]
+      },
+      {
+        "title": "Penafian Interaksi Suara",
+        "paragraphs": [
+          "Apabila menggunakan ciri AI berasaskan suara:"
+        ],
+        "lists": [
+          [
+            "Input suara mungkin diproses dan ditukar kepada teks untuk penjanaan respons",
+            "Ketepatan pengiktirafan pertuturan mungkin berbeza berdasarkan bahasa, aksen, bunyi latar belakang dan kualiti peranti",
+            "Salah tafsiran input suara mungkin menghasilkan respons yang tidak tepat",
+            "Rakaman suara tidak disimpan secara kekal melainkan diperlukan untuk peningkatan kualiti, keselamatan atau pematuhan undang-undang",
+            "Apabila disimpan, data suara disimpan untuk tempoh terhad dan tertakluk kepada kawalan akses yang ketat",
+            "Data suara tidak digunakan untuk pengenalan biometrik, pengesahan atau tujuan profil",
+            "Kami tidak menggunakan data suara untuk mengenal pasti individu atau untuk mencipta profil suara"
+          ]
+        ],
+        "paragraphs": [
+          "Pengguna dinasihatkan untuk mengesahkan maklumat kritikal secara bebas."
+        ]
+      },
+      {
+        "title": "Had dan Ketersediaan",
+        "paragraphs": [
+          "Happy Pet tidak menjamin bahawa:"
+        ],
+        "lists": [
+          [
+            "Ciri AI akan tersedia pada setiap masa",
+            "Respons akan bebas daripada ralat atau gangguan",
+            "AI akan memahami semua pertanyaan dengan tepat"
+          ]
+        ],
+        "paragraphs": [
+          "Fungsi AI mungkin diubah suai, digantung atau dihentikan pada bila-bila masa tanpa notis."
+        ]
+      },
+      {
+        "title": "Penggunaan Bertanggungjawab",
+        "paragraphs": [
+          "Anda bersetuju untuk tidak:"
+        ],
+        "lists": [
+          [
+            "Menggunakan ciri AI untuk tujuan yang menyalahi undang-undang, kasar, mengelirukan atau berbahaya",
+            "Cuba untuk memanipulasi, menyiasat atau kejuruteraan terbalik sistem AI",
+            "Menyerahkan maklumat peribadi, perubatan, kewangan atau sulit yang sensitif melalui interaksi AI"
+          ]
+        ],
+        "paragraphs": [
+          "Penyalahgunaan ciri AI boleh mengakibatkan akses yang disekat atau ditamatkan."
+        ]
+      },
+      {
+        "title": "Teknologi AI Pihak Ketiga",
+        "paragraphs": [
+          "Chatbot AI dikuasakan oleh penyedia teknologi AI pihak ketiga. Walaupun Happy Pet mengambil langkah yang munasabah untuk memastikan penggunaan yang bertanggungjawab, kami tidak mengawal model AI yang mendasari dan tidak bertanggungjawab terhadap batasan atau ketidaktepatan yang wujud dalam kandungan yang dijana AI."
+        ]
+      },
+      {
+        "title": "Had Liabiliti AI",
+        "paragraphs": [
+          "Setakat maksimum yang dibenarkan oleh undang-undang, Happy Pet tidak akan bertanggungjawab untuk:"
+        ],
+        "lists": [
+          [
+            "Sebarang pergantungan yang diletakkan pada respons yang dijana AI",
+            "Ralat, peninggalan atau ketidaktepatan dalam output AI",
+            "Keputusan, tindakan atau hasil yang terhasil daripada interaksi AI",
+            "Sebarang kerosakan langsung, tidak langsung, sampingan atau berbangkit yang timbul daripada penggunaan AI"
+          ]
+        ],
+        "paragraphs": [
+          "Penggunaan ciri AI adalah sepenuhnya atas risiko anda sendiri."
+        ]
+      },
+      {
+        "title": "Maklumat Hubungan",
+        "paragraphs": [
+          "Untuk pertanyaan atau kebimbangan mengenai Terma, Dasar Privasi atau penggunaan AI ini, sila hubungi:",
+          "Nama Perniagaan: Happy Pet",
+          "Laman Web: https://happypet.24livehost.com/",
+          "E-mel: info@happypet.biz"
         ]
       }
     ]

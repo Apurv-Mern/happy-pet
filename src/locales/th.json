@@ -671,224 +671,441 @@
     "id": "อินโดนีเซีย"
   },
   "termsAndPoliciesPage": {
-    "title": "Terms & Policies",
+    "title": "ข้อกำหนดและนโยบาย",
+    "lastUpdated": "มกราคม 2026",
     "sections": [
       {
-        "title": "1. Introduction & Scope",
+        "title": "ข้อกำหนดและเงื่อนไข",
         "paragraphs": [
-          "These terms and conditions govern your use of the Happy Dog & Happy Cat Product Knowledge Hub (\"the Hub\"), operated by Happy Pet Investment Holding GmbH, Germany.",
-          "By creating an account and using the Hub, you agree to comply with these terms. If you do not agree, please do not use the Hub."
+          "ยินดีต้อนรับสู่ Happy Pet (\"บริษัท\", \"เรา\", \"พวกเรา\" หรือ \"ของเรา\") ข้อกำหนดและเงื่อนไขเหล่านี้ (\"ข้อกำหนด\") ควบคุมการเข้าถึงและการใช้งานเว็บไซต์ https://happypet.24livehost.com/ (\"เว็บไซต์\" หรือ \"แพลตฟอร์ม\") รวมถึงเนื้อหา คุณสมบัติ และบริการทั้งหมดที่มีให้ผ่านแพลตฟอร์ม",
+          "ด้วยการเข้าถึงหรือใช้แพลตฟอร์มนี้ คุณตกลงที่จะผูกพันตามข้อกำหนดเหล่านี้ หากคุณไม่เห็นด้วย คุณต้องหยุดการใช้แพลตฟอร์มทันที"
         ]
       },
       {
-        "title": "2. Account Registration & Eligibility",
+        "title": "1. วัตถุประสงค์ของแพลตฟอร์ม",
         "paragraphs": [
-          "To access the Hub, you must register an account by providing:",
-          "You are responsible for:",
-          "We reserve the right to verify accounts and may suspend or delete accounts that provide false information or violate these terms."
+          "Happy Pet เป็นแพลตฟอร์มข้อมูลและการศึกษาที่ออกแบบมาเพื่อ:"
         ],
         "lists": [
           [
-            "Your name",
-            "Your email address",
-            "Your company name",
-            "Your country"
+            "จัดหาเนื้อหาความรู้ในรูปแบบวิดีโอ PDF และเอกสารอื่นๆ ที่เกี่ยวข้องกับผลิตภัณฑ์ Happy Pet",
+            "นำเสนอเนื้อหาหลายภาษา",
+            "ให้ผู้ใช้โต้ตอบกับแชทบอท AI ผ่านข้อความและเสียงสำหรับคำถามทั่วไป คำแนะนำ และข้อเสนอแนะเกี่ยวกับผลิตภัณฑ์"
           ],
           [
-            "Keeping your account credentials confidential",
-            "All activity that occurs under your account",
-            "Notifying us immediately if you suspect unauthorized access"
+            "แพลตฟอร์มไม่ให้คำแนะนำส่วนบุคคลที่ปรับแต่งตามสัตว์เลี้ยงแต่ละตัวหรือสถานการณ์",
+            "แพลตฟอร์มไม่ขายผลิตภัณฑ์ ไม่ประมวลผลการชำระเงิน หรือให้บริการจัดส่ง"
           ]
         ]
       },
       {
-        "title": "3. Permitted Use",
+        "title": "2. คุณสมบัติผู้ใช้งาน",
         "paragraphs": [
-          "The Hub is intended for professional partners who work with Happy Dog and Happy Cat brands, including:",
-          "You may use the Hub to:",
-          "You may not:"
+          "คุณต้องมีอายุอย่างน้อย 18 ปีหรือได้รับความยินยอมจากผู้ปกครองเพื่อใช้แพลตฟอร์มนี้ ด้วยการใช้แพลตฟอร์ม คุณรับรองว่าคุณเป็นไปตามข้อกำหนดนี้",
+          "แพลตฟอร์มไม่ได้ตรวจสอบความยินยอมจากผู้ปกครองอย่างจริงจังและอาศัยการรับรองที่ทำโดยผู้ใช้"
+        ]
+      },
+      {
+        "title": "3. การใช้เนื้อหา",
+        "paragraphs": [
+          "เนื้อหาทั้งหมดที่มีอยู่บนแพลตฟอร์ม รวมถึงแต่ไม่จำกัดเพียงวิดีโอ PDF ข้อความ เสียง กราฟิก และคำแปล มีไว้เพื่อวัตถุประสงค์ด้านข้อมูลและการศึกษาเท่านั้น",
+          "คุณตกลงว่า:"
         ],
         "lists": [
           [
-            "Distributors and importers",
-            "Pet shops and retail partners",
-            "Veterinary clinics and veterinary staff",
-            "Breeders"
-          ],
-          [
-            "Access training videos and educational content",
-            "Download product fact sheets and marketing materials",
-            "Learn about our nutrition concepts and product ranges"
-          ],
-          [
-            "Share your account credentials with unauthorized third parties",
-            "Use the Hub for commercial purposes unrelated to Happy Dog and Happy Cat",
-            "Copy, redistribute, or modify our content without permission",
-            "Use automated tools (bots, scrapers) to access the Hub",
-            "Attempt to circumvent security measures or access restricted areas"
+            "เนื้อหาอาจไม่ถูกคัดลอก ทำซ้ำ เผยแพร่ ดัดแปลง หรือนำกลับมาใช้ใหม่เพื่อวัตถุประสงค์ทางการค้าโดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษรล่วงหน้า",
+            "ความถูกต้องของเนื้อหาอาจแตกต่างกันตามภาษา และเวอร์ชันที่แปลมีไว้เพื่อความสะดวกเท่านั้น",
+            "การใช้งานโดยไม่ได้รับอนุญาตอาจส่งผลให้เกิดการดำเนินคดีตามกฎหมาย"
           ]
         ]
       },
       {
-        "title": "4. Intellectual Property Rights",
+        "title": "4. การใช้งานแชทบอท AI",
         "paragraphs": [
-          "All content on the Hub, including:",
-          "is owned by Happy Pet Investment Holding GmbH or its licensors and is protected by copyright and trademark laws.",
-          "You are granted a limited, non-exclusive, non-transferable license to access and use the content solely for professional purposes related to Happy Dog and Happy Cat brands.",
-          "Any unauthorized use, reproduction, or distribution may result in legal action."
+          "แพลตฟอร์มรวมแชทบอทที่ขับเคลื่อนด้วย AI ที่ให้ผู้ใช้โต้ตอบผ่านการแชทด้วยข้อความและเสียง",
+          "ด้วยการใช้แชทบอท คุณรับทราบและตกลงว่า:"
         ],
         "lists": [
           [
-            "Videos and images",
-            "Product information and fact sheets",
-            "Brand logos and pack shots",
-            "Text, graphics, and software"
+            "คำตอบเป็นแบบอัตโนมัติและสร้างโดย AI",
+            "ข้อมูลที่ให้มีลักษณะทั่วไปและมีไว้เพื่อเป็นแนวทางเท่านั้น",
+            "แชทบอทไม่ได้ให้คำแนะนำทางวิชาชีพ การแพทย์ สัตวแพทย์ กฎหมาย หรือการเงิน",
+            "ข้อเสนอแนะผลิตภัณฑ์ใดๆ เป็นข้อมูลและไม่ถือเป็นการรับรองหรือการรับประกัน",
+            "เราไม่รับประกันว่าคำตอบของแชทบอทจะถูกต้อง สมบูรณ์ ทันสมัย หรือปราศจากข้อผิดพลาด",
+            "ด้วยการใช้คุณสมบัติแชทด้วยเสียง คุณยินยอมอย่างชัดแจ้งต่อการรวบรวม ประมวลผล และจัดเก็บชั่วคราวของข้อมูลเสียงของคุณเพื่อวัตถุประสงค์ในการสร้างคำตอบ AI เท่านั้น",
+            "คุณควรปรึกษาผู้เชี่ยวชาญที่มีคุณสมบัติเสมอก่อนตัดสินใจตามคำตอบของแชทบอท"
           ]
         ]
       },
       {
-        "title": "5. Privacy & Data Protection",
+        "title": "5. ไม่มีบริการซื้อหรือทำธุรกรรม",
         "paragraphs": [
-          "We are committed to protecting your personal data in accordance with applicable data protection laws, including GDPR.",
-          "We collect and process:",
-          "For complete information about how we collect, use, and protect your data, please see our Privacy Policy section below."
+          "แพลตฟอร์มไม่อำนวยความสะดวกในการลงรายการผลิตภัณฑ์ การซื้อ การชำระเงิน การสมัครสมาชิก หรือการคืนเงิน ไม่จัดการการจัดส่ง การส่งมอบ หรือการปฏิบัติตามคำสั่งซื้อ การอ้างอิงผลิตภัณฑ์ใดๆ เป็นเพียงเพื่อวัตถุประสงค์ด้านข้อมูลและการศึกษาอย่างเคร่งครัด"
+        ]
+      },
+      {
+        "title": "6. ความรับผิดชอบของผู้ใช้",
+        "paragraphs": [
+          "คุณตกลงที่จะไม่:"
         ],
         "lists": [
           [
-            "Personal information (name, email, company, country)",
-            "Usage data (videos watched, materials downloaded)",
-            "Technical data (IP address, browser type, device information)"
+            "ใช้แพลตฟอร์มในทางที่ผิดหรือรบกวนการทำงานปกติ",
+            "อัปโหลด ส่ง หรือพยายามนำซอฟต์แวร์ที่เป็นอันตรายเข้ามา",
+            "ใช้แชทบอทหรือเนื้อหาเพื่อวัตถุประสงค์ที่ผิดกฎหมาย ทำให้เข้าใจผิด หรือเป็นอันตราย",
+            "พยายามวิศวกรรมย้อนกลับหรือจัดการฟังก์ชัน AI",
+            "พยายามดึงข้อมูล เก็บเกี่ยว หรือรวบรวมข้อมูลจากแพลตฟอร์มโดยไม่ได้รับอนุญาต"
+          ]
+        ],
+        "paragraphs": [
+          "เราขอสงวนสิทธิ์ในการจำกัดหรือยกเลิกการเข้าถึงสำหรับการละเมิดข้อกำหนดเหล่านี้"
+        ]
+      },
+      {
+        "title": "7. สิทธิในทรัพย์สินทางปัญญา",
+        "paragraphs": [
+          "สิทธิในทรัพย์สินทางปัญญาทั้งหมดในแพลตฟอร์มและเนื้อหา รวมถึงเครื่องหมายการค้า โลโก้ โมเดล AI และวัสดุที่เป็นกรรมสิทธิ์ เป็นของ Happy Pet หรือผู้ให้อนุญาต",
+          "ไม่มีสิทธิใดๆ ให้กับผู้ใช้ ยกเว้นสิทธิที่จำกัดในการเข้าถึงและดูเนื้อหาเพื่อการใช้งานส่วนบุคคลและไม่ใช่เชิงพาณิชย์",
+          "ข้อเสนอแนะหรือคำแนะนำใดๆ ที่ผู้ใช้ให้ไว้อาจถูกใช้โดย Happy Pet โดยไม่มีภาระผูกพันหรือค่าตอบแทน"
+        ]
+      },
+      {
+        "title": "8. เทคโนโลยีบุคคลที่สาม",
+        "paragraphs": [
+          "แพลตฟอร์มอาจพึ่งพาเครื่องมือบุคคลที่สาม บริการ AI หรือผู้ให้บริการโฮสติ้ง เราไม่รับผิดชอบต่อการหยุดชะงักของบริการที่เกิดจากบุคคลที่สามหรือความถูกต้องหรือความพร้อมใช้งานของเทคโนโลยีบุคคลที่สาม"
+        ]
+      },
+      {
+        "title": "9. การปฏิเสธการรับประกัน",
+        "paragraphs": [
+          "แพลตฟอร์มและเนื้อหาทั้งหมดจัดให้บนพื้นฐาน \"ตามสภาพที่เป็นอยู่\" และ \"ตามที่มีอยู่\"",
+          "เราไม่ให้การรับประกันหรือการค้ำประกันใดๆ เกี่ยวกับ:"
+        ],
+        "lists": [
+          [
+            "ความถูกต้อง ความสมบูรณ์ หรือความน่าเชื่อถือของเนื้อหา",
+            "ความพร้อมใช้งานหรือการเข้าถึงอย่างไม่หยุดชะงัก",
+            "ความเหมาะสมของข้อมูลสำหรับวัตถุประสงค์เฉพาะ"
           ]
         ]
       },
       {
-        "title": "6. Disclaimer of Warranties",
+        "title": "10. ข้อจำกัดความรับผิด",
         "paragraphs": [
-          "The Hub and all content are provided \"as is\" without warranties of any kind, either express or implied.",
-          "We do not guarantee:",
-          "The information provided is for educational purposes only and does not constitute veterinary advice. Always consult a qualified veterinarian for specific animal health concerns."
+          "ในขอบเขตสูงสุดที่กฎหมายอนุญาต Happy Pet จะไม่รับผิดชอบต่อ:"
         ],
         "lists": [
           [
-            "Continuous, uninterrupted access to the Hub",
-            "That the content is error-free or complete",
-            "That the Hub will meet your specific requirements",
-            "That defects will be corrected"
+            "ความเสียหายโดยตรง ทางอ้อม โดยบังเอิญ หรือที่ตามมาใดๆ",
+            "การตัดสินใจที่ทำขึ้นโดยอ้างอิงจากเนื้อหาหรือคำตอบของแชทบอท",
+            "การสูญเสียข้อมูล ธุรกิจ หรือชื่อเสียงที่เกิดจากการใช้แพลตฟอร์ม"
+          ]
+        ],
+        "paragraphs": [
+          "การใช้แพลตฟอร์มเป็นความเสี่ยงของคุณเองทั้งหมด"
+        ]
+      },
+      {
+        "title": "11. ความเป็นส่วนตัวและการใช้ข้อมูล",
+        "paragraphs": [
+          "การใช้แพลตฟอร์มของคุณอยู่ภายใต้นโยบายความเป็นส่วนตัวของเรา ซึ่งอธิบายว่าเรารวบรวม จัดเก็บ และประมวลผลข้อมูลส่วนบุคคลอย่างไร รวมถึงการโต้ตอบด้วยเสียงและข้อความกับแชทบอท"
+        ]
+      },
+      {
+        "title": "12. การแก้ไขแพลตฟอร์มหรือข้อกำหนด",
+        "paragraphs": [
+          "เราขอสงวนสิทธิ์ในการแก้ไข ระงับ หรือยกเลิกส่วนใดๆ ของแพลตฟอร์มและอัปเดตข้อกำหนดเหล่านี้ได้ตลอดเวลา การใช้แพลตฟอร์มอย่างต่อเนื่องหลังจากการอัปเดตถือเป็นการยอมรับข้อกำหนดที่แก้ไขแล้ว"
+        ]
+      },
+      {
+        "title": "นโยบายความเป็นส่วัตัว",
+        "paragraphs": [
+          "เรายินดีที่คุณใช้บริการของเราและเยี่ยมชมเว็บไซต์ของเรา การปกป้องข้อมูลส่วนบุคคลและความเป็นส่วนตัวของคุณเป็นความสำคัญอันดับแรกของบริษัทของเรา คุณสามารถใช้เว็บไซต์ของเราได้ในกรณีส่วนใหญ่โดยไม่ต้องให้ข้อมูลส่วนบุคคล อย่างไรก็ตาม หากบริการบางอย่างต้องการข้อมูลส่วนบุคคล ข้อมูลนั้นจะถูกประมวลผลตามกฎหมายคุ้มครองข้อมูลที่บังคับใช้เท่านั้น รวมถึงข้อบังคับการคุ้มครองข้อมูลทั่วไป (GDPR) และข้อบังคับการคุ้มครองข้อมูลระดับชาติอื่นๆ ที่เกี่ยวข้อง"
+        ]
+      },
+      {
+        "title": "ตัวตนของผู้ควบคุมข้อมูล",
+        "paragraphs": [
+          "เพื่อวัตถุประสงค์ของกฎหมายคุ้มครองข้อมูล (รวมถึง GDPR) ผู้ควบคุมข้อมูลที่รับผิดชอบการประมวลผลข้อมูลส่วนบุคคลของคุณบนเว็บไซต์นี้คือ:",
+          "Happy Pet",
+          "อีเมล: info@happypet.biz",
+          "เว็บไซต์: https://happypet.24livehost.com/"
+        ]
+      },
+      {
+        "title": "นิยามคำศัพท์สำคัญ",
+        "paragraphs": [
+          "เพื่อช่วยให้คุณเข้าใจข้อมูลความเป็นส่วนตัวนี้ได้อย่างชัดเจน เราใช้คำนิยามต่อไปนี้:"
+        ],
+        "lists": [
+          [
+            "ข้อมูลส่วนบุคคล – ข้อมูลใดๆ ที่เกี่ยวข้องกับบุคคลธรรมดาที่ถูกระบุตัวหรือสามารถระบุตัวได้",
+            "เจ้าของข้อมูล – บุคคลธรรมดาที่สามารถระบุตัวได้ซึ่งข้อมูลถูกประมวลผล",
+            "การประมวลผล – การดำเนินการใดๆ ที่ทำกับข้อมูลส่วนบุคคล เช่น การรวบรวม การจัดเก็บ การใช้งาน หรือการเปิดเผย",
+            "ความยินยอม – การแสดงความปรารถนาของเจ้าของข้อมูลอย่างเต็มใจ เฉพาะเจาะจง ที่ได้รับข้อมูล และไม่มีความกำกวมซึ่งพวกเขาตกลงยินยอมกับการประมวลผลข้อมูล"
           ]
         ]
       },
       {
-        "title": "7. Limitation of Liability",
+        "title": "ข้อมูลส่วนบุคคลใดที่เราอาจรวบรวม",
         "paragraphs": [
-          "To the maximum extent permitted by law, Happy Pet Investment Holding GmbH shall not be liable for:",
-          "Our total liability to you for all claims arising from your use of the Hub shall not exceed the amount you paid to access the Hub (if any)."
+          "เราอาจรวบรวมข้อมูลส่วนบุคคลหมวดทั่วไปต่อไปนี้:"
         ],
         "lists": [
           [
-            "Any indirect, incidental, or consequential damages",
-            "Loss of profits, data, or business opportunities",
-            "Damages arising from unauthorized access to your account",
-            "Issues caused by third-party services or internet connectivity"
+            "รายละเอียดการติดต่อ (เช่น ชื่อ ที่อยู่อีเมล หมายเลขโทรศัพท์) เมื่อให้ไว้โดยสมัครใจผ่านแบบฟอร์มหรือการลงทะเบียน",
+            "ข้อมูลทางเทคนิค (เช่น ที่อยู่ IP ชนิดเบราว์เซอร์ ข้อมูลอุปกรณ์ หน้าที่เข้าชม) รวบรวมโดยอัตโนมัติผ่านไฟล์บันทึกเซิร์ฟเวอร์",
+            "เนื้อหาที่ผู้ใช้สร้างขึ้น เช่น ความคิดเห็นบล็อก หากมี"
           ]
         ]
       },
       {
-        "title": "8. Changes to Terms",
+        "title": "คุกกี้ การจัดเก็บในเครื่อง และเทคโนโลยีที่คล้ายกัน",
         "paragraphs": [
-          "We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting to the Hub.",
-          "Your continued use of the Hub after changes are posted constitutes your acceptance of the modified terms.",
-          "We recommend reviewing these terms periodically."
+          "เราใช้คุกกี้ การจัดเก็บในเครื่อง และเทคโนโลยีที่คล้ายกันเพื่อทำให้เว็บไซต์ของเรามีประสิทธิภาพและใช้งานง่ายมากขึ้น คุกกี้เป็นไฟล์ข้อความขนาดเล็กที่จัดเก็บบนอุปกรณ์ของคุณเพื่อระบุเบราว์เซอร์ของคุณและเปิดใช้งานคุณสมบัติต่างๆ เช่น การจัดการเซสชันและการจัดเก็บค่าการตั้ง",
+          "คุณอาจปิดคุกกี้ผ่านการตั้งค่าเบราว์เซอร์ของคุณ แต่ฟังก์ชันบางอย่างของไซต์อาจได้รับผลกระทบ"
         ]
       },
       {
-        "title": "9. Termination",
+        "title": "วิธีการใช้ข้อมูลส่วนบุคคล",
         "paragraphs": [
-          "We may suspend or terminate your access to the Hub at any time if:",
-          "You may delete your account at any time by contacting us at info@happypet.biz.",
-          "Upon termination, you must cease all use of the Hub and delete any downloaded materials."
+          "เราใช้ข้อมูลส่วนบุคคลเพื่อ:"
         ],
         "lists": [
           [
-            "You violate these terms",
-            "You provide false or misleading information",
-            "We discontinue the Hub or your region",
-            "We believe your account poses a security risk"
+            "จัดหา ปรับแต่ง และบริหารจัดการบริการของเรา",
+            "ตอบสนองคำถาม คำขอ หรือการส่งบริการของคุณ",
+            "ป้องกันการใช้บริการของเราในทางที่ผิดและปกป้องระบบ",
+            "ปฏิบัติตามภาระผูกพันทางกฎหมายหรือการกำกับดูแล"
           ]
         ]
       },
       {
-        "title": "10. Privacy Policy",
+        "title": "พื้นฐานทางกฎหมายสำหรับการประมวลผล",
         "paragraphs": [
-          "This Privacy Policy explains how Happy Pet Investment Holding GmbH collects, uses, and protects your personal data when you use the Happy Dog & Happy Cat Product Knowledge Hub.",
-          "10.1. Data Controller",
-          "Happy Pet Investment Holding GmbH, Rechberghausen, Germany is the data controller responsible for your personal data.",
-          "10.2. Data We Collect:",
-          "10.3. How We Use Your Data:",
-          "10.4. Legal Basis for Processing:",
-          "10.5. Data Retention:",
-          "10.6. Your Rights (GDPR):",
-          "10.7. Data Security:",
-          "10.8. Third-Party Services:",
-          "10.9. International Data Transfers:",
-          "10.10. Changes to This Privacy Policy:",
-          "We may update this Privacy Policy from time to time. Changes will be posted on the Hub with the updated date."
+          "ภายใต้ GDPR เราประมวลผลข้อมูลส่วนบุคคลเฉพาะเมื่อ:"
         ],
         "lists": [
           [
-            "Personal Information: Name, email address, company, country",
-            "Usage Data: Videos watched, materials downloaded, time spent on pages",
-            "Technical Data: IP address, browser type, device information, cookies"
-          ],
-          [
-            "To create and manage your account",
-            "To provide access to content and downloads",
-            "To improve and personalize your experience",
-            "To analyze usage patterns and improve content",
-            "To communicate with you about updates or support"
-          ],
-          [
-            "Contract Performance: To provide the Hub services",
-            "Legitimate Interests: To improve our services and understand user needs",
-            "Legal Obligation: To comply with applicable laws",
-            "Consent: Where required for specific processing activities"
-          ],
-          [
-            "We retain your data as long as your account is active",
-            "After account deletion, we may retain certain data for legal or business purposes",
-            "You can request deletion of your data at any time"
-          ],
-          [
-            "Access: Request a copy of your personal data",
-            "Rectification: Correct inaccurate data",
-            "Erasure: Request deletion of your data",
-            "Restriction: Limit how we use your data",
-            "Portability: Receive your data in a structured format",
-            "Object: Object to processing based on legitimate interests",
-            "Withdraw Consent: Withdraw consent for data processing"
-          ],
-          [
-            "We implement technical and organizational measures to protect your data",
-            "We use encryption, secure servers, and access controls",
-            "No system is completely secure; we cannot guarantee absolute security"
-          ],
-          [
-            "We may use third-party services for hosting, analytics, and email",
-            "These providers are contractually bound to protect your data",
-            "We do not sell your personal data to third parties"
-          ],
-          [
-            "Your data may be transferred to and stored in countries outside the EEA",
-            "We ensure adequate protection through standard contractual clauses or other mechanisms"
+            "คุณได้ให้ความยินยอม",
+            "การประมวลผลจำเป็นสำหรับการปฏิบัติตามสัญญา",
+            "มีภาระผูกพันทางกฎหมาย",
+            "จำเป็นสำหรับผลประโยชน์อันชอบธรรมของเรา (เช่น ความปลอดภัยของระบบ) โดยมีเงื่อนไขว่าสิทธิของคุณจะไม่แทนที่ผลประโยชน์เหล่านั้น"
           ]
         ]
       },
       {
-        "title": "11. Contact Information",
+        "title": "การเก็บรักษาข้อมูล",
         "paragraphs": [
-          "For questions about these Terms & Policies or Privacy Policy, please contact:",
-          "Email: info@happypet.biz",
-          "Address: Happy Pet Investment Holding GmbH, Rechberghausen, Germany",
-          "For data protection inquiries, you may also contact our Data Protection Officer at the above address."
+          "ข้อมูลส่วนบุคคลจะถูกเก็บรักษาไว้เพียงเท่าที่จำเป็นเพื่อบรรลุวัตถุประสงค์ที่รวบรวมไว้ หรือตามที่กฎหมายกำหนด"
+        ]
+      },
+      {
+        "title": "การแบ่งปันข้อมูลส่วนบุคคลของคุณ",
+        "paragraphs": [
+          "เราไม่ขายข้อมูลส่วนบุคคลของคุณ เราอาจแบ่งปันข้อมูลกับ:"
+        ],
+        "lists": [
+          [
+            "ผู้ให้บริการ (เช่น พันธมิตรโฮสติ้ง ผู้ประมวลผลการชำระเงิน) ที่ประมวลผลข้อมูลในนามของเราภายใต้สัญญา",
+            "หน่วยงานบังคับใช้กฎหมายหรือหน่วยงานที่กฎหมายกำหนด"
+          ]
+        ]
+      },
+      {
+        "title": "การโอนข้อมูลระหว่างประเทศ",
+        "paragraphs": [
+          "หากข้อมูลของคุณถูกโอนไปยังนอกประเทศหรือภูมิภาคของคุณ (เช่น ไปยังประเทศที่ไม่มีคำตัดสิน\"\u0e04วามเพียงพอ\"\") เราจะดำเนินการมาตรการคุ้มครองที่เหมาะสมตามที่กฎหมายที่บังคับใช้กำหนด"
+        ]
+      },
+      {
+        "title": "สิทธิของคุณในฐานะเจ้าของข้อมูล",
+        "paragraphs": [
+          "คุณมีสิทธิต่อไปนี้ที่เกี่ยวข้องกับข้อมูลส่วนบุคคลของคุณ:"
+        ],
+        "lists": [
+          [
+            "ยืนยันว่าข้อมูลที่เกี่ยวข้องกับคุณถูกประมวลผลหรือไม่",
+            "เข้าถึงข้อมูลส่วนบุคคลของคุณ",
+            "แก้ไขข้อมูลที่ไม่ถูกต้อง",
+            "ขอลบข้อมูล (\"สิทธิในการถูกลืม\")",
+            "จำกัดการประมวลผลภายใต้เงื่อนไขบางประการ",
+            "คัดค้านการประมวลผล (รวมถึงการวิเคราะห์โปรไฟล์)",
+            "ขอความสามารถในการโอนข้อมูล",
+            "ถอนความยินยอมได้ทุกเวลา"
+          ]
+        ],
+        "paragraphs": [
+          "เพื่อใช้สิทธิเหล่านี้ คุณสามารถติดต่อผู้ควบคุมข้อมูลโดยใช้รายละเอียดการติดต่อที่ให้ไว้ข้างต้น"
+        ]
+      },
+      {
+        "title": "การติดต่อและการร้องเรียน",
+        "paragraphs": [
+          "หากคุณมีคำถามเกี่ยวกับแนวปฏิบัติด้านความเป็นส่วนตัวของเราหรือต้องการใช้สิทธิการคุ้มครองข้อมูลของคุณ โปรดติดต่อเราที่ info@happypet.biz",
+          "หากคุณเชื่อว่าสิทธิของคุณภายใต้กฎหมายคุ้มครองข้อมูลที่บังคับใช้ถูกละเมิด คุณอาจยื่นเรื่องร้องเรียนต่อหน่วยงานกำกับดูแลที่เกี่ยวข้อง"
+        ]
+      },
+      {
+        "title": "การเปลี่ยนแปลงข้อมูลความเป็นส่วนตัวนี้",
+        "paragraphs": [
+          "เราอาจอัปเดตเนื้อหาความเป็นส่วนตัวนี้เป็นครั้งคราว การเปลี่ยนแปลงใดๆ จะถูกเผยแพร่ที่นี่พร้อมกับ\"วันที่มีผลบังคับใช้\" ที่อัปเดต"
+        ]
+      },
+      {
+        "title": "นโยบายการใช้งาน AI และการปฏิเสธความรับผิดชอบ",
+        "paragraphs": [
+          "นโยบายการใช้งาน AI และการปฏิเสธความรับผิดชอบ (\"นโยบาย\") อธิบายวิธีการใช้คุณสมบัติปัญญาประดิษฐ์ (\"ปัญญาประดิษฐ์\") บนแพลตฟอร์ม Happy Pet และระบุข้อจำกัดที่สำคัญเกี่ยวกับคำตอบที่สร้างโดย AI",
+          "ด้วยการเข้าถึงหรือใช้คุณสมบัติ AI บน https://happypet.24livehost.com/ (\"แพลตฟอร์ม\") คุณรับทราบและตกลงตามข้อกำหนดของนโยบายนี้",
+          "ผู้ใช้รับทราบว่าการรับรู้เสียงอาจแปลความคำผิด ชื่อ หรือบริบทได้ผิด โดยเฉพาะอย่างยิ่งในการพูดหลายภาษาหรือการพูดที่มีสำเนียง ซึ่งอาจส่งผลให้คำตอบที่ไม่ถูกต้องหรือไม่ได้ตั้งใจ"
+        ]
+      },
+      {
+        "title": "ภาพรวมของคุณสมบัติ AI",
+        "paragraphs": [
+          "Happy Pet มีแชทบอทที่ขับเคลื่อนด้วย AI ที่ให้ผู้ใช้:"
+        ],
+        "lists": [
+          [
+            "โต้ตอบผ่านการแชทด้วยข้อความและเสียง",
+            "ถามคำถามที่เกี่ยวข้องกับผลิตภัณฑ์ Happy Pet",
+            "รับข้อมูลทั่วไป คำแนะนำ และข้อเสนอแนะผลิตภัณฑ์",
+            "เข้าถึงการสนับสนุนและคำอธิบายหลายภาษา"
+          ]
+        ],
+        "paragraphs": [
+          "แชทบอท AI ได้รับการออกแบบมาเพื่อปรับปรุงประสบการณ์ของผู้ใช้และการเข้าถึงความรู้ ไม่ได้ทดแทนความเชี่ยวชาญของมนุษย์หรือคำแนะนำของผู้เชี่ยวชาญ"
+        ]
+      },
+      {
+        "title": "ลักษณะของคำตอบที่สร้างโดย AI",
+        "paragraphs": [
+          "คุณรับทราบและเข้าใจว่า:"
+        ],
+        "lists": [
+          [
+            "คำตอบของ AI สร้างขึ้นโดยอัตโนมัติโดยใช้ระบบการเรียนรู้ของเครื่องจักร",
+            "คำตอบอ้างอิงจากรูปแบบข้อมูลที่มีอยู่และอาจไม่ถูกต้อง สมบูรณ์ ทันสมัย หรือเหมาะสมกับสถานการณ์เฉพาะของคุณเสมอ",
+            "ผลลัพธ์ที่สร้างโดย AI อาจแตกต่างกันตามภาษาและการโต้ตอบ",
+            "คำตอบทั้งหมดควรถูกมองว่าเป็นข้อมูลเท่านั้น"
+          ]
+        ]
+      },
+      {
+        "title": "ไม่ให้คำแนะนำวิชาชีพ",
+        "paragraphs": [
+          "แชทบอท AI ไม่ได้ให้:"
+        ],
+        "lists": [
+          [
+            "คำแนะนำด้านสัตวแพทย์หรือการแพทย์",
+            "บริการวินิจฉัย",
+            "คำแนะนำด้านกฎหมาย การเงิน หรือการกำกับดูแล",
+            "การรับประกันเกี่ยวกับความเหมาะสมของผลิตภัณฑ์ ผลลัพธ์ หรือประสิทธิภาพ"
+          ]
+        ],
+        "paragraphs": [
+          "คุณต้องไม่พึ่งพาคำตอบของ AI แทนการปรึกษากับผู้เชี่ยวชาญที่มีคุณสมบัติ"
+        ]
+      },
+      {
+        "title": "การปฏิเสธความรับผิดชอบด้านคำแนะนำผลิตภัณฑ์",
+        "paragraphs": [
+          "ข้อเสนอแนะหรือคำอธิบายที่เกี่ยวข้องกับผลิตภัณฑ์ที่ AI ให้:"
+        ],
+        "lists": [
+          [
+            "เป็นคำแนะนำทั่วไปที่อ้างอิงจากคำถามของผู้ใช้",
+            "ไม่ถือเป็นการรับรอง การรับประกัน หรือการค้ำประกัน",
+            "ไม่ควรตีความหมายว่าเป็นคำแนะนำส่วนบุคคลหรือวิชาชีพ"
+          ]
+        ],
+        "paragraphs": [
+          "การตัดสินใจขั้นสุดท้ายเกี่ยวกับการใช้ผลิตภัณฑ์ยังคงเป็นความรับผิดชอบของผู้ใช้ทั้งหมด"
+        ]
+      },
+      {
+        "title": "การปฏิเสธความรับผิดชอบการโต้ตอบด้วยเสียง",
+        "paragraphs": [
+          "เมื่อใช้คุณสมบัติ AI ที่ใช้เสียง:"
+        ],
+        "lists": [
+          [
+            "ข้อมูลเสียงอาจถูกประมวลผลและแปลงเป็นข้อความเพื่อการสร้างคำตอบ",
+            "ความถูกต้องของการรับรู้เสียงอาจแตกต่างกันตามภาษา สำเนียง เสียงรบกวน และคุณภาพของอุปกรณ์",
+            "การตีความข้อมูลเสียงผิดอาจส่งผลให้คำตอบที่ไม่ถูกต้องหรือไม่ได้ตั้งใจ",
+            "บันทึกเสียงจะไม่ถูกเก็บไว้อย่างถาวรเว้นจำเป็นสำหรับการปรับปรุงคุณภาพ ความปลอดภัย หรือการปฏิบัติตามกฎหมาย",
+            "หากเก็บไว้ ข้อมูลเสียงจะถูกเก็บไว้เป็นระยะเวลาจำกัดและต้องอยู่ภายใต้การควบคุมการเข้าถึงที่เคร่งครัด",
+            "ข้อมูลเสียงไม่ถูกนำมาใช้สำหรับการระบุตัวตนด้วยไบโอเมทริกซ์ การยืนยันตัวตน หรือการวิเคราะห์โปรไฟล์",
+            "เราไม่ใช้ข้อมูลเสียงเพื่อระบุบุคคลหรือสร้างโปรไฟล์เสียง"
+          ]
+        ],
+        "paragraphs": [
+          "แนะนำให้ผู้ใช้ตรวจสอบข้อมูลสำคัญโดยอิสระ"
+        ]
+      },
+      {
+        "title": "ข้อจำกัดและความพร้อมใช้งาน",
+        "paragraphs": [
+          "Happy Pet ไม่รับประกันว่า:"
+        ],
+        "lists": [
+          [
+            "คุณสมบัติ AI จะพร้อมใช้งานตลอดเวลา",
+            "คำตอบจะปราศจากข้อผิดพลาดหรือการหยุดชะงัก",
+            "AI จะเข้าใจคำถามทั้งหมดได้อย่างถูกต้อง"
+          ]
+        ],
+        "paragraphs": [
+          "ฟังก์ชัน AI อาจถูกแก้ไข ระงับ หรือยกเลิกได้ทุกเวลาโดยไม่ต้องแจ้งล่วงหน้า"
+        ]
+      },
+      {
+        "title": "การใช้งานอย่างมีความรับผิดชอบ",
+        "paragraphs": [
+          "คุณตกลงที่จะไม่:"
+        ],
+        "lists": [
+          [
+            "ใช้คุณสมบัติ AI เพื่อวัตถุประสงค์ที่ผิดกฎหมาย การทำร้าย ทำให้เข้าใจผิด หรือเป็นอันตราย",
+            "พยายามจัดการ ตรวจสอบ หรือวิศวกรรมย้อนกลับระบบ AI",
+            "ส่งข้อมูลส่วนตัวที่ละเอียดอ่อน ทางการแพทย์ การเงิน หรือข้อมูลลับผ่านการโต้ตอบกับ AI"
+          ]
+        ],
+        "paragraphs": [
+          "การใช้คุณสมบัติ AI ในทางที่ผิดอาจส่งผลให้การเข้าถึงถูกจำกัดหรือยกเลิก"
+        ]
+      },
+      {
+        "title": "เทคโนโลยี AI จากบุคคลที่สาม",
+        "paragraphs": [
+          "แชทบอท AI ขับเคลื่อนโดยผู้ให้บริการเทคโนโลยี AI บุคคลที่สาม แม้ Happy Pet จะดำเนินการตามขั้นตอนที่สมเหตุสมผลเพื่อรับประกันการใช้งานอย่างมีความรับผิดชอบ เราไม่ได้ควบคุมโมเดล AI พื้นฐานและไม่รับผิดชอบต่อข้อจำกัดโดยตรงหรือความไม่ถูกต้องของเนื้อหาที่สร้างโดย AI"
+        ]
+      },
+      {
+        "title": "ข้อจำกัดความรับผิดของ AI",
+        "paragraphs": [
+          "ในขอบเขตสูงสุดที่กฎหมายอนุญาต Happy Pet จะไม่รับผิดชอบต่อ:"
+        ],
+        "lists": [
+          [
+            "การพึ่งพาคำตอบที่สร้างโดย AI",
+            "ข้อผิดพลาด การละเว้น หรือความไม่ถูกต้องในผลลัพธ์ของ AI",
+            "การตัดสินใจ การกระทำ หรือผลลัพธ์ที่เกิดจากการโต้ตอบกับ AI",
+            "ความเสียหายโดยตรง ทางอ้อม โดยบังเอิญ หรือที่ตามมาใดๆ ที่เกิดจากการใช้ AI"
+          ]
+        ],
+        "paragraphs": [
+          "การใช้คุณสมบัติ AI เป็นความเสี่ยงของคุณเองทั้งหมด"
+        ]
+      },
+      {
+        "title": "ข้อมูลการติดต่อ",
+        "paragraphs": [
+          "หากมีคำถามหรือข้อกังวลเกี่ยวกับข้อกำหนดเหล่านี้ นโยบายความเป็นส่วนตัว หรือการใช้ AI โปรดติดต่อ:",
+          "ชื่อธุรกิจ: Happy Pet",
+          "เว็บไซต์: https://happypet.24livehost.com/",
+          "อีเมล: info@happypet.biz"
         ]
       }
     ]

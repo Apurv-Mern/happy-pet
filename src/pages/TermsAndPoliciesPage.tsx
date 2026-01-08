@@ -66,7 +66,9 @@ export const TermsAndPoliciesPage = () => {
 
         {/* Last Updated */}
         <div className="mt-6 text-center text-sm text-gray-500">
-          Last updated: January 2026
+          {t('termsAndPoliciesPage.lastUpdated') && (
+            <>Last updated: {t('termsAndPoliciesPage.lastUpdated')}</>
+          )}
         </div>
       </div>
     </motion.div>
