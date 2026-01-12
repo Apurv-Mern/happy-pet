@@ -1,11 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from '@/contexts/I18nContext'
-
-// Contact info
-const footerContact = {
-  email: 'Youremailid@gmail.com',
-  phone: '6789456874587',
-}
+import { useContactDetailsQuery } from '@/api/contact'
 
 // Footer link component
 const FooterLink = ({
@@ -44,6 +39,10 @@ const SocialIcon = ({
 
 export function Footer() {
   const { t } = useTranslation()
+  const { data: contactDetails } = useContactDetailsQuery()
+
+  const email = contactDetails?.data?.email || 'info@happypet.biz'
+  const phoneNumber = contactDetails?.data?.phoneNumber || '+49 7161 5073061'
 
   // Menus
   const mainMenu = [
@@ -236,11 +235,8 @@ export function Footer() {
                     stroke-linecap="round"
                   />
                 </svg>
-                <a
-                  href={`mailto:${footerContact.email}`}
-                  className="hover:underline"
-                >
-                  info@happypet.biz
+                <a href={`mailto:${email}`} className="hover:underline">
+                  {email}
                 </a>
               </li>
               <li className="justify-center sm:justify-start lg:justify-start flex items-center gap-2 opacity-90">
@@ -257,10 +253,10 @@ export function Footer() {
                   />
                 </svg>
                 <a
-                  href={`tel:${footerContact.phone}`}
+                  href={`tel:${phoneNumber.replace(/\s/g, '')}`}
                   className="hover:underline"
                 >
-                  +49 7161 5073061
+                  {phoneNumber}
                 </a>
               </li>
             </ul>

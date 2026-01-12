@@ -26,8 +26,8 @@ export function DummyPage() {
     emit('test-event', { message: 'Hello from client!' })
   }
 
-  const handleLogout = () => {
-    logout()
+  const handleLogout = async () => {
+    await logout()
     navigate('/login')
   }
 

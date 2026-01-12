@@ -3,14 +3,21 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { useContactMutation } from '@/api/contact'
+import { useContactMutation, useContactDetailsQuery } from '@/api/contact'
 import { useToast } from '@/hooks/use-toast'
 import { useTranslation } from '@/contexts/I18nContext'
 
 export function ContactUsPage() {
   const { toast } = useToast()
   const contactMutation = useContactMutation()
+  const { data: contactDetails } = useContactDetailsQuery()
   const { t } = useTranslation()
+
+  const contactInfo = contactDetails?.data || {
+    email: 'info@happypet.biz',
+    phoneNumber: '+49 7161 5073061',
+    address: 'Am Desenbach 5, 73098 Rechberghausen, Germany',
+  }
 
   // Validation schema using translations
   const contactSchema = z.object({
@@ -153,10 +160,10 @@ export function ContactUsPage() {
                     </svg>
                   </span>
                   <a
-                    href="tel:+916789456874587"
+                    href={`tel:${contactInfo.phoneNumber.replace(/\s/g, '')}`}
                     className="text-[16px] hover:underline"
                   >
-                    +49 7161 5073061
+                    {contactInfo.phoneNumber}
                   </a>
                 </div>
 
@@ -177,10 +184,10 @@ export function ContactUsPage() {
                     </svg>
                   </span>
                   <a
-                    href="mailto:Youremaillid@gmail.com"
+                    href={`mailto:${contactInfo.email}`}
                     className="text-[16px] underline cursor-pointer"
                   >
-                    info@happypet.biz
+                    {contactInfo.email}
                   </a>
                 </div>
 
@@ -201,12 +208,12 @@ export function ContactUsPage() {
                     </svg>
                   </span>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=132+Dartmouth+Street+Boston+MA+02156"
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contactInfo.address)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[16px] leading-[22px] hover:underline"
                   >
-                    Am Desenbach 5, 73098 Rechberghausen, Germany
+                    {contactInfo.address}
                   </a>
                 </div>
               </div>

@@ -9,6 +9,7 @@ import { chatApi } from '@/api/chat'
 import { useQueryClient } from '@tanstack/react-query'
 import { MdLanguage } from 'react-icons/md'
 import { LogoutConfirmationModal } from './LogoutConfirmationModal'
+import { useContactDetailsQuery } from '@/api/contact'
 
 // NavLink Component
 const NavLink = ({
@@ -268,6 +269,9 @@ export function Header2() {
   const { t, setLanguage, availableLanguages, language } = useTranslation()
   const [selectedLanguage, setSelectedLanguage] = useState<string>('English')
   const queryClient = useQueryClient()
+  const { data: contactDetails } = useContactDetailsQuery()
+
+  const phoneNumber = contactDetails?.data?.phoneNumber || '+49 7161 5073061'
 
   const isAuthPage = [
     '/login',
@@ -365,7 +369,7 @@ export function Header2() {
       }
     }
     queryClient.clear()
-    logout()
+    await logout()
   }
 
   return (
@@ -375,7 +379,7 @@ export function Header2() {
         <div className="container mx-auto py-2.5 flex items-center justify-end gap-5 text-sm">
           <div className="items-center gap-2 hidden xl:flex">
             <Phone className="h-4 w-4" />
-            <span className="hidden xl:block">+49 7161 5073061</span>
+            <span className="hidden xl:block">{phoneNumber}</span>
           </div>
           <div className="flex items-center gap-3 sm:gap-5">
             {/* Social icons ... keep as in your original */}
@@ -543,7 +547,7 @@ export function Header2() {
                         />
                       </svg>
                       <span className="sm:inline text-[#003863] font-bold">
-                        +49 7161 5073061
+                        {phoneNumber}
                       </span>
                     </div>
                     <div className="flex gap-2 items-center mt-4">

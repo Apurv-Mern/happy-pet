@@ -10,7 +10,6 @@ import {
   PersonalInformation,
   PasswordManagement,
   HelpCenter,
-  TermsAndPolicies,
 } from '@/components/profile'
 import { useProfileForm } from '@/hooks/useProfileForm'
 import { useProfileQuery } from '@/api/user'
@@ -79,7 +78,7 @@ const ProfilePage = () => {
     // Clear all React Query cache
     queryClient.clear()
 
-    logout()
+    await logout()
     navigate('/')
   }
 
@@ -229,8 +228,6 @@ const ProfilePage = () => {
                 )}
 
                 {activeSection === 'help' && <HelpCenter />}
-
-                {activeSection === 'terms' && <TermsAndPolicies />}
               </motion.div>
             </div>
           </div>
