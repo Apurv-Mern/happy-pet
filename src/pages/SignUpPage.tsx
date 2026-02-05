@@ -36,6 +36,7 @@ type SignupFormData = {
   timezone?: string
   preferredLanguage?: string
   userType: 'public' | 'admin'
+  agreeToTerms: boolean
 }
 
 export function SignupPage() {
@@ -85,6 +86,9 @@ export function SignupPage() {
     timezone: z.string().optional(),
     preferredLanguage: z.string().optional(),
     userType: z.enum(['public', 'admin']).default('public'),
+    agreeToTerms: z
+      .boolean()
+      .refine(val => val === true, { message: t('validation.required') }),
   })
 
   const {
@@ -101,6 +105,7 @@ export function SignupPage() {
       phoneNumber: '',
       timezone: '',
       userType: 'public',
+      agreeToTerms: false,
     },
   })
 
@@ -168,6 +173,10 @@ export function SignupPage() {
       })
 
       if (response?.success) {
+        if (data.agreeToTerms) {
+          localStorage.setItem('cookieConsent', 'accepted')
+          localStorage.setItem('cookieConsentDate', new Date().toISOString())
+        }
         try {
           await sendOtpMutation.mutateAsync({ email: data.email })
           toast({
@@ -436,6 +445,32 @@ export function SignupPage() {
                   </p>
                 )}
               </div>
+
+              {/* Terms and Policies Agreement */}
+              <div className="flex items-center gap-2 pt-1">
+                <input
+                  id="agreeToTerms"
+                  type="checkbox"
+                  {...register('agreeToTerms')}
+                  className="mt-1 h-4 w-4 rounded border-white/50 text-[#003863] focus:ring-white"
+                />
+                <label htmlFor="agreeToTerms" className="text-xs text-white">
+                  {t('common.agreeToTermsPrefix')}{' '}
+                  <a
+                    href="/terms-and-policies"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold underline"
+                  >
+                    {t('common.termsAndPolicies')}
+                  </a>
+                </label>
+              </div>
+              {errors.agreeToTerms && (
+                <p className="text-xs text-red-300">
+                  {errors.agreeToTerms.message}
+                </p>
+              )}
 
               {/* Register Button */}
               <Button

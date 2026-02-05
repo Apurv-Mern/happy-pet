@@ -17,7 +17,9 @@
     "confirm": "Sahkan",
     "unableToLoadDocument": "Tidak dapat memuat dokumen. Sila cuba memuat turunnya sebagai gantinya.",
     "noVideosAvailable": "Tiada video tersedia",
-    "reset": "Tetapkan Semula"
+    "reset": "Tetapkan Semula",
+    "agreeToTermsPrefix": "Saya bersetuju dengan",
+    "termsAndPolicies": "Terma dan Polisi"
   },
   "header": {
     "home": "LAMAN UTAMA",
@@ -672,7 +674,7 @@
   },
   "termsAndPoliciesPage": {
     "title": "Terma & Polisi",
-    "lastUpdated": "Januari 2026",
+    "lastUpdated": "Dikemas kini pada",
     "sections": [
       {
         "title": "Terma dan Syarat",

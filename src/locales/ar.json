@@ -17,7 +17,9 @@
     "confirm": "تأكيد",
     "unableToLoadDocument": "غير قادر على تحميل المستند. يرجى محاولة تنزيله بدلاً من ذلك.",
     "noVideosAvailable": "لا توجد مقاطع فيديو متاحة",
-    "reset": "إعادة تعيين"
+    "reset": "إعادة تعيين",
+    "agreeToTermsPrefix": "أوافق على",
+    "termsAndPolicies": "الشروط والسياسات"
   },
   "header": {
     "home": "الرئيسية",
@@ -581,7 +583,7 @@
   },
   "termsAndPoliciesPage": {
     "title": "الشروط والسياسات",
-    "lastUpdated": "يناير 2026",
+    "lastUpdated": "يناير ",
     "sections": [
       {
         "title": "الشروط والأحكام",

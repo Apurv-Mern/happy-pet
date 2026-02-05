@@ -17,7 +17,9 @@
     "confirm": "Confirm",
     "unableToLoadDocument": "Unable to load document. Please try downloading it instead.",
     "noVideosAvailable": "No videos available",
-    "reset": "Reset"
+    "reset": "Reset",
+    "agreeToTermsPrefix": "I agree to the",
+    "termsAndPolicies": "Terms and Policies"
   },
   "header": {
     "home": "Home",
@@ -671,7 +673,7 @@
   },
   "termsAndPoliciesPage": {
     "title": "Terms & Policies",
-    "lastUpdated": "January 2026",
+    "lastUpdated": "Last Updated",
     "sections": [
       {
         "title": "Terms and Conditions",

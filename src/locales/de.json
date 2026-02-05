@@ -17,7 +17,9 @@
     "confirm": "Bestätigen",
     "unableToLoadDocument": "Dokument konnte nicht geladen werden. Bitte versuchen Sie stattdessen, es herunterzuladen.",
     "noVideosAvailable": "Keine Videos verfügbar",
-    "reset": "Zurücksetzen"
+    "reset": "Zurücksetzen",
+    "agreeToTermsPrefix": "Ich stimme den",
+    "termsAndPolicies": "Nutzungsbedingungen und Richtlinien"
   },
   "header": {
     "home": "STARTSEITE",
@@ -672,7 +674,7 @@
   },
   "termsAndPoliciesPage": {
     "title": "Geschäftsbedingungen & Richtlinien",
-    "lastUpdated": "Januar 2026",
+    "lastUpdated": "Zuletzt aktualisiert",
     "sections": [
       {
         "title": "Allgemeine Geschäftsbedingungen",

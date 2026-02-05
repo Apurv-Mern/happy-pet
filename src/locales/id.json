@@ -17,7 +17,9 @@
     "confirm": "Konfirmasi",
     "unableToLoadDocument": "Tidak dapat memuat dokumen. Silakan coba mengunduhnya sebagai gantinya.",
     "noVideosAvailable": "Tidak ada video yang tersedia",
-    "reset": "Atur Ulang"
+    "reset": "Atur Ulang",
+    "agreeToTermsPrefix": "Saya menyetujui",
+    "termsAndPolicies": "Syarat dan Kebijakan"
   },
   "header": {
     "home": "BERANDA",
@@ -676,7 +678,7 @@
   },
   "termsAndPoliciesPage": {
     "title": "Syarat & Kebijakan",
-    "lastUpdated": "Januari 2026",
+    "lastUpdated": "Terakhir diperbarui",
     "sections": [
       {
         "title": "Syarat dan Ketentuan",

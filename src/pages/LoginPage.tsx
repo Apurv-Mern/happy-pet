@@ -36,6 +36,7 @@ export function LoginPage() {
       .refine(val => val.trim().length > 0, {
         message: t('validation.passwordRequired'),
       }),
+    // agreeToTerms: z.boolean(),
   })
 
   type LoginFormData = z.infer<typeof loginSchema>
@@ -213,6 +214,26 @@ export function LoginPage() {
                   {t('loginPage.forgotPassword')}
                 </Link>
               </div>
+
+              {/* <div className="flex items-center gap-2 ">
+                <input
+                  id="agreeToTerms"
+                  type="checkbox"
+                  {...register('agreeToTerms')}
+                  className="mt-1 h-4 w-4 rounded border-white/50 text-[#003863] focus:ring-white"
+                />
+                <label htmlFor="agreeToTerms" className="text-xs text-white">
+                  {t('common.agreeToTermsPrefix')}{' '}
+                  <a
+                    href="/terms-and-policies"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold underline"
+                  >
+                    {t('common.termsAndPolicies')}
+                  </a>
+                </label>
+              </div> */}
 
               <Button
                 type="submit"

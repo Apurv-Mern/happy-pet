@@ -4,7 +4,7 @@ import { usePoliciesQuery } from '@/hooks/usePolicies'
 import { Skeleton } from '@/components/ui/skeleton'
 
 export const TermsAndPoliciesPage = () => {
-  const { language } = useTranslation()
+  const { t, language } = useTranslation()
   const { data, isLoading, error } = usePoliciesQuery(language)
 
   if (isLoading) {
@@ -46,7 +46,7 @@ export const TermsAndPoliciesPage = () => {
         {/* Header */}
         <div className="mb-8 md:mb-12">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#003863] mb-4">
-            Terms & Policies
+            {t('termsAndPoliciesPage.title')}
           </h1>
           <div className="h-1 w-24 bg-[#003863] rounded"></div>
         </div>
@@ -85,8 +85,8 @@ export const TermsAndPoliciesPage = () => {
 
             {/* Last Updated */}
             <div className="text-right text-sm text-gray-500 mb-4">
-              Last updated: {new Date(policy.lastUpdated).toLocaleDateString()}{' '}
-              (v
+              {t('termsAndPoliciesPage.lastUpdated')}:{' '}
+              {new Date(policy.lastUpdated).toLocaleDateString()} (v
               {policy.version})
             </div>
           </div>

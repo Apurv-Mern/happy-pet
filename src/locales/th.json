@@ -17,7 +17,9 @@
     "confirm": "ยืนยัน",
     "unableToLoadDocument": "ไม่สามารถโหลดเอกสารได้ โปรดลองดาวน์โหลดแทน",
     "noVideosAvailable": "ไม่มีวิดีโอที่ใช้ได้",
-    "reset": "รีเซ็ต"
+    "reset": "รีเซ็ต",
+    "agreeToTermsPrefix": "ฉันยอมรับ",
+    "termsAndPolicies": "ข้อกำหนดและนโยบาย"
   },
   "header": {
     "home": "หน้าแรก",
@@ -672,7 +674,7 @@
   },
   "termsAndPoliciesPage": {
     "title": "ข้อกำหนดและนโยบาย",
-    "lastUpdated": "มกราคม 2026",
+    "lastUpdated": "อัปเดตล่าสุด",
     "sections": [
       {
         "title": "ข้อกำหนดและเงื่อนไข",
