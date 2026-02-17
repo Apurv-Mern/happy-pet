@@ -55,17 +55,17 @@ export function Header() {
   ].includes(location.pathname)
 
   // Define navigation items with translations
-  const publicNavItems = [
-    { path: '/', label: t('header.home') },
-    { path: '/about', label: t('header.about') },
+
+  const publicNavItems = [{ path: '/', label: t('header.home') }]
+  const publicNavItems2 = [
     { path: '/faqs', label: t('header.faqs') },
+    { path: '/about', label: t('header.about') },
     { path: '/contact', label: t('header.contact') },
   ]
-
   const protectedNavItems = [
+    { path: '/ai-agent', label: t('header.aiAgent') },
     { path: '/knowledge-hub', label: t('header.knowledgeHub') },
     { path: '/learning-module', label: t('header.learningModule') },
-    { path: '/ai-agent', label: t('header.aiAgent') },
   ]
 
   const handleSelectLanguage = (code: string) => {
@@ -282,6 +282,14 @@ export function Header() {
                       isActive={location.pathname === item.path}
                     />
                   ))}
+                  {publicNavItems2.map(item => (
+                    <NavLink
+                      key={item.path}
+                      path={item.path}
+                      label={item.label}
+                      isActive={location.pathname === item.path}
+                    />
+                  ))}
 
                   {/* Language Selector Dropdown */}
                   <div className="relative">
@@ -367,6 +375,14 @@ export function Header() {
                   className={`hidden xl:flex items-center justify-center text-sm font-medium bg-white backdrop-blur-sm rounded-full py-[5px] px-[5px] mx-auto max-w-fit`}
                 >
                   {publicNavItems.map(item => (
+                    <NavLink
+                      key={item.path}
+                      path={item.path}
+                      label={item.label}
+                      isActive={location.pathname === item.path}
+                    />
+                  ))}
+                  {publicNavItems2.map((item: any) => (
                     <NavLink
                       key={item.path}
                       path={item.path}

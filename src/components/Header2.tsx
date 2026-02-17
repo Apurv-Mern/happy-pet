@@ -47,6 +47,7 @@ const isPathActive = (currentPath: string, itemPath: string): boolean => {
 // Parent will center this with flex.
 const PublicScreenshotNav = ({
   publicNavItems,
+  publicNavItems2,
   location,
   isDropdownOpen,
   setIsDropdownOpen,
@@ -58,6 +59,14 @@ const PublicScreenshotNav = ({
 }: any) => (
   <div className="hidden xl:flex items-center justify-center text-sm font-medium bg-white rounded-full py-[5px] px-[5px] mx-auto max-w-fit  ">
     {publicNavItems.map((item: any) => (
+      <NavLink
+        key={item.path}
+        path={item.path}
+        label={item.label}
+        isActive={isPathActive(location.pathname, item.path)}
+      />
+    ))}
+    {publicNavItems2.map((item: any) => (
       <NavLink
         key={item.path}
         path={item.path}
@@ -149,6 +158,7 @@ const PublicScreenshotNav = ({
 // Desktop nav when authenticated (existing pill + protected links + dropdown)
 const AuthenticatedNav = ({
   publicNavItems,
+  publicNavItems2,
   protectedNavItems,
   location,
   isDropdownOpen,
@@ -170,6 +180,15 @@ const AuthenticatedNav = ({
     ))}
 
     {protectedNavItems.map((item: any) => (
+      <NavLink
+        key={item.path}
+        path={item.path}
+        label={item.label}
+        isActive={isPathActive(location.pathname, item.path)}
+      />
+    ))}
+
+    {publicNavItems2.map((item: any) => (
       <NavLink
         key={item.path}
         path={item.path}
@@ -280,17 +299,16 @@ export function Header2() {
     '/verify-email',
   ].includes(location.pathname)
 
-  const publicNavItems = [
-    { path: '/', label: t('header.home') },
-    { path: '/about', label: t('header.about') },
+  const publicNavItems = [{ path: '/', label: t('header.home') }]
+  const publicNavItems2 = [
     { path: '/faqs', label: t('header.faqs') },
+    { path: '/about', label: t('header.about') },
     { path: '/contact', label: t('header.contact') },
   ]
-
   const protectedNavItems = [
+    { path: '/ai-agent', label: t('header.aiAgent') },
     { path: '/knowledge-hub', label: t('header.knowledgeHub') },
     { path: '/learning-module', label: t('header.learningModule') },
-    { path: '/ai-agent', label: t('header.aiAgent') },
   ]
 
   useEffect(() => {
@@ -699,6 +717,7 @@ export function Header2() {
               <div className="hidden xl:block flex-1 justify-center">
                 <PublicScreenshotNav
                   publicNavItems={publicNavItems}
+                  publicNavItems2={publicNavItems2}
                   location={location}
                   isDropdownOpen={isDropdownOpen}
                   setIsDropdownOpen={setIsDropdownOpen}
@@ -737,6 +756,7 @@ export function Header2() {
           {isAuthenticated && (
             <AuthenticatedNav
               publicNavItems={publicNavItems}
+              publicNavItems2={publicNavItems2}
               protectedNavItems={protectedNavItems}
               location={location}
               isDropdownOpen={isDropdownOpen}
