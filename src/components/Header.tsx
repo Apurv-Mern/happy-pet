@@ -546,6 +546,21 @@ export function Header() {
                     </Link>
                   ))}
 
+                {publicNavItems2.map(item => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`text-[#003863] font-medium py-3 px-4 rounded-lg transition-colors ${
+                      location.pathname === item.path
+                        ? 'bg-[#003863] text-[#fff]'
+                        : 'hover:bg-gray-100'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+
                 {/* Language Selector in Drawer */}
                 <div className="pt-4 border-t border-gray-200">
                   <button
