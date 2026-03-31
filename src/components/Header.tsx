@@ -77,6 +77,10 @@ export function Header() {
     setIsLogoutModalOpen(true)
   }
 
+  const handleGetStarted = () => {
+    navigate(isAuthenticated ? '/knowledge-hub' : '/login')
+  }
+
   const confirmLogout = async () => {
     setIsLogoutModalOpen(false)
     navigate('/')
@@ -787,7 +791,11 @@ export function Header() {
                 {t('header.heroSubtitle')}
               </p>
               <div className="about-image2">
-                <button className="flex items-center bg-[#fff] text-black font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#0E213A] hover:text-[#fff] transition">
+                <button
+                  type="button"
+                  onClick={handleGetStarted}
+                  className="flex items-center bg-[#fff] text-black font-semibold text-sm sm:text-base lg:text-lg rounded-full pl-4 sm:pl-5 lg:pl-6 pr-[2px] pt-[2px] pb-[2px] mt-5 lg:mt-7 hover:bg-[#0E213A] hover:text-[#fff] transition"
+                >
                   {t('header.getStarted')}
                   <span className="ml-2 sm:ml-3 flex items-center justify-center w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[49px] lg:h-[49px] bg-[#0E213A] rounded-full border-[2px]">
                     <svg

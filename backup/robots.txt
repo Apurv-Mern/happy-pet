@@ -1,0 +1,7 @@
+# Disallow all search engine crawlers
+User-agent: *
+Disallow: /
+
+# Note: This does NOT provide security
+# This only tells search engines not to index your site
+# Users can still access the site directly via URL
