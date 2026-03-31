@@ -113,9 +113,9 @@ export function HomePage() {
           <h2 className="heading-line text-[#003863] text-[30px] font-gotcha sm:text-[40px] md:text-[55px]">
             {t('homePage.title')}
           </h2>
-          <p className="text-[#003863]  heading-text font-bold text-[16px] sm:text-[16px] md:text-[20px]">
+          {/* <p className="text-[#003863]  heading-text font-bold text-[16px] sm:text-[16px] md:text-[20px]">
             {t('homePage.subtitle')}
-          </p>
+          </p> */}
         </div>
       </motion.section>
       <div className="container mx-auto pb-4 sm:pb-10 md:pb-14">
