@@ -300,7 +300,7 @@ export default function AIAgentPage() {
       if (sessionId && messages.length > 0) {
         // Use sendBeacon for reliable cleanup during page unload
         navigator.sendBeacon(
-          `${import.meta.env.VITE_API_BASE_URL || 'https://happypet-backend.24livehost.com/api'}/v1/chat/sessions/${sessionId}`,
+          `${import.meta.env.VITE_API_BASE_URL || 'https://happy-petsbak.24livehost.com/api'}/v1/chat/sessions/${sessionId}`,
           JSON.stringify({ _method: 'DELETE' })
         )
       }

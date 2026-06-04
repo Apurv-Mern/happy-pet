@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from '@/contexts/I18nContext'
 import { useContactDetailsQuery } from '@/api/contact'
+import {
+  DEFAULT_CONTACT_EMAIL,
+  ObfuscatedEmailLink,
+} from '@/components/ObfuscatedEmailLink'
 
 // Footer link component
 const FooterLink = ({
@@ -41,7 +45,7 @@ export function Footer() {
   const { t } = useTranslation()
   const { data: contactDetails } = useContactDetailsQuery()
 
-  const email = contactDetails?.data?.email || 'info@happypet.biz'
+  const email = contactDetails?.data?.email || DEFAULT_CONTACT_EMAIL
   const phoneNumber = contactDetails?.data?.phoneNumber || '+49 7161 5073061'
 
   // Menus
@@ -235,9 +239,10 @@ export function Footer() {
                     stroke-linecap="round"
                   />
                 </svg>
-                <a href={`mailto:${email}`} className="hover:underline">
-                  {email}
-                </a>
+                <ObfuscatedEmailLink
+                  email={email}
+                  className="hover:underline"
+                />
               </li>
               <li className="justify-center sm:justify-start lg:justify-start flex items-center gap-2 opacity-90">
                 <svg
@@ -277,11 +282,12 @@ export function Footer() {
       </div>
 
       {/* Footer bottom */}
-      <div className="bg-[#002947] border-t border-[#004266]">
+      <div className="bg-[#002947] border-t border-[#004266] flex flex-col sm:flex-row items-center justify-between px-6 py-4">
+        <div className="flex flex-row gap-6 items-center">
+          <FooterLink to="/impressum">{t('footer.impressum')}</FooterLink>
+        </div>
         <div className="mx-auto max-w-[1400px] px-6 py-4 text-center">
-          <p className="text-sm opacity-90">
-            © 2025 Happypet.com {t('footer.allRightsReserved')}
-          </p>
+          <p className="text-sm opacity-90">{t('footer.allRightsReserved')}</p>
         </div>
       </div>
     </footer>

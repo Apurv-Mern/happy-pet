@@ -4,6 +4,10 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useContactMutation, useContactDetailsQuery } from '@/api/contact'
+import {
+  DEFAULT_CONTACT_EMAIL,
+  ObfuscatedEmailLink,
+} from '@/components/ObfuscatedEmailLink'
 import { useToast } from '@/hooks/use-toast'
 import { useTranslation } from '@/contexts/I18nContext'
 
@@ -14,7 +18,7 @@ export function ContactUsPage() {
   const { t } = useTranslation()
 
   const contactInfo = contactDetails?.data || {
-    email: 'info@happypet.biz',
+    email: DEFAULT_CONTACT_EMAIL,
     phoneNumber: '+49 7161 5073061',
     address: 'Am Desenbach 5, 73098 Rechberghausen, Germany',
   }
@@ -183,12 +187,10 @@ export function ContactUsPage() {
                       />
                     </svg>
                   </span>
-                  <a
-                    href={`mailto:${contactInfo.email}`}
+                  <ObfuscatedEmailLink
+                    email={contactInfo.email}
                     className="text-[16px] underline cursor-pointer"
-                  >
-                    {contactInfo.email}
-                  </a>
+                  />
                 </div>
 
                 {/* Location */}

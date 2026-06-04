@@ -1,9 +1,9 @@
 export const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
-  'https://happypet-backend.24livehost.com/api'
+  'https://happy-petsbak.24livehost.com/api'
 
 export const SOCKET_URL =
-  import.meta.env.VITE_SOCKET_URL || 'https://happypet-backend.24livehost.com'
+  import.meta.env.VITE_SOCKET_URL || 'https://happy-petsbak.24livehost.com/api'
 
 export const STORAGE_KEYS = {
   AUTH_TOKEN: 'auth_token',
